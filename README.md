@@ -13,11 +13,17 @@ main 主分支
 dev 測試分支 (到時大家做完會先在這裡統整沒問題才會merge到main)
 
 ```
-
+git switch dev    --> very important !!!!!!! 一定要先切到dev分支再建立自己的分支
 git branch feature/{fav}   --> 建自己的分支 ex: { 自己取名 }  fav收藏頁
 git switch feature/fav     --> 移動到此分支
-git fetch origin main      --> 抓main分支的資料(共用的css等等)
-git merge origin/main      --> merge進你的分支
+
+然後main的東西都不要動
+要從dev改東西就好
+
+然後如果有人再dev改東西
+到自己的分支要先rebase
+
+
 
 git push --set-upstream origin {自己分支的名稱}   --> 將本機新建好的分支，第一次要push上github時，要打的指令
 git clone -b {分支名稱} {分支網址}   --> 從遠端github拉特定分支，到本機裡。
