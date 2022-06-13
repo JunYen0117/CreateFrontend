@@ -1,0 +1,45 @@
+a {
+  font-size: 1.125rem;
+  color: $light;
+  text-decoration: none;
+  margin-right: 10px;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+    border-bottom-style: solid;
+  }
+}
+
+.img1 {
+  width: 250px;
+}
+
+.orderlist-card {
+  position: relative;
+  border: 1px solid #ccc;
+  width: 100%;
+  .card-title {
+    background: $secondary;
+    .title-num {
+    }
+    .title-name {
+      color: $primary;
+      font-weight: 900;
+    }
+  }
+  .card-content {
+    table {
+      border: 1px solid black;
+      tr {
+        td {
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+  .card-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
