@@ -8,6 +8,9 @@ $success: #a5b6a4;
 $light: #7B7B7B;
 
 
+// 導入Bootstrap所有的樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
+
 // 其它要導入覆蓋掉原本的預設Bootstrap樣式要放在這下面
 *{
     box-sizing: border-box;
@@ -43,6 +46,3 @@ h2{
     font-size: 0.75rem;
 }
 
-
-// 導入Bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
