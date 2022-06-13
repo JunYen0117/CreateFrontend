@@ -19,10 +19,16 @@ git switch feature/fav     --> 移動到此分支
 
 然後main的東西都不要動
 要從dev改東西就好
+基本上應該不會常改 除了scss以外 跟增加component
 
-然後如果有人在dev改東西
-到自己的分支要先rebase
+然後如果有人在dev改東西 要跟大家說喔
+因為 大家必須要先rebase
 
+-> 指令： 
+git fetch origin dev  --> 抓dev最新資料
+git rebase origin/dev --> 合併commit
+
+可能會有衝突！不懂的一定要問！不要亂打亂按
 
 
 git push --set-upstream origin {自己分支的名稱}   --> 將本機新建好的分支，第一次要push上github時，要打的指令
@@ -34,13 +40,13 @@ git clone -b {分支名稱} {分支網址}   --> 從遠端github拉特定分支�
 
 src/ pages/ {Fav.js }    --> 檔名必大寫
 
-在 src/styles 裡面建立屬於自己的css or scss 
+在 src/styles 裡面建立屬於自己的 scss 
 ex: _fav.css  --> 要加底線喔! 表示被import的檔
-然後 import './_global.css' (共同的)
-即可直接使用共同的css樣式
+然後 import './_global.scss' (共同的)
+即可直接使用共同的scss樣式
 
 
-在Index.js import './styles/_fav.css' --> 自己的css檔
+在Index.js import './styles/_fav.scss' --> 自己的scss檔
 
 ## 關於Styles
 index.scss 只用來連結檔案  
@@ -52,7 +58,7 @@ index.scss 只用來連結檔案
 /styles/_global  
 1.放全域樣式  
 2.可延用或依照個人習慣自行新增  
-3.已經寫好的mixin可以直接include 就不用自己寫字體樣式  
+
 
 
 ## 命名方式
