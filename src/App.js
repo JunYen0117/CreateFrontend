@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import ProductOrder from './pages/ProductOrder';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Home />
         </Route> */}
       </Switch>
+      <ProductOrder />
       <Footer />
     </Router>
   );
