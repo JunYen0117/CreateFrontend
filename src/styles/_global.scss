@@ -1,0 +1,48 @@
+// 這裡導入所有要預設變數覆蓋
+
+// =================顏色 =================
+$primary: #b99664;
+$secondary: #dcd5ca;
+$info: #903f23;
+$success: #a5b6a4;
+$light: #7B7B7B;
+
+
+// 其它要導入覆蓋掉原本的預設Bootstrap樣式要放在這下面
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+ /* =============== 文字大小 =============== */
+
+ // h1: 22px
+ // h2: 18px
+ // h3: 16px
+ // h4: 12px
+
+
+h1 {
+    font-weight: 500;
+  font-size: 1.375rem;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+h3{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+
+// 導入Bootstrap所有的樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
