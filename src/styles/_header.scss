@@ -1,0 +1,128 @@
+/* 以下為模組化 */
+:root {
+  --primary_color1: #b99664;
+  --primary_color2: #dcd5ca;
+  --secondary_color1: #903f23;
+  --secondary_color2: #a5b6a4;
+  --desktop_title: 1.125rem; /*18px*/
+}
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+ul {
+  padding-inline-start: 0px; /*取消bootstrap ul預設樣式*/
+  margin-bottom: 0px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+/* 模組化結束 */
+
+header {
+  height: 180px;
+  box-shadow: 0 5px 5px rgba(185, 150, 100, 0.25);
+  position: relative;
+}
+.desktop_figure {
+  width: 140px;
+}
+.search_item {
+  position: relative;
+}
+.search_bar {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+}
+.search_icon {
+  position: absolute;
+  right: 12px;
+  top: 5px;
+}
+.menu2 {
+  a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 9px 34px;
+    border-radius: 22.5px;
+    font-size: var(--desktop_title);
+    font-weight: bold;
+  }
+  a:hover {
+    color: white;
+    background: var(--primary_color1);
+  }
+}
+
+/*以下為手機版*/
+@media screen and (max-width: 767px) {
+  header {
+    height: 90px;
+    box-shadow: none;
+  }
+
+  .mobile_figure {
+    width: 85px;
+  }
+
+  .mobile_menu {
+    width: calc(100% - 1.1rem);
+    position: absolute;
+    top: 52px;
+  }
+  .offcanvas_left {
+    width: 70%;
+  }
+  .offcanvas_left_menu {
+    background: #b99664;
+  }
+  .offcanvas_left_menu li {
+    height: 25vh;
+    position: relative;
+    border-bottom: 1px solid white;
+    a {
+      width: 100px;
+    }
+  }
+  .offcanvas_left_menu .last_li {
+    border-bottom: none;
+  }
+  .offcanvas_left_menu a {
+    display: block;
+    font-size: 0.875rem; /*14px*/
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -10px;
+  }
+  .mobile_search_bar_section {
+    /* display: none; */
+    position: sticky;
+    top: 90px;
+    padding-left: 0px; /*取消bootstrap padding, margin預設樣式*/
+    padding-right: 0px;
+    margin-top: 0rem !important;
+  }
+  .mobile_search_bar {
+    width: 80%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--primary_color1);
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  .mobile_search_btn,
+  .mobile_search_btn:hover {
+    border-radius: 0%;
+    width: 20%;
+    color: white;
+    background-color: var(--primary_color1);
+    font-size: 0.875rem; /*14px*/
+  }
+}

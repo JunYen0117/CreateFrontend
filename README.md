@@ -20,7 +20,7 @@ git switch feature/fav     --> 移動到此分支
 然後main的東西都不要動
 要從dev改東西就好
 
-然後如果有人再dev改東西
+然後如果有人在dev改東西
 到自己的分支要先rebase
 
 
