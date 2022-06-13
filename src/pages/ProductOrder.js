@@ -32,6 +32,7 @@ const ProductOrder = () => {
           <table>
             <tr>
               <td className="text-info">State</td>
+              <td>State</td>
               <td>finish</td>
             </tr>
             <tr>
