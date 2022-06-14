@@ -1,7 +1,7 @@
 import { ReactComponent as IGLogo } from '../img/IGLogo.svg';
 import { ReactComponent as FBLogo } from '../img/FBLogo.svg';
 import { ReactComponent as LineLogo } from '../img/LineLogo.svg';
-import { ReactComponent as Logo } from '../img/logo.svg';
+import Logo2 from '../img/Logo2.svg';
 
 function Footer() {
   return (
@@ -58,11 +58,11 @@ function Footer() {
           </ul>
 
           {/* footer_down */}
-          <div className="footer_down d-flex justify-content-between">
+          <div className="footer_down d-flex justify-content-between mt-3">
             <ul className="footer_down_left d-flex">
               <li className="me-2">
                 <a href="#/">
-                  <Logo />
+                  <img src={Logo2} alt="" />
                 </a>
               </li>
               <li className="create_your_life align-self-center">

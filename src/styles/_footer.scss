@@ -9,21 +9,26 @@
   --mobile_title: 0.875rem; /*14px*/
   --mobile_text: 0.75rem; /*12px*/
 }
+
 * {
   box-sizing: border-box;
   list-style: none;
 }
+
 ul {
   padding-inline-start: 0px; /*取消bootstrap ul預設樣式*/
 }
+
 a {
   display: block;
   color: white;
   text-decoration: none;
 }
+
 a:hover {
   color: var(--secondary_color1);
 }
+
 div,
 ul,
 li,

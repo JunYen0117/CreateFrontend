@@ -1,4 +1,5 @@
 import { ReactComponent as LogoSvg } from '../img/logo.svg';
+import LogoDesktop from '../img/logo.svg';
 import { ReactComponent as Search } from '../img/search.svg';
 import { ReactComponent as Shopcart1 } from '../img/shopcart1.svg';
 import { ReactComponent as NoLogin } from '../img/nologin.svg';
@@ -19,7 +20,7 @@ function Header() {
           <div className="d-flex">
             <figure className="desktop_figure mx-5 mt-4">
               <a href="#/">
-                <LogoSvg />
+                <img src={LogoDesktop} alt="" />
               </a>
             </figure>
             <li className="search_item d-none d-md-block mt-5">
@@ -57,9 +58,8 @@ function Header() {
         </ul>
 
         {/* 以下為手機版 */}
-        <figure className="mobile_figure d-md-none mx-auto pt-5">
+        <figure className="mobile_figure d-md-none mx-auto">
           <a href="#/">
-            {/* 顯示不出來 */}
             <LogoMobile />
           </a>
         </figure>
