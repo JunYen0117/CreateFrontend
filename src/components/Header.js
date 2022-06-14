@@ -19,7 +19,7 @@ function Header() {
         <div className="d-none d-md-flex justify-content-between">
           <div className="d-flex">
             <figure className="desktop_figure mx-5 mt-4">
-              <a href="#/">
+              <a href="#/" className="header_a">
                 <img src={LogoDesktop} alt="" />
               </a>
             </figure>
@@ -30,7 +30,7 @@ function Header() {
               </a>
             </li>
           </div>
-          <ul className="menu1 d-none d-md-flex pt-4">
+          <ul className="header_top menu1 d-none d-md-flex pt-4">
             <li className="shopcart_item mt-3 me-5">
               <Shopcart1 />
             </li>
@@ -59,7 +59,7 @@ function Header() {
 
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
-          <a href="#/">
+          <a href="#/" className="header_a">
             <LogoMobile />
           </a>
         </figure>
@@ -70,13 +70,14 @@ function Header() {
               href="#offcanvas_left"
               role="button"
               aria-controls="offcanvasExample"
+              className="header_a"
             >
               <Hamburger />
             </a>
           </figure>
           <ul className="d-flex">
             <figure className="me-3">
-              <a href="#/">
+              <a href="#/" className="header_a">
                 <MobileSearch />
               </a>
             </figure>
@@ -86,6 +87,7 @@ function Header() {
                 href="#offcanvas_right"
                 role="button"
                 aria-controls="offcanvasExample"
+                className="header_a"
               >
                 <More />
               </a>
@@ -111,19 +113,29 @@ function Header() {
               ></button>
             </li>
             <li>
-              <a href="#/">主題企劃</a>
+              <a href="#/" className="header_a">
+                主題企劃
+              </a>
             </li>
             <li>
-              <a href="#/">活動資訊</a>
+              <a href="#/" className="header_a">
+                活動資訊
+              </a>
             </li>
             <li>
-              <a href="#/">購物商城</a>
+              <a href="#/" className="header_a">
+                購物商城
+              </a>
             </li>
             <li>
-              <a href="#/">文章專欄</a>
+              <a href="#/" className="header_a">
+                文章專欄
+              </a>
             </li>
             <li className="last_li">
-              <a href="#/">關於我們</a>
+              <a href="#/" className="header_a">
+                關於我們
+              </a>
             </li>
           </ul>
         </div>
@@ -144,22 +156,34 @@ function Header() {
               ></button>
             </li>
             <li>
-              <a href="#/">購物車</a>
+              <a href="#/" className="header_a">
+                購物車
+              </a>
             </li>
             <li>
-              <a href="#/">我的活動</a>
+              <a href="#/" className="header_a">
+                我的活動
+              </a>
             </li>
             <li>
-              <a href="#/">我的收藏</a>
+              <a href="#/" className="header_a">
+                我的收藏
+              </a>
             </li>
             <li>
-              <a href="#/">帳戶設定</a>
+              <a href="#/" className="header_a">
+                帳戶設定
+              </a>
             </li>
             <li>
-              <a href="#/">變更密碼</a>
+              <a href="#/" className="header_a">
+                變更密碼
+              </a>
             </li>
             <li className="last_li">
-              <a href="#/">我的訂單</a>
+              <a href="#/" className="header_a">
+                我的訂單
+              </a>
             </li>
           </ul>
         </div>
