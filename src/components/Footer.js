@@ -1,3 +1,4 @@
+import { Accordion } from 'react-bootstrap';
 import { ReactComponent as IGLogo } from '../img/IGLogo.svg';
 import { ReactComponent as FBLogo } from '../img/FBLogo.svg';
 import { ReactComponent as LineLogo } from '../img/LineLogo.svg';
@@ -85,94 +86,42 @@ function Footer() {
 
       {/* 以下為手機版畫面 */}
       <footer className="footer_mobile d-flex flex-column d-md-none">
+
         {/* 以下為bootstrap accordion套件 */}
-        <div className="accordion" id="accordionExample">
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingOne">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="false"
-                aria-controls="collapseOne"
-              >
-                聯絡資訊
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              className="accordion-collapse collapse"
-              aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample"
-            >
-              <div className="accordion-body">
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>聯絡資訊</Accordion.Header>
+            <Accordion.Body>
                 <p>電話：03-400000</p>
                 <p>地址：桃園市中壢區新生路二段421號</p>
                 <p>信箱：color123@example.com</p>
-              </div>
-            </div>
-          </div>
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingTwo">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                幫助
-              </button>
-            </h2>
-            <div
-              id="collapseTwo"
-              className="accordion-collapse collapse"
-              aria-labelledby="headingTwo"
-              data-bs-parent="#accordionExample"
-            >
-              <div className="accordion-body">
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>幫助</Accordion.Header>
+            <Accordion.Body>
                 <p>
                   <a href="#/">Q&A</a>
                 </p>
                 <p>
                   <a href="#/">客服</a>
                 </p>
-              </div>
-            </div>
-          </div>
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingThree">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                認識
-              </button>
-            </h2>
-            <div
-              id="collapseThree"
-              className="accordion-collapse collapse"
-              aria-labelledby="headingThree"
-              data-bs-parent="#accordionExample"
-            >
-              <div className="accordion-body">
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>認識</Accordion.Header>
+            <Accordion.Body>
                 <p>
                   <a href="#/">關於迴廊</a>
                 </p>
                 <p>
                   <a href="#/">Business</a>
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
         {/* bootstrap accordion套件結束 */}
+        
         <div className="d-flex justify-content-center mt-3">
           <div className="mx-3">
             <a href="#/">

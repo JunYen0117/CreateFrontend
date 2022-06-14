@@ -73,13 +73,13 @@ header {
     position: absolute;
     top: 52px;
   }
-  .offcanvas_left {
+  .offcanvas {
     width: 70%;
   }
-  .offcanvas_left_menu {
+  .offcanvas-body {
     background: #b99664;
   }
-  .offcanvas_left_menu li {
+  .offcanvas-body li {
     height: 25vh;
     position: relative;
     border-bottom: 1px solid white;
@@ -87,10 +87,10 @@ header {
       width: 100px;
     }
   }
-  .offcanvas_left_menu .last_li {
+  .offcanvas-body .last_li {
     border-bottom: none;
   }
-  .offcanvas_left_menu a {
+  .offcanvas-body a {
     display: block;
     font-size: 0.875rem; /*14px*/
     text-align: center;
