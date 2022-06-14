@@ -1,12 +1,14 @@
-a {
-  font-size: 1.125rem;
-  color: $light;
-  text-decoration: none;
-  margin-right: 10px;
-  &:hover {
-    color: $primary;
+.border-bottom{
+  a {
+    font-size: 1.125rem;
+    color: $light;
     text-decoration: none;
-    border-bottom-style: solid;
+    margin-right: 10px;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
   }
 }
 
@@ -31,6 +33,7 @@ a {
     table {
       border: 1px solid black;
       tr {
+        color: black;
         td {
           border: 1px solid black;
         }
