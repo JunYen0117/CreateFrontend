@@ -31,7 +31,7 @@ const ProductOrder = () => {
         <div className="card-content">
           <table>
             <tr>
-              <td>State</td>
+              <td className="text-info">State</td>
               <td>finish</td>
             </tr>
             <tr>
