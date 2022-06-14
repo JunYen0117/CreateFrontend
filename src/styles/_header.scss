@@ -1,5 +1,4 @@
 
-
 .header_top {
   padding-inline-start: 0px; 
   margin-bottom: 0px;
@@ -47,7 +46,7 @@ header {
 }
 
 /*以下為手機版*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px){
   header {
     height: 90px;
     box-shadow: none;
@@ -68,8 +67,6 @@ header {
   }
   .offcanvas_left_menu {
     background: $primary;
-  .offcanvas-body {
-    background: #b99664;
   }
   .offcanvas-body li {
     height: 25vh;
@@ -117,4 +114,4 @@ header {
     background-color: $primary;
     font-size: $h4-font-size; 
   }
-}
+  }
