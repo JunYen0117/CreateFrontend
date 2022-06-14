@@ -9,7 +9,7 @@ import { ReactComponent as More } from '../img/More.svg';
 import styled from '@emotion/styled';
 
 const LogoMobile = styled(LogoSvg)`
-  width: 85px;
+  width: 90px;
 `;
 
 function Header() {
@@ -59,7 +59,7 @@ function Header() {
 
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
-          <a href="#/" className="header_a">
+          <a href="#/123" className="header_a">
             <LogoMobile />
           </a>
         </figure>
@@ -98,7 +98,7 @@ function Header() {
         {/* offcanvas效果 */}
         <div
           className="offcanvas_left offcanvas offcanvas-start d-md-none"
-          tabindex="-1"
+          tabIndex="-1"
           id="offcanvas_left"
           aria-labelledby="offcanvasExampleLabel"
         >
@@ -141,7 +141,7 @@ function Header() {
         </div>
         <div
           className="offcanvas_left offcanvas offcanvas-end d-md-none"
-          tabindex="-1"
+          tabIndex="-1"
           id="offcanvas_right"
           aria-labelledby="offcanvasExampleLabel"
         >
