@@ -7,16 +7,16 @@ function Footer() {
   return (
     <>
       {/* 以下為桌機版畫面 */}
-      <footer className="footer_desktop container-fluid d-none d-md-block">
-        <div className="container">
+      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4">
+        <div className="container footer_all">
           {/* footer_up */}
-          <ul className="footer_up_title d-flex pt-4">
+          <ul className="footer_up_title d-flex pt-4 footer_top ">
             <li>活動資訊</li>
             <li>幫助</li>
             <li>認識</li>
             <li className="small_item">社群</li>
           </ul>
-          <ul className="footer_up_text d-flex py-4">
+          <ul className="footer_up_text d-flex py-4 footer_top">
             <li>
               <p>電話：03-400000</p>
               <p>地址：桃園市中壢區新生路二段421號</p>
@@ -24,33 +24,41 @@ function Footer() {
             </li>
             <li>
               <p>
-                <a href="#/">Q&A</a>
+                <a href="#/" className="footer_a">
+                  Q&A
+                </a>
               </p>
               <p>
-                <a href="#/">客服</a>
+                <a href="#/" className="footer_a">
+                  客服
+                </a>
               </p>
             </li>
             <li>
               <p>
-                <a href="#/">關於迴廊</a>
+                <a href="#/" className="footer_a">
+                  關於迴廊
+                </a>
               </p>
               <p>
-                <a href="#/">Business</a>
+                <a href="#/" className="footer_a">
+                  Business
+                </a>
               </p>
             </li>
             <li className="small_item d-flex">
               <div className="mx-2">
-                <a href="#/">
+                <a href="#/" className="footer_a">
                   <IGLogo />
                 </a>
               </div>
               <div className="mx-2">
-                <a href="#/">
+                <a href="#/" className="footer_a">
                   <FBLogo />
                 </a>
               </div>
               <div className="mx-2">
-                <a href="#/">
+                <a href="#/" className="footer_a">
                   <LineLogo />
                 </a>
               </div>
@@ -59,9 +67,9 @@ function Footer() {
 
           {/* footer_down */}
           <div className="footer_down d-flex justify-content-between mt-3">
-            <ul className="footer_down_left d-flex">
+            <ul className="footer_down_left d-flex footer_top">
               <li className="me-2">
-                <a href="#/">
+                <a href="#/" className="footer_a">
                   <img src={Logo2} alt="" />
                 </a>
               </li>
@@ -69,13 +77,17 @@ function Footer() {
                 Create your life.
               </li>
             </ul>
-            <ul className="footer_down_right d-flex pt-3">
+            <ul className="footer_down_right d-flex pt-3 footer_top">
               <li className="ms-3">©2022</li>
               <li className="ms-3">
-                <a href="#/">隱私權政策</a>
+                <a href="#/" className="footer_a">
+                  隱私權政策
+                </a>
               </li>
               <li className="ms-3">
-                <a href="#/">服務條款</a>
+                <a href="#/" className="footer_a">
+                  服務條款
+                </a>
               </li>
             </ul>
           </div>
@@ -175,17 +187,17 @@ function Footer() {
         {/* bootstrap accordion套件結束 */}
         <div className="d-flex justify-content-center mt-3">
           <div className="mx-3">
-            <a href="#/">
+            <a href="#/" className="footer_a">
               <IGLogo />
             </a>
           </div>
           <div className="mx-3">
-            <a href="#/">
+            <a href="#/" className="footer_a">
               <FBLogo />
             </a>
           </div>
           <div className="mx-3">
-            <a href="#/">
+            <a href="#/" className="footer_a">
               <LineLogo />
             </a>
           </div>
@@ -196,10 +208,14 @@ function Footer() {
         <div className="d-flex justify-content-center pb-2">
           <div className="mx-4">©2022</div>
           <div className="mx-4">
-            <a href="#/">隱私權政策</a>
+            <a href="#/" className="footer_a">
+              隱私權政策
+            </a>
           </div>
           <div className="mx-4">
-            <a href="#/">服務條款</a>
+            <a href="#/" className="footer_a">
+              服務條款
+            </a>
           </div>
         </div>
       </footer>
