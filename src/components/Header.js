@@ -59,7 +59,7 @@ function Header() {
 
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
-          <a href="#/123" className="header_a">
+          <a href="#/" className="header_a">
             <LogoMobile />
           </a>
         </figure>
