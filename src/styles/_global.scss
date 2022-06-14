@@ -7,6 +7,14 @@ $info: #903f23;
 $success: #a5b6a4;
 $light: #7b7b7b;
 
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$h1-font-size:                $font-size-base * 1.375 !default;  // 22px
+$h2-font-size:                $font-size-base * 1.125 !default;  // 18px
+$h3-font-size:                $font-size-base * 1 !default;      // 16px
+$h4-font-size:                $font-size-base * 0.875 !default;  // 14px
+$h5-font-size:                $font-size-base * 0.75 !default;   // 12px
+$h6-font-size:                $font-size-base !default;
+
 // 導入Bootstrap所有的樣式與預設變數
 @import '~bootstrap/scss/bootstrap.scss';
 
@@ -21,7 +29,8 @@ $light: #7b7b7b;
 // h1: 22px
 // h2: 18px
 // h3: 16px
-// h4: 12px
+// h4: 14px
+// h5: 12px
 
 h1 {
   font-weight: 500;
@@ -38,7 +47,14 @@ h3 {
   font-size: 1rem;
 }
 
-h2 {
+h4 {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+
+h5 {
   font-weight: 500;
   font-size: 0.75rem;
 }
+
