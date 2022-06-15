@@ -7,17 +7,12 @@ import Home from './pages/Home';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+
 
 function App() {
   return (
     <>
       <Header />
-      <div className="row">
-        <div className="col-3 d-flex justify-content-center">
-          <Sidebar />
-        </div>
-      </div>
       <Router>
         <Switch>
           <Route path="/product">
