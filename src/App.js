@@ -11,25 +11,31 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <Router>
+    <>
       <Header />
-      <Sidebar />
-      <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {/* <Route exact path="/">
+      <div className="row">
+        <div className="col-3 d-flex justify-content-center">
+          <Sidebar />
+        </div>
+      </div>
+      <Router>
+        <Switch>
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* <Route exact path="/">
           <Home />
         </Route> */}
-      </Switch>
+        </Switch>
+      </Router>
       <Footer />
-    </Router>
+    </>
   );
 }
 
