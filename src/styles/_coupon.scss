@@ -1,0 +1,67 @@
+.coupon_p{
+    color: black;
+    font-weight: bold;
+}
+.coupon_nav{
+    color: #ACACAC;
+    border-bottom: 1px solid #ACACAC;
+    font-weight: bold;
+}
+.coupon_btn{
+    color: #ACACAC;
+    border: none;
+    background-color: transparent;
+    &:hover{
+        color: $primary;
+    }
+    &:focus{
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
+    &:active{
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
+    &.active{
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
+}
+.coupon_pass{
+    font-weight: bold;
+    border:1px solid #b99664;
+    color: white;
+    background-color: $info;
+    width:100px;
+    height:40px;
+    top:-20px;
+    right:-23px;
+}
+.coupon_item1{
+    border:1px solid #b99664;
+    width: 48%;
+    height: 220px;
+}
+.coupon_item2 h2{
+    color: $primary;
+    font-weight: bold;
+}
+.coupon_item3{
+    border-left:1px solid #b99664;
+}
+.coupon_item3 h3{
+    font-weight: bold;
+    color: $primary;
+}
+.coupon_item3 h4{
+    color: $primary;
+}
+.coupon_item4{
+    font-weight: bold;
+    border:1px solid #b99664;
+    background-color: white;
+    width:85%;
+}
+.coupon_item4:hover{
+    background-color: $secondary;
+}

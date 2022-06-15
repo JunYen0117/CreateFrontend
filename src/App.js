@@ -12,25 +12,32 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <Router>
+    <>
       <Header />
-      <Sidebar />
-      <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {/* <Route exact path="/">
-          <Home />
-        </Route> */}
-      </Switch>
+      <div className="d-flex">
+        <Sidebar />
+        <Router>
+          <Switch>
+            <Route path="/product">
+              <Product />
+            </Route>
+            <Route path="/user">
+              <User />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/coupon">
+              <Coupon />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
       <Footer />
-    </Router>
+    </>
   );
 }
 

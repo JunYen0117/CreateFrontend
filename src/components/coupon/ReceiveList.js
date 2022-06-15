@@ -1,13 +1,14 @@
-// 可領取優惠券
+// 可使用的優惠券
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Common from './Common';
 
-function Available(props) {
+function ReceiveList(props) {
   const couponPass = () => {
     return (
       <div className="coupon_pass text-center py-2 position-absolute">
-        可領取
+        即將過期
       </div>
     );
   };
@@ -18,6 +19,6 @@ function Available(props) {
   );
 }
 
-Available.propTypes = {};
+ReceiveList.propTypes = {};
 
-export default Available;
+export default ReceiveList;
