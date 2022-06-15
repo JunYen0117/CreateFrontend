@@ -28,7 +28,7 @@ git switch feature/fav     --> 移動到此分支
 git fetch origin dev  --> 抓dev最新資料
 git rebase origin/dev --> 合併commit
 
-可能會有衝突！不懂的一定要問！不要亂打亂按
+可能會有衝突！不懂的一定要問！不要亂打亂按!!
 
 
 git push --set-upstream origin {自己分支的名稱}   --> 將本機新建好的分支，第一次要push上github時，要打的指令
