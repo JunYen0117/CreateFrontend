@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        /* 以下為模組化 */
+        :root {
+            --primary_color1: #b99664;
+            --primary_color2: #dcd5ca;
+            --secondary_color1: #903f23;
+            --secondary_color2: #a5b6a4;
+            --desktop_title: 1.125rem;
+            /*18px*/
+            --desktop_text: 0.875rem;
+            /*14px*/
+        }
+
+        * {
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        ul {
+            padding-inline-start: 0px;
+            /*取消bootstrap ul預設樣式*/
+        }
+
+        a {
+            color: #b99664;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--primary_color1)
+        }
+
+        div,
+        ul,
+        li,
+        p {
+            color: #b99664;
+            /*c內預設文字*/
+            font-size: var(--desktop_text);
+        }
+
+        /* 模組化結束 */
+
+        .coupon_p{
+            color: black;
+            font-weight: bold;
+        }
+        .coupon_nav{
+            color: #ACACAC;
+            border-bottom: 1px solid #ACACAC;
+            font-weight: bold;
+        }
+        .coupon_nav a{
+            color: #ACACAC;
+        }
+        .coupon_nav1 a:hover{
+            color: var(--primary_color1);
+        }
+        .coupon_nav1 a:focus{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_nav1 a:active{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_nav2 a{
+            color: #ACACAC;
+        }
+        .coupon_nav2 a:hover{
+            color: #ACACAC;
+        }
+        .coupon_nav2 a:focus{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_nav2 a:active{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_nav3 a{
+            color: #ACACAC;
+        }
+        .coupon_nav3 a:hover{
+            color: #ACACAC;
+        }
+        .coupon_nav3 a:focus{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_nav3 a:active{
+            border-bottom: 2px solid #b99664;
+            color: var(--primary_color1);
+        }
+        .coupon_pass{
+            font-weight: bold;
+            border:1px solid #b99664;
+            color: white;
+            background-color: var(--secondary_color1);
+        }
+        .coupon_item1{
+            border:1px solid #b99664;
+        }
+        .coupon_item3{
+            font-weight: bold;
+            border-left:1px solid #b99664;
+        }
+        .coupon_item3 h5{
+            font-weight: bold;
+        }
+        .coupon_item4{
+            font-weight: bold;
+            border:1px solid #b99664;
+            background-color: white;
+        }
+        .coupon_item4:hover{
+            background-color: var(--primary_color2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-grid px-4 py-4 container">
+        <h4 class="coupon_p pt-4 py-4 my-0">優惠券</h4>
+        <nav>
+            <ul class="coupon_nav nav">
+                <li class="coupon_nav1 nav-item">
+                    <a class="nav-link" aria-current="page" href="#">可領取</a>
+                </li>
+                <li class="nav-item coupon_nav2">
+                    <a class="nav-link" href="#">可使用</a>
+                </li>
+                <li class="nav-item coupon_nav3">
+                    <a class="nav-link" href="#">已失效</a>
+                </li>
+            </ul>
+        </nav>
+        <p class="coupon_p px-3 py-3 my-0">每筆訂單僅可使用一張優惠券</p>
+        <div class="coupon d-flex d-grid gap-3 flex-wrap justify-content-between mx-3">
+            <div class="coupon_item1 g-col-md-6 py-1 gap-5 position-relative" style="width:48%;">
+                <div class="coupon_pass text-center py-2 position-absolute" style="width: 100px; height:40px; top:-20px; right:-23px">即將過期</div>
+                <div class="d-flex p-4">
+                    <div class="coupon_item2 dc g-col-md-6 w-25 mx-0 my-auto">
+                        <h3 class="my-0 ps-2 py-auto">8折</h3>
+                    </div>
+                    <div class="coupon_item3 dc g-col-md-6 w-75 px-3 pt-1">
+                        <h5 class="text-start my-0">新戶首購8折券</h5>
+                        <p class="text-start my-0">商品單筆結帳金額滿2500元</p>
+                        <p class="text-start my-0 pt-3">使用期限：</p>
+                        <p class="text-start my-0">2022/07/01 00:00:01至</p>
+                        <p class="text-start my-0 mb-1">2022/07/31 11:59:59</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <button class="coupon_item4 mx-auto px-2" style="width:85%;">
+                        <a href="" class="text-decoration-none">可領取</a></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
