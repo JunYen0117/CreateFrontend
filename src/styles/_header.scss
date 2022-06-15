@@ -77,11 +77,22 @@ header {
   .offcanvas {
     width: 70%;
   }
+  .offcanvas-header {
+    display: none;
+  }
   .offcanvas-body {
     background: #b99664;
   }
-  .offcanvas-body li {
-    height: 25vh;
+  .left_offcanvas_body li {
+    height: 19vh;
+    position: relative;
+    border-bottom: 1px solid white;
+    a {
+      width: 100px;
+    }
+  }
+  .right_offcanvas_body li {
+    height: 15.5vh;
     position: relative;
     border-bottom: 1px solid white;
     a {

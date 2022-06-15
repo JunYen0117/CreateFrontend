@@ -87,7 +87,7 @@ function Footer() {
       {/* 以下為手機版畫面 */}
       <footer className="footer_mobile d-flex flex-column d-md-none">
         {/* 以下為bootstrap accordion套件 */}
-        <Accordion>
+        <Accordion className="d-md-none">
           <Accordion.Item eventKey="0">
             <Accordion.Header>聯絡資訊</Accordion.Header>
             <Accordion.Body>
