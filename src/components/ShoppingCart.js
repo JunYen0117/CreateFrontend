@@ -19,13 +19,13 @@ function ShoppingCart() {
             <div className="mask-option"></div>
           </a>
         </div>
-        <div className="mask">
+        <div className="mask mx-3">
           <a href="#/">
-            <div className="option mx-3">
+            <div className="option">
               <img src={option2} alt="" style={{ width: '100%' }} />
             </div>
             <p className="option_text">熱門商品</p>
-            <div className="mask-option mx-3"></div>
+            <div className="mask-option"></div>
           </a>
         </div>
         <div className="mask">
@@ -37,6 +37,9 @@ function ShoppingCart() {
             <div className="mask-option"></div>
           </a>
         </div>
+      </div>
+      <div>
+        <h1>123</h1>
       </div>
     </>
   );
