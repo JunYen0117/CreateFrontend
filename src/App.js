@@ -14,8 +14,8 @@ function App() {
   return (
     <Router>
       <Header />
-      <Sidebar />
       <ProductOrder />
+   
       <Switch>
         <Route path="/product">
           <Product />
@@ -30,7 +30,6 @@ function App() {
           <Home />
         </Route> */}
       </Switch>
-      <ProductOrder />
       <Footer />
     </Router>
   );
