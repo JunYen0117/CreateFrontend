@@ -8,12 +8,13 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import FrontPage from './pages/FrontPage';
 
 function App() {
   return (
     <Router>
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Switch>
         <Route path="/product">
           <Product />
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/">
+          <FrontPage />
         </Route>
         {/* <Route exact path="/">
           <Home />
