@@ -7,11 +7,13 @@ import Home from './pages/Home';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <Router>
       <Header />
+      <Sidebar />
       <Switch>
         <Route path="/product">
           <Product />
@@ -22,9 +24,9 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Home />
-        </Route>
+        </Route> */}
       </Switch>
       <Footer />
     </Router>
