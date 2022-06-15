@@ -4,6 +4,7 @@ import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import Coupon from './pages/Coupon';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
