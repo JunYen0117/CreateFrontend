@@ -7,27 +7,30 @@ import Home from './pages/Home';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Cart from './pages/Cart';
 
 function App() {
   return (
-    <Router>
+    <>
       <Header />
-      <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Router>
+        <Switch>
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Cart />
+          </Route>
+        </Switch>
+      </Router>
       <Footer />
-    </Router>
+    </>
   );
 }
 

@@ -24,6 +24,14 @@ $h6-font-size:                $font-size-base !default;
   list-style: none;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 /* =============== 文字大小 =============== */
 
 // h1: 22px
