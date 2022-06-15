@@ -1,0 +1,76 @@
+//SliderBanner輪播
+.gallery {
+    margin: 0 0 50px 0;
+    width: 100%;
+}
+.carousel-indicators{
+    button{
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+    }
+}
+// 標題字
+h2 {
+    font-size: 22px;
+    color: #b99664;
+    margin: 0 120px 20px 120px;
+    font-weight: 600;
+    a {
+        text-decoration: none;
+    }
+    // ProductCard質感商品
+}
+.all-card {
+    margin: 0 120px 100px 120px;
+}
+.card {
+    border: 0px;
+}
+.figure {
+    width: 285px;
+    height: 285px;
+    margin-bottom: 20px;
+    :hover {
+        box-shadow: 8px 8px 10px #b996644d;
+    }
+}
+.img-fluid {
+    width: 285px;
+    height: 285px;
+    object-fit: cover;
+}
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 15%;
+    line-height: 24.52px;
+    margin-bottom: 20px;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+.card-text {
+    a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #a5b6a4;
+    }
+}
+.money {
+    color: #b99664;
+}
+
+// BusinessLogo 品牌Logo
+.all-logo {
+    margin: 0 120px 100px 120px;
+}
+.logo {
+    width: 373px;
+    height: 275px;
+    object-fit: cover;
+    :hover {
+        box-shadow: 8px 8px 10px #b996644d;
+    }
+}
