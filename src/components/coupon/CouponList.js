@@ -11,7 +11,7 @@ const CouponList = () => {
   return (
     <>
       <div className="d-grid px-2 py-3 container">
-        <h1 className="coupon_p pt-4 my-0">優惠券</h1>
+        <h1 className="coupon_prompt pt-4 my-0">優惠券</h1>
         <nav>
           <ul className="coupon_nav nav pt-4">
             <li className="coupon_nav1 nav-item">
@@ -29,10 +29,10 @@ const CouponList = () => {
             <li className="nav-item coupon_nav2">
               <button
                 onClick={() => {
-                  setCanUse('receivelist');
+                  setCanUse('receiveList');
                 }}
                 className={`nav-link coupon_btn ${
-                  canUse === 'receivelist' ? 'active' : ''
+                  canUse === 'receiveList' ? 'active' : ''
                 }`}
               >
                 可使用
@@ -52,11 +52,10 @@ const CouponList = () => {
             </li>
           </ul>
         </nav>
-        <h4 className="coupon_p px-3 py-0 mt-2 my-0">
-          每筆訂單僅可使用一張優惠券
-        </h4>
+
         {canUse === 'available' && <Available />}
-        {canUse === 'receivelist' && <ReceiveList />}
+        {canUse === 'receiveList' && <ReceiveList />}
+        {canUse === 'invalid' && <Invalid />}
       </div>
     </>
   );
