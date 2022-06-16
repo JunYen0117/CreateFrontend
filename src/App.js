@@ -12,26 +12,27 @@ import ProductOrder from './pages/ProductOrder';
 
 function App() {
   return (
+    <>
       <Header />
       <ProductOrder />
-    <Router>
-   
-      <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {/* <Route exact path="/">
+      <Router>
+        <Switch>
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* <Route exact path="/">
           <Home />
         </Route> */}
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
       <Footer />
+    </>
   );
 }
 
