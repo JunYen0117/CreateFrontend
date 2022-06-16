@@ -1,0 +1,82 @@
+.border-bottom {
+  a {
+    font-size: 1.125rem;
+    color: $light;
+    text-decoration: none;
+    margin-right: 10px;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+  }
+}
+
+.img1 {
+  width: 250px;
+}
+
+.orderlist-card {
+  position: relative;
+  margin-bottom: 2rem;
+
+  .card-title {
+    background: $secondary;
+    .title-num {
+      font-weight: bold;
+    }
+    .title-name {
+      color: $primary;
+      font-weight: 900;
+    }
+  }
+  .card-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid $secondary;
+    font-weight: bold;
+  }
+}
+
+.productOrder {
+  margin-top: 40px;
+  h1 {
+    font-weight: 900;
+  }
+}
+
+.ol_table {
+  margin-left: 10%;
+  tr {
+    font-weight: 500;
+    td {
+      padding: 0.5rem 3rem;
+    }
+  }
+}
+
+.ol_tabledown {
+  tr {
+    font-weight: 500;
+
+    td {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+.card-content {
+  p {
+    font-weight: 900;
+  }
+}
+
+.ol_p {
+  padding-left: 10%;
+}
+
+.ol_f {
+  font-weight: bold;
+}
