@@ -12,9 +12,9 @@ import ProductOrder from './pages/ProductOrder';
 
 function App() {
   return (
-    <Router>
       <Header />
       <ProductOrder />
+    <Router>
    
       <Switch>
         <Route path="/product">
@@ -30,8 +30,8 @@ function App() {
           <Home />
         </Route> */}
       </Switch>
-      <Footer />
     </Router>
+      <Footer />
   );
 }
 
