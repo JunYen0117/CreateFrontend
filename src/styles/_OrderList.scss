@@ -80,3 +80,21 @@
 .ol_f {
   font-weight: bold;
 }
+
+.orderlist-b1 {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  background-color: #fff;
+  border: 1px solid $secondary;
+  font-weight: bold;
+}
+
+.orderlist-b2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid $secondary;
+  font-weight: bold;
+}
