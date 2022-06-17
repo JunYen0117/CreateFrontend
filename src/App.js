@@ -24,9 +24,9 @@ function App() {
       <Router>
         <Switch>
           <Route path="/fav">
-            <FavArticle />
-            <FavActivity />
             <FavProduct />
+            {/* <FavArticle />
+            <FavActivity /> */}
           </Route>
           <Route path="/order">
             {isShowOL ? (
