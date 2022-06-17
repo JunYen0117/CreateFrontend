@@ -10,6 +10,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import OrderList from './pages/ProductOrder/OrderList';
 import OrderDetail from './pages/ProductOrder/OrderDetail';
+import FavProduct from './pages/Fav/FavProduct';
+import FavActivity from './pages/Fav/FavActivity';
+import FavArticle from './pages/Fav/FavArticle';
 
 function App() {
   const [isShowOL, setIsShowOL] = useState(true);
@@ -17,12 +20,19 @@ function App() {
   return (
     <>
       <Header />
-      {isShowOL ? (
-        <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
-      ) : null}
-      {isShowOD ? <OrderDetail /> : null}
       <Router>
         <Switch>
+          <Route path="/fav">
+            <FavArticle />
+            <FavActivity />
+            <FavProduct />
+          </Route>
+          <Route path="/order">
+            {isShowOL ? (
+              <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
+            ) : null}
+            {isShowOD ? <OrderDetail /> : null}
+          </Route>
           <Route path="/product">
             <Product />
           </Route>
