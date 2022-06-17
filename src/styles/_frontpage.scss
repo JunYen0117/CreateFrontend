@@ -1,13 +1,15 @@
 //SliderBanner輪播
 .gallery {
-    margin: 0 0 50px 0;
+    margin: 20px 0 50px 0;
     width: 100%;
+
 }
-.carousel-indicators{
-    button{
-        width: 8px;
-        height: 8px;
-        border-radius: 100%;
+.carousel-indicators {
+    button {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 100% !important;
+        margin: 0 10px !important;
     }
 }
 // 標題字
@@ -19,8 +21,23 @@ h2 {
     a {
         text-decoration: none;
     }
-    // ProductCard質感商品
 }
+// ProductCard質感商品
+// .product-card{
+//     position: relative;
+// }
+.left-button, .right-button{
+    position: relative;
+    top: 140px;
+    
+}
+.left-button{
+    left: 5px;
+}
+.right-button{
+    right: 5px;
+}
+
 .all-card {
     margin: 0 120px 100px 120px;
 }
@@ -76,9 +93,51 @@ h2 {
 }
 
 // ArticleCard 熱門文章
-.article_img{
+.article_img {
     width: 180px;
     height: 240px;
-
+    img {
+        width: 180px;
+        height: 240px;
+        object-fit: cover;
+    }
 }
-
+.text_body {
+    width: 180px;
+}
+.article_card {
+    padding: 20px;
+    width: 570px;
+    height: 280px;
+    a {
+        text-decoration: none;
+    }
+}
+.article_card:hover {
+    box-shadow: 8px 8px 10px #b996644d;
+}
+.article_text {
+    margin-left: 20px !important;
+    h3 {
+        width: 300px;
+        color: black;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .line {
+        border-bottom: 2px solid #b99664;
+        width: 320px;
+    }
+    p {
+        width: 300px;
+        height: 120px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+        margin: 10px 0;
+        color: black;
+        line-height: 25px;
+        letter-spacing: 15%;
+    }
+}

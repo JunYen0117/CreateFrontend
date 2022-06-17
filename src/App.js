@@ -4,32 +4,16 @@ import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import FrontPage from './pages/FrontPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
-import FrontPage from './pages/FrontPage';
-
 
 function App() {
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
-      <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/">
-          <FrontPage />
-        </Route>
-        {/* <Route exact path="/">
+      <FrontPage />
       <Router>
         <Switch>
           <Route path="/product">
