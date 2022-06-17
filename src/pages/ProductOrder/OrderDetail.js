@@ -1,9 +1,15 @@
 import ASidebar from '../../components/AccountSidebar/ASidebar';
 import OrderTitle from '../../components/ProductOrder/OrderTitle';
 
+
 import React from 'react';
 
-const OrderDetail = () => {
+const OrderDetail = ({ showOL, showOD }) => {
+  function changeIsShowOD() {
+    showOL(true);
+    showOD(false);
+  }
+
   return (
     <>
       {/* 訂單列表 */}
@@ -13,7 +19,7 @@ const OrderDetail = () => {
         <div className="row">
           <ASidebar />
           <div className="col-9 productOrder">
-           <OrderTitle />
+            <OrderTitle />
 
             {/* <div className="orderlist-card w-75">
               <div className="card-title d-flex py-3">
@@ -180,7 +186,12 @@ const OrderDetail = () => {
                 </table>
               </div>
               <div className="mt-5 position-relative">
-                <button className=" orderlist-b1 me-3 px-3 py-2">返回</button>
+                <button
+                  className=" orderlist-b1 me-3 px-3 py-2"
+                  onClick={changeIsShowOD}
+                >
+                  返回
+                </button>
                 <button className=" orderlist-b2 px-3 py-2">取消訂單</button>
               </div>
             </div>
