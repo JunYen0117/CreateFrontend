@@ -14,19 +14,19 @@ function BusinessLogo() {
       <div className="d-flex justify-content-between all-logo">
         <div>
           <a href="/">
-            <img src={red} alt="" className='logo'></img>
+            <img src={red} alt="" className="logo"></img>
           </a>
         </div>
         ;
         <div>
           <a href="/">
-            <img src={rainbow} alt="" className='logo'></img>
+            <img src={rainbow} alt="" className="logo"></img>
           </a>
         </div>
         ;
         <div>
           <a href="/">
-            <img src={kaigi} alt="" className='logo'></img>
+            <img src={kaigi} alt="" className="logo"></img>
           </a>
         </div>
       </div>
