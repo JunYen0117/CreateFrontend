@@ -6,7 +6,6 @@ import About from './pages/About';
 import User from './pages/User';
 // import Home from './pages/Home';
 
-
 import Header from './components/Header';
 import Footer from './components/Footer';
 import OrderList from './pages/ProductOrder/OrderList';
@@ -32,7 +31,9 @@ function App() {
             {isShowOL ? (
               <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}
-            {isShowOD ? <OrderDetail /> : null}
+            {isShowOD ? (
+              <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
+            ) : null}
           </Route>
           <Route path="/product">
             <Product />
