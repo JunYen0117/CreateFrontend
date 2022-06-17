@@ -10,9 +10,10 @@ import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import FrontPage from './pages/FrontPage';
 
+
 function App() {
   return (
-    <Router>
+    <>
       <Header />
       {/* <Sidebar /> */}
       <Switch>
@@ -29,11 +30,24 @@ function App() {
           <FrontPage />
         </Route>
         {/* <Route exact path="/">
+      <Router>
+        <Switch>
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* <Route exact path="/">
           <Home />
         </Route> */}
-      </Switch>
+        </Switch>
+      </Router>
       <Footer />
-    </Router>
+    </>
   );
 }
 
