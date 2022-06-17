@@ -1,11 +1,11 @@
-import { ReactComponent as LogoSvg } from '../img/logo.svg';
-import LogoDesktop from '../img/logo.svg';
-import { ReactComponent as Search } from '../img/search.svg';
-import { ReactComponent as Shopcart1 } from '../img/shopcart1.svg';
-import { ReactComponent as NoLogin } from '../img/nologin.svg';
-import { ReactComponent as Hamburger } from '../img/Hamburger.svg';
-import { ReactComponent as MobileSearch } from '../img/MobileSearch.svg';
-import { ReactComponent as More } from '../img/More.svg';
+import { ReactComponent as LogoSvg } from '../img/header/logo.svg';
+import LogoDesktop from '../img/header/logo.svg';
+import { ReactComponent as Search } from '../img/header/search.svg';
+import { ReactComponent as Shopcart1 } from '../img/header/shopcart1.svg';
+import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
+import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
+import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
+import { ReactComponent as More } from '../img/header/More.svg';
 import styled from '@emotion/styled';
 
 const LogoMobile = styled(LogoSvg)`
