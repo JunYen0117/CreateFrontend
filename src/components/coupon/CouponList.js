@@ -17,30 +17,6 @@ const CouponList = () => {
   return (
     <>
       {/* 寫法 1：React Bootstrap */}
-      {/* <Container>
-        <h1 className="coupon_prompt pt-4 my-0">優惠券</h1>
-        <Nav className="coupon_nav pt-4" defaultActiveKey="available">
-          <Nav.Item className="">
-            <Nav.Link className="coupon_btn" eventKey="available">
-              可領取
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="">
-            <Nav.Link className="nav-item coupon_btn" eventKey="receiveList">
-              可使用
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="">
-            <Nav.Link className="nav-item coupon_btn" eventKey="invalid">
-              已失效
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-        <Available />
-        <ReceiveList />
-        <Invalid />
-      </Container> */}
-
       <Tab.Container id="left-tabs-example" defaultActiveKey="available">
         <Row className="">
           <Col sm={16}>
