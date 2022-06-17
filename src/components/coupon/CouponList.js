@@ -1,11 +1,9 @@
 // 優惠券清單
 
 import { React, useState } from 'react';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import Available from './Available';
 import ReceiveList from './ReceiveList.js';
 import Invalid from './Invalid';
-import Common from './Common';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
