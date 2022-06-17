@@ -15,7 +15,6 @@ function App() {
     <>
       <Header />
       <div className="d-flex">
-        <Sidebar />
         <Router>
           <Switch>
             <Route path="/product">

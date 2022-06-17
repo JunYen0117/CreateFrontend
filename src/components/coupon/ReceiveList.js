@@ -19,7 +19,7 @@ function ReceiveList(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <a href="#/" className="text-decoration-none">
+        <a href="/" className="text-decoration-none">
           立即使用
         </a>
       </>

@@ -5,12 +5,85 @@ import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import Available from './Available';
 import ReceiveList from './ReceiveList.js';
 import Invalid from './Invalid';
+import Common from './Common';
+import Col from 'react-bootstrap/Col';
+import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
 
 const CouponList = () => {
-  const [canUse, setCanUse] = useState('available');
+  // 寫法 2 要加的
+  // const [coupon, setCoupon] = useState('available');
   return (
     <>
-      <div className="d-grid px-2 py-3 container">
+      {/* 寫法 1：React Bootstrap */}
+      {/* <Container>
+        <h1 className="coupon_prompt pt-4 my-0">優惠券</h1>
+        <Nav className="coupon_nav pt-4" defaultActiveKey="available">
+          <Nav.Item className="">
+            <Nav.Link className="coupon_btn" eventKey="available">
+              可領取
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item className="">
+            <Nav.Link className="nav-item coupon_btn" eventKey="receiveList">
+              可使用
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item className="">
+            <Nav.Link className="nav-item coupon_btn" eventKey="invalid">
+              已失效
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+        <Available />
+        <ReceiveList />
+        <Invalid />
+      </Container> */}
+
+      <Tab.Container id="left-tabs-example" defaultActiveKey="available">
+        <Row className="">
+          <Col sm={16}>
+            <h1 className="coupon_prompt pt-5 my-3">優惠券</h1>
+            <Nav className="coupon_nav pt-4" defaultActiveKey="available">
+              <Nav.Item className="mt-3">
+                <Nav.Link className="coupon_btn" eventKey="available">
+                  可領取
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="mt-3">
+                <Nav.Link
+                  className="nav-item coupon_btn"
+                  eventKey="receiveList"
+                >
+                  可使用
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="mt-3">
+                <Nav.Link className="nav-item coupon_btn" eventKey="invalid">
+                  已失效
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col sm={16}>
+            <Tab.Content className="mb-5">
+              <Tab.Pane className="" eventKey="available">
+                <Available />
+              </Tab.Pane>
+              <Tab.Pane eventKey="receiveList">
+                <ReceiveList />
+              </Tab.Pane>
+              <Tab.Pane eventKey="invalid">
+                <Invalid />
+              </Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
+
+      {/* 寫法 2：純Bootstrap */}
+      {/* <div className="d-grid px-2 py-3 container">
         <h1 className="coupon_prompt pt-4 my-0">優惠券</h1>
         <nav>
           <ul className="coupon_nav nav pt-4">
@@ -56,7 +129,7 @@ const CouponList = () => {
         {canUse === 'available' && <Available />}
         {canUse === 'receiveList' && <ReceiveList />}
         {canUse === 'invalid' && <Invalid />}
-      </div>
+      </div> */}
     </>
   );
 };

@@ -7,6 +7,10 @@
   border-bottom: 1px solid #acacac;
   font-weight: bold;
 }
+:focus-visible {
+
+  outline-width: 0;
+}
 .coupon_btn {
   color: #acacac;
   border: none;
@@ -47,22 +51,15 @@
 
 .coupon_item1 {
   border: 1px solid #b99664;
-  width: 48%;
+  width: 46%;
   height: 220px;
 }
 .coupon_item2_Div {
   border-left: 1px solid #b99664;
   width: 48%;
 }
-.coupon_item3 {
-color:#000000;
-  font-weight: bold;
-  border: 1px solid #b99664;
-  background-color: white;
-  width: 85%;
-}
 
-.coupon_item4 {
+.couponCard_btn {
   font-weight: bold;
   border: 1px solid #b99664;
   background-color: white;
