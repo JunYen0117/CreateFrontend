@@ -8,7 +8,7 @@ const OrderDetail = () => {
       {/* 訂單列表 */}
       {/* 已完成 */}
 
-      <div className="container-fluid">
+      <div className="container-fluid mb-5">
         <div className="row">
           <div className="col-3 d-flex justify-content-center mt-4">
             <Sidebar />
@@ -174,7 +174,7 @@ const OrderDetail = () => {
               </div>
             </div>
 
-            <div className="orderlist-card w-75">
+            <div className="orderlist-card w-75 ">
               <div className="card-title d-flex py-3">
                 <div className="title-num mx-2">付款資訊</div>
               </div>
@@ -186,11 +186,13 @@ const OrderDetail = () => {
                   </tr>
                 </table>
               </div>
+              <div className="mt-5 position-relative">
+                <button className=" orderlist-b1 me-3 px-3 py-2" >返回</button>
+                <button className=" orderlist-b2 px-3 py-2">取消訂單</button>
+              </div>
             </div>
 
-
             {/* =========================================== */}
-
           </div>
         </div>
       </div>
