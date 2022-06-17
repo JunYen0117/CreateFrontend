@@ -1,4 +1,5 @@
 import ASidebar from '../../components/AccountSidebar/ASidebar';
+import OrderTitle from '../../components/ProductOrder/OrderTitle';
 
 
 const OrderList = ({ showOL, showOD }) => {
@@ -15,13 +16,7 @@ const OrderList = ({ showOL, showOD }) => {
         <div className="row">
           <ASidebar />
           <div className="col-9 productOrder">
-            <h1>我的訂單</h1>
-            <div className="border-bottom w-75 my-3">
-              <a href="#/" className="me-5">
-                已完成
-              </a>
-              <a href="#/">已取消</a>
-            </div>
+           <OrderTitle />
             {arr.map((v, i) => {
               return (
                 <div className="orderlist-card w-75">
