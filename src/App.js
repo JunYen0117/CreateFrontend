@@ -8,7 +8,7 @@ import Coupon from './pages/Coupon';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+
 
 function App() {
   return (
