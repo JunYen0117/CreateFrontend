@@ -1,4 +1,5 @@
-import Sidebar from '../../components/Sidebar';
+import ASidebar from '../../components/AccountSidebar/ASidebar';
+
 
 const OrderList = ({ showOL, showOD }) => {
   const arr = [1, 2, 3];
@@ -12,9 +13,7 @@ const OrderList = ({ showOL, showOD }) => {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3 d-flex justify-content-center mt-4">
-            <Sidebar />
-          </div>
+          <ASidebar />
           <div className="col-9 productOrder">
             <h1>我的訂單</h1>
             <div className="border-bottom w-75 my-3">
