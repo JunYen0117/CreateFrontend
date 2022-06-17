@@ -1,4 +1,4 @@
-import Sidebar from '../../components/Sidebar';
+import ASidebar from '../../components/AccountSidebar/ASidebar';
 
 import React from 'react';
 
@@ -10,9 +10,7 @@ const OrderDetail = () => {
 
       <div className="container-fluid mb-5">
         <div className="row">
-          <div className="col-3 d-flex justify-content-center mt-4">
-            <Sidebar />
-          </div>
+          <ASidebar />
           <div className="col-9 productOrder">
             <h1>我的訂單</h1>
             <div className="border-bottom w-75 my-3">
@@ -187,7 +185,7 @@ const OrderDetail = () => {
                 </table>
               </div>
               <div className="mt-5 position-relative">
-                <button className=" orderlist-b1 me-3 px-3 py-2" >返回</button>
+                <button className=" orderlist-b1 me-3 px-3 py-2">返回</button>
                 <button className=" orderlist-b2 px-3 py-2">取消訂單</button>
               </div>
             </div>
