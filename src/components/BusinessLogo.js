@@ -1,5 +1,5 @@
 import '../styles/_frontpage.scss';
-import Card from 'react-bootstrap/Card';
+
 
 import red from '../img/red.jpg';
 import rainbow from '../img/rainbow.png';
@@ -7,228 +7,107 @@ import kaigi from '../img/kaigi.jpg';
 import LeftCircle from '../img/left-circle.svg';
 import RightCircle from '../img/right-circle.svg';
 
+import CarouselContents from './CarouselContents'
+const contents = [
+  [
+    {
+      "img": red,
+      "title": "燒味袋防水側背包",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": red,
+      "title": "傳遞信封包",
+      "brand_name": "品牌名",
+      "cost": "NT.699"
+    },
+    {
+      "img": red,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": kaigi,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": red,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": rainbow,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    }
+  ],
+  [
+    {
+      "img": red,
+      "title": "燒味袋防水側背包",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": red,
+      "title": "傳遞信封包",
+      "brand_name": "品牌名",
+      "cost": "NT.699"
+    },
+    {
+      "img": red,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    }
+  ],
+  [
+    {
+      "img": red,
+      "title": "燒味袋防水側背包",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    },
+    {
+      "img": red,
+      "title": "傳遞信封包",
+      "brand_name": "品牌名",
+      "cost": "NT.699"
+    },
+    {
+      "img": red,
+      "title": "搖籃曲朋友兔寶寶",
+      "brand_name": "品牌名",
+      "cost": "NT.1769"
+    }
+  ]
+]
 function BusinessLogo() {
+  
   return (
     <>
       <h2>
         <a href="/">精選品牌</a>
       </h2>
       <div
-        id="carouselExampleControls"
+        id="test123"
         className="carousel slide"
         data-bs-ride="carousel"
       >
         <div className="carousel-inner product-card">
-          <div class="carousel-item active">
-            {/* 第一頁 */}
-            <div className="d-flex justify-content-between all-card">
-              {/* Card 1 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={red} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">燒味袋防水側背包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 2 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={red} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">傳遞信封包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.699
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 3 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={red} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">搖籃曲朋友兔寶寶</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
-          <div class="carousel-item">
-            {/* 第二頁 */}
-            <div className="d-flex justify-content-between all-card">
-              {/* Card 1 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img
-                      variant="top"
-                      src={rainbow}
-                      className="img-fluid"
-                    />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">燒味袋防水側背包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 2 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img
-                      variant="top"
-                      src={rainbow}
-                      className="img-fluid"
-                    />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">傳遞信封包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.699
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 3 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img
-                      variant="top"
-                      src={rainbow}
-                      className="img-fluid"
-                    />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">搖籃曲朋友兔寶寶</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-            {/* 第三頁 */}
-          </div>
-          <div class="carousel-item">
-            <div className="d-flex justify-content-between all-card">
-              {/* Card 1 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={kaigi} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">燒味袋防水側背包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 2 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={kaigi} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">傳遞信封包</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.699
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-
-              {/* Card 3 */}
-              <Card style={{ width: '285px' }}>
-                <a href="/">
-                  <figure className="figure">
-                    <Card.Img variant="top" src={kaigi} className="img-fluid" />
-                  </figure>
-                </a>
-                <Card.Body>
-                  <Card.Title>
-                    <a href="/">搖籃曲朋友兔寶寶</a>
-                  </Card.Title>
-                  <Card.Text>
-                    <a href="/">品牌名</a>
-                  </Card.Text>
-                  <Card.Text variant="primary" className="money">
-                    NT.1769
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
+          <CarouselContents contents={contents}/>
         </div>
         {/* 左按鈕 */}
         <button
           className="d-flex align-items-start justify-content-center carousel-control-prev "
           type="button"
-          data-bs-target="#carouselExampleControls"
+          data-bs-target="#test123"
           data-bs-slide="prev"
         >
           <img src={LeftCircle} alt="" className="left-button" />
@@ -237,7 +116,7 @@ function BusinessLogo() {
         <button
           className="d-flex align-items-start justify-content-center carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleControls"
+          data-bs-target="#test123"
           data-bs-slide="next"
         >
           <img src={RightCircle} alt="" className="right-button" />
