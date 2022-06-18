@@ -82,11 +82,17 @@ h2 {
 // BusinessLogo 品牌Logo
 .all-logo {
     margin: 0 120px 100px 120px;
+    .card{
+        padding: 0 10px;
+    }
+    .card-body{
+        padding: 20px 0 0 0 !important;
+    }
 }
 .logo {
-    width: 373px;
-    height: 275px;
+    width: 100%;
     object-fit: cover;
+    margin-bottom: 0;
     :hover {
         box-shadow: 8px 8px 10px #b996644d;
     }

@@ -1,5 +1,4 @@
 import '../styles/_frontpage.scss';
-
 import A1 from '../img/A1.jpg';
 import A2 from '../img/A2.jpg';
 
