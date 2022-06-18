@@ -2,7 +2,8 @@ import React from 'react';
 import ProductCard from '../components/ProductCard';
 import SliderBanner from '../components/SliderBanner';
 import BusinessLogo from '../components/BusinessLogo';
-import ArticleCard from '../components/ArticleCard';
+import ArticleCards from '../components/ArticleCards';
+import datas from "../test/data/ArticleCard"
 
 function FrontPage(props) {
   return (
@@ -10,7 +11,7 @@ function FrontPage(props) {
       <SliderBanner />
       <ProductCard />
       <BusinessLogo />
-      <ArticleCard />
+      <ArticleCards datas={datas}/>
     </>
   );
 }
