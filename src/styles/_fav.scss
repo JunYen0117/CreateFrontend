@@ -1,17 +1,36 @@
+// ---- Fav product ---
+
 .Fp_cardtitle {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .Fp_img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .Fp_heart {
-    color: rgb(194, 68, 68);
-    font-size: 1.5rem;
-    position: absolute;
-    right:5px;
-    top: 5px;
+  color: rgb(194, 68, 68);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
+
+// --- Fav article ---
+
+.Far_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Far_heart {
+  color: rgb(194, 68, 68);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+}
+
