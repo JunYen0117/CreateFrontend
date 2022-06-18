@@ -6,68 +6,89 @@ import productImg from '../img/products/2_2deer.jpg';
 
 import { ReactComponent as CategoryIcon } from '../img/products/product_category.svg';
 
-import { useState } from 'react';
-import { AiOutlineAlignRight, AiFillCaretRight, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const category = [
-  '居家生活',
-  '香氛系列',
-  '配件飾品',
-  '家電/3C',
-  '辦公文具',
-  '玩偶玩具',
-  '包包提袋',
-];
-
-const product_name = [
-  {
-    id: 'a',
-    category: '居家生活',
-    item: ['餐具', '抱枕', '夜燈', '擺飾', '衛浴用品', '便利小物'],
-  },
-  { id: 'b', category: '香氛系列', item: ['沐浴', '精油與配件', '香水'] },
-  { id: 'c', category: '配件飾品', item: ['個人配件', '首飾', '髮飾'] },
-  { id: 'd', category: '家電/3C', item: ['3C產品', '家用電器'] },
-  { id: 'e', category: '辦公文具', item: ['書寫工具', '辦公用具'] },
-  { id: 'f', category: '玩偶玩具', item: ['玩偶', '玩具', '療癒小物'] },
-  {
-    id: 'g',
-    category: '包包提袋',
-    item: ['日常包款', '錢包', '收納包', '旅行'],
-  },
-];
+import {
+  AiOutlineAlignRight,
+  AiFillCaretRight,
+  AiOutlineLeft,
+  AiOutlineRight,
+} from 'react-icons/ai';
 
 function Products() {
-  const [open, setOpen] = useState(false);
+  const [classifications, setClassifications] = useState([]);
+  const [categorys, setCategorys] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(-1);
+
+  // Products
+  useEffect(() => {
+    let getProduct = async () => {
+      let response = await axios.get('http://localhost:3003/api/product', {
+        withCredentials: true,
+      });
+      setProducts(response.data);
+    };
+    getProduct();
+  }, []);
+
+  // Classification
+  useEffect(() => {
+    let getClassification = async () => {
+      let response = await axios.get(
+        'http://localhost:3003/api/product/classification',
+        {
+          withCredentials: true,
+        }
+      );
+      setClassifications(response.data);
+    };
+    getClassification();
+  }, []);
+
+  // category
+  useEffect(() => {
+    let getCategory = async () => {
+      let response = await axios.get(
+        `http://localhost:3003/api/product/classification/${open}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setCategorys(response.data);
+    };
+    getCategory();
+  }, [open]);
 
   const handleOption = (type) => () => {
     switch (type) {
       case '居家生活': {
-        setOpen(0);
-        break;
-      }
-      case '香氛系列': {
         setOpen(1);
         break;
       }
-      case '配件飾品': {
+      case '香氛系列': {
         setOpen(2);
         break;
       }
-      case '家電/3C': {
+      case '配件飾品': {
         setOpen(3);
         break;
       }
-      case '辦公文具': {
+      case '家電3C': {
         setOpen(4);
         break;
       }
-      case '玩偶玩具': {
+      case '辦公文具': {
         setOpen(5);
         break;
       }
-      case '包包提袋': {
+      case '玩偶玩具': {
         setOpen(6);
+        break;
+      }
+      case '包包提袋': {
+        setOpen(7);
         break;
       }
       default: {
@@ -140,18 +161,26 @@ function Products() {
         <div className="row mt-5 product_area pt-5">
           <div className="col-3">
             <ul className="product_list">
-              {category.map((v, i) => {
+              {classifications.map((v, i) => {
                 return (
-                  <li key={i}>
-                    <a href="#/" alt="" onClick={handleOption(v)}>
-                      <CategoryIcon /> {v}
+                  <li key={v.id}>
+                    <a
+                      href="#/"
+                      alt=""
+                      onClick={
+                        open === v.id
+                          ? () => setOpen(-1)
+                          : handleOption(v.classification_name)
+                      }
+                    >
+                      <CategoryIcon /> {v.classification_name}
                     </a>
-                    {open === i && (
+                    {open === v.id && (
                       <div className="product_name">
-                        {product_name[i].item.map((v, i) => {
+                        {categorys.map((v, i) => {
                           return (
-                            <a key={i} href="#/" className="ms-3" alt="">
-                              {v}
+                            <a key={v.id} href="#/" className="ms-3" alt="">
+                              {v.category_name}
                             </a>
                           );
                         })}
@@ -165,10 +194,31 @@ function Products() {
           <div className="col-9 p-0">
             <div className="row w-100">
               {/* 商品列 一 */}
+              {products.map((v, i) => {
+                return (
+                  <div className="col-3">
+                    <div className="product_item">
+                      <figure>
+                        <a href="#/" alt="">
+                          <img
+                            src={`http://localhost:3003/images/product/${v.image}`}
+                            alt=""
+                          ></img>
+                        </a>
+                      </figure>
+                      <h2>{v.product_name}</h2>
+                      <h3>品牌：{v.business_name}</h3>
+                      <h3>NT$ {v.price}</h3>
+                    </div>
+                  </div>
+                );
+              })}
               <div className="col-3">
                 <div className="product_item">
                   <figure>
-                    <img src={productImg} alt=""></img>
+                    <a href="#/" alt="">
+                      <img src={productImg} alt=""></img>
+                    </a>
                   </figure>
                   <h2>商品A</h2>
                   <h3>品牌名</h3>
@@ -178,70 +228,14 @@ function Products() {
               <div className="col-3">
                 <div className="product_item">
                   <figure>
-                    <img src={productImg} alt=""></img>
+                    <a href="#/" alt="">
+                      <img
+                        src="http://localhost:3003/images/product/1_1咖啡壺.jpg"
+                        alt=""
+                      ></img>
+                    </a>
                   </figure>
                   <h2>商品B</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品C</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品D</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              {/* 商品列 二 */}
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品E</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品F</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品G</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <img src={productImg} alt=""></img>
-                  </figure>
-                  <h2>商品H</h2>
                   <h3>品牌名</h3>
                   <h3>NT.1000</h3>
                 </div>
