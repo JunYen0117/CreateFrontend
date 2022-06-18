@@ -4,7 +4,7 @@ const FavTitle = () => {
   return (
     <>
       <h1>我的收藏</h1>
-      <div className="border-bottom w-75 my-3">
+      <div className="border-bottom w-100 my-3">
         <a href="#/" className="me-5">
           商品
         </a>
