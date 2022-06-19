@@ -13,6 +13,7 @@ import OrderDetail from './pages/ProductOrder/OrderDetail';
 import FavProduct from './pages/Fav/FavProduct';
 import FavActivity from './pages/Fav/FavActivity';
 import FavArticle from './pages/Fav/FavArticle';
+import FavList from './pages/Fav/FavList';
 
 function App() {
   const [isShowOL, setIsShowOL] = useState(true);
@@ -22,6 +23,9 @@ function App() {
       <Header />
       <Router>
         <Switch>
+          <Route path="/fav">
+            <FavList />
+          </Route>
           <Route path="/favproduct/">
             <FavProduct />
           </Route>
