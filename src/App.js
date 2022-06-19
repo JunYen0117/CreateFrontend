@@ -22,8 +22,12 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/favproduct/">{/* <FavProduct /> */}</Route>
-          <Route path="/favarticle/">{/* <FavArticle /> */}</Route>
+          <Route path="/favproduct/">
+            <FavProduct />
+          </Route>
+          <Route path="/favarticle/">
+            <FavArticle />
+          </Route>
           <Route path="/favactivity/">
             <FavActivity />
           </Route>
