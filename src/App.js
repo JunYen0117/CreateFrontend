@@ -7,12 +7,13 @@ import Home from './pages/Home';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import ThemePlanning from './pages/ThemePlanning';
 
 function App() {
   return (
     <>
       <Header />
+      <ThemePlanning />
       <Router>
         <Switch>
           <Route path="/product">
