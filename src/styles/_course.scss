@@ -1,0 +1,38 @@
+.course-carousel{
+    height: 275px;
+}
+.coure-sidebar{
+    .nav-item{
+
+        .nav-link{
+          position: relative;
+          color:black;
+          &:hover{
+            color:$primary;
+          }
+          &:focus{
+            &::before{
+              content: "";
+              display: inline-block;
+              width: 5px;
+              height: 20px;
+              position: absolute;
+              left: 0px;
+              top: 10px;
+              
+              background: $primary;
+            }
+            color:$primary;
+            font-weight: bold;
+          }
+        }
+      }
+}
+.course-text{
+    width: 80%;
+    .text-title{
+        font-size: 2rem;
+        font-weight: bolder;
+        color: $primary;
+    }
+}
