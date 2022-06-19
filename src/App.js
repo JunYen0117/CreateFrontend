@@ -14,7 +14,6 @@ import FavProduct from './pages/Fav/FavProduct';
 import FavActivity from './pages/Fav/FavActivity';
 import FavArticle from './pages/Fav/FavArticle';
 
-
 function App() {
   const [isShowOL, setIsShowOL] = useState(true);
   const [isShowOD, setIsShowOD] = useState(false);
@@ -23,10 +22,10 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/fav">
-            {/* <FavProduct /> */}
-            <FavArticle />
-            {/* <FavActivity /> */}
+          <Route path="/favproduct/">{/* <FavProduct /> */}</Route>
+          <Route path="/favarticle/">{/* <FavArticle /> */}</Route>
+          <Route path="/favactivity/">
+            <FavActivity />
           </Route>
           <Route path="/order">
             {isShowOL ? (
