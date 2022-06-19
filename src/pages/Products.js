@@ -19,6 +19,12 @@ function Products() {
   const [categorys, setCategorys] = useState([]);
   const [products, setProducts] = useState([]);
 
+  // 商品篩選 類別
+  const [classificationId, setClassificationId] = useState(-1);
+
+  // 商品篩選 種類
+  const [categoryId, setCategoryId] = useState(1);
+
   return (
     <>
       <div className="mt-4 product_banner">
@@ -87,14 +93,18 @@ function Products() {
               setClassifications={setClassifications}
               categorys={categorys}
               setCategorys={setCategorys}
+              classificationId={classificationId}
+              setClassificationId={setClassificationId}
+              categoryId={categoryId}
+              setCategoryId={setCategoryId}
             />
           </div>
-          {/* ProductList */}
           <div className="col-9 p-0">
-            <ProductList products={products} setProducts={setProducts} />
-
-            {/* ProductList */}
-            {/* 商品列結束 */}
+            <ProductList
+              products={products}
+              setProducts={setProducts}
+              classificationId={classificationId}
+            />
             <nav aria-label="Page navigation example">
               <ul className="pagination product_page justify-content-end me-4 my-5">
                 <li className="page-item">
