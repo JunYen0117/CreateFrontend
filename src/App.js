@@ -5,6 +5,7 @@ import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
 import FrontPage from './pages/FrontPage';
+import BrandPage from './pages/BrandPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,6 +15,7 @@ function App() {
     <>
       <Header />
       <FrontPage />
+      <BrandPage />
       <Router>
         <Switch>
           <Route path="/product">
