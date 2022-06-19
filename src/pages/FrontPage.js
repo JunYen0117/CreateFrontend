@@ -1,15 +1,16 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard';
-import SliderBanner from '../components/SliderBanner';
-import BusinessLogo from '../components/BusinessLogo';
-import ArticleCards from '../components/ArticleCards';
+import ProductCards from '../components/FrontPage/ProductCards';
+import SliderBanner from '../components/FrontPage/SliderBanner';
+import BusinessLogo from '../components/FrontPage/BusinessLogo';
+import ArticleCards from '../components/FrontPage/ArticleCards';
 import datas from '../test/data/ArticleCard';
+import Productdatas from '../test/data/ProductCard';
 
 function FrontPage(props) {
   return (
     <>
       <SliderBanner />
-      <ProductCard />
+      <ProductCards datas={Productdatas} />
       <BusinessLogo />
       <ArticleCards datas={datas} />
     </>

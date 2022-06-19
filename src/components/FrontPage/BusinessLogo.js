@@ -1,10 +1,10 @@
-import '../styles/_frontpage.scss';
+import '../../styles/_frontpage.scss';
 
-import red from '../img/red.jpg';
-import rainbow from '../img/rainbow.png';
-import kaigi from '../img/kaigi.jpg';
-import LeftCircle from '../img/left-circle.svg';
-import RightCircle from '../img/right-circle.svg';
+import red from '../../img/red.jpg';
+import rainbow from '../../img/rainbow.png';
+import kaigi from '../../img/kaigi.jpg';
+import LeftCircle from '../../img/left-circle.svg';
+import RightCircle from '../../img/right-circle.svg';
 
 import CarouselContents from './CarouselContents';
 const contents = [

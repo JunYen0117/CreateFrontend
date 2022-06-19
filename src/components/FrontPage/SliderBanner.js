@@ -1,9 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
-import '../styles/_frontpage.scss';
+import '../../styles/_frontpage.scss';
 
-import img1 from '../img/B1.jpg';
-import img2 from '../img/B2.jpg';
-import img3 from '../img/B3.jpg';
+import img1 from '../../img/B1.jpg';
+import img2 from '../../img/B2.jpg';
+import img3 from '../../img/B3.jpg';
 
 function SliderBanner() {
   return (
