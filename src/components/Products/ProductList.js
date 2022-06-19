@@ -6,17 +6,24 @@ import ProductItem from './ProductItem';
 function ProductList(props) {
   const { products, setProducts } = props;
   const { classificationId, categoryId } = props;
+  const { page, setLastPage } = props;
 
   // 第一次進入頁面時，顯示全部商品
   useEffect(() => {
     let getProductAll = async () => {
-      let response = await axios.get(`http://localhost:3003/api/product/`, {
+      // http://localhost:3003/api/product?page=1
+      let response = await axios.get(`http://localhost:3003/api/product`, {
         withCredentials: true,
+        params: {
+          page: page,
+        },
       });
-      setProducts(response.data);
+      setProducts(response.data.data);
+      // 設定最後一頁
+      setLastPage(response.data.pagination.lastPage);
     };
     getProductAll();
-  }, []);
+  }, [page]);
 
   // 選擇商品類別，顯示那一類商品
   useEffect(() => {

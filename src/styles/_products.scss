@@ -67,21 +67,26 @@
   }
 }
 
-.product_name {
-  a{
+.product_category {
+  a {
+    color: #A5B6A4;
     font-weight: 500;
     font-size: 14px;
     padding: 10px 0;
   }
+  .active,
+  a:hover {
+    color: #000;
+  }
 }
 
-.product_item{
-  figure{
+.product_item {
+  figure {
     // RWD 待調整
     width: 200px;
     height: 200px;
     overflow: hidden;
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -90,19 +95,23 @@
   }
 }
 
-.product_page{
-  .page-link{
+.product_page {
+  .page-link {
     border: 1px solid $primary;
     padding: 6px 13px;
     color: #000;
     font-weight: 600;
   }
-  a:hover{
+  .page-link:focus {
+    box-shadow: none;
+  }
+  a:hover,
+  .active {
     background-color: $primary;
-    color: #FFF;
+    color: #fff;
   }
 }
 
-.product_area{
+.product_area {
   border-top: 2px solid $primary;
 }

@@ -3,20 +3,18 @@ import option1 from '../img/products/option1.jpg';
 import option2 from '../img/products/option2.jpg';
 import option3 from '../img/products/option3.jpg';
 
-import {
-  AiOutlineAlignRight,
-  AiFillCaretRight,
-  AiOutlineLeft,
-  AiOutlineRight,
-} from 'react-icons/ai';
+import { AiOutlineAlignRight, AiFillCaretRight } from 'react-icons/ai';
 
 import { useState } from 'react';
 import ProductList from '../components/Products/ProductList';
 import ProductSidebar from '../components/Products/ProductSidebar';
+import ProductPagination from '../components/Products/ProductPagination';
 
 function Products() {
   const [classifications, setClassifications] = useState([]);
   const [categorys, setCategorys] = useState([]);
+
+  // 顯示的商品 (可做分頁)
   const [products, setProducts] = useState([]);
 
   // 商品篩選 類別
@@ -24,6 +22,10 @@ function Products() {
 
   // 商品篩選 種類
   const [categoryId, setCategoryId] = useState(-1);
+
+  // 分頁
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   return (
     <>
@@ -105,36 +107,15 @@ function Products() {
               setProducts={setProducts}
               classificationId={classificationId}
               categoryId={categoryId}
+              page={page}
+              lastPage={lastPage}
+              setLastPage={setLastPage}
             />
-            <nav aria-label="Page navigation example">
-              <ul className="pagination product_page justify-content-end me-4 my-5">
-                <li className="page-item">
-                  <a className="page-link" href="#/" aria-label="Previous">
-                    <AiOutlineLeft />
-                  </a>
-                </li>
-                <li className="page-item ms-3">
-                  <a className="page-link" href="#/">
-                    1
-                  </a>
-                </li>
-                <li className="page-item ms-3">
-                  <a className="page-link" href="#/">
-                    2
-                  </a>
-                </li>
-                <li className="page-item ms-3">
-                  <a className="page-link" href="#/">
-                    3
-                  </a>
-                </li>
-                <li className="page-item ms-3">
-                  <a className="page-link" href="#/" aria-label="Next">
-                    <AiOutlineRight />
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <ProductPagination
+              page={page}
+              lastPage={lastPage}
+              setPage={setPage}
+            />
           </div>
         </div>
       </div>

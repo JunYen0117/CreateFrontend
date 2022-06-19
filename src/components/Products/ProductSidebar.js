@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
@@ -36,6 +36,7 @@ function ProductSidebar(props) {
             withCredentials: true,
           }
         );
+        // 清除重複的 category_name
         let newCategorys = response.data.filter((category, index, arr) => {
           return (
             arr.findIndex((c) => category.category_name === c.category_name) ===
@@ -48,41 +49,45 @@ function ProductSidebar(props) {
     }
   }, [classificationId]);
 
-  const handleOption = (classId) => () => {
-    setClassificationId(classId);
-  };
-
   return (
     <>
       <ul className="product_sidebar">
-        {classifications.map((v, i) => {
+        {classifications.map((classification, i) => {
           return (
-            <li key={v.id}>
+            <li key={classification.id}>
               <a
                 href="#/"
                 alt=""
+                className={
+                  classificationId === classification.id ? 'active' : ''
+                }
                 onClick={
-                  classificationId === v.id
-                    ? () => setClassificationId(-1)
-                    : handleOption(v.id)
+                  classificationId === classification.id
+                    ? () => {
+                        setClassificationId(-1);
+                        setCategoryId(-1);
+                      }
+                    : () => setClassificationId(classification.id)
                 }
               >
-                <CategoryIcon /> {v.classification_name}
+                <CategoryIcon /> {classification.classification_name}
               </a>
-              {classificationId === v.id && (
-                <div className="product_name">
-                  {categorys.map((v, i) => {
+              {classificationId === classification.id && (
+                <div className="product_category">
+                  {categorys.map((category, i) => {
                     return (
                       <a
-                        key={v.id}
-                        className="ms-3"
+                        key={category.id}
                         href="#/"
                         alt=""
+                        className={`ms-3 ${
+                          categoryId === category.category_id ? 'active' : ''
+                        }`}
                         onClick={() => {
-                          setCategoryId(v.category_id);
+                          setCategoryId(category.category_id);
                         }}
                       >
-                        {v.category_name}
+                        {category.category_name}
                       </a>
                     );
                   })}
