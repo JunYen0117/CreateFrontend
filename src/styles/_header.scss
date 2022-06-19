@@ -2,6 +2,8 @@
 .header_top {
   padding-inline-start: 0px; 
   margin-bottom: 0px;
+  margin-right: 50px;
+
 }
 .header_a {
   color: white;
@@ -21,14 +23,15 @@ header {
 }
 .search_bar {
   width: 200px;
-  height: 40px;
+  height: 30px;
   border-radius: 20px;
 }
 .search_icon {
   position: absolute;
-  right: 12px;
-  top: 5px;
+  right: 10px;
+  top: 2px;
 }
+
 .menu2 {
   a {
     display: block;
@@ -37,7 +40,7 @@ header {
     padding: 9px 34px;
     border-radius: 22.5px;
     font-size: $h2-font-size;
-    font-weight: bold;
+    // font-weight: bold;
   }
   a:hover {
     color: white;

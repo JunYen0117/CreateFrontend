@@ -17,7 +17,7 @@ function Header() {
     <>
       <header className="container-fluid">
         <div className="d-none d-md-flex justify-content-between">
-          <div className="d-flex">
+          <div className="d-flex ms-5">
             <figure className="desktop_figure mx-5 mt-4">
               <a href="#/" className="header_a">
                 <img src={LogoDesktop} alt="" />
@@ -31,7 +31,7 @@ function Header() {
             </li>
           </div>
           <ul className="header_top menu1 d-none d-md-flex pt-4">
-            <li className="shopcart_item mt-3 me-5">
+            <li className="shopcart_item mt-3 me-3">
               <Shopcart1 />
             </li>
             <li className="profile_item mt-3 me-5">
