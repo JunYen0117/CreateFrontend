@@ -11,16 +11,21 @@ const FavProduct = () => {
       <div className="container-fluid mb-5">
         <div className="row">
           <ASidebar />
-          <div className="col-9 productOrder">
+          <div className="col-8 productOrder">
             <FavTitle />
             <div className=" row">
               {[1, 2, 3, 4].map(() => {
                 return (
                   <Card
-                    style={{ width: '13rem' }}
+                    style={{ width: '12rem' }}
                     className="me-5 mt-2 p-0 position-relative"
                   >
-                    <Card.Img variant="top" src={Bird} className="Fp_img" />
+                    <Card.Img
+                      variant="top"
+                      src={Bird}
+                      className="Fp_img"
+                      style={{ height: '10rem' }}
+                    />
                     <FaHeart className="Fp_heart" />
                     <Card.Body>
                       <Card.Title className="Fp_cardtitle text-center">
