@@ -6,6 +6,7 @@ import { ReactComponent as CategoryIcon } from '../../img/products/product_categ
 function ProductSidebar(props) {
   const { classifications, setClassifications } = props;
   const { categorys, setCategorys } = props;
+  const { setClosePage } = props;
 
   // 類別 id
   const { classificationId, setClassificationId } = props;
@@ -51,7 +52,7 @@ function ProductSidebar(props) {
 
   return (
     <>
-      <ul className="product_sidebar">
+      <ul className="product_sidebar" onClick={() => setClosePage(false)}>
         {classifications.map((classification, i) => {
           return (
             <li key={classification.id}>

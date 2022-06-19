@@ -14,7 +14,7 @@ function Products() {
   const [classifications, setClassifications] = useState([]);
   const [categorys, setCategorys] = useState([]);
 
-  // 顯示的商品 (可做分頁)
+  // 顯示的商品
   const [products, setProducts] = useState([]);
 
   // 商品篩選 類別
@@ -26,6 +26,7 @@ function Products() {
   // 分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
+  const [closePage, setClosePage] = useState(true);
 
   return (
     <>
@@ -66,6 +67,7 @@ function Products() {
           <div className="col-7"></div>
           <div className="col-5 p-0">
             <ul className="d-flex justify-content-between">
+              {/* 用 form 表單查詢 */}
               <li className="price_filter">
                 <span className="me-3">NT$</span>
                 <input type="text" />
@@ -78,6 +80,7 @@ function Products() {
                 </a>
               </li>
               <li className="product_filter">
+                {/* 切換 遞增 和 遞減*/}
                 <span>商品排序</span>
                 <a href="#/" alt="">
                   <span>
@@ -99,6 +102,7 @@ function Products() {
               setClassificationId={setClassificationId}
               categoryId={categoryId}
               setCategoryId={setCategoryId}
+              setClosePage={setClosePage}
             />
           </div>
           <div className="col-9 p-0">
@@ -111,11 +115,15 @@ function Products() {
               lastPage={lastPage}
               setLastPage={setLastPage}
             />
-            <ProductPagination
-              page={page}
-              lastPage={lastPage}
-              setPage={setPage}
-            />
+            {closePage ? (
+              <ProductPagination
+                page={page}
+                lastPage={lastPage}
+                setPage={setPage}
+              />
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>
