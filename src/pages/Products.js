@@ -2,12 +2,6 @@ import banner from '../img/products/cart_banner.webp';
 import option1 from '../img/products/option1.jpg';
 import option2 from '../img/products/option2.jpg';
 import option3 from '../img/products/option3.jpg';
-import productImg from '../img/products/2_2deer.jpg';
-
-import { ReactComponent as CategoryIcon } from '../img/products/product_category.svg';
-
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import {
   AiOutlineAlignRight,
@@ -16,86 +10,14 @@ import {
   AiOutlineRight,
 } from 'react-icons/ai';
 
+import { useState } from 'react';
+import ProductList from '../components/Products/ProductList';
+import ProductSidebar from '../components/Products/ProductSidebar';
+
 function Products() {
   const [classifications, setClassifications] = useState([]);
   const [categorys, setCategorys] = useState([]);
   const [products, setProducts] = useState([]);
-  const [open, setOpen] = useState(-1);
-
-  // Products
-  useEffect(() => {
-    let getProduct = async () => {
-      let response = await axios.get('http://localhost:3003/api/product', {
-        withCredentials: true,
-      });
-      setProducts(response.data);
-    };
-    getProduct();
-  }, []);
-
-  // Classification
-  useEffect(() => {
-    let getClassification = async () => {
-      let response = await axios.get(
-        'http://localhost:3003/api/product/classification',
-        {
-          withCredentials: true,
-        }
-      );
-      setClassifications(response.data);
-    };
-    getClassification();
-  }, []);
-
-  // category
-  useEffect(() => {
-    let getCategory = async () => {
-      let response = await axios.get(
-        `http://localhost:3003/api/product/classification/${open}`,
-        {
-          withCredentials: true,
-        }
-      );
-      setCategorys(response.data);
-    };
-    getCategory();
-  }, [open]);
-
-  const handleOption = (type) => () => {
-    switch (type) {
-      case '居家生活': {
-        setOpen(1);
-        break;
-      }
-      case '香氛系列': {
-        setOpen(2);
-        break;
-      }
-      case '配件飾品': {
-        setOpen(3);
-        break;
-      }
-      case '家電3C': {
-        setOpen(4);
-        break;
-      }
-      case '辦公文具': {
-        setOpen(5);
-        break;
-      }
-      case '玩偶玩具': {
-        setOpen(6);
-        break;
-      }
-      case '包包提袋': {
-        setOpen(7);
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-  };
 
   return (
     <>
@@ -160,87 +82,18 @@ function Products() {
         </div>
         <div className="row mt-5 product_area pt-5">
           <div className="col-3">
-            <ul className="product_list">
-              {classifications.map((v, i) => {
-                return (
-                  <li key={v.id}>
-                    <a
-                      href="#/"
-                      alt=""
-                      onClick={
-                        open === v.id
-                          ? () => setOpen(-1)
-                          : handleOption(v.classification_name)
-                      }
-                    >
-                      <CategoryIcon /> {v.classification_name}
-                    </a>
-                    {open === v.id && (
-                      <div className="product_name">
-                        {categorys.map((v, i) => {
-                          return (
-                            <a key={v.id} href="#/" className="ms-3" alt="">
-                              {v.category_name}
-                            </a>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            <ProductSidebar
+              classifications={classifications}
+              setClassifications={setClassifications}
+              categorys={categorys}
+              setCategorys={setCategorys}
+            />
           </div>
+          {/* ProductList */}
           <div className="col-9 p-0">
-            <div className="row w-100">
-              {/* 商品列 一 */}
-              {products.map((v, i) => {
-                return (
-                  <div className="col-3">
-                    <div className="product_item">
-                      <figure>
-                        <a href="#/" alt="">
-                          <img
-                            src={`http://localhost:3003/images/product/${v.image}`}
-                            alt=""
-                          ></img>
-                        </a>
-                      </figure>
-                      <h2>{v.product_name}</h2>
-                      <h3>品牌：{v.business_name}</h3>
-                      <h3>NT$ {v.price}</h3>
-                    </div>
-                  </div>
-                );
-              })}
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <a href="#/" alt="">
-                      <img src={productImg} alt=""></img>
-                    </a>
-                  </figure>
-                  <h2>商品A</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="product_item">
-                  <figure>
-                    <a href="#/" alt="">
-                      <img
-                        src="http://localhost:3003/images/product/1_1咖啡壺.jpg"
-                        alt=""
-                      ></img>
-                    </a>
-                  </figure>
-                  <h2>商品B</h2>
-                  <h3>品牌名</h3>
-                  <h3>NT.1000</h3>
-                </div>
-              </div>
-            </div>
+            <ProductList products={products} setProducts={setProducts} />
+
+            {/* ProductList */}
             {/* 商品列結束 */}
             <nav aria-label="Page navigation example">
               <ul className="pagination product_page justify-content-end me-4 my-5">
