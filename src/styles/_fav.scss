@@ -34,3 +34,31 @@
   top: 5px;
 }
 
+// -- Fav activity --
+
+.Fac_img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.Fac_table {
+  tr {
+    th {
+      font-weight: 200;
+      width: 70px;
+    }
+    td {
+      font-weight: 200;
+      padding: 0.25rem 3rem;
+    }
+  }
+}
+
+.Fac_heart {
+    color: rgb(194, 68, 68);
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
