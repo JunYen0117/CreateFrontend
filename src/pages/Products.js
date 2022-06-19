@@ -23,7 +23,7 @@ function Products() {
   const [classificationId, setClassificationId] = useState(-1);
 
   // 商品篩選 種類
-  const [categoryId, setCategoryId] = useState(1);
+  const [categoryId, setCategoryId] = useState(-1);
 
   return (
     <>
@@ -104,6 +104,7 @@ function Products() {
               products={products}
               setProducts={setProducts}
               classificationId={classificationId}
+              categoryId={categoryId}
             />
             <nav aria-label="Page navigation example">
               <ul className="pagination product_page justify-content-end me-4 my-5">
