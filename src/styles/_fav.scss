@@ -1,6 +1,28 @@
+// --- Fav list ---
+
+.Fl_title {
+  padding-top: 3rem;
+  font-weight: bold;
+}
+
+.Fl_item {
+  margin-right: 5rem;
+}
+
+.Fl_nav{
+  border-bottom: 1px solid $light;
+}
+
+.Fl_btn {
+  padding-left: 0;
+  cursor: pointer;
+  color: $light;
+  font-weight: bold;
+}
+
 // ---- Fav product ---
 
-.Fp_top{
+.Fp_top {
   width: 10rem;
   height: 10rem;
 }
@@ -57,9 +79,9 @@
 }
 
 .Fac_heart {
-    color: rgb(194, 68, 68);
-    font-size: 1.5rem;
-    position: absolute;
-    right: 12%;
-    top: 5px;
-  }
+  color: rgb(194, 68, 68);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 12%;
+  top: 5px;
+}
