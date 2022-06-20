@@ -67,7 +67,7 @@
 
 .product_category {
   a {
-    color: #A5B6A4;
+    color: #a5b6a4;
     font-weight: 500;
     font-size: 14px;
     padding: 10px 0;
@@ -115,14 +115,69 @@
 }
 
 /*以下為手機版*/
-@media screen and (max-width: 992px){
-  .product_option_text{
+@media screen and (max-width: 1200px) {
+  .product_item {
+    figure {
+      // RWD 待調整
+      width: 160px;
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .product_item {
+    figure {
+      // RWD 待調整
+      width: 128px;
+      height: 128px;
+    }
+
+    .h2 {
+      font-size: 12px;
+    }
+
+    .h3 {
+      font-size: 10px;
+    }
+  }
+  .product_option_text {
     font-size: 2rem;
   }
 }
 
-@media screen and (max-width: 768px){
-  .product_option_text{
+@media screen and (max-width: 768px) {
+  .product_sidebar {
+    a {
+      font-size: 12px;
+    }
+  }
+  .product_item {
+    figure {
+      // RWD 待調整
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .product_option_text {
     font-size: 3rem;
+  }
+}
+
+/* ------------ Product Detail ------------*/
+
+.product_description {
+  p {
+    font-weight: 600;
+  }
+}
+
+.product_pluscart {
+  background-color: #dcd5ca;
+  color: #903f23;
+  font-weight: 700;
+  a {
+    text-decoration: none;
+    color: #903f23;
   }
 }

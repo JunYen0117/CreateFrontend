@@ -2,10 +2,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
 
 import Products from './pages/Products';
-import ProductDetail from './components/Products/ProductDetail';
+import ProductDetail from './pages/ProductDetail';
 
 import About from './pages/About';
 import User from './pages/User';
@@ -13,11 +12,6 @@ import User from './pages/User';
 function App() {
   return (
     <>
-<<<<<<< HEAD
-=======
-      <Header />
-      <Sidebar />
->>>>>>> dev
       <Router>
         <Header />
         <Switch>

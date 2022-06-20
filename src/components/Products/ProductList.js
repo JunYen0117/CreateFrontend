@@ -6,11 +6,28 @@ import ProductItem from './ProductItem';
 function ProductList(props) {
   const { products, setProducts } = props;
   const { classificationId, categoryId } = props;
-  const { page, setLastPage } = props;
+  const { page, lastPage, setLastPage } = props;
 
   // 第一次進入頁面時，顯示全部商品
   useEffect(() => {
-    if (classificationId < 0 && categoryId < 0) {
+    let getProductAll = async () => {
+      // http://localhost:3003/api/product?page=1
+      let response = await axios.get(`http://localhost:3003/api/product`, {
+        withCredentials: true,
+        params: {
+          page: page,
+        },
+      });
+      setProducts(response.data.data);
+      // 設定最後一頁
+      setLastPage(response.data.pagination.lastPage);
+    };
+    getProductAll();
+  }, []);
+
+  // 全部商品換頁；關閉類別時，顯示全部商品
+  useEffect(() => {
+    if (classificationId === -1) {
       let getProductAll = async () => {
         // http://localhost:3003/api/product?page=1
         let response = await axios.get(`http://localhost:3003/api/product`, {
@@ -25,7 +42,7 @@ function ProductList(props) {
       };
       getProductAll();
     }
-  }, [page]);
+  }, [page, classificationId]);
 
   // 選擇商品類別，顯示那一類商品
   useEffect(() => {

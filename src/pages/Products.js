@@ -32,7 +32,7 @@ function Products() {
       <div className="mt-4 product_banner">
         <img src={banner} alt="" />
       </div>
-      <div class="container">
+      <div className="container">
         <div className="row justify-content-between mt-5 mx-auto gy-3">
           <div className="col-12 col-md-4">
             <a href="#/">
@@ -93,7 +93,7 @@ function Products() {
           </div>
         </div>
         <div className="row mt-5 product_area pt-5">
-          <div className="col-3">
+          <div className="col-2 col-md-3">
             <ProductSidebar
               classifications={classifications}
               setClassifications={setClassifications}
@@ -106,7 +106,7 @@ function Products() {
               setPage={setPage}
             />
           </div>
-          <div className="col-9 p-0">
+          <div className="col-10 col-md-9 p-0">
             <ProductList
               products={products}
               setProducts={setProducts}

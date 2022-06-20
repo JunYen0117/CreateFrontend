@@ -15,9 +15,9 @@ function ProductItem(props) {
               ></img>
             </Link>
           </figure>
-          <h2>{product.product_name}</h2>
-          <h3>品牌：{product.business_name}</h3>
-          <h3>NT$ {product.price}</h3>
+          <p className="h2">{product.product_name}</p>
+          <p className="h3">品牌：{product.business_name}</p>
+          <p className="h3">NT$ {product.price}</p>
         </div>
       </div>
     </>

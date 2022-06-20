@@ -49,7 +49,9 @@ function Header() {
             <Link to="#/">活動資訊</Link>
           </li>
           <li>
-            <Link to="/product">購物商城</Link>
+            <Link to="/product" className="active">
+              購物商城
+            </Link>
           </li>
           <li>
             <Link to="#/">文章專欄</Link>

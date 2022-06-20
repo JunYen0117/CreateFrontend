@@ -71,6 +71,7 @@ function ProductSidebar(props) {
                       }
                     : () => {
                         setClassificationId(classification.id);
+                        setCategoryId(-1);
                         setPage(1);
                       }
                 }
