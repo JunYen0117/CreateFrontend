@@ -2,8 +2,10 @@
     height: 275px;
 }
 .coure-sidebar{
+  
     .nav-item{
-
+      // position: relative;
+      // left: 30px;
         .nav-link{
           position: relative;
           color:black;
@@ -16,10 +18,9 @@
               display: inline-block;
               width: 5px;
               height: 20px;
-              position: absolute;
-              left: 0px;
-              top: 10px;
-              
+              position: relative;
+              right: 10px;
+              align-self: center;
               background: $primary;
             }
             color:$primary;
@@ -29,10 +30,51 @@
       }
 }
 .course-text{
-    width: 80%;
+    
     .text-title{
         font-size: 2rem;
         font-weight: bolder;
         color: $primary;
     }
+    h1{
+      font-weight: bold;
+    }
+    // .text{
+    //   font-size: 18px;
+    // }
+
+}
+
+
+.order-card{
+
+  .course-order{
+    .row{
+      line-height: 50px;
+      // border: 1px solid black;
+    }
+    .total-price{
+      font-size: $font-size-base * 1.125;
+      span{
+        font-size: $font-size-base * 1.375;
+        color: $primary;
+        margin-left: 10px;
+      }
+
+    }
+    button{
+      border: 0;
+      background: $primary;
+      color: white;
+      width: 150px;
+      height: 40px;
+    }
+    
+    
+    .icon{
+      font-size: 20px;
+      
+    }
+  }
+
 }

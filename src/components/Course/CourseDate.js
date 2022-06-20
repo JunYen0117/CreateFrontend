@@ -22,13 +22,15 @@ function CourseDate() {
 
   return (
     <>
-      <DayPicker
-        mode="single"
-        selected={selected}
-        onSelect={setSelected}
-        footer={footer}
-        disabled={isDayDisabled}
-      />
+      <div className="">
+        <DayPicker
+          mode="single"
+          selected={selected}
+          onSelect={setSelected}
+          footer={footer}
+          disabled={isDayDisabled}
+        />
+      </div>
     </>
   );
 }
