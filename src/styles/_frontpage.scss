@@ -2,7 +2,6 @@
 .gallery {
     margin: 20px 0 50px 0;
     width: 100%;
-
 }
 .carousel-indicators {
     button {
@@ -23,43 +22,46 @@ h2 {
     }
 }
 // ProductCard質感商品
-
-.all-card {
+.all-product-card {
     margin: 0 120px 100px 120px;
 }
 .card {
     border: 0px;
+    padding: 0 10px;
 }
-.figure {
-    width: 285px;
+
+.product_img {
+    width: 100%;
     height: 285px;
     margin-bottom: 20px;
-    :hover {
-        box-shadow: 8px 8px 10px #b996644d;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }
-.img-fluid {
-    width: 285px;
-    height: 285px;
-    object-fit: cover;
+.product_img:hover {
+    box-shadow: 8px 8px 10px #b996644d;
+}
+.card-body {
+    padding: 0;
 }
 .card-title {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 15%;
     line-height: 24.52px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     a {
         text-decoration: none;
         color: black;
     }
 }
 .card-text {
-    a {
-        font-size: 14px;
-        text-decoration: none;
-        color: #a5b6a4;
-    }
+    font-size: 14px;
+    text-decoration: none;
+    color: #a5b6a4;
+    margin-bottom: 15px;
 }
 .money {
     color: #b99664;
@@ -68,22 +70,32 @@ h2 {
 // BusinessLogo 品牌Logo
 .all-logo {
     margin: 0 120px 100px 120px;
-    .card{
+    .card {
         padding: 0 10px;
     }
-    .card-body{
+    .card-body {
         padding: 20px 0 0 0 !important;
     }
 }
 .logo {
     width: 100%;
-    object-fit: cover;
+    height: 285px;
     margin-bottom: 0;
+    .img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
     :hover {
         box-shadow: 8px 8px 10px #b996644d;
     }
 }
-
+button {
+    img {
+        position: relative;
+        top: 28%;
+    }
+}
 // ArticleCard 熱門文章
 .article_img {
     width: 180px;

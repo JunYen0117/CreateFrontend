@@ -7,7 +7,8 @@ function ArticleCard(props) {
         <a href={props.href}>
           <div className="d-flex align-items-center">
             <div className="flex-shrink-0 article_img">
-              <img src={props.img} alt="..." />
+              {/* localhost:3001/img/name/pic.jpg */}
+              <img src={require(`../../img/${props.img}`)} alt="..." />
             </div>
             <div className="flex-grow-1 ms-3 d-flex flex-wrap article_text">
               <h3 className="">{props.title}</h3>

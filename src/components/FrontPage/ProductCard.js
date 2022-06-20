@@ -3,16 +3,22 @@ import '../../styles/_frontpage.scss';
 function ProductCard(props) {
   return (
     <>
-      <div className="card">
-        <a href={props.pic_href}>
-          <img src={props.product_pic} className="card-img-top" alt="..." />
-        </a>
+      <div className="card col-3">
+        <div className="flex-shrink-0 product_img">
+          <a href={props.pic_href}>
+            <img
+              src={require(`../../img/${props.product_pic}`)}
+              className="card-img-top"
+              alt="..."
+            />
+          </a>
+        </div>
         <div className="card-body">
           <h5 className="card-title">{props.product}</h5>
           <a href={props.brand_href} className="card-text">
             {props.brand}
           </a>
-          <p className="">{props.cost}</p>
+          <p className="money">NT. {props.cost}</p>
         </div>
       </div>
     </>

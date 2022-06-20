@@ -81,8 +81,12 @@ function BusinessLogo() {
       <h2>
         <a href="/">精選品牌</a>
       </h2>
-      <div id="test123" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner product-card">
+      <div
+        id="test123"
+        className="carousel slide d-flex justify-content-between"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner">
           <CarouselContents contents={contents} />
         </div>
         {/* 左按鈕 */}

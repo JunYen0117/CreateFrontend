@@ -15,7 +15,7 @@ function App() {
     <>
       <Header />
       <FrontPage />
-      <BrandPage />
+      {/* <BrandPage /> */}
       <Router>
         <Switch>
           <Route path="/product">

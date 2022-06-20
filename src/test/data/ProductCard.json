@@ -1,7 +1,7 @@
 [{
     "product":"商品1",
     "brand":"品牌名1",
-    "product_pic":"../img/P1.jpg",
+    "product_pic":"P1.jpg",
     "brand_href":"/",
     "pic_href":"/",
     "cost":"1000"
@@ -9,7 +9,7 @@
 {
     "product":"商品2",
     "brand":"品牌名2",
-    "product_href":"/",
+    "product_pic":"P2.jpg",
     "brand_href":"/",
     "pic_href":"/",
     "cost":"2000"
@@ -17,7 +17,7 @@
 {
     "product":"商品3",
     "brand":"品牌名3",
-    "product_href":"/",
+    "product_pic":"P3.jpg",
     "brand_href":"/",
     "pic_href":"/",
     "cost":"3000"
@@ -25,7 +25,7 @@
 {
     "product":"商品4",
     "brand":"品牌名4",
-    "product_href":"/",
+    "product_pic":"P4.jpg",
     "brand_href":"/",
     "pic_href":"/",
     "cost":"4000"

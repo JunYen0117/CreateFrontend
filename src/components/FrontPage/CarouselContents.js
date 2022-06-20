@@ -10,7 +10,7 @@ function CarouselContents(props) {
             <Card className="col-3">
               <a href="/">
                 <figure className="logo">
-                  <Card.Img variant="top" src={content.img} className="" />
+                  <Card.Img variant="top" src={content.img} className="img" />
                 </figure>
               </a>
               <Card.Body>
