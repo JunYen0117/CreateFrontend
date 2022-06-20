@@ -10,9 +10,9 @@ const FavArticle = () => {
       <div className="container-fluid mb-5">
         <div className="row">
           <ASidebar />
-          <div className="col-9 productOrder">
+          <div className="col-8 productOrder">
             <FavTitle />
-            <div className="row">
+            <div className="row ">
               {[1, 2, 3, 4].map(() => {
                 return (
                   <>
@@ -23,7 +23,7 @@ const FavArticle = () => {
                       <img className="Far_img" src={Milu} alt="" />
                       <FaHeart className="Far_heart" />
                     </div>
-                    <div className="col-9 ms-3 mb-2">
+                    <div className="col-10 ms-3 mb-2">
                       <h2>遲遲</h2>
                       <p className="lh-lg">
                         熙熙攘攘 天越亮越緊張 還沒到場 似妳平時一樣 人來人往
