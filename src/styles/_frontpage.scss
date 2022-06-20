@@ -32,12 +32,11 @@ h2 {
 
 .product_img {
     width: 100%;
-    height: 285px;
     margin-bottom: 20px;
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
 }
 .product_img:hover {
@@ -70,26 +69,24 @@ h2 {
 // BusinessLogo 品牌Logo
 .all-logo {
     margin: 0 120px 100px 120px;
-    .card {
-        padding: 0 10px;
-    }
     .card-body {
-        padding: 20px 0 0 0 !important;
+        padding: 10px 0 0 0 !important;
+    }
+    .logo-pic {
+        width: 285px;
+        height: 285px;
+        margin-bottom: 0;
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        :hover {
+            box-shadow: 8px 8px 10px #b996644d;
+        }
     }
 }
-.logo {
-    width: 100%;
-    height: 285px;
-    margin-bottom: 0;
-    .img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-    :hover {
-        box-shadow: 8px 8px 10px #b996644d;
-    }
-}
+
 button {
     img {
         position: relative;
