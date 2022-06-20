@@ -170,14 +170,21 @@
   p {
     font-weight: 600;
   }
+  a {
+    text-decoration: none;
+  }
 }
 
 .product_pluscart {
   background-color: #dcd5ca;
   color: #903f23;
   font-weight: 700;
-  a {
-    text-decoration: none;
-    color: #903f23;
+}
+
+.productdetail_comment{
+  max-width: 960px;
+  span {
+    color: #FFF;
+    background-color: #B99664;
   }
 }

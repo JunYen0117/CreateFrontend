@@ -1,13 +1,18 @@
 import product from '../img/products/product01.jpg';
 
+import { useState } from 'react';
+
 import {
   BsPlusLg,
   BsDashLg,
   BsFillCartPlusFill,
   BsHeart,
+  BsHeartFill,
 } from 'react-icons/bs';
 
 function ProductDetail() {
+  const textarr = [1, 2, 3];
+  const [heart, setHeart] = useState(false);
   //   const [productInDetail, setProductInDetail] = useState({
   //     id: '',
   //     picture: '',
@@ -61,18 +66,28 @@ function ProductDetail() {
                 <BsPlusLg />
               </span>
             </div>
-            <div className="mb-0 p-2 h2 product_pluscart text-center">
-              <BsFillCartPlusFill className="mb-1 me-3 h1" />
-              <a href="#/" alt="">
-                加入購物車
-              </a>
-            </div>
-            <div className="mb-0 p-2 h2 product_pluscart text-center">
-              <BsHeart className="mb-1 me-3 h1" />
-              <a href="#/" alt="">
-                收藏商品
-              </a>
-            </div>
+            <a href="#/" alt="">
+              <div className="mb-0 p-2 h2 product_pluscart text-center">
+                <BsFillCartPlusFill className="mb-1 me-3 h1" />
+                <span>加入購物車</span>
+              </div>
+            </a>
+            <a
+              href="#/"
+              alt=""
+              onClick={() => {
+                setHeart(!heart);
+              }}
+            >
+              <div className="mb-0 p-2 h2 product_pluscart text-center">
+                {heart ? (
+                  <BsHeartFill className="mb-1 me-3 h1" />
+                ) : (
+                  <BsHeart className="mb-1 me-3 h1" />
+                )}
+                <span>收藏商品</span>
+              </div>
+            </a>
           </div>
         </div>
         {/* 商品介紹 */}
@@ -97,32 +112,39 @@ function ProductDetail() {
         <div className="row justify-content-start my-3">
           <div className="col-12">
             <h1 className="fw-bolder">購買評價</h1>
-            <p className="h2">Customer Name</p>
-            <div className="card mb-3" style={{ maxWidth: '960px' }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src={product} alt="" className="img-fluid" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title h3">評論</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
+            {textarr.map((v, i) => {
+              return (
+                <div key={i} className="my-4">
+                  <p className="h2">Customer Name</p>
+                  <div className="card mb-3 productdetail_comment">
+                    <div className="row g-0">
+                      <div className="col-md-4">
+                        <img src={product} alt="" className="img-fluid" />
+                      </div>
+                      <div className="col-md-8 p-3">
+                        <div className="card-body d-flex flex-column justify-content-between h-100">
+                          <p className="card-text h2 lh-lg">
+                            這件商品好讚喔！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！
+                          </p>
+                          <div>
+                            <span className="h2 px-3 py-1 fw-bolder">
+                              質感優異
+                            </span>
+                            <span className="h2 px-3 py-1 ms-3 fw-bolder">
+                              符合期待
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
         {/* --------- 購買評價 --------- */}
       </div>
-      <h1>ProductDetail</h1>
-      <h1>ProductDetail</h1>
-      <h1>ProductDetail</h1>
-      <h1>ProductDetail</h1>
     </>
   );
 }

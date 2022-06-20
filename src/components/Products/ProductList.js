@@ -25,7 +25,7 @@ function ProductList(props) {
     getProductAll();
   }, []);
 
-  // 全部商品換頁；關閉類別時，顯示全部商品
+  // 全部商品換頁；關閉類別，顯示全部商品
   useEffect(() => {
     if (classificationId === -1) {
       let getProductAll = async () => {
