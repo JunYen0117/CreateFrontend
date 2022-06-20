@@ -18,10 +18,10 @@ const FavActivity = () => {
                 return (
                   <>
                     <div
-                      className="col-3 p-0 me-2 position-relative mb-5 mt-1"
+                      className="col-3 p-0 me-2 mb-5 mt-1 position-relative"
                       style={{ width: '25%', height: '160px' }}
                     >
-                      <img src={Activity} alt="" className="Fac_img" />
+                      <img src={Activity} alt="" className="Fac_img " />
                       <FaHeart className="Fac_heart" />
                     </div>
                     <div className="col-8 mb-5 mt-1">
