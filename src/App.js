@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 import Products from './pages/Products';
 import ProductDetail from './components/Products/ProductDetail';
@@ -12,6 +13,11 @@ import User from './pages/User';
 function App() {
   return (
     <>
+<<<<<<< HEAD
+=======
+      <Header />
+      <Sidebar />
+>>>>>>> dev
       <Router>
         <Header />
         <Switch>
