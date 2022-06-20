@@ -6,6 +6,8 @@ import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
 import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
+
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const LogoMobile = styled(LogoSvg)`
@@ -41,19 +43,19 @@ function Header() {
         </div>
         <ul className="menu2 d-none d-md-flex justify-content-around pt-4">
           <li>
-            <a href="#/">主題企劃</a>
+            <Link to="#/">主題企劃</Link>
           </li>
           <li>
-            <a href="#/">活動資訊</a>
+            <Link to="#/">活動資訊</Link>
           </li>
           <li>
-            <a href="#/">購物商城</a>
+            <Link to="/product">購物商城</Link>
           </li>
           <li>
-            <a href="#/">文章專欄</a>
+            <Link to="#/">文章專欄</Link>
           </li>
           <li>
-            <a href="#/">關於我們</a>
+            <Link to="#/">關於我們</Link>
           </li>
         </ul>
 

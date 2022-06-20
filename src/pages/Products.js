@@ -32,33 +32,35 @@ function Products() {
       <div className="mt-4 product_banner">
         <img src={banner} alt="" />
       </div>
-      <div className="d-flex justify-content-between mt-5 mx-auto product_option">
-        <div className="product_mask">
-          <a href="#/">
-            <div>
-              <img src={option1} alt="" />
-            </div>
-            <p className="product_option_text">節日推薦</p>
-            <div className="product_option_mask"></div>
-          </a>
-        </div>
-        <div className="product_mask">
-          <a href="#/">
-            <div>
-              <img src={option2} alt="" />
-            </div>
-            <p className="product_option_text">熱門商品</p>
-            <div className="product_option_mask"></div>
-          </a>
-        </div>
-        <div className="product_mask">
-          <a href="#/">
-            <div>
-              <img src={option3} alt="" />
-            </div>
-            <p className="product_option_text">全部商品</p>
-            <div className="product_option_mask"></div>
-          </a>
+      <div class="container">
+        <div className="row justify-content-between mt-5 mx-auto gy-3">
+          <div className="col-12 col-md-4">
+            <a href="#/">
+              <div className="product_mask">
+                <img src={option1} alt="" />
+                <p className="product_option_text">節日推薦</p>
+                <div className="product_option_mask"></div>
+              </div>
+            </a>
+          </div>
+          <div className="col-12 col-md-4">
+            <a href="#/">
+              <div className="product_mask">
+                <img src={option2} alt="" />
+                <p className="product_option_text">熱門商品</p>
+                <div className="product_option_mask"></div>
+              </div>
+            </a>
+          </div>
+          <div className="col-12 col-md-4">
+            <a href="#/">
+              <div className="product_mask">
+                <img src={option3} alt="" />
+                <p className="product_option_text">全部商品</p>
+                <div className="product_option_mask"></div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
       <div className="container mt-5">
