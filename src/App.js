@@ -14,6 +14,7 @@ import FavProduct from './pages/Fav/FavProduct';
 import FavActivity from './pages/Fav/FavActivity';
 import FavArticle from './pages/Fav/FavArticle';
 import FavList from './pages/Fav/FavList';
+import Order from './pages/ProductOrder/Order';
 
 function App() {
   const [isShowOL, setIsShowOL] = useState(true);
@@ -37,12 +38,13 @@ function App() {
             <FavActivity />
           </Route>
           <Route path="/order">
-            {isShowOL ? (
+            <Order />
+             {/* {isShowOL ? (
               <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}
             {isShowOD ? (
               <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
-            ) : null}
+            ) : null}  */}
           </Route>
           <Route path="/product">
             <Product />
