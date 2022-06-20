@@ -30,7 +30,7 @@ function Header() {
               </a>
             </li>
           </div>
-          <ul className="header_top menu1 d-none d-md-flex pt-4">
+          <ul className="header_top menu1 d-none d-md-flex pt-4 ">
             <li className="shopcart_item mt-3 me-3">
               <Shopcart1 />
             </li>
