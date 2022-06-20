@@ -26,7 +26,6 @@ function Products() {
   // 分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
-  const [closePage, setClosePage] = useState(true);
 
   return (
     <>
@@ -102,7 +101,7 @@ function Products() {
               setClassificationId={setClassificationId}
               categoryId={categoryId}
               setCategoryId={setCategoryId}
-              setClosePage={setClosePage}
+              setPage={setPage}
             />
           </div>
           <div className="col-9 p-0">
@@ -115,7 +114,7 @@ function Products() {
               lastPage={lastPage}
               setLastPage={setLastPage}
             />
-            {closePage ? (
+            {categoryId === -1 ? (
               <ProductPagination
                 page={page}
                 lastPage={lastPage}

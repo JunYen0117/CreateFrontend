@@ -6,12 +6,13 @@ import { ReactComponent as CategoryIcon } from '../../img/products/product_categ
 function ProductSidebar(props) {
   const { classifications, setClassifications } = props;
   const { categorys, setCategorys } = props;
-  const { setClosePage } = props;
 
   // 類別 id
   const { classificationId, setClassificationId } = props;
   // 種類 id
   const { categoryId, setCategoryId } = props;
+  // 設回第一頁
+  const { setPage } = props;
 
   // Classification
   useEffect(() => {
@@ -27,24 +28,24 @@ function ProductSidebar(props) {
     getClassification();
   }, []);
 
-  // category
+  // 依 Classification 顯示 category
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
         let response = await axios.get(
-          `http://localhost:3003/api/product/classification/${classificationId}}`,
+          `http://localhost:3003/api/product/classification/${classificationId}/category`,
           {
             withCredentials: true,
           }
         );
         // 清除重複的 category_name
-        let newCategorys = response.data.filter((category, index, arr) => {
-          return (
-            arr.findIndex((c) => category.category_name === c.category_name) ===
-            index
-          );
-        });
-        setCategorys(newCategorys);
+        // let newCategorys = response.data.filter((category, index, arr) => {
+        //   return (
+        //     arr.findIndex((c) => category.category_name === c.category_name) ===
+        //     index
+        //   );
+        // });
+        setCategorys(response.data);
       };
       getCategory();
     }
@@ -52,7 +53,7 @@ function ProductSidebar(props) {
 
   return (
     <>
-      <ul className="product_sidebar" onClick={() => setClosePage(false)}>
+      <ul className="product_sidebar">
         {classifications.map((classification, i) => {
           return (
             <li key={classification.id}>
@@ -68,7 +69,10 @@ function ProductSidebar(props) {
                         setClassificationId(-1);
                         setCategoryId(-1);
                       }
-                    : () => setClassificationId(classification.id)
+                    : () => {
+                        setClassificationId(classification.id);
+                        setPage(1);
+                      }
                 }
               >
                 <CategoryIcon /> {classification.classification_name}
@@ -82,10 +86,10 @@ function ProductSidebar(props) {
                         href="#/"
                         alt=""
                         className={`ms-3 ${
-                          categoryId === category.category_id ? 'active' : ''
+                          categoryId === category.id ? 'active' : ''
                         }`}
                         onClick={() => {
-                          setCategoryId(category.category_id);
+                          setCategoryId(category.id);
                         }}
                       >
                         {category.category_name}

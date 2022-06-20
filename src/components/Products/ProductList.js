@@ -10,19 +10,21 @@ function ProductList(props) {
 
   // 第一次進入頁面時，顯示全部商品
   useEffect(() => {
-    let getProductAll = async () => {
-      // http://localhost:3003/api/product?page=1
-      let response = await axios.get(`http://localhost:3003/api/product`, {
-        withCredentials: true,
-        params: {
-          page: page,
-        },
-      });
-      setProducts(response.data.data);
-      // 設定最後一頁
-      setLastPage(response.data.pagination.lastPage);
-    };
-    getProductAll();
+    if (classificationId < 0 && categoryId < 0) {
+      let getProductAll = async () => {
+        // http://localhost:3003/api/product?page=1
+        let response = await axios.get(`http://localhost:3003/api/product`, {
+          withCredentials: true,
+          params: {
+            page: page,
+          },
+        });
+        setProducts(response.data.data);
+        // 設定最後一頁
+        setLastPage(response.data.pagination.lastPage);
+      };
+      getProductAll();
+    }
   }, [page]);
 
   // 選擇商品類別，顯示那一類商品
@@ -33,13 +35,18 @@ function ProductList(props) {
           `http://localhost:3003/api/product/classification/${classificationId}`,
           {
             withCredentials: true,
+            params: {
+              page: page,
+            },
           }
         );
-        setProducts(response.data);
+        setProducts(response.data.data);
+        // 設定最後一頁
+        setLastPage(response.data.pagination.lastPage);
       };
       getProductClass();
     }
-  }, [classificationId]);
+  }, [classificationId, page]);
 
   // 選擇商品種類，顯示選擇種類的商品
   useEffect(() => {
