@@ -14,7 +14,7 @@ function Course() {
             <CourseText />
           </div>
           <div className="col-2 d-none d-md-block ">
-            <CourseSidebar className="d-flex justify-content-center"/>
+            <CourseSidebar className="d-flex justify-content-center" />
           </div>
         </div>
         <div className="row order-card">
