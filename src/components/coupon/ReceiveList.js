@@ -10,7 +10,10 @@ function ReceiveList(props) {
   const couponPrompt = () => {
     return (
       <>
-        <div className="coupon_pass text-center py-2 position-absolute">
+        <div className="coupon_pass_desktop text-center py-2 position-absolute">
+          即將過期
+        </div>
+        <div className="coupon_pass_phone position-absolute d-md-none py-2">
           即將過期
         </div>
       </>
@@ -19,8 +22,11 @@ function ReceiveList(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <a href="/" className="text-decoration-none">
-          立即使用
+        <a href="#/" className="coupon_desktop text-decoration-none">
+          <h3 className="my-1">立即使用</h3>
+        </a>
+        <a href="#/" className="coupon_phone d-md-none text-decoration-none">
+          <h3 className="my-auto">立即使用</h3>
         </a>
       </>
     );

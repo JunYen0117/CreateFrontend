@@ -16,8 +16,8 @@ const CouponList = () => {
     <>
       {/* 寫法 1：React Bootstrap */}
       <Tab.Container id="left-tabs-example" defaultActiveKey="available">
-        <Row className="">
-          <Col sm={16}>
+        <Row>
+          <Col sm={12}>
             <h1 className="coupon_prompt pt-5 my-3">優惠券</h1>
             <Nav className="coupon_nav pt-4" defaultActiveKey="available">
               <Nav.Item className="mt-3">
@@ -40,7 +40,7 @@ const CouponList = () => {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col sm={16}>
+          <Col sm={12}>
             <Tab.Content className="mb-5">
               <Tab.Pane className="" eventKey="available">
                 <Available />

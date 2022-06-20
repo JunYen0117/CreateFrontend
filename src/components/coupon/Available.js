@@ -9,7 +9,7 @@ function Available(props) {
   const couponPrompt = () => {
     return (
       <>
-        <div className="coupon_pass text-center py-2 position-absolute">
+        <div className="coupon_pass_desktop text-center py-2 position-absolute">
           可領取
         </div>
       </>
@@ -18,8 +18,11 @@ function Available(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <a href="#/" className="text-decoration-none">
-          立即領取
+        <a href="#/" className="coupon_desktop text-decoration-none">
+          <h3 className="my-1">立即領取</h3>
+        </a>
+        <a href="#/" className="coupon_phone d-md-none text-decoration-none">
+          <h3 className="my-auto">可領取</h3>
         </a>
       </>
     );

@@ -1,3 +1,4 @@
+// coupon Navbar
 .coupon_p {
   color: black;
   font-weight: bold;
@@ -6,9 +7,12 @@
   color: #acacac;
   border-bottom: 1px solid #acacac;
   font-weight: bold;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 :focus-visible {
-
   outline-width: 0;
 }
 .coupon_btn {
@@ -31,7 +35,8 @@
     color: $primary;
   }
 }
-.coupon_pass {
+// coupon Card
+.coupon_pass_desktop {
   font-weight: bold;
   border: 1px solid #b99664;
   color: white;
@@ -45,16 +50,15 @@
   color: $primary;
   font-weight: bold;
 }
-.coupon_prompt{
-    font-weight: bold;
-  }
-
-.coupon_item1 {
+.coupon_prompt {
+  font-weight: bold;
+}
+.couponCard_desktop {
   border: 1px solid #b99664;
   width: 46%;
   height: 220px;
 }
-.coupon_item2_Div {
+.couponCard_right {
   border-left: 1px solid #b99664;
   width: 48%;
 }
@@ -66,5 +70,64 @@
   width: 85%;
   &:hover {
     background-color: $secondary;
+  }
+}
+
+// coupon Phone
+@media screen and (max-width: 767px) {
+  .couponCard_desktop {
+    display: none;
+  }
+  .coupon_prompt {
+    display: none;
+  }
+  .couponCard_phone {
+    width: 100%;
+    height: 130px;
+  }
+  .couponCard_phone_left {
+    border: 1px solid #b99664;
+    width: 100px;
+    height: 120px;
+    text-align: center;
+  }
+  .couponCard_phone_right {
+    border: 1px solid #b99664;
+    width: calc( 100% - 100px);
+    height: 120px;
+  }
+  .couponCard_btn {
+    display: none;
+  }
+  .coupon_pass_desktop {
+    display: none;
+  }
+  .coupon_pass_phone {
+    color: $info;
+    font-weight: bold;
+    top: 40px;
+    width: 70px;
+    left: 6px;
+  }
+  .coupon_p_phone {
+    color: $primary;
+    font-weight: bold;
+    line-height: 1.6rem;
+    margin: auto;
+  }
+  .couponCard_btn_phone {
+    top: 88px;
+    right: 10px;
+    font-weight: bold;
+    border: 1px solid #b99664;
+    background-color: white;
+    width: 82px;
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+  
+  .coupon_desktop{
+    display: none;
   }
 }

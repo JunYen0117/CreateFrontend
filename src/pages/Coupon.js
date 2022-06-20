@@ -13,10 +13,10 @@ const Coupon = () => {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3 d-flex justify-content-center mt-4">
+          <div className="col-3 d-none d-md-flex justify-content-center mt-4">
             <Sidebar />
           </div>
-          <div className="col-8">
+          <div className="col-md-8">
             <CouponList />
           </div>
         </div>

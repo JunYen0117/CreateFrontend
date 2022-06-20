@@ -10,14 +10,21 @@ function Invalid(props) {
   const couponPrompt = () => {
     return (
       <>
-        <div className="coupon_pass text-center py-2 position-absolute">
+        <div className="coupon_pass_desktop text-center py-2 position-absolute">
           已失效
         </div>
       </>
     );
   };
   const couponUseBtn = () => {
-    return <>無法使用</>;
+    return (
+      <>
+        <h3 className="coupon_desktop text-decoration-none my-1">無法使用</h3>
+        <h3 className="coupon_phone d-md-none text-decoration-none my-auto">
+          無法使用
+        </h3>
+      </>
+    );
   };
   return (
     <>
