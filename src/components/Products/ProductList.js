@@ -27,43 +27,21 @@ function ProductList(props) {
 
   // 全部商品換頁；關閉類別，顯示全部商品
   useEffect(() => {
-    if (classificationId === -1) {
-      let getProductAll = async () => {
-        // http://localhost:3003/api/product?page=1
-        let response = await axios.get(`http://localhost:3003/api/product`, {
-          withCredentials: true,
-          params: {
-            page: page,
-          },
-        });
-        setProducts(response.data.data);
-        // 設定最後一頁
-        setLastPage(response.data.pagination.lastPage);
-      };
-      getProductAll();
-    }
+    let getProductAll = async () => {
+      // http://localhost:3003/api/product?page=1
+      let response = await axios.get(`http://localhost:3003/api/product`, {
+        withCredentials: true,
+        params: {
+          page: page,
+          classificationId: classificationId,
+        },
+      });
+      setProducts(response.data.data);
+      // 設定最後一頁
+      setLastPage(response.data.pagination.lastPage);
+    };
+    getProductAll();
   }, [page, classificationId]);
-
-  // 選擇商品類別，顯示那一類商品
-  useEffect(() => {
-    if (classificationId > 0) {
-      let getProductClass = async () => {
-        let response = await axios.get(
-          `http://localhost:3003/api/product/classification/${classificationId}`,
-          {
-            withCredentials: true,
-            params: {
-              page: page,
-            },
-          }
-        );
-        setProducts(response.data.data);
-        // 設定最後一頁
-        setLastPage(response.data.pagination.lastPage);
-      };
-      getProductClass();
-    }
-  }, [classificationId, page]);
 
   // 選擇商品種類，顯示選擇種類的商品
   useEffect(() => {
@@ -93,3 +71,5 @@ function ProductList(props) {
 }
 
 export default ProductList;
+
+// [ 1 , 2 , 3]
