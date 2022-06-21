@@ -30,7 +30,7 @@ const Order = () => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-            <Col sm={8}>
+            <Col sm={12}>
               <Tab.Content className="mb-5 row mt-3">
                 <Tab.Pane eventKey="finish">
                   {isShowOL ? (
