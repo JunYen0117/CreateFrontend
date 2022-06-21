@@ -2,7 +2,7 @@
 
 import { React, useState } from 'react';
 import Available from './Available';
-import ReceiveList from './ReceiveList.js';
+import ReceiveList from './ReceiveList';
 import Invalid from './Invalid';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
