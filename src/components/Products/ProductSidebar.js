@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import axios from 'axios';
+
+import { productSidebarClass, productSidebarCategory } from '../../utils/api';
 
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
 
@@ -17,12 +18,9 @@ function ProductSidebar(props) {
   // Classification
   useEffect(() => {
     let getClassification = async () => {
-      let response = await axios.get(
-        'http://localhost:3003/api/product/classification',
-        {
-          withCredentials: true,
-        }
-      );
+      let response = await productSidebarClass({
+        withCredentials: true,
+      });
       setClassifications(response.data);
     };
     getClassification();
@@ -32,19 +30,9 @@ function ProductSidebar(props) {
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
-        let response = await axios.get(
-          `http://localhost:3003/api/product/classification/${classificationId}/category`,
-          {
-            withCredentials: true,
-          }
-        );
-        // 清除重複的 category_name
-        // let newCategorys = response.data.filter((category, index, arr) => {
-        //   return (
-        //     arr.findIndex((c) => category.category_name === c.category_name) ===
-        //     index
-        //   );
-        // });
+        let response = await productSidebarCategory(classificationId, {
+          withCredentials: true,
+        });
         setCategorys(response.data);
       };
       getCategory();

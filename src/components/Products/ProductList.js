@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import axios from 'axios';
+
+import { productAll, productFilterCategory } from '../../utils/api';
 
 import ProductItem from './ProductItem';
 
@@ -12,7 +13,7 @@ function ProductList(props) {
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
-      let response = await axios.get(`http://localhost:3003/api/product`, {
+      let response = await productAll({
         withCredentials: true,
         params: {
           page: page,
@@ -29,7 +30,7 @@ function ProductList(props) {
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
-      let response = await axios.get(`http://localhost:3003/api/product`, {
+      let response = await productAll({
         withCredentials: true,
         params: {
           page: page,
@@ -47,12 +48,9 @@ function ProductList(props) {
   useEffect(() => {
     if (categoryId > 0) {
       let getProductCategory = async () => {
-        let response = await axios.get(
-          `http://localhost:3003/api/product/category/${categoryId}`,
-          {
-            withCredentials: true,
-          }
-        );
+        let response = await productFilterCategory(categoryId, {
+          withCredentials: true,
+        });
         setProducts(response.data);
       };
       getProductCategory();
@@ -71,5 +69,3 @@ function ProductList(props) {
 }
 
 export default ProductList;
-
-// [ 1 , 2 , 3]
