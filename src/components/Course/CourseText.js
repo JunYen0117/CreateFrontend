@@ -2,11 +2,11 @@ function CourseText() {
   return (
     <>
       <div className="course-text">
-        <h1 className="text-title mt-3">
+        <h1 className="text-title my-4">
           Eyecandle 親手調製你的品味生活 - 擴香 / 蠟燭 / 香水
         </h1>
         <h1 className="my-3" id="course-intro">課程介紹</h1>
-        <div className="text ms-4">
+        <div className="text mx-4">
           Eyecandle
           邀請您來到我們環境優美的全新門市，我們將提供數十款由歐洲百年香氛老廠的香氛精油，讓
           Eyecandle
@@ -21,15 +21,15 @@ function CourseText() {
           包含木質、草本、花香果香等等調性，透過現場講師帶領每個人製作出前、中、後調，有層次的個人香氣。
         </div>
         <h1 className="my-3" id="course-des">課程說明</h1>
-        <div className="text ms-4">
+        <div className="text mx-4">
           課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明課程說明
         </div>
         <h1 className="my-3" id="course-note">購買須知</h1>
-        <div className="text ms-4">
+        <div className="text mx-4">
           購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知購買須知
         </div>
         <h1 className="my-3" id="course-buy">商品購買</h1>
-        <div className="text ms-4"></div>
+        <div className="text mx-4"></div>
       </div>
     </>
   );

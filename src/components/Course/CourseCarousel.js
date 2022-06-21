@@ -6,7 +6,7 @@ function CourseCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/seed/picsum/900/300"
+            src="https://picsum.photos/seed/picsum/800/300"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -17,7 +17,7 @@ function CourseCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/seed/picsum/900/300"
+            src="https://picsum.photos/seed/picsum/800/300"
             alt="Second slide"
           />
 
@@ -29,7 +29,7 @@ function CourseCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/seed/picsum/900/300"
+            src="https://picsum.photos/seed/picsum/800/300"
             alt="Third slide"
           />
 

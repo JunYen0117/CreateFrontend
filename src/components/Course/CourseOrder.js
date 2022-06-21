@@ -7,9 +7,11 @@ import {
 function CourseOrder() {
   return (
     <>
-      <div className="course-order">
+      <div className="course-order mx-2">
         <div className="row">
-          <div className="col m">時間 10:00-11:00</div>
+          <div className="col">
+            <h2>時間 10:00-11:00</h2>
+          </div>
         </div>
         <div className="row">
           <div className="col">當日剩餘2位</div>
@@ -37,7 +39,7 @@ function CourseOrder() {
         </div>
         <div className="row">
           <div className="col-4">花草香氛蠟燭</div>
-          <div className="col-4">NT680/每人</div>
+          <div className="col-4 per">NT680/每人</div>
           <div className="col-4 text-end">
             <a href="#/" className="icon" onClick={() => {}}>
               <AiOutlineMinusCircle />
@@ -56,7 +58,7 @@ function CourseOrder() {
         </div>
         <div className="row">
           <div className="col-4">花草香氛蠟燭</div>
-          <div className="col-4">NT680/每人</div>
+          <div className="col-4 per">NT680/每人</div>
           <div className="col-4 text-end">
             <a href="#/" className="icon" onClick={() => {}}>
               <AiOutlineMinusCircle />
@@ -75,7 +77,7 @@ function CourseOrder() {
         </div>
         <div className="row">
           <div className="col-4">花草香氛蠟燭</div>
-          <div className="col-4">NT680/每人</div>
+          <div className="col-4 per">NT680/每人</div>
           <div className="col-4 text-end">
             <a href="#/" className="icon" onClick={() => {}}>
               <AiOutlineMinusCircle />
@@ -92,6 +94,7 @@ function CourseOrder() {
             </a>
           </div>
         </div>
+        <hr></hr>
         <div className="text-end">
           <div className="total-price my-2">
             總金額 <span>NT600</span>

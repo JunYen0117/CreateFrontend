@@ -17,11 +17,11 @@ function Course() {
             <CourseSidebar className="d-flex justify-content-center" />
           </div>
         </div>
-        <div className="row order-card">
+        <div className="row order-card ">
           <div className="col-12 col-md-5">
             <CourseDate />
           </div>
-          <div className="col-12 col-md-5">
+          <div className="col-12 col-md-5 ">
             <CourseOrder />
           </div>
         </div>
