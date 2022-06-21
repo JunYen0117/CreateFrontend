@@ -1,0 +1,87 @@
+.exhibition-sidebar{
+    position: sticky;
+    top:20px;
+      .nav-item{
+        // position: relative;
+        // left: 30px;
+          .nav-link{
+            position: relative;
+            color:black;
+            &:hover{
+              color:$primary;
+            }
+            &:focus{
+              &::before{
+                content: "";
+                display: inline-block;
+                width: 5px;
+                height: 20px;
+                position: relative;
+                right: 10px;
+                align-self: center;
+                background: $primary;
+              }
+              color:$primary;
+              font-weight: bold;
+            }
+          }
+        }
+  }
+  .exhibition-text{
+      
+      .text-title{
+          font-size: 2rem;
+          font-weight: bolder;
+          color: $primary;
+      }
+      h1{
+        font-weight: bold;
+      }
+     
+  }
+  
+  
+  .exhibition-order-card{
+  
+    .exhibition-order{
+        .ex-title{
+            font-weight:bold;
+            color: $primary;
+        }
+      h2{
+        font-weight:bold;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+      }
+      .row{
+        line-height: 40px;
+        // border: 1px solid black;
+      }
+      .total-price{
+        font-size: $font-size-base * 1.125;
+        span{
+          font-size: $font-size-base * 1.375;
+          color: $primary;
+          margin-left: 10px;
+        }
+  
+      }
+      button{
+        border: 0;
+        background: $primary;
+        color: white;
+        width: 150px;
+        height: 40px;
+      }
+      
+      
+      .icon{
+        font-size: 20px;
+        
+      }
+      .per{
+        text-align: center;
+      }
+    }
+  
+  }
