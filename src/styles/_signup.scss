@@ -1,0 +1,23 @@
+.signup_form{
+    .signup_body{
+        input{
+            display: block;
+            width: 300px;
+            height: 40px;
+        }
+        .signup_title{
+            font-size: 18px;
+            font-weight: bold;
+            color: $primary;
+        }
+    }
+    .signup_footer{
+        .signup_btn{
+            width: 300px;
+            height: 40px;
+            color: white;
+            background-color: $primary;
+            border: 0;
+        }
+    }
+}
