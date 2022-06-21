@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API_URL } from './config';
 
 // 商品 相關的 api
 const productRequest = axios.create({
-  baseURL: 'http://localhost:3003/api/product/',
+  baseURL: `${API_URL}/product/`,
 });
 
 // 商品 相關的 api
