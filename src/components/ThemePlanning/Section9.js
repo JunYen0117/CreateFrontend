@@ -1,4 +1,4 @@
-import Pic6 from '../../img/themeplanning/Pic6.png';
+import Section9FlexItem from './Section9FlexItem';
 
 function Section9() {
   return (
@@ -17,38 +17,12 @@ function Section9() {
           學生送禮也負擔得起！
         </p>
         <div className="d-flex justify-content-center">
-          {' '}
-          {/* map() */}
-          <div className="section9_article_card m-1 mx-md-2">
-            <figure>
-              <img src={Pic6} alt="#/" />
-            </figure>
-            <span className="my-2">作者/ </span>
-            <span className="my-2"> 文章標題1Lorem</span>
-          </div>
-          <div className="section9_article_card m-1 mx-md-2">
-            <figure>
-              <img src={Pic6} alt="#/" />
-            </figure>
-            <span className="my-2">作者/ </span>
-            <span className="my-2"> 文章標題1Lorem</span>
-          </div>
+          <Section9FlexItem />
+          <Section9FlexItem />
         </div>
         <div className="d-flex justify-content-center">
-          <div className="section9_article_card m-1 mx-md-2">
-            <figure>
-              <img src={Pic6} alt="#/" />
-            </figure>
-            <span className="my-2">作者/ </span>
-            <span className="my-2"> 文章標題1Lorem</span>
-          </div>
-          <div className="section9_article_card m-1 mx-md-2">
-            <figure>
-              <img src={Pic6} alt="#/" />
-            </figure>
-            <span className="my-2">作者/ </span>
-            <span className="my-2"> 文章標題1Lorem</span>
-          </div>
+          <Section9FlexItem />
+          <Section9FlexItem />
         </div>
       </section>
     </>

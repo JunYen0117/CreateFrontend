@@ -1,4 +1,4 @@
-import Pic2 from '../../img/themeplanning/Pic2.png';
+import Section4FlexItem from './Section4FlexItem';
 
 function Section4() {
     return (
@@ -11,34 +11,10 @@ function Section4() {
           還沒想好畢業禮物送什麼比較好？
         </p>
         <div className="d-flex flex-wrap justify-content-center pb-5">
-          <div className="section4_flex_item mx-1 mx-md-2 mt-3">
-            <figure>
-              <img src={Pic2} alt="#/" />
-            </figure>
-            <p className="p-1">HOT商品名稱</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="section4_flex_item mx-1 mx-md-2 mt-3">
-            <figure>
-              <img src={Pic2} alt="#/" />
-            </figure>
-            <p className="p-1">HOT商品名稱</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="section4_flex_item mx-1 mx-md-2 mt-3">
-            <figure>
-              <img src={Pic2} alt="#/" />
-            </figure>
-            <p className="p-1">HOT商品名稱</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="section4_flex_item mx-1 mx-md-2 mt-3">
-            <figure>
-              <img src={Pic2} alt="#/" />
-            </figure>
-            <p className="p-1">HOT商品名稱</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
+          <Section4FlexItem />
+          <Section4FlexItem />
+          <Section4FlexItem />
+          <Section4FlexItem />
         </div>
       </section>
       </>
