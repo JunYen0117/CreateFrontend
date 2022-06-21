@@ -1,7 +1,19 @@
-.cart_picture{
-  max-width: 200px;
+.cart_product_border {
+  border: 1px solid #dcd5ca; 
+  margin-top: -1px;
+  .cart_picture {
+    max-width: 200px;
+  }
+
+  .cart_product_name {
+    width: 40%;
+  }
+
+  .cart_product_count {
+    width: 5%;
+  }
+  .cart_product_delete {
+    width: 5%;
+  }
 }
 
-.cart_product_name{
-  max-width: 250px;
-}
