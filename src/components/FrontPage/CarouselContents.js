@@ -7,11 +7,15 @@ function CarouselContents(props) {
       <div className={`carousel-item ${a}`}>
         <div className="all-logo d-flex justify-content-between">
           {page_content.map((content) => (
-            <Card >
+            <Card>
               <div className="logo-card">
                 <a href="/">
                   <figure className="logo-pic">
-                    <Card.Img variant="top" src={`http://localhost:3001/images/${content.img}`} className="img" />
+                    <Card.Img
+                      variant="top"
+                      src={`http://localhost:3001/images/${content.img}`}
+                      className="img"
+                    />
                   </figure>
                 </a>
                 <Card.Body>

@@ -94,9 +94,10 @@ button {
     }
 }
 // ArticleCard 熱門文章
-.all-article-card{
+.all-article-card {
     margin: 0 120px 100px 120px;
 }
+
 .article_img {
     width: 180px;
     height: 240px;
@@ -144,4 +145,32 @@ button {
         line-height: 25px;
         letter-spacing: 15%;
     }
+}
+/*手機板*/
+@media screen and (max-width: 767px) {
+    .gallery {
+        margin: 10px 0 20px 0;
+        width: 100%;
+    }
+    .carousel-indicators {
+        button {
+            width: 5px !important;
+            height: 5px !important;
+            border-radius: 100% !important;
+            margin: 0 5px !important;
+        }
+    }
+    // 標題字
+    h2 {
+        font-size: 14px;
+        margin: 0 15px 20px 15px;
+        a {
+            text-decoration: none;
+        }
+    }
+    // ProductCard質感商品
+    .all-product-card {
+        margin: 0 15px 20px 15px;
+    }
+
 }

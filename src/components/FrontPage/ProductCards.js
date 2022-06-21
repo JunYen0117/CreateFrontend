@@ -21,10 +21,10 @@ function ProductCards(props) {
                   pic_href={content.pic_href}
                   cost={content.cost}
                 />
-              ))
-              }
+              ))}
             </div>
-          </div>)
+          </div>
+        );
       })}
     </>
   );
