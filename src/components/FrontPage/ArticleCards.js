@@ -7,7 +7,7 @@ function ArticleCards(props) {
       <h2>
         <a href="/">精選文章</a>
       </h2>
-      <div className="all-card d-flex justify-content-between">
+      <div className="all-article-card d-flex justify-content-between">
         {props.datas.map((data) => (
           <ArticleCard
             title={data.title}
