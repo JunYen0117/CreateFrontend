@@ -15,11 +15,7 @@ const OrderDetail = ({ showOL, showOD }) => {
       {/* 訂單列表 */}
       {/* 已完成 */}
 
-      <div className="container-fluid mb-5">
-        <div className="row">
-          <ASidebar />
-          <div className="col-9 productOrder">
-            <OrderTitle />
+   
 
             {/* <div className="orderlist-card w-75">
               <div className="card-title d-flex py-3">
@@ -70,7 +66,7 @@ const OrderDetail = ({ showOL, showOD }) => {
             {/* ===================================== */}
 
             {/* 訂單明細 */}
-            <div className="orderlist-card w-75">
+            <div className="orderlist-card w-100">
               <div className="card-title d-flex py-3">
                 <div className="title-num mx-2">訂單內容</div>
               </div>
@@ -135,7 +131,7 @@ const OrderDetail = ({ showOL, showOD }) => {
               </div>
             </div>
 
-            <div className="orderlist-card w-75">
+            <div className="orderlist-card w-100">
               <div className="card-title d-flex py-3">
                 <div className="title-num mx-2">優惠折抵明細</div>
               </div>
@@ -147,7 +143,7 @@ const OrderDetail = ({ showOL, showOD }) => {
               </div>
             </div>
 
-            <div className="orderlist-card w-75">
+            <div className="orderlist-card w-100">
               <div className="card-title d-flex py-3">
                 <div className="title-num mx-2">收件人資訊</div>
               </div>
@@ -173,7 +169,7 @@ const OrderDetail = ({ showOL, showOD }) => {
               </div>
             </div>
 
-            <div className="orderlist-card w-75 ">
+            <div className="orderlist-card w-100 ">
               <div className="card-title d-flex py-3">
                 <div className="title-num mx-2">付款資訊</div>
               </div>
@@ -197,9 +193,7 @@ const OrderDetail = ({ showOL, showOD }) => {
             </div>
 
             {/* =========================================== */}
-          </div>
-        </div>
-      </div>
+      
     </>
   );
 };
