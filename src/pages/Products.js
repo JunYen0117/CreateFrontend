@@ -3,7 +3,8 @@ import option1 from '../img/products/option1.jpg';
 import option2 from '../img/products/option2.jpg';
 import option3 from '../img/products/option3.jpg';
 
-import { AiOutlineAlignRight, AiFillCaretRight } from 'react-icons/ai';
+import { AiFillCaretRight } from 'react-icons/ai';
+import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
 import { useState } from 'react';
 import ProductList from '../components/Products/ProductList';
@@ -82,10 +83,13 @@ function Products() {
               </li>
               <li className="product_filter">
                 {/* 切換 遞增 和 遞減*/}
-                <span>商品排序</span>
+                <span>價格排序</span>
                 <a href="#/" alt="">
                   <span>
-                    <AiOutlineAlignRight />
+                    <FcGenericSortingAsc />
+                  </span>
+                  <span>
+                    <FcGenericSortingDesc />
                   </span>
                 </a>
               </li>

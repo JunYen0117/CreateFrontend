@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
 
 import About from './pages/About';
 import User from './pages/User';
@@ -21,11 +22,14 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route exact path="/product">
+          <Route path="/product">
             <Products />
           </Route>
-          <Route exact path="/productdetail">
+          <Route path="/productdetail">
             <ProductDetail />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
         </Switch>
         <Footer />
