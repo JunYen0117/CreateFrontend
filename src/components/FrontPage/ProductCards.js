@@ -6,24 +6,26 @@ import ProductCard from './ProductCard';
 function ProductCards(props) {
   return (
     <>
-      <h2>
-        <a href="/">質感商品</a>
-      </h2>
-
-      <div className="all-product-card">
-        <div className="d-flex justify-content-between">
-          {props.datas.map((Productdatas) => (
-            <ProductCard
-              product={Productdatas.product}
-              brand={Productdatas.brand}
-              product_pic={Productdatas.product_pic}
-              brand_href={Productdatas.brand_href}
-              pic_href={Productdatas.pic_href}
-              cost={Productdatas.cost}
-            />
-          ))}
-        </div>
-      </div>
+      {props.datas.map((Productdatas, index) => {
+        const a = index == 0 ? 'active' : '';
+        return (
+          <div className={`carousel-item ${a}`}>
+            <div className="all-logo d-flex justify-content-between">
+              {Productdatas.map((content) => (
+                <ProductCard
+                  key={content.product}
+                  product={content.product}
+                  brand={content.brand}
+                  product_pic={content.product_pic}
+                  brand_href={content.brand_href}
+                  pic_href={content.pic_href}
+                  cost={content.cost}
+                />
+              ))
+              }
+            </div>
+          </div>)
+      })}
     </>
   );
 }
