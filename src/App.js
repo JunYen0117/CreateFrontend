@@ -4,17 +4,18 @@ import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import BrandPage from './pages/BrandPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
-
+// import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <>
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <BrandPage />
       <Router>
         <Switch>
           <Route path="/product">
