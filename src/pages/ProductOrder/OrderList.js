@@ -1,10 +1,24 @@
-const OrderList = ({ showOL, showOD }) => {
-  const arr = [1, 2, 3];
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { API_URL } from '../../utils/config';
+import axios from 'axios';
 
+const OrderList = ({ showOL, showOD }) => {
   function changeIsShowOL() {
     showOL(false);
     showOD(true);
   }
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    let getOrders = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(API_URL + '/productorder');
+      setOrders(response.data);
+    };
+    getOrders();
+  }, []);
+  let arr = orders.totalarr || [];
+  console.log(arr);
 
   return (
     <>
@@ -23,15 +37,15 @@ const OrderList = ({ showOL, showOD }) => {
                 </tr>
                 <tr>
                   <th>訂單編號</th>
-                  <td>14</td>
+                  <td>{v.orderid}</td>
                 </tr>
                 <tr>
                   <th>單館統計</th>
-                  <td>14</td>
+                  <td>{v.totalsub}</td>
                 </tr>
                 <tr>
                   <th>購買項目</th>
-                  <td>14</td>
+                  <td>{v.totalcount}</td>
                 </tr>
                 <tr>
                   <th>產品圖片</th>
