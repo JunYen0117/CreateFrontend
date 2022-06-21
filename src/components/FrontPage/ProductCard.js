@@ -5,9 +5,9 @@ function ProductCard(props) {
     <>
       <div className="card col-3">
         <div className="flex-shrink-0 product_img">
-          <a href={props.pic_href}>
+          <a href={props.pic_href} className="ratio ratio-1x1">
             <img
-              src={require(`../../img/${props.product_pic}`)}
+              src={props.product_pic}
               className="card-img-top"
               alt="..."
             />
