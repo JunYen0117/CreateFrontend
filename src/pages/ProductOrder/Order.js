@@ -1,16 +1,29 @@
 import ASidebar from '../../components/AccountSidebar/ASidebar';
 import React from 'react';
 import OrderList from './OrderList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import OrderDetail from './OrderDetail';
+import { API_URL } from '../../utils/config';
+import axios from 'axios';
 
 const Order = () => {
   const [isShowOL, setIsShowOL] = useState(true);
   const [isShowOD, setIsShowOD] = useState(false);
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    let getOrders = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(API_URL + '/productorder');
+      setOrders(response.data);
+    };
+    getOrders();
+  }, []);
+  // console.log(orders);
   return (
     <>
       <Tab.Container id="left-tabs-example" defaultActiveKey="product">
