@@ -1,7 +1,7 @@
 import ASidebar from '../../components/AccountSidebar/ASidebar';
-import FavArticle from './FavArticle';
-import FavActivity from './FavActivity';
-import FavProduct from './FavProduct';
+import Article from '../../components/Fav/Article';
+import Activity from '../../components/Fav/Activity';
+import Product from '../../components/Fav/Product';
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Col from 'react-bootstrap/Col';
@@ -35,13 +35,13 @@ const FavList = () => {
           <Col sm={14}>
             <Tab.Content className="mb-5 row mt-3">
               <Tab.Pane className="" eventKey="product">
-                <FavProduct />
+                <Product />
               </Tab.Pane>
               <Tab.Pane eventKey="article">
-                <FavArticle />
+                <Article />
               </Tab.Pane>
               <Tab.Pane eventKey="activity">
-                <FavActivity />
+                <Activity />
               </Tab.Pane>
             </Tab.Content>
           </Col>

@@ -1,11 +1,11 @@
-import ASidebar from '../../components/AccountSidebar/ASidebar';
-import OrderTitle from '../../components/ProductOrder/OrderTitle';
+import ASidebar from '../AccountSidebar/ASidebar';
+import OrderTitle from './OrderTitle';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
 import React from 'react';
 
-const OrderDetail = ({ showOL, showOD }) => {
+const Detail = ({ showOL, showOD }) => {
   function changeIsShowOD() {
     showOL(true);
     showOD(false);
@@ -205,4 +205,4 @@ const OrderDetail = ({ showOL, showOD }) => {
   );
 };
 
-export default OrderDetail;
+export default Detail;

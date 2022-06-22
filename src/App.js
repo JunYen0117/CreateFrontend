@@ -8,8 +8,7 @@ import User from './pages/User';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import OrderList from './pages/ProductOrder/OrderList';
-import OrderDetail from './pages/ProductOrder/OrderDetail';
+
 import FavProduct from './pages/Fav/FavProduct';
 import FavActivity from './pages/Fav/FavActivity';
 import FavArticle from './pages/Fav/FavArticle';
@@ -17,8 +16,6 @@ import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
 function App() {
-  const [isShowOL, setIsShowOL] = useState(true);
-  const [isShowOD, setIsShowOD] = useState(false);
   return (
     <>
       <Header />
@@ -39,7 +36,7 @@ function App() {
           </Route>
           <Route path="/order">
             <Order />
-             {/* {isShowOL ? (
+            {/* {isShowOL ? (
               <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}
             {isShowOD ? (

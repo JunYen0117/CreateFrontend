@@ -1,12 +1,12 @@
 import ASidebar from '../../components/AccountSidebar/ASidebar';
 import React from 'react';
-import OrderList from './OrderList';
+import List from '../../components/ProductOrder/List';
 import { useState, useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
-import OrderDetail from './OrderDetail';
+import Detail from '../../components/ProductOrder/Detail';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 
@@ -47,14 +47,14 @@ const Order = () => {
               <Tab.Content className="mb-5 row mt-3">
                 <Tab.Pane eventKey="finish">
                   {isShowOL ? (
-                    <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
+                    <List showOL={setIsShowOL} showOD={setIsShowOD} />
                   ) : null}
                   {isShowOD ? (
-                    <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
+                    <Detail showOL={setIsShowOL} showOD={setIsShowOD} />
                   ) : null}
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
+                  <List showOL={setIsShowOL} showOD={setIsShowOD} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>
