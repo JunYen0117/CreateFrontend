@@ -8,25 +8,10 @@ function ProductList(props) {
   const { products, setProducts } = props;
   const { classificationId, categoryId } = props;
   const { page, setLastPage } = props;
+  const { sort } = props;
 
   // 第一次進入頁面時，顯示全部商品
-  useEffect(() => {
-    let getProductAll = async () => {
-      // http://localhost:3003/api/product?page=1
-      let response = await productGetAll({
-        withCredentials: true,
-        params: {
-          page: page,
-        },
-      });
-      setProducts(response.data.data);
-      // 設定最後一頁
-      setLastPage(response.data.pagination.lastPage);
-    };
-    getProductAll();
-  }, []);
-
-  // 全部商品換頁；關閉類別，顯示全部商品
+  // 全部商品換頁；關閉類別顯示全部商品
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
@@ -35,6 +20,7 @@ function ProductList(props) {
         params: {
           page: page,
           classificationId: classificationId,
+          productSort: sort,
         },
       });
       setProducts(response.data.data);
@@ -42,7 +28,7 @@ function ProductList(props) {
       setLastPage(response.data.pagination.lastPage);
     };
     getProductAll();
-  }, [page, classificationId]);
+  }, [page, classificationId, sort]);
 
   // 選擇商品種類，顯示選擇種類的商品
   useEffect(() => {

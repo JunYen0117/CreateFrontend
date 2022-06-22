@@ -6,7 +6,9 @@ import option3 from '../img/products/option3.jpg';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import ProductList from '../components/Products/ProductList';
 import ProductSidebar from '../components/Products/ProductSidebar';
 import ProductPagination from '../components/Products/ProductPagination';
@@ -27,6 +29,12 @@ function Products() {
   // 分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
+
+  // 價格排序
+  const [sort, setSort] = useState('');
+
+  // 商品搜尋
+  const [productSearch, setProductSearch] = useState('');
 
   return (
     <>
@@ -71,9 +79,7 @@ function Products() {
             <ul className="d-flex justify-content-between">
               {/* 用 form 表單查詢 */}
               <li className="price_filter">
-                <span className="me-3">NT$</span>
-                <input type="text" />
-                <span>－</span>
+                <span className="me-3">商品搜尋</span>
                 <input type="text" />
                 <a href="#/" alt="" className="ms-1">
                   <span>
@@ -85,12 +91,23 @@ function Products() {
                 {/* 切換 遞增 和 遞減*/}
                 <span>價格排序</span>
                 <a href="#/" alt="">
-                  <span>
-                    <FcGenericSortingAsc />
-                  </span>
-                  <span>
-                    <FcGenericSortingDesc />
-                  </span>
+                  {sort !== 'ASC' ? (
+                    <span>
+                      <FcGenericSortingDesc
+                        onClick={() => {
+                          setSort('ASC');
+                        }}
+                      />
+                    </span>
+                  ) : (
+                    <span>
+                      <FcGenericSortingAsc
+                        onClick={() => {
+                          setSort('DESC');
+                        }}
+                      />
+                    </span>
+                  )}
                 </a>
               </li>
             </ul>
@@ -108,6 +125,7 @@ function Products() {
               categoryId={categoryId}
               setCategoryId={setCategoryId}
               setPage={setPage}
+              setSort={setSort}
             />
           </div>
           <div className="col-10 col-md-9 p-0">
@@ -118,6 +136,7 @@ function Products() {
               categoryId={categoryId}
               page={page}
               setLastPage={setLastPage}
+              sort={sort}
             />
             {categoryId === -1 ? (
               <ProductPagination

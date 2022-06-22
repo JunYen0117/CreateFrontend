@@ -15,6 +15,8 @@ function ProductSidebar(props) {
   // 設回第一頁
   const { setPage } = props;
 
+  const { setSort } = props;
+
   // Classification
   useEffect(() => {
     let getClassification = async () => {
@@ -62,6 +64,7 @@ function ProductSidebar(props) {
                         setClassificationId(classification.id);
                         setCategoryId(-1);
                         setPage(1);
+                        setSort('');
                       }
                 }
               >

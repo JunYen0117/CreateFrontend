@@ -1,4 +1,4 @@
- import axios from 'axios';
+import axios from 'axios';
 
 // 商品 相關的 api
 const productRequest = axios.create({
