@@ -1,0 +1,16 @@
+.memberset_title{
+    font-size: $h2-font-size;
+}
+.memberset_figure{
+    width: 160px;
+    height: 160px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-left: 5px;
+    box-shadow: 0 0 25px rgba(185, 150, 100, 0.4);
+}
+.memberset_figure_SVG{
+    position: absolute;
+    top:10px;
+}
