@@ -39,6 +39,14 @@
   z-index: 5;
 }
 
+.product_price_search{
+  border: 0;
+  svg {
+    color: #B99664;
+    font-size: 30px;
+  }
+}
+
 .product_filter,
 .price_filter {
   span {

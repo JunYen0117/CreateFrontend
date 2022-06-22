@@ -7,6 +7,7 @@ import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
 import { useState } from 'react';
+import axios from 'axios';
 
 import ProductList from '../components/Products/ProductList';
 import ProductSidebar from '../components/Products/ProductSidebar';
@@ -31,6 +32,31 @@ function Products() {
 
   // 價格排序
   const [sort, setSort] = useState('');
+
+  // 價格搜尋
+  // TODO: 後端帶入預設值
+  const [price, setPrice] = useState({
+    minPrice: 0,
+    maxPrice: 0,
+  });
+
+  function handleChange(e) {
+    setPrice({ ...price, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      let response = await axios.get(`http://localhost:3003/api/product`, {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+        price,
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.error(e.response.data);
+    }
+  }
 
   return (
     <>
@@ -75,13 +101,17 @@ function Products() {
             <ul className="d-flex justify-content-between">
               {/* 用 form 表單查詢 */}
               <li className="price_filter">
-                <span className="me-3">商品搜尋</span>
-                <input type="text" />
-                <a href="#/" alt="" className="ms-1">
-                  <span>
-                    <AiFillCaretRight />
-                  </span>
-                </a>
+                <form>
+                  <span className="me-3">NT$</span>
+                  <input type="text" name="minPrice" onChange={handleChange} />
+                  <span>－</span>
+                  <input type="text" name="maxPrice" onChange={handleChange} />
+                  <button href="#/" alt="" className="product_price_search">
+                    <span>
+                      <AiFillCaretRight onClick={handleSubmit} />
+                    </span>
+                  </button>
+                </form>
               </li>
               <li className="product_filter">
                 {/* 切換 遞增 和 遞減*/}
