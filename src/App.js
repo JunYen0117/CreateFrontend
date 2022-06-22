@@ -23,11 +23,11 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
+            <Route path="/product/detail">
+              <ProductDetail />
+            </Route>
             <Route path="/product">
               <Products />
-            </Route>
-            <Route path="/productdetail">
-              <ProductDetail />
             </Route>
             <Route path="/cart">
               <Cart />

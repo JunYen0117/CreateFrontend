@@ -3,16 +3,15 @@ import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 
 function CartItem(props) {
-  const { id, name, categroy, image, price, count, setCount, removeItem } =
+  const { id, name, vendor, image, price, count, setCount, removeItem } =
     props;
 
   return (
     <>
       <div className="my-3">
         <div className="cart_product_border">
-          <input type="checkbox" className="m-3" />
-          <AiOutlineShop className="h1" />
-          <label className="m-3">紫電</label>
+          <AiOutlineShop className="h1 ms-3" />
+          <label className="m-3">{vendor}</label>
         </div>
         <div className="p-3 d-flex align-items-center cart_product_border">
           <figure className="cart_picture w-25">

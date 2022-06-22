@@ -7,21 +7,21 @@ const products = [
   {
     id: 1,
     name: '麋鹿夜燈',
-    categroy: '夜燈',
+    vendor: '紫電',
     image: '../img/products/2_2deer.jpg',
     price: 300,
   },
   {
     id: 2,
     name: '幽靈夜燈',
-    categroy: '夜燈',
+    vendor: '綠界',
     image: '../img/products/2_2deer.jpg',
     price: 500,
   },
   {
     id: 3,
     name: '迴廊夜燈',
-    categroy: '夜燈',
+    vendor: '藍星',
     image: '../img/products/2_2deer.jpg',
     price: 700,
   },
@@ -76,8 +76,6 @@ function Cart() {
     <>
       <div className="container mt-5">
         <p className="h1">購物車</p>
-        <input type="checkbox" className="mx-3 my-3" />
-        <label>選擇全部</label>
         <div className="row">
           {/* 購物車清單 */}
           <div className="col-md-8">

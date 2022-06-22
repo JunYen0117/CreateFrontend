@@ -6,13 +6,13 @@ function CartList(props) {
   return (
     <>
       {productsInCart.map((product, i) => {
-        const { id, name, categroy, image, price, count } = product;
+        const { id, name, vendor, image, price, count } = product;
         return (
           <CartItem
             key={id}
             id={id}
             name={name}
-            categroy={categroy}
+            vendor={vendor}
             image={image}
             price={price}
             count={count}
