@@ -3,7 +3,10 @@ import {
   AiOutlineMinusCircle,
   AiOutlineUndo,
 } from 'react-icons/ai';
+import { useState, useEffect } from 'react';
+
 function ExhibitionOrder() {
+  const [count, setCount] = useState(0);
   return (
     <>
       <div className="exhibition-order mx-2">
@@ -45,7 +48,14 @@ function ExhibitionOrder() {
           <div className="col-4">張數</div>
           <div className="col-4 per">NT200/每張</div>
           <div className="col-4 text-end">
-            <a href="#/" className="icon" onClick={() => {}}>
+            <a
+              href="#/"
+              className={`icon ${count <= 0 ? 'icon-disable' : ''}`}
+              onClick={() => {
+                count <= 0 ? setCount(0) : setCount(count - 1);
+                // setCount(count - 1);
+              }}
+            >
               <AiOutlineMinusCircle />
             </a>
             <a
@@ -53,9 +63,15 @@ function ExhibitionOrder() {
               className="text-decoration-none mx-4 tatol"
               style={{ color: 'black' }}
             >
-              0
+              {count}
             </a>
-            <a href="#/" className="icon" onClick={() => {}}>
+            <a
+              href="#/"
+              className={`icon ${count >= 5 ? 'icon-disable' : ''}`}
+              onClick={() => {
+                count >= 5 ? setCount(5) : setCount(count + 1);
+              }}
+            >
               <AiOutlinePlusCircle />
             </a>
           </div>
@@ -66,7 +82,7 @@ function ExhibitionOrder() {
           <div className="total-price my-2">
             總金額 <span>NT600</span>
           </div>
-          <button className="my-4">立即購買</button>
+          <button className="my-4 submit-button">立即購買</button>
         </div>
       </div>
     </>
