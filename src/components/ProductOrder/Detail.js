@@ -1,11 +1,28 @@
-import ASidebar from '../AccountSidebar/ASidebar';
-import OrderTitle from './OrderTitle';
-import { FaArrowCircleLeft } from 'react-icons/fa';
+// import ASidebar from '../AccountSidebar/ASidebar';
+// import OrderTitle from './OrderTitle';
+import { FaArrowCircleLeft, FaFrown } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
+import { Button, Modal } from 'antd';
+import { useState } from 'react';
 
 import React from 'react';
 
 const Detail = ({ showOL, showOD }) => {
+  // 刪除按鈕
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   function changeIsShowOD() {
     showOL(true);
     showOD(false);
@@ -126,7 +143,7 @@ const Detail = ({ showOL, showOD }) => {
           </div>
         </div>
       </div>
-{/* 
+      {/* 
       <div className="orderlist-card w-100">
         <div className="card-title d-flex py-3">
           <div className="title-num mx-2">優惠折抵明細</div>
@@ -196,7 +213,20 @@ const Detail = ({ showOL, showOD }) => {
           >
             回訂單查詢
           </button>
-          <button className=" orderlist-b2 px-3 py-2">取消訂單</button>
+          <button className=" orderlist-b2 px-3 py-2" onClick={showModal}>
+            取消訂單
+          </button>
+          <Modal
+            title=""
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <h1>
+              確定要取消訂單嗎？
+              <FaFrown />
+            </h1>
+          </Modal>
         </div>
       </div>
 
