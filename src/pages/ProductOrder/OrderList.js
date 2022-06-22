@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
+import { FaWaze } from 'react-icons/fa';
 
 const OrderList = ({ showOL, showOD }) => {
   function changeIsShowOL() {
@@ -26,41 +27,34 @@ const OrderList = ({ showOL, showOD }) => {
         return (
           <div className="orderlist-card w-100">
             <div className="card-title d-flex py-3">
-              <div className="title-num mx-2">20221212</div>
-              <div className="title-name mx-2">Miu</div>
+              <div className="title-num mx-2">訂單編號</div>
+              <div className="title-name mx-2">{v.orderid}</div>
             </div>
             <div className="card-content">
               <table className="ol_table ">
                 <tr>
-                  <th>訂單狀態</th>
-                  <td>finish</td>
+                  <th>訂單日期</th>
+                  <td>20221322</td>
                 </tr>
                 <tr>
-                  <th>訂單編號</th>
-                  <td>{v.orderid}</td>
+                  <th>訂單金額</th>
+                  <td>NT${v.totalsub}</td>
                 </tr>
                 <tr>
-                  <th>單館統計</th>
-                  <td>{v.totalsub}</td>
+                  <th>處理狀態</th>
+                  <td>已取貨</td>
                 </tr>
                 <tr>
-                  <th>購買項目</th>
-                  <td>{v.totalcount}</td>
-                </tr>
-                <tr>
-                  <th>產品圖片</th>
-                  <td>
-                    <img
-                      src={require('../../img/Singing.jpg')}
-                      alt=""
-                      width={100}
-                      height={100}
-                    />
-                  </td>
+                  <th>付款方式</th>
+                  <td>信用卡-付款</td>
                 </tr>
               </table>
             </div>
             <button className="card-button px-3 py-2" onClick={changeIsShowOL}>
+              <FaWaze
+                className="me-2"
+                style={{ color: 'rgb(182, 115, 115)' }}
+              />
               查看訂單明細
             </button>
           </div>
