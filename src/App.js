@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <Header />
-      <Course />
       <Router>
         <Switch>
           <Route path="/product">
@@ -24,6 +23,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/course">
+            <Course />
           </Route>
           {/* <Route exact path="/">
           <Home />
