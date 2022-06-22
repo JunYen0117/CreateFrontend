@@ -4,6 +4,7 @@ import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import ExhibitionExploret from './pages/ExhibitionExplore';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,7 +15,7 @@ function App() {
   return (
     <>
       <Header />
-      <Sidebar />
+    
       <Router>
         <Switch>
           <Route path="/product">
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/exhibitionexplore">
+            <ExhibitionExploret />
           </Route>
           {/* <Route exact path="/">
           <Home />
