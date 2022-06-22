@@ -6,8 +6,7 @@ import option3 from '../img/products/option3.jpg';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 import ProductList from '../components/Products/ProductList';
 import ProductSidebar from '../components/Products/ProductSidebar';
@@ -32,9 +31,6 @@ function Products() {
 
   // 價格排序
   const [sort, setSort] = useState('');
-
-  // 商品搜尋
-  const [productSearch, setProductSearch] = useState('');
 
   return (
     <>
