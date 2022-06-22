@@ -13,7 +13,7 @@ const Activity = () => {
           {[1, 2, 3, 4].map(() => {
             return (
               <>
-                <div className="d-flex border p-0 mb-4 ms-2 rounded-3 w-100 position-relative ">
+                <div className="Fac_card d-flex border p-0 mb-4 ms-2 rounded-3 w-100 position-relative ">
                   <FaHeart className="Fac_heart" />
                   <div
                     className="col-4 p-0 me-5 "
