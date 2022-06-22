@@ -9,14 +9,14 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ThemePlanning from './pages/ThemePlanning';
 import Sidebar from './components/Sidebar'
-import LoginA from './components/LoginA'
+import SignupLogin from './components/SignupLogin'
 
 function App() {
   return (
     <>
       <Header />
       <Sidebar />
-      <LoginA />
+      <SignupLogin />
       <Router>
         <Switch>
           <Route path="/product">

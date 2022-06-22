@@ -1,5 +1,12 @@
 .signup_form{
     .signup_body{
+        width: 400px;
+        margin: 0 auto;
+        border-bottom: 2px solid $primary;
+        .is_required{
+            color: red;
+            margin-left: 50px;
+        }
         input{
             display: block;
             width: 300px;
@@ -12,6 +19,7 @@
         }
     }
     .signup_footer{
+
         .signup_btn{
             width: 300px;
             height: 40px;

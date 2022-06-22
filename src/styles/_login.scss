@@ -14,9 +14,12 @@
 //預設樣式 結束
 
 //註冊登入上方按鈕
+.login_header{
+    display: flex;
+}
 .login_header .nav-item, .login_header button{
     display: block;
-    width: 50%;
+    flex: 1;
     height: 70px;
     color: $primary;
     font-size: 18px;
@@ -34,14 +37,9 @@
     color: $primary;
     background: white;
 }
-.login_header.nav.nav-tabs li:nth-child(3){ //隱藏忘記密碼按鈕
-    display: none;
-}
-
-
 
 .login_form{
-    height: 400px;
+    height: 390px;
     .login_body{
         .login_form_logo{
             img{
@@ -70,14 +68,6 @@
             color: white;
             background-color: $primary;
             border: 0;
-        }
-        .forgotten_password{
-            a, a:hover, a:active{
-                display: block;
-                color: #3c7fe4;
-                text-align: center;
-                text-decoration: none;
-            }
         }
     }
 }

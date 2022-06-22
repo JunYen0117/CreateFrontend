@@ -2,9 +2,9 @@ function SignupBody() {
   return (
     <>
       <form className="signup_form">
-        <div className="signup_body">
+        <div className="signup_body pb-3 mb-2">
           <h3 className="signup_title text-center py-4">新會員註冊</h3>
-          <div className="">*為必填欄位</div>
+          <div className="is_required mb-1">*為必填欄位</div>
           <div>
             <input
               className="mx-auto mb-4"
@@ -46,17 +46,19 @@ function SignupBody() {
             />
           </div>
         </div>
-        <div className="signup_footer">
-          <input type="checkbox" />
-          <div>
-            我同意網站
-            <a href="#/" alt="#/">
-              隱私權政策
-            </a>
-            和
-            <a href="#/" alt="#/">
-              服務條款
-            </a>
+        <div className="signup_footer d-flex flex-column">
+          <div className="my-3 d-flex justify-content-center">
+            <input type="checkbox" className="align-self-center me-3" />
+            <div className="isagree_text d-inline-block">
+              我同意網站&ensp;
+              <a href="#/" alt="#/">
+                隱私權政策
+              </a>
+              &ensp;和&ensp;
+              <a href="#/" alt="#/">
+                服務條款
+              </a>
+            </div>
           </div>
           <div className="d-flex justify-content-center mb-4">
             <button className="signup_btn mx-auto">註冊</button>

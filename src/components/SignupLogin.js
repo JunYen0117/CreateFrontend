@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+
 import Modal from 'react-bootstrap/Modal';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import LogoSvg1 from '../img/logo.svg';
-import styled from '@emotion/styled';
 import LoginBody from './LoginBody';
 import SignupBody from './SignupBody';
+import ForgottenPwdBody from './ForgottenPwdBody';
 
 function LoginA() {
   const [show, setShow] = useState(false);
@@ -41,8 +41,8 @@ function LoginA() {
           <Tab eventKey="login" title="登入">
             <LoginBody />
           </Tab>
-          <Tab eventKey="forgotten_password" title="忘記密碼">
-            {/* <Sonnet /> */}
+          <Tab eventKey="forgotten_pwd" title="忘記密碼">
+            <ForgottenPwdBody />
           </Tab>
         </Tabs>
       </Modal>

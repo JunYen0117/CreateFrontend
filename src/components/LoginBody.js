@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import LogoSvg1 from '../img/logo.svg';
-function LoginBody() {
+
+function LoginBody(props) {
+
   return (
     <>
-      <form
-        className="login_form">
+      <form className="login_form">
         <div className="login_body">
           <figure className="login_form_logo">
             <img src={LogoSvg1} alt="#/" />
@@ -17,9 +19,6 @@ function LoginBody() {
           </div>
           <div className="d-flex justify-content-center mb-4">
             <button className="login_btn mx-auto">登入</button>
-          </div>
-          <div className="forgotten_password">
-            <a href="#/">忘記密碼?</a>
           </div>
         </div>
       </form>
