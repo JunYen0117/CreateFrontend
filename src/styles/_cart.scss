@@ -1,5 +1,5 @@
 .cart_product_border {
-  border: 1px solid #dcd5ca; 
+  border: 1px solid #dcd5ca;
   margin-top: -1px;
   .cart_picture {
     max-width: 200px;
@@ -17,3 +17,22 @@
   }
 }
 
+.cart_order_border {
+  border: 1px solid #dcd5ca;
+  margin-top: -1px;
+  margin-bottom: 0;
+}
+
+.cart_order_summary {
+  background-color: #dcd5ca;
+}
+
+.cart_checkout {
+  a {
+    text-decoration: none;
+    padding: 5px 25%;
+    font-weight: 600;
+    color: #fff;
+    background-color: #d1a970;
+  }
+}
