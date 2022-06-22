@@ -33,7 +33,7 @@ function LoginA() {
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="login_header"
+          className="login_header d-flex"
         >
           <Tab eventKey="signup" title="註冊">
             <SignupBody />
