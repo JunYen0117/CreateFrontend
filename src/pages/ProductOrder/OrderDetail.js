@@ -71,7 +71,7 @@ const OrderDetail = ({ showOL, showOD }) => {
         <div className="card-title d-flex py-3">
           <div className="title-num mx-2">
             <FaArrowCircleLeft
-              className="me-3"
+              className="me-4"
               onClick={() => {
                 history.goBack();
               }}
@@ -80,20 +80,24 @@ const OrderDetail = ({ showOL, showOD }) => {
           </div>
           <div className="title-name mx-2">1</div>
         </div>
-        <div className="w-100">
-          <table className="detail-table w-100 ms-2 ">
-            <thead className="d-flex justify-content-between">
-              <th>廠商</th>
+        <div className="w-100 mt-3">
+          <table className="detail-table w-100 ms-2  ">
+            <thead className="text-center w-100">
+              <th>品牌</th>
               <th>商品編號</th>
               <th>商品資訊</th>
               <th>定價</th>
               <th>數量</th>
               <th>小計</th>
             </thead>
-            <tbody>
+            <tbody className="text-center">
               <tr>
-                <td>231</td>
-                <td>231</td>
+                <td className="pt-3">Miu</td>
+                <td className="pt-3">NAM123</td>
+                <td className="pt-3">鳥燈</td>
+                <td className="pt-3">NT$ 100</td>
+                <td className="pt-3">1</td>
+                <td className="pt-3">NT$ 100</td>
               </tr>
             </tbody>
           </table>
@@ -102,31 +106,27 @@ const OrderDetail = ({ showOL, showOD }) => {
           <div className="d-flex justify-content-end ">
             <table className="ol_tabledown text-end w-25">
               <tr>
-                <th>小計</th>
+                <th></th>
                 <td>NT $2100</td>
               </tr>
-              <tr>
+              <tr className=" border-bottom">
                 <th>運費</th>
                 <td>NT$ 120</td>
               </tr>
-              <tr>
-                <th>運費折抵</th>
-                <td>NT$ 120</td>
-              </tr>
-              <tr className=" border-bottom">
-                <th>貨到付款加收</th>
-                <td>NT$ 40</td>
+              <tr className="text-danger">
+                <th>優惠券折抵</th>
+                <td>- NT $100</td>
               </tr>
 
               <tr>
-                <th>購買金額</th>
+                <th>總金額</th>
                 <td className="ol_f">NT$ 2100</td>
               </tr>
             </table>
           </div>
         </div>
       </div>
-
+{/* 
       <div className="orderlist-card w-100">
         <div className="card-title d-flex py-3">
           <div className="title-num mx-2">優惠折抵明細</div>
@@ -137,11 +137,11 @@ const OrderDetail = ({ showOL, showOD }) => {
             <p className="ol_p1 text-info col-lg-6 text-end">NT$ -120</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="orderlist-card w-100">
         <div className="card-title d-flex py-3">
-          <div className="title-num mx-2">收件人資訊</div>
+          <div className="title-num mx-2">付款人資訊</div>
         </div>
         <div className="card-content ">
           <table className="ol_table">
@@ -161,6 +161,10 @@ const OrderDetail = ({ showOL, showOD }) => {
               <th>運送方式</th>
               <td>宅配</td>
             </tr>
+            <tr>
+              <th>備註</th>
+              <td></td>
+            </tr>
           </table>
         </div>
       </div>
@@ -175,6 +179,14 @@ const OrderDetail = ({ showOL, showOD }) => {
               <th>付款方式</th>
               <td>線上信用卡付款</td>
             </tr>
+            <tr>
+              <th>付款狀態</th>
+              <td>已付款</td>
+            </tr>
+            <tr>
+              <th>刷卡狀態</th>
+              <td>交易成功</td>
+            </tr>
           </table>
         </div>
         <div className="mt-5 position-relative">
@@ -182,7 +194,7 @@ const OrderDetail = ({ showOL, showOD }) => {
             className=" orderlist-b1 me-3 px-3 py-2"
             onClick={changeIsShowOD}
           >
-            返回
+            回訂單查詢
           </button>
           <button className=" orderlist-b2 px-3 py-2">取消訂單</button>
         </div>
