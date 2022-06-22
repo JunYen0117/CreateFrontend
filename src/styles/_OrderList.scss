@@ -26,8 +26,8 @@
       font-weight: bold;
     }
     .title-name {
-      color: $primary;
-      font-weight: 900;
+      color: #000;
+      // font-weight: 900;
     }
   }
   .card-button {
@@ -97,4 +97,15 @@
   background-color: #fff;
   border: 1px solid $secondary;
   font-weight: bold;
+}
+
+.detail-table {
+  width: 100%;
+  thead {
+  width: 100%;
+
+    th {
+      // width: 200px;
+    }
+  }
 }
