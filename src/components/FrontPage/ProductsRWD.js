@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 function ProductsRWD(props) {
-  const { datas } = props;
+  const { datas, on_phone } = props;
   return (
     <>
       <Swiper
@@ -28,6 +28,7 @@ function ProductsRWD(props) {
                   brand_href={content.brand_href}
                   pic_href={content.pic_href}
                   cost={content.cost}
+                  on_phone={on_phone}
                 />
               </SwiperSlide>
             ))
