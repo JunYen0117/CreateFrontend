@@ -26,7 +26,7 @@ const Order = () => {
   // console.log(orders);
   return (
     <>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="product">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="finish">
         <Row className="">
           <ASidebar />
           <Col sm={8}>
