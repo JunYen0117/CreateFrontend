@@ -4,7 +4,7 @@ import SliderBanner from '../components/FrontPage/SliderBanner';
 import ArticleCards from '../components/FrontPage/ArticleCards';
 import Carousel from '../components/FrontPage/Carousel';
 import CarouselContents from '../components/FrontPage/CarouselContents';
-import Swiper from '../components/FrontPage/Swiper';
+
 
 import datas from '../test/data/ArticleCard.json';
 import Productdatas from '../test/data/ProductCard.json';

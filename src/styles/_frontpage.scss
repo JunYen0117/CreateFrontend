@@ -14,7 +14,7 @@
 // 標題字
 h2 {
     font-size: 22px;
-    color: #b99664;
+    color: $primary;
     margin: 0 120px 20px 120px;
     font-weight: 600;
     a {
@@ -59,11 +59,14 @@ h2 {
 .card-text {
     font-size: 14px;
     text-decoration: none;
-    color: #a5b6a4;
+    color: $success;
     margin-bottom: 15px;
 }
 .money {
-    color: #b99664;
+    color: $primary;
+}
+.swiper{
+    display: none;
 }
 
 // BusinessLogo 品牌Logo
@@ -169,8 +172,23 @@ button {
         }
     }
     // ProductCard質感商品
-    .all-product-card {
-        margin: 0 15px 20px 15px;
+    .swiper{
+        display: block;
     }
-
+    .all-logo {
+        margin: 0 15px 20px 15px;
+        display: none;
+    }
+    .product {
+        display: none;
+    }
+    .carousel{
+        display: none !important;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        img {
+            display: none;
+        }
+    }
 }

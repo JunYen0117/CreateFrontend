@@ -1,4 +1,4 @@
-import '../../styles/_frontpage.scss';
+// import '../../styles/_frontpage.scss';
 import ProductRWD from './ProductRWD';
 
 // Import Swiper React components
@@ -14,7 +14,7 @@ function ProductsRWD(props) {
         const a = index === 0 ? 'active' : '';
         return (
           <Swiper
-            spaceBetween={50}
+            spaceBetween={15}
             slidesPerView={2}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}

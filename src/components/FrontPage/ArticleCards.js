@@ -1,4 +1,4 @@
-import '../../styles/_frontpage.scss';
+// import '../../styles/_frontpage.scss';
 import ArticleCard from './ArticleCard';
 
 function ArticleCards(props) {

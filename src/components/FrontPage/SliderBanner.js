@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import '../../styles/_frontpage.scss';
+// import '../../styles/_frontpage.scss';
 
 import img1 from '../../img/B1.jpg';
 import img2 from '../../img/B2.jpg';
