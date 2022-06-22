@@ -1,7 +1,5 @@
 import '../../styles/_frontpage.scss';
 import ProductCard from './ProductCard';
-// import PLeftCircle from '../../img/left-circle.svg';
-// import PRightCircle from '../../img/right-circle.svg';
 
 function ProductCards(props) {
   return (
