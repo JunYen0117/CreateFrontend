@@ -34,7 +34,7 @@ function Header() {
           </div>
           <ul className="header_top menu1 d-none d-md-flex pt-4 ">
             <li className="shopcart_item mt-3 me-3">
-              <Link to="/cart" exact>
+              <Link to="/cart">
                 <Shopcart1 />
               </Link>
             </li>

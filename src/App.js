@@ -14,25 +14,27 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
-        <Switch>
-          <Route path="/user">
-            <User />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/product">
-            <Products />
-          </Route>
-          <Route path="/productdetail">
-            <ProductDetail />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-        </Switch>
-        <Footer />
+        <>
+          <Header />
+          <Switch>
+            <Route path="/user">
+              <User />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/product">
+              <Products />
+            </Route>
+            <Route path="/productdetail">
+              <ProductDetail />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+          </Switch>
+          <Footer />
+        </>
       </Router>
     </>
   );

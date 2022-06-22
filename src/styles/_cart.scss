@@ -6,14 +6,18 @@
   }
 
   .cart_product_name {
-    width: 40%;
+    width: 25%;
   }
 
-  .cart_product_count {
-    width: 5%;
+  .cart_product_count :nth-child(odd) {
+    cursor: pointer;
   }
+
   .cart_product_delete {
     width: 5%;
+    > svg {
+      cursor: pointer;
+    }
   }
 }
 
