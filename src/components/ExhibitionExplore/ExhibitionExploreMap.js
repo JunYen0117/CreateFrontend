@@ -1,16 +1,16 @@
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import iconMarker from 'leaflet/dist/images/marker-icon.png';
+// import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import markerred from '../../img/marker-red.png';
 import markerblue from '../../img/marker-blue.png';
-import markergif from '../../img/marker-gif.gif';
 import { useState } from 'react';
-// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { useRef } from 'react';
+
 import 'leaflet/dist/leaflet.css';
-import { clearConfigCache } from 'prettier';
-const icon = L.icon({
-  iconUrl: iconMarker,
-});
+
+// const icon = L.icon({
+//   iconUrl: iconMarker,
+// });
 function createIcon(url) {
   return new L.Icon({
     iconUrl: url,
@@ -52,9 +52,14 @@ function ExhibitionExploreMap() {
   //     iconUrl: iconMarker,
   //   });
   const [selectedIndex, setSelectedIndex] = useState(-1);
-
-  function handleClick(e) {
-    const a = setSelectedIndex(e.target.options.index); //點擊
+  const mapRef = useRef(null);
+  function handleClick(e) { 
+    //抓取被點擊marker的index
+    const a = setSelectedIndex(e.target.options.index);
+    //解決popup在點擊close時改變url問題
+    mapRef.current._popup._closeButton.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
     console.log(a);
   }
 
@@ -72,10 +77,11 @@ function ExhibitionExploreMap() {
       center={[52.8174847, 10.6912322]}
       zoom={4}
       maxZoom={18}
+      ref={mapRef}
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"//https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org">OpenMapTiles</a>, &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
       {data.map((item, index) => {
         return (

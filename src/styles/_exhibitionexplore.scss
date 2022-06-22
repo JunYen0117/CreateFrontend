@@ -1,3 +1,49 @@
 .markercluster-map{
     height: 90vh;
 }
+
+.exhibition_card {
+    padding: 20px;
+    width: 570px;
+    height: 280px;
+    a {
+        text-decoration: none;
+    }
+}
+.exhibition_img {
+    width: 180px;
+    height: 240px;
+    img {
+        width: 180px;
+        height: 240px;
+        object-fit: cover;
+    }
+}
+.exhibition_card:hover {
+    box-shadow: 8px 8px 10px #b996644d;
+}
+.exhibition_text {
+    margin-left: 20px !important;
+    h3 {
+        width: 300px;
+        color: black;
+        
+        margin-bottom: 10px;
+    }
+    .line {
+        border-bottom: 2px solid $primary;
+        width: 320px;
+    }
+    p {
+        width: 300px;
+        height: 120px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+        margin: 10px 0;
+        color: black;
+        line-height: 25px;
+        letter-spacing: 15%;
+    }
+}
