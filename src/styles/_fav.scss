@@ -59,6 +59,12 @@
 
 // -- Fav activity --
 
+.Fac_card{
+  &:hover{
+    box-shadow: 2px 2px 2px 2px gray;
+  }
+}
+
 .Fac_img {
   height: 100%;
   width: 100%;
