@@ -22,8 +22,8 @@ export default class extends Component {
     window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
   }
   render() {
-    let product = <ProductsRWD datas={Productdatas} />
-    let brand = <ProductsRWD datas={Productdatas} />
+    let product = <ProductsRWD datas={Productdatas} on_phone={!this.state.matches} />
+    let brand = <ProductsRWD datas={Productdatas} on_phone={!this.state.matches} />
     if (this.state.matches) {
       product = (
         <Carousel key_="test1">
