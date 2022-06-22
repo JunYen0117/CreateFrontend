@@ -58,11 +58,11 @@ function ProductDetail() {
             </div>
             <p className="h2 m-0 p-3">數量</p>
             <div className="m-0 p-3 product_count">
-              <span className="fw-bolder">
+              <span className="fw-bolder cursor_pointer">
                 <BsDashLg />
               </span>
               <span className="border mx-3 h2 fw-bolder">1</span>
-              <span className="fw-bolder">
+              <span className="fw-bolder cursor_pointer">
                 <BsPlusLg />
               </span>
             </div>

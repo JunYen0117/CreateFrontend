@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
 
-import { productAll, productFilterCategory } from '../../utils/api';
+import { productGetAll, productGetCategory } from '../../utils/api';
 
 import ProductItem from './ProductItem';
 
 function ProductList(props) {
   const { products, setProducts } = props;
   const { classificationId, categoryId } = props;
-  const { page, lastPage, setLastPage } = props;
+  const { page, setLastPage } = props;
 
   // 第一次進入頁面時，顯示全部商品
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
-      let response = await productAll({
+      let response = await productGetAll({
         withCredentials: true,
         params: {
           page: page,
@@ -30,7 +30,7 @@ function ProductList(props) {
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
-      let response = await productAll({
+      let response = await productGetAll({
         withCredentials: true,
         params: {
           page: page,
@@ -48,7 +48,7 @@ function ProductList(props) {
   useEffect(() => {
     if (categoryId > 0) {
       let getProductCategory = async () => {
-        let response = await productFilterCategory(categoryId, {
+        let response = await productGetCategory(categoryId, {
           withCredentials: true,
         });
         setProducts(response.data);

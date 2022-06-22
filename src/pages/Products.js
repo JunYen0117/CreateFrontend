@@ -117,7 +117,6 @@ function Products() {
               classificationId={classificationId}
               categoryId={categoryId}
               page={page}
-              lastPage={lastPage}
               setLastPage={setLastPage}
             />
             {categoryId === -1 ? (

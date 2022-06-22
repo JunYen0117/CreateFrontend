@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { productSidebarClass, productSidebarCategory } from '../../utils/api';
+import { productChooseClass, productChooseCategory } from '../../utils/api';
 
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
 
@@ -18,7 +18,7 @@ function ProductSidebar(props) {
   // Classification
   useEffect(() => {
     let getClassification = async () => {
-      let response = await productSidebarClass({
+      let response = await productChooseClass({
         withCredentials: true,
       });
       setClassifications(response.data);
@@ -30,7 +30,7 @@ function ProductSidebar(props) {
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
-        let response = await productSidebarCategory(classificationId, {
+        let response = await productChooseCategory(classificationId, {
           withCredentials: true,
         });
         setCategorys(response.data);
