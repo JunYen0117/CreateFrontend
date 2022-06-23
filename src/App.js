@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import PwdChanging from './pages/PwdChanging';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/pwdchanging">
+            <PwdChanging />
           </Route>
           {/* <Route exact path="/">
           <Home />
