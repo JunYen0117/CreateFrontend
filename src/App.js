@@ -10,9 +10,11 @@ import Cart from './pages/Cart';
 import About from './pages/About';
 import User from './pages/User';
 
+import { CartProvider } from './utils/useCart';
+
 function App() {
   return (
-    <>
+    <CartProvider localStorageKey="Cart">
       <Router>
         <>
           <Header />
@@ -36,7 +38,7 @@ function App() {
           <Footer />
         </>
       </Router>
-    </>
+    </CartProvider>
   );
 }
 

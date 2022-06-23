@@ -1,7 +1,6 @@
-// import product from '../img/products/product01.jpg';
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useCart } from '../utils/useCart';
 
 import {
   BsPlusLg,
@@ -26,6 +25,9 @@ function ProductDetail() {
   // /products?productId=2
   const location = useLocation();
 
+  // 在 購物車 加入 商品
+  const { addItem } = useCart();
+
   useEffect(() => {
     let axiosProductById = async () => {
       // 根據 URL 建立 Params 物件
@@ -44,7 +46,7 @@ function ProductDetail() {
     axiosProductById();
   }, []);
 
-  console.log(productInDetail.image);
+  console.log(productInDetail);
 
   return (
     <>
@@ -75,7 +77,14 @@ function ProductDetail() {
                 <BsPlusLg />
               </span>
             </div>
-            <a href="#/" alt="">
+            <a
+              href="#/"
+              alt=""
+              onClick={() => {
+                const item = { ...productInDetail, quantity: 1 };
+                addItem(item);
+              }}
+            >
               <div className="mb-0 p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
                 <span>加入購物車</span>
