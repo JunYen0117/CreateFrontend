@@ -14,8 +14,10 @@ function ProductSidebar(props) {
   const { categoryId, setCategoryId } = props;
   // 設回第一頁
   const { setPage } = props;
-
+  // 價格遞增,價格遞減
   const { setSort } = props;
+  // 價格搜尋區間重置
+  const { setPrice } = props;
 
   // Classification
   useEffect(() => {
@@ -65,6 +67,10 @@ function ProductSidebar(props) {
                         setCategoryId(-1);
                         setPage(1);
                         setSort('');
+                        setPrice({
+                          minPrice: 0,
+                          maxPrice: 0,
+                        });
                       }
                 }
               >

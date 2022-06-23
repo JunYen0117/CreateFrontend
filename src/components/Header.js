@@ -7,7 +7,7 @@ import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const LogoMobile = styled(LogoSvg)`
@@ -15,15 +15,22 @@ const LogoMobile = styled(LogoSvg)`
 `;
 
 function Header() {
+  const history = useHistory();
+
   return (
     <>
       <header className="container-fluid">
         <div className="d-none d-md-flex justify-content-between">
           <div className="d-flex ms-5">
             <figure className="desktop_figure mx-5 mt-4">
-              <a href="#/" className="header_a">
+              <span
+                className="header_a"
+                onClick={() => {
+                  history.push('/');
+                }}
+              >
                 <img src={LogoDesktop} alt="" />
-              </a>
+              </span>
             </figure>
             <li className="search_item d-none d-md-block mt-5">
               <input className="search_bar" type="text" />
@@ -34,7 +41,9 @@ function Header() {
           </div>
           <ul className="header_top menu1 d-none d-md-flex pt-4 ">
             <li className="shopcart_item mt-3 me-3">
-              <Shopcart1 />
+              <Link to="/cart">
+                <Shopcart1 />
+              </Link>
             </li>
             <li className="profile_item mt-3 me-5">
               <NoLogin />
@@ -49,9 +58,9 @@ function Header() {
             <Link to="#/">活動資訊</Link>
           </li>
           <li>
-            <Link to="/product" className="active">
+            <NavLink to="/product" exact>
               購物商城
-            </Link>
+            </NavLink>
           </li>
           <li>
             <Link to="#/">文章專欄</Link>

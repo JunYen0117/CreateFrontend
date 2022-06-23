@@ -6,7 +6,7 @@ import option3 from '../img/products/option3.jpg';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import ProductList from '../components/Products/ProductList';
@@ -33,26 +33,58 @@ function Products() {
   // 價格排序
   const [sort, setSort] = useState('');
 
-  // 價格搜尋
+  // 價格搜尋 Form
   // TODO: 後端帶入預設值
   const [price, setPrice] = useState({
     minPrice: 0,
     maxPrice: 0,
   });
 
+  // 搜尋後換頁
+  useEffect(() => {
+    let getSearchProduct = async () => {
+      let response = await axios.get(
+        `http://localhost:3003/api/product/search`,
+        {
+          // 如果想要跨源讀寫 cookie
+          withCredentials: true,
+          params: {
+            page: page,
+            minPrice: price.minPrice,
+            maxPrice: price.maxPrice,
+          },
+        }
+      );
+      setProducts(response.data.data);
+      setLastPage(response.data.pagination.lastPage);
+    };
+    if (!price.minPrice && !price.maxPrice) return;
+    getSearchProduct();
+  }, [page]);
+
   function handleChange(e) {
     setPrice({ ...price, [e.target.name]: e.target.value });
   }
 
-  async function handleSubmit(e) {
+  // 價格區間搜尋 form
+  async function handleFormSubmit(e) {
     e.preventDefault();
     try {
-      let response = await axios.get(`http://localhost:3003/api/product`, {
-        // 如果想要跨源讀寫 cookie
-        withCredentials: true,
-        price,
-      });
-      console.log(response.data);
+      let response = await axios.get(
+        `http://localhost:3003/api/product/search`,
+        {
+          // 如果想要跨源讀寫 cookie
+          withCredentials: true,
+          params: {
+            minPrice: price.minPrice,
+            maxPrice: price.maxPrice,
+          },
+        }
+      );
+      setProducts(response.data.data);
+      document.getElementById('priceForm').reset();
+      setPage(1);
+      setLastPage(response.data.pagination.lastPage);
     } catch (e) {
       console.error(e.response.data);
     }
@@ -101,14 +133,24 @@ function Products() {
             <ul className="d-flex justify-content-between">
               {/* 用 form 表單查詢 */}
               <li className="price_filter">
-                <form>
+                <form id="priceForm">
                   <span className="me-3">NT$</span>
-                  <input type="text" name="minPrice" onChange={handleChange} />
+                  <input
+                    type="text"
+                    id="minPrice"
+                    name="minPrice"
+                    onChange={handleChange}
+                  />
                   <span>－</span>
-                  <input type="text" name="maxPrice" onChange={handleChange} />
+                  <input
+                    type="text"
+                    id="maxPrice"
+                    name="maxPrice"
+                    onChange={handleChange}
+                  />
                   <button href="#/" alt="" className="product_price_search">
                     <span>
-                      <AiFillCaretRight onClick={handleSubmit} />
+                      <AiFillCaretRight onClick={handleFormSubmit} />
                     </span>
                   </button>
                 </form>
@@ -152,6 +194,7 @@ function Products() {
               setCategoryId={setCategoryId}
               setPage={setPage}
               setSort={setSort}
+              setPrice={setPrice}
             />
           </div>
           <div className="col-10 col-md-9 p-0">
@@ -163,6 +206,7 @@ function Products() {
               page={page}
               setLastPage={setLastPage}
               sort={sort}
+              price={price}
             />
             {categoryId === -1 ? (
               <ProductPagination

@@ -9,6 +9,7 @@ function ProductList(props) {
   const { classificationId, categoryId } = props;
   const { page, setLastPage } = props;
   const { sort } = props;
+  const { price } = props;
 
   // 第一次進入頁面時，顯示全部商品
   // 全部商品換頁；關閉類別顯示全部商品
@@ -24,9 +25,9 @@ function ProductList(props) {
         },
       });
       setProducts(response.data.data);
-      // 設定最後一頁
       setLastPage(response.data.pagination.lastPage);
     };
+    if (Number(price.minPrice) !== 0 && Number(price.maxPrice) !== 0) return;
     getProductAll();
   }, [page, classificationId, sort]);
 
