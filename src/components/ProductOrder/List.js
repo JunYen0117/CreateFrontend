@@ -3,23 +3,27 @@ import { useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
+import Detail from './Detail';
 
-const List = ({ showOL, showOD }) => {
+const List = (props) => {
+  const { showOL, showOD } = props;
+
   function changeIsShowOL() {
     showOL(false);
     showOD(true);
   }
   const [orders, setOrders] = useState([]);
+
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + '/productorder');
+      let response = await axios.get(API_URL + `/productorder`);
       setOrders(response.data);
     };
     getOrders();
   }, []);
   let arr = orders.totalarr || [];
-  console.log(arr);
+  // console.log(arr);
 
   return (
     <>
