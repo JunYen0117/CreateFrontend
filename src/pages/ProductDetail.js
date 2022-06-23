@@ -1,6 +1,7 @@
-import product from '../img/products/product01.jpg';
+// import product from '../img/products/product01.jpg';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import {
   BsPlusLg,
@@ -9,37 +10,41 @@ import {
   BsHeart,
   BsHeartFill,
 } from 'react-icons/bs';
+import axios from 'axios';
 
 function ProductDetail() {
   const textarr = [1, 2, 3];
   const [heart, setHeart] = useState(false);
-  //   const [productInDetail, setProductInDetail] = useState({
-  //     id: '',
-  //     picture: '',
-  //     stock: 0,
-  //     name: '',
-  //     price: 0,
-  //     tags: '',
-  //   });
 
-  //   // /products?productId=2
-  //   const location = useLocation();
+  const [productInDetail, setProductInDetail] = useState({
+    id: 0,
+    product_name: '',
+    price: 0,
+    image: '1_1咖啡壺.jpg',
+  });
 
-  //   const fetchProductById = async () => {
-  //     // 根據 URL 建立 Params 物件
-  //     const searchParams = new URLSearchParams(location.search);
-  //     // 取得 Param: productId
-  //     const productId = searchParams.get('productId');
-  //     // 向後端要資料
-  //     const response = await fetch('/products/?productId=' + productId);
-  //     const data = await response.json();
-  //     setProductInDetail(data);
-  //   };
+  // /products?productId=2
+  const location = useLocation();
 
-  //   // didMount
-  //   useEffect(() => {
-  //     fetchProductById();
-  //   }, []);
+  useEffect(() => {
+    let axiosProductById = async () => {
+      // 根據 URL 建立 Params 物件
+      const searchParams = new URLSearchParams(location.search);
+      // 取得 Param: productId
+      const productId = searchParams.get('productId');
+      // 向後端要資料
+      const response = await axios.get(
+        `http://localhost:3003/api/product/detail/${productId}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setProductInDetail(response.data[0]);
+    };
+    axiosProductById();
+  }, []);
+
+  console.log(productInDetail.image);
 
   return (
     <>
@@ -47,14 +52,18 @@ function ProductDetail() {
         <div className="row">
           <div className="col-md-6 p-5">
             <figure className="figure">
-              <img src={product} className="img-fluid" alt="" />
+              <img
+                src={`http://localhost:3003/images/product/${productInDetail.image}`}
+                className="img-fluid"
+                alt=""
+              />
             </figure>
           </div>
           {/* 商品描述 */}
           <div className="col-md-4 p-5 product_description d-flex flex-column justify-content-around">
-            <p className="h1 m-0 p-3">簡單生活 香氛水晶 簡單生活</p>
+            <p className="h1 m-0 p-3">{productInDetail.product_name}</p>
             <div className="h2 m-0 p-3">
-              <span>NT $ 9999</span>
+              <span>NT $ {productInDetail.price}</span>
             </div>
             <p className="h2 m-0 p-3">數量</p>
             <div className="m-0 p-3 product_count">
@@ -119,7 +128,11 @@ function ProductDetail() {
                   <div className="card mb-3 productdetail_comment">
                     <div className="row g-0">
                       <div className="col-md-4">
-                        <img src={product} alt="" className="img-fluid" />
+                        <img
+                          src={`http://localhost:3003/images/product/${productInDetail.image}`}
+                          alt=""
+                          className="img-fluid"
+                        />
                       </div>
                       <div className="col-md-8 p-3">
                         <div className="card-body d-flex flex-column justify-content-between h-100">

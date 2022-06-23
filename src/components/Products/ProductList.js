@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-
 import { productGetAll, productGetCategory } from '../../utils/api';
-
 import ProductItem from './ProductItem';
 
 function ProductList(props) {

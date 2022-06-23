@@ -6,7 +6,7 @@ import option3 from '../img/products/option3.jpg';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 import ProductList from '../components/Products/ProductList';
@@ -34,11 +34,13 @@ function Products() {
   const [sort, setSort] = useState('');
 
   // 價格搜尋 Form
-  // TODO: 後端帶入預設值
   const [price, setPrice] = useState({
     minPrice: 0,
     maxPrice: 0,
   });
+
+  const formMinPrice = useRef(undefined);
+  const formMaxPrice = useRef(undefined);
 
   // 搜尋後換頁
   useEffect(() => {
@@ -82,9 +84,11 @@ function Products() {
         }
       );
       setProducts(response.data.data);
-      document.getElementById('priceForm').reset();
       setPage(1);
       setLastPage(response.data.pagination.lastPage);
+      // useRef 清空 input
+      formMinPrice.current.value = '';
+      formMaxPrice.current.value = '';
     } catch (e) {
       console.error(e.response.data);
     }
@@ -139,6 +143,7 @@ function Products() {
                     type="text"
                     id="minPrice"
                     name="minPrice"
+                    ref={formMinPrice}
                     onChange={handleChange}
                   />
                   <span>－</span>
@@ -146,6 +151,7 @@ function Products() {
                     type="text"
                     id="maxPrice"
                     name="maxPrice"
+                    ref={formMaxPrice}
                     onChange={handleChange}
                   />
                   <button href="#/" alt="" className="product_price_search">
