@@ -221,6 +221,9 @@ const Detail = ({ showOL, showOD }) => {
             visible={isModalVisible}
             onOk={handleOk}
             onCancel={handleCancel}
+            okText="對的"
+            cancelText="再想想"
+            className="orderdetail_bt"
           >
             <h1>
               確定要取消訂單嗎？
