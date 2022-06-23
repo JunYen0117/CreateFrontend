@@ -5,16 +5,14 @@ function Section9() {
     <>
       <section className="planning_section_nine pb-5">
         <h3 className="py-4 mt-5">畢業感文分享</h3>
-        <p>
-          六月畢業季來了，分離的畢業歌聲響起，
+        <p className='mb-5'>
+          專欄是分享觀點的起點。在創意迴廊上
           <br />
-          還沒想好畢業禮物送什麼比較好？
+          作家除了傳達，同時也在接收
           <br />
-          Pinkoi 精選學生最愛畢業禮物排行榜，獨一無二的客製化/刻字禮物
+          讀者與作家為了這個時代不斷更新自己
           <br />
-          實用又療癒的創意小物、入職必備的文具和證件套等配件、適合送老師的質感好禮
-          <br />
-          學生送禮也負擔得起！
+          而想法的交換，才正是群眾共鳴的核心
         </p>
         <div className="d-flex justify-content-center">
           <Section9FlexItem />

@@ -7,15 +7,15 @@ function Section6() {
       <section className="planning_section_six">
         <h3 className="py-4 mt-5">創造最美好的回憶!</h3>
         <p className="mb-5">
-          六月畢業季來了，分離的畢業歌聲響起，
+          六月畢業季來了，分離的畢業歌聲響起
           <br />
-          還沒想好畢業禮物送什麼比較好？
+          是否想在最後與同學留下美好回憶？
           <br />
-          Pinkoi 精選學生最愛畢業禮物排行榜，獨一無二的客製化/刻字禮物
+          創意迴廊的精選活動
           <br />
-          實用又療癒的創意小物、入職必備的文具和證件套等配件、適合送老師的質感好禮
+          囊括各類課程、展覽資訊
           <br />
-          學生送禮也負擔得起！
+          讓你在畢業時也能繼續充實自己！
         </p>
         <div className="d-flex justify-content-center pb-5">
           <figure className="mx-1 mx-md-2">

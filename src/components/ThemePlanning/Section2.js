@@ -11,20 +11,18 @@ function Section2() {
           </figure>
           <div className="section2_flex_item_right">
             <p className="py-4">
-              這樣看來
+            《創意迴廊》是台灣的選物課程平台
               <br />
-              一般來說
+              提供手作課程、展覽
               <br />
-              我們都必須務必慎重的考慮考慮
+              以及各樣選購商品
+              <br />
+              配件、包包、小物，各式各樣應有盡有！
               <br />
               <br />
-              要想清楚
+              快來尋寶吧！
               <br />
-              畢業，到底是一種怎麼樣的存在
-              <br />
-              若能夠洞悉畢業各種層面的含義
-              <br />
-              勢必能讓思維再提高一個層級
+              有獨特的想法想實踐，也歡迎聯絡我們！
             </p>
             <button className="d-flex justify-content-center mb-3">
               看更多
