@@ -25,14 +25,14 @@ const Card = (props) => {
               2022/07/31 11:59:59
             </h4>
           </div>
-        </div>
-        <div className="d-flex mb-4">
-          <button className="couponCard_btn mx-auto px-2">
-            <a href="/" className="text-decoration-none">
-              {/* 這是 立即使用 的變數 */}
-              {use}
-            </a>
-          </button>
+          <div className="couponCard_btn_desktop d-flex mb-4 position-absolute">
+            <button className="couponCard_btn ms-2">
+              <a href="/" className="text-decoration-none">
+                {/* 這是 立即使用 的變數 */}
+                {use}
+              </a>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -51,9 +51,11 @@ const Card = (props) => {
             <h5 className="coupon_p text-start my-0 pt-2">使用期限：</h5>
             <h5 className="coupon_p text-start my-0 pt-1">
               2022/07/01 00:00:01至
+              {/* 資料庫欄位名稱：coupon_start_period	 */}
             </h5>
             <h5 className="coupon_p text-start my-0 mb-1">
               2022/07/31 11:59:59
+              {/* 資料庫欄位名稱：coupon_end_period		 */}
             </h5>
             <button className="couponCard_btn_phone mx-auto px-2 position-absolute">
               <a href="#/" className="text-decoration-none">
@@ -63,8 +65,12 @@ const Card = (props) => {
             </button>
             {/* 2022-07-31 11:59:59 */}
             <div className="coupon_pass_phone d-md-none text-center py-2 position-absolute">
-            {/* (資料庫的日期時間 - 現在的日期時間) / (24*60*60*1000) 如果 < 7天 就顯示即將過期*/}
-            {(Number(new Date('2022-06-21 11:59:59')) - Number (new Date())) / (24*60*60*1000) < 7 ? pass : ''}
+              {/* (資料庫的日期時間 - 現在的日期時間) / (24*60*60*1000) 如果 < 7天 就顯示即將過期*/}
+              {(Number(new Date('2022-06-21 11:59:59')) - Number(new Date())) /
+                (24 * 60 * 60 * 1000) <
+              7
+                ? pass
+                : ''}
               {/* {Number(new Date('2022-07-31 11:59:59')) > Number(new Date()) ? '' : '已過期'} */}
               {/* {(Number(new Date('2022-06-21 11:59:59')) - Number (new Date())) / (24*60*60*1000) < 7 ? '即將過期' : ''} */}
             </div>
