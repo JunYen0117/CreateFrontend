@@ -7,15 +7,19 @@ function ArticleCards(props) {
       <h2>
         <a href="/">精選文章</a>
       </h2>
-      <div className="all-article-card d-flex justify-content-between">
-        {props.datas.map((data) => (
-          <ArticleCard
-            title={data.title}
-            body={data.body}
-            img={data.img}
-            href={data.href}
-          />
-        ))}
+      <div className="container">
+        <div className="">
+          <div className="all-article-card row justify-content-between">
+            {props.datas.map((data) => (
+              <ArticleCard
+                title={data.title}
+                body={data.body}
+                img={data.img}
+                href={data.href}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

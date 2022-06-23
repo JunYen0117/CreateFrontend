@@ -1,12 +1,12 @@
 // import '../../styles/_frontpage.scss';
 
 function ArticleCard(props) {
-  const { href, img, title, body, rwd } = props;
+  const { href, img, title, body } = props;
   return (
     <>
-      <div className={`article_card ${rwd ? 'col-12' : 'col-6'}`}>
+      <div className="article_card col-12 col-md-5">
         <a href={href}>
-          <div className="d-flex align-items-center">
+          <div className="d-flex flex-column flex-md-row align-items-center justify-content-center atc">
             <div className="flex-shrink-0 article_img">
               {/* localhost:3003/img/name/pic.jpg */}
               <img src={require(`../../img/${img}`)} alt="..." />
