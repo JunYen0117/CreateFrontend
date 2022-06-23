@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
+
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -23,10 +23,9 @@ function MemberSet() {
   };
   return (
     <>
-      <div className="container-fluid">
-        <div className="memberset mt-5">
-          <h2 className="memberset_title">帳戶設定</h2>
-        </div>
+      <div className="memberset container-fluid my-5">
+        <h2 className="memberset_title mb-3">帳戶設定</h2>
+
         <div>
           <div className="d-flex justify-content-center">
             <figure className="memberset_figure">
@@ -37,116 +36,113 @@ function MemberSet() {
           </div>
           <div>
             <Form>
-              <Form.Group as={Row} className="mb-3" controlId="formFile">
+              <Form.Group
+                className="d-block d-md-flex mb-4"
+                controlId="formFile"
+              >
                 <Form.Label column sm="2">
                   修改頭像
                 </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="file" />
-                </Col>
+
+                <Form.Control type="file" className="member_input" />
               </Form.Group>
+
               <Form.Group
-                as={Row}
-                className="mb-3"
+                className="d-block d-md-flex mb-4"
                 controlId="formPlaintextEmail"
               >
                 <Form.Label column sm="2">
                   帳號信箱
                 </Form.Label>
-                <Col sm="6">
-                  <Form.Control
-                    plaintext
-                    readOnly
-                    defaultValue="Email"
-                    disabled
-                  />
-                </Col>
+
+                <Form.Control
+                  readOnly
+                  placeholder="Email"
+                  className="member_input"
+                  disabled
+                />
               </Form.Group>
+
               <Form.Group
-                as={Row}
-                className="mb-3"
+                className="d-block d-md-flex mb-4"
                 controlId="formPlaintextName"
               >
                 <Form.Label column sm="2">
                   用戶名
                 </Form.Label>
-                <Col sm="6">
-                  <Form.Control plaintext defaultValue="Name" />
-                </Col>
+
+                <Form.Control className="member_input" placeholder="Name" />
               </Form.Group>
+
               <Form.Group
-                as={Row}
-                className="mb-3"
+                className="d-block d-md-flex mb-4"
                 controlId="formPlaintextTel"
               >
                 <Form.Label column sm="2">
                   電話
                 </Form.Label>
-                <Col sm="6">
-                  <Form.Control plaintext defaultValue="Tel" />
-                </Col>
+
+                <Form.Control className="member_input" placeholder="Tel" />
               </Form.Group>
+
               <Form.Group
-                as={Row}
-                className="mb-3"
+                className="d-block d-md-flex mb-4"
                 controlId="formPlaintextAddress"
               >
                 <Form.Label column sm="2">
                   地址
                 </Form.Label>
-                <Col sm="6">
-                  <Form.Control plaintext defaultValue="Address" />
-                </Col>
+
+                <Form.Control className="member_input" placeholder="Address" />
               </Form.Group>
-              <Form.Group as={Row} className="mb-3" controlId="" disabled>
+
+              <Form.Group
+                className="d-block d-md-flex mb-4"
+                controlId=""
+                disabled
+              >
                 <Form.Label column sm="2">
                   性別
                 </Form.Label>
-                <Col sm="6">
-                  <Form.Control
-                    plaintext
-                    readOnly
-                    defaultValue="F/M"
-                    disabled
-                  />
-                </Col>
+                <Form.Control
+                  className="member_input"
+                  readOnly
+                  placeholder="F/M"
+                  disabled
+                />
               </Form.Group>
+
               <Form.Group
-                as={Row}
-                className="mb-3"
+                className="d-block d-md-flex mb-5"
                 controlId="formPlaintextEmail"
               >
                 <Form.Label column sm="2">
-                  出生日期
+                  生日
                 </Form.Label>
-                <Col sm="5" className="d-flex">
+                <div className="d-flex">
                   <Form.Control
-                    className="memberSet_form"
-                    plaintext
+                    className="member_input member_birth"
                     readOnly
-                    defaultValue=""
                     disabled
                   />
-                  <p className="mx-3 my-auto">年</p>
+                  <p className="d-none d-md-block mx-3 my-auto">年</p>
                   <Form.Control
-                    className="memberSet_form"
-                    plaintext
+                    className="member_input member_birth"
                     readOnly
-                    defaultValue=""
                     disabled
                   />
-                  <p className="mx-3 my-auto">月</p>
+                  <p className="d-none d-md-block mx-3 my-auto">月</p>
                   <Form.Control
-                    className="memberSet_form"
-                    plaintext
+                    className="member_input member_birth"
                     readOnly
-                    defaultValue=""
                     disabled
                   />
-                  <p className="mx-3 my-auto">日</p>
-                </Col>
+                  <p className="d-none d-md-block mx-3 my-auto">日</p>
+                </div>
               </Form.Group>
-              <Button className="memberSet_update_btn mb-5">更新</Button>
+              <Form.Group className="d-flex justify-content-center justify-content-md-end mb-5">
+                <Button className="member_update_btn mx-auto mx-md-0">更新</Button>
+              </Form.Group>
             </Form>
           </div>
         </div>
