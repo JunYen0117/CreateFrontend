@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState } from 'react';
-
 import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
@@ -9,9 +8,6 @@ import User from './pages/User';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import FavProduct from './pages/Fav/FavProduct';
-import FavActivity from './pages/Fav/FavActivity';
-import FavArticle from './pages/Fav/FavArticle';
 import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
@@ -24,15 +20,6 @@ function App() {
         <Switch>
           <Route path="/fav">
             <FavList />
-          </Route>
-          <Route path="/favproduct/">
-            <FavProduct />
-          </Route>
-          <Route path="/favarticle/">
-            <FavArticle />
-          </Route>
-          <Route path="/favactivity/">
-            <FavActivity />
           </Route>
           <Route path="/order">
             <Order />
