@@ -6,7 +6,7 @@ const PwdChangingSet = () => {
   return (
     <>
       <div className="pwdchanging container-fluid my-5">
-        <h2 className="pwdchanging_title mb-3">變更密碼</h2>
+        <h2 className="pwdchanging_title mb-5">變更密碼</h2>
         <div>
           <div>
             <Form>
@@ -18,10 +18,7 @@ const PwdChangingSet = () => {
                   舊密碼
                 </Form.Label>
 
-                <Form.Control
-                  className="pwdchanging_input"
-                  placeholder="Name"
-                />
+                <Form.Control className="pwdchanging_input" />
               </Form.Group>
 
               <Form.Group
@@ -32,21 +29,18 @@ const PwdChangingSet = () => {
                   新密碼
                 </Form.Label>
 
-                <Form.Control className="pwdchanging_input" placeholder="Tel" />
+                <Form.Control className="pwdchanging_input" />
               </Form.Group>
 
               <Form.Group
-                className="d-block d-md-flex mb-4"
+                className="d-block d-md-flex mb-5"
                 controlId="formPlaintextAddress"
               >
                 <Form.Label column sm="2">
                   確認新密碼
                 </Form.Label>
 
-                <Form.Control
-                  className="pwdchanging_input"
-                  placeholder="Address"
-                />
+                <Form.Control className="pwdchanging_input" />
               </Form.Group>
 
               <Form.Group className="d-flex justify-content-center justify-content-md-end mb-5">
