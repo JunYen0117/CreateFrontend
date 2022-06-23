@@ -19,6 +19,7 @@
 .orderlist-card {
   position: relative;
   margin-bottom: 2rem;
+  font-size: $h3-font-size;
 
   .card-title {
     background: $secondary;
@@ -104,7 +105,7 @@
   h1{
     font-size: 20px;
     font-weight: 300;
-    color: $primary;
+    color: $success;
   }
 }
 

@@ -84,7 +84,7 @@ const Detail = ({ showOL, showOD }) => {
       {/* ===================================== */}
 
       {/* 訂單明細 */}
-      <div className="orderlist-card w-100">
+      <div className="orderlist-card w-100 ">
         <div className="card-title d-flex py-3">
           <div className="title-num mx-2">
             <FaArrowCircleLeft
@@ -156,7 +156,7 @@ const Detail = ({ showOL, showOD }) => {
         </div>
       </div> */}
 
-      <div className="orderlist-card w-100">
+      <div className="orderlist-card w-100 ">
         <div className="card-title d-flex py-3">
           <div className="title-num mx-2">付款人資訊</div>
         </div>
