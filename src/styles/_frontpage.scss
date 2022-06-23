@@ -148,9 +148,16 @@ button {
 }
 /*手機板*/
 @media screen and (max-width: 767px) {
+    // 輪播
     .gallery {
         margin: 10px 0 20px 0;
         width: 100%;
+    }
+    .carousel-item {
+        img {
+            height: 200px;
+            object-fit: cover;
+        }
     }
     .carousel-indicators {
         button {
@@ -168,4 +175,12 @@ button {
             text-decoration: none;
         }
     }
+    // 文章
+    .all-article-card {
+        margin: 0 15px 35px 15px;
+    }
+    .article_card {
+        padding: 10px;
+    }
+    
 }
