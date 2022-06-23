@@ -3,25 +3,21 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 function ExhibitionExploreCards() {
   return (
     <>
-      <div className="d-flex">
-        <DropdownButton id="dropdown-basic-button" title="地區">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </DropdownButton>
-        <DropdownButton id="dropdown-basic-button" title="日期">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </DropdownButton>
-        <DropdownButton id="dropdown-basic-button" title="價錢">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </DropdownButton>
-
-        <select class="">
-          <option selected>Open this select menu</option>
+      <div className="d-flex justify-content-center">
+        <select class="m-3">
+          <option selected>選擇地區</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <select class="m-3">
+          <option selected>選擇日期</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <select class="m-3">
+          <option selected>選擇價錢</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
