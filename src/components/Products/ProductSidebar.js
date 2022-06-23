@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { productSidebarClass, productSidebarCategory } from '../../utils/api';
+import { productChooseClass, productChooseCategory } from '../../utils/api';
 
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
 
@@ -14,11 +14,15 @@ function ProductSidebar(props) {
   const { categoryId, setCategoryId } = props;
   // 設回第一頁
   const { setPage } = props;
+  // 價格遞增,價格遞減
+  const { setSort } = props;
+  // 價格搜尋區間重置
+  const { setPrice } = props;
 
   // Classification
   useEffect(() => {
     let getClassification = async () => {
-      let response = await productSidebarClass({
+      let response = await productChooseClass({
         withCredentials: true,
       });
       setClassifications(response.data);
@@ -30,7 +34,7 @@ function ProductSidebar(props) {
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
-        let response = await productSidebarCategory(classificationId, {
+        let response = await productChooseCategory(classificationId, {
           withCredentials: true,
         });
         setCategorys(response.data);
@@ -62,6 +66,11 @@ function ProductSidebar(props) {
                         setClassificationId(classification.id);
                         setCategoryId(-1);
                         setPage(1);
+                        setSort('');
+                        setPrice({
+                          minPrice: 0,
+                          maxPrice: 0,
+                        });
                       }
                 }
               >

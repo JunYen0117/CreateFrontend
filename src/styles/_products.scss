@@ -1,3 +1,8 @@
+/* =============== 共用 =============== */
+.cursor_pointer {
+  cursor: pointer;
+}
+/* =============== 共用 =============== */
 .product_banner {
   img {
     width: 100%;
@@ -32,6 +37,14 @@
   color: #fff;
   font-weight: 600;
   z-index: 5;
+}
+
+.product_price_search{
+  border: 0;
+  svg {
+    color: #B99664;
+    font-size: 30px;
+  }
 }
 
 .product_filter,
@@ -188,3 +201,4 @@
     background-color: #B99664;
   }
 }
+

@@ -7,7 +7,7 @@ const productRequest = axios.create({
 });
 
 // 商品 相關的 api
-export const productAll = config => productRequest.get('/', config);
-export const productFilterCategory = (categoryId, config) => productRequest.get(`/category/${categoryId}`, config);
-export const productSidebarClass = config => productRequest.get('/classification', config);
-export const productSidebarCategory = (classificationId, config) => productRequest.get(`/classification/${classificationId}/category`, config);
+export const productGetAll = config => productRequest.get('/', config);
+export const productGetCategory = (categoryId, config) => productRequest.get(`/category/${categoryId}`, config);
+export const productChooseClass = config => productRequest.get('/classification', config);
+export const productChooseCategory = (classificationId, config) => productRequest.get(`/classification/${classificationId}/category`, config);

@@ -1,54 +1,39 @@
 import { useEffect } from 'react';
-
-import { productAll, productFilterCategory } from '../../utils/api';
-
+import { productGetAll, productGetCategory } from '../../utils/api';
 import ProductItem from './ProductItem';
 
 function ProductList(props) {
   const { products, setProducts } = props;
   const { classificationId, categoryId } = props;
-  const { page, lastPage, setLastPage } = props;
+  const { page, setLastPage } = props;
+  const { sort } = props;
+  const { price } = props;
 
   // 第一次進入頁面時，顯示全部商品
+  // 全部商品換頁；關閉類別顯示全部商品
   useEffect(() => {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
-      let response = await productAll({
-        withCredentials: true,
-        params: {
-          page: page,
-        },
-      });
-      setProducts(response.data.data);
-      // 設定最後一頁
-      setLastPage(response.data.pagination.lastPage);
-    };
-    getProductAll();
-  }, []);
-
-  // 全部商品換頁；關閉類別，顯示全部商品
-  useEffect(() => {
-    let getProductAll = async () => {
-      // http://localhost:3003/api/product?page=1
-      let response = await productAll({
+      let response = await productGetAll({
         withCredentials: true,
         params: {
           page: page,
           classificationId: classificationId,
+          productSort: sort,
         },
       });
       setProducts(response.data.data);
-      // 設定最後一頁
       setLastPage(response.data.pagination.lastPage);
     };
+    if (Number(price.minPrice) !== 0 && Number(price.maxPrice) !== 0) return;
     getProductAll();
-  }, [page, classificationId]);
+  }, [page, classificationId, sort]);
 
   // 選擇商品種類，顯示選擇種類的商品
   useEffect(() => {
     if (categoryId > 0) {
       let getProductCategory = async () => {
-        let response = await productFilterCategory(categoryId, {
+        let response = await productGetCategory(categoryId, {
           withCredentials: true,
         });
         setProducts(response.data);
