@@ -3,9 +3,10 @@
 import { FaArrowCircleLeft, FaFrown } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { Button, Modal } from 'antd';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import React from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 const Detail = ({ showOL, showOD }) => {
   // 刪除按鈕
@@ -29,6 +30,19 @@ const Detail = ({ showOL, showOD }) => {
   }
 
   const history = useHistory();
+
+  const [detail, setDetail] = useState([]);
+
+  useEffect(() => {
+    let getDetail = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(API_URL + `/productorder/1`);
+      setDetail(response.data);
+    };
+    getDetail();
+  }, []);
+  let arry = detail || [];
+  // console.log(arry);
 
   return (
     <>
@@ -107,17 +121,22 @@ const Detail = ({ showOL, showOD }) => {
               <th>數量</th>
               <th>小計</th>
             </thead>
-            <tbody className="text-center">
-              <tr>
-                <td className="pt-3">Miu</td>
-                <td className="pt-3">NAM123</td>
-                <td className="pt-3">鳥燈</td>
-                <td className="pt-3">NT$ 100</td>
-                <td className="pt-3">1</td>
-                <td className="pt-3">NT$ 100</td>
-              </tr>
-            </tbody>
+            {arry.map((v) => {
+              return (
+                <tbody className="text-center">
+                  <tr>
+                    <td className="pt-3">{v.business_name}</td>
+                    <td className="pt-3">{v.product_num}</td>
+                    <td className="pt-3">{v.product_name}</td>
+                    <td className="pt-3">{v.price}</td>
+                    <td className="pt-3">{v.amount}</td>
+                    <td className="pt-3">{v.subtotal}</td>
+                  </tr>
+                </tbody>
+              );
+            })}
           </table>
+
           <hr />
 
           <div className="d-flex justify-content-end ">
