@@ -14,7 +14,7 @@ const PwdChangingSet = () => {
                 className="d-block d-md-flex mb-4"
                 controlId="formPlaintextName"
               >
-                <Form.Label column sm="2">
+                <Form.Label column sm="3">
                   舊密碼
                 </Form.Label>
 
@@ -25,7 +25,7 @@ const PwdChangingSet = () => {
                 className="d-block d-md-flex mb-4"
                 controlId="formPlaintextTel"
               >
-                <Form.Label column sm="2">
+                <Form.Label column sm="3">
                   新密碼
                 </Form.Label>
 
@@ -36,7 +36,7 @@ const PwdChangingSet = () => {
                 className="d-block d-md-flex mb-5"
                 controlId="formPlaintextAddress"
               >
-                <Form.Label column sm="2">
+                <Form.Label column sm="3">
                   確認新密碼
                 </Form.Label>
 
