@@ -15,7 +15,6 @@ function App() {
   return (
     <>
       <Header />
-      <Sidebar />
       <Router>
         <Switch>
           <Route path="/product">
