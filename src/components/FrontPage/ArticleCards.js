@@ -7,8 +7,8 @@ function ArticleCards(props) {
       <h2>
         <a href="/">精選文章</a>
       </h2>
-      <div className="container">
-        <div className="">
+      <div className="container article-container">
+        <div>
           <div className="all-article-card row justify-content-between">
             {props.datas.map((data) => (
               <ArticleCard

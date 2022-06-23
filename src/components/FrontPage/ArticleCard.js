@@ -4,7 +4,7 @@ function ArticleCard(props) {
   const { href, img, title, body } = props;
   return (
     <>
-      <div className="article_card col-12 col-md-5">
+      <div className="article_card col-12 col-md-6">
         <a href={href}>
           <div className="d-flex flex-column flex-md-row align-items-center justify-content-center atc">
             <div className="flex-shrink-0 article_img">

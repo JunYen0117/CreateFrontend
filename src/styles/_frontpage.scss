@@ -93,6 +93,11 @@ button {
         top: 28%;
     }
 }
+
+// ArticleCards 精選文章
+.article-container {
+    padding-bottom: 50px;
+}
 .article_img {
     width: 180px;
     height: 240px;
@@ -106,10 +111,8 @@ button {
     padding: 20px;
     max-width: 100%;
     max-height: 100%;
-    margin: 0 10px;
     a {
         text-decoration: none;
-        padding: 0 20px;
     }
 }
 .article_card:hover {
@@ -198,18 +201,22 @@ button {
     }
 
     // 文章
-    .all-article-card {
-        margin: 0 15px 35px 15px;
+    .article-container {
+        padding-bottom: 35px;
     }
     .atc {
         flex-wrap: wrap;
-        padding: 10px;
+        padding: 0px;
     }
 
     .article_card {
-        padding: 10px;
-        margin: 0;
+        min-width: 100%;
+        min-height: 100%;
+        padding: 15px;
         margin-bottom: 20px;
+        a {
+            text-decoration: none;
+        }
     }
     .article_img {
         width: 100%;
