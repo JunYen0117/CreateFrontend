@@ -34,7 +34,7 @@ const List = ({ showOL, showOD }) => {
               <table className="ol_table ">
                 <tr>
                   <th>訂單日期</th>
-                  <td>20221322</td>
+                  <td>{v.orderdate}</td>
                 </tr>
                 <tr>
                   <th>訂單金額</th>
