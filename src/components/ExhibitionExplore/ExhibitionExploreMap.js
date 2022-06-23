@@ -22,8 +22,8 @@ const data = [
     fillColor: '#7FC9FF',
     id: 1,
     position: {
-      lat: 59.923043,
-      lng: 10.752839,
+      lat: 25.047798,
+      lng: 121.5119345,
     },
   },
   {
@@ -31,8 +31,8 @@ const data = [
     fillColor: '#7FC9FF',
     id: 2,
     position: {
-      lat: 59.339025,
-      lng: 18.065818,
+      lat: 25.0358614,
+      lng: 121.5119774,
     },
   },
   {
@@ -40,8 +40,8 @@ const data = [
     fillColor: '#7FC9FF',
     id: 3,
     position: {
-      lat: 55.675507,
-      lng: 12.574227,
+      lat: 25.03765,
+      lng: 121.5113766,
     },
   },
 ];
@@ -53,7 +53,7 @@ function ExhibitionExploreMap() {
   //   });
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const mapRef = useRef(null);
-  function handleClick(e) { 
+  function handleClick(e) {
     //抓取被點擊marker的index
     const a = setSelectedIndex(e.target.options.index);
     //解決popup在點擊close時改變url問題
@@ -74,13 +74,13 @@ function ExhibitionExploreMap() {
   return (
     <MapContainer
       className="markercluster-map"
-      center={[52.8174847, 10.6912322]}
-      zoom={4}
+      center={[25.0476181, 121.5152175]}
+      zoom={12}
       maxZoom={18}
       ref={mapRef}
     >
       <TileLayer
-        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"//https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" //https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org">OpenMapTiles</a>, &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
       {data.map((item, index) => {
