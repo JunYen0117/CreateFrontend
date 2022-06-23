@@ -30,11 +30,11 @@ const Product = () => {
                   <h3>鳥燈</h3>
                   <p>NT $100</p>
                   <button
-                    style={{ width: '7rem' }}
+                    style={{ width: '9rem' }}
                     variant="primary"
-                    className="text-white d-block Fp_button"
+                    className="text-white d-block Fp_button p-2"
                   >
-                    <FaShoppingCart className="me-2 h3 m-0" />
+                    <FaShoppingCart className="me-2 h2 m-0 " />
                     加入購物車
                   </button>
                 </div>
