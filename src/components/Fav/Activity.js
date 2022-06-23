@@ -1,11 +1,12 @@
-import React from 'react';
-import ASidebar from '../../components/AccountSidebar/ASidebar';
-import FavTitle from '../../components/Fav/FavTitle';
+import { useState } from 'react';
 import Tiger from '../../img/Activity.png';
 import { Button } from 'react-bootstrap';
-import { FaShoppingCart, FaHeart, FaFireAlt } from 'react-icons/fa';
+import { FaShoppingCart, FaFireAlt } from 'react-icons/fa';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 const Activity = () => {
+  const [showheart, setShowHeart] = useState(true);
+
   return (
     <>
       <div className="container-fluid mb-5 px-0">
@@ -13,12 +14,19 @@ const Activity = () => {
           {[1, 2, 3, 4].map(() => {
             return (
               <>
-                <div className="Fac_card d-flex border p-0 mb-4 ms-2 rounded-3 w-100 position-relative ">
-                  <FaHeart className="Fac_heart" />
-                  <div
-                    className="col-4 p-0 me-5 "
-                    style={{ width: '30%', height: '100%' }}
-                  >
+                <div className="Fac_card d-flex border p-0 mb-4 ms-2 rounded-3 w-100 position-relative">
+                  {showheart ? (
+                    <BsHeartFill className="Fac_heart" />
+                  ) : (
+                    <BsHeart className="Fac_heart" />
+                  )}
+                  <BsHeart
+                    className="Fac_heart"
+                    onClick={() => {
+                      setShowHeart(!showheart);
+                    }}
+                  />
+                  <div className="Fac_cardimg  col-4 p-0 me-3 ">
                     <img src={Tiger} alt="" className="Fac_img " />
                   </div>
                   <div className="col-8 pt-3">
@@ -44,9 +52,8 @@ const Activity = () => {
                         <th>票價</th>
                         <td>NT $400</td>
                         <Button
-                          style={{ width: '10rem' }}
                           variant="primary"
-                          className="text-white mx-auto d-block"
+                          className="text-white  d-block Fac_button m-0"
                         >
                           <FaShoppingCart className="me-3 " />
                           購票去

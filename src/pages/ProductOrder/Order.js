@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Detail from '../../components/ProductOrder/Detail';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
-import { Button, Modal } from 'antd';
 import 'antd/dist/antd.css';
 
 const Order = () => {

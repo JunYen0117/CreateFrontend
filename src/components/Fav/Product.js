@@ -1,30 +1,42 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import { useState } from 'react';
 import Bird from '../../img/Bird.jpg';
-import { FaShoppingCart, FaHeart } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 const Product = () => {
+  const [showheart, setShowHeart] = useState(true);
   return (
     <>
       <div className="container-fluid mb-5 px-0">
         <div className=" row d-flex">
           {[1, 2, 3, 4, 5].map(() => {
             return (
-              <div className="col-2">
-                <div className="  Fp_top ">
+              <div className="col-2 position-relative">
+                {showheart ? (
+                  <BsHeartFill className="Fp_heart" />
+                ) : (
+                  <BsHeart className="Fp_heart" />
+                )}
+                <BsHeart
+                  className="Fp_heart"
+                  onClick={() => {
+                    setShowHeart(!showheart);
+                  }}
+                />
+                <div className=" Fp_top me-2 mb-3">
                   <img className="Fp_img" src={Bird} alt="" />
                 </div>
-                <div className="Fp_body">
-                  <h2>鳥燈</h2>
+                <div className="Fp_body me-2 mb-5">
+                  <h3>鳥燈</h3>
                   <p>NT $100</p>
-                  <Button
-                    style={{ width: '10rem' }}
+                  <button
+                    style={{ width: '7rem' }}
                     variant="primary"
-                    className="text-white d-block"
+                    className="text-white d-block Fp_button"
                   >
-                    <FaShoppingCart className="me-3 h5" />
+                    <FaShoppingCart className="me-2 h3 m-0" />
                     加入購物車
-                  </Button>
+                  </button>
                 </div>
               </div>
             );

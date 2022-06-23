@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 const FavList = () => {
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="product">
-      <Row className="">
+      <Row>
         <ASidebar />
         <Col sm={8}>
           <h1 className="Fl_title ">我的收藏</h1>

@@ -23,8 +23,8 @@
 // ---- Fav product ---
 
 .Fp_top {
-  width: 10rem;
-  height: 10rem;
+  width: 7rem;
+  height: 7rem;
 }
 
 .Fp_img {
@@ -37,8 +37,14 @@
   color: rgb(194, 68, 68);
   font-size: 1.5rem;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 15%;
+  bottom: 35%;
+}
+
+.Fp_button{
+  background-color: $primary;
+  border: none;
+  font-size: 13px;
 }
 
 // --- Fav article ---
@@ -54,15 +60,24 @@
   font-size: 1.5rem;
   position: absolute;
   right: 15px;
-  top: 5px;
+  top: 8px;
 }
 
 // -- Fav activity --
 
 .Fac_card{
+  
   &:hover{
     box-shadow: 3px 3px 3px gray;
+    transform: translate(-5px, -5px);
+   
+    
   }
+}
+
+.Fac_cardimg {
+  width: 30%;
+  height: 100%;
 }
 
 .Fac_img {
@@ -76,11 +91,11 @@
   tr {
     th {
       font-weight: 300;
-      width: 100px;
+      // width: 100px;
     }
     td {
       font-weight: 300;
-      padding: 0.25rem 3rem;
+      // padding: 0.25rem 3rem;
     }
   }
 }
@@ -90,10 +105,8 @@
   font-size: 2rem;
   position: absolute;
   right: 2%;
-  top: 6px;
+  top: 8px;
 
 }
 
-.Fac_tr{
-  margin-right: 5%;
-}
+
