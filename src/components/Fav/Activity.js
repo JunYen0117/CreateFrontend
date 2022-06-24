@@ -3,6 +3,7 @@ import Tiger from '../../img/Activity.png';
 import { Button } from 'react-bootstrap';
 import { FaShoppingCart, FaFireAlt } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import Mo from '../../img/Mo.JPG';
 
 const Activity = () => {
   const [showheart, setShowHeart] = useState(true);
@@ -27,7 +28,7 @@ const Activity = () => {
                     }}
                   />
                   <div className="Fac_cardimg  col-4 p-0 me-3 ">
-                    <img src={Tiger} alt="" className="Fac_img " />
+                    <img src={Mo} alt="" className="Fac_img " />
                   </div>
                   <div className="col-8 pt-3">
                     <h2>
