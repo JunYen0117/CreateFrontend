@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExploret from './pages/ExhibitionExplore';
+import Activity from './pages/Activity';
+import ActivityPayment from './pages/ActivityPayment';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -32,6 +34,12 @@ function App() {
           <Switch>
             <Route path="/course">
               <Course />
+            </Route>
+            <Route path="/activity">
+              <Activity />
+            </Route>
+            <Route path="/activitypayment">
+              <ActivityPayment />
             </Route>
             <Route path="/member">
               <Member />
@@ -67,8 +75,8 @@ function App() {
               <Exhibition />
             </Route>
             <Route path="/exhibitionexplore">
-            <ExhibitionExploret />
-          </Route>
+              <ExhibitionExploret />
+            </Route>
           </Switch>
           <Footer />
         </>
