@@ -1,24 +1,14 @@
-/* 以下為模組化 */
-:root {
-  --primary_color1: #b99664;
-  --primary_color2: #dcd5ca;
-  --secondary_color1: #903f23;
-  --secondary_color2: #a5b6a4;
-  --desktop_title: 1.125rem; /*18px*/
-}
-* {
-  box-sizing: border-box;
-  list-style: none;
-}
-ul {
-  padding-inline-start: 0px; /*取消bootstrap ul預設樣式*/
+
+.header_top {
+  padding-inline-start: 0px; 
   margin-bottom: 0px;
+  margin-right: 100px;
+
 }
-a {
+.header_a {
   color: white;
   text-decoration: none;
 }
-/* 模組化結束 */
 
 header {
   height: 180px;
@@ -33,14 +23,15 @@ header {
 }
 .search_bar {
   width: 200px;
-  height: 40px;
+  height: 30px;
   border-radius: 20px;
 }
 .search_icon {
   position: absolute;
-  right: 12px;
-  top: 5px;
+  right: 10px;
+  top: 2px;
 }
+
 .menu2 {
   a {
     display: block;
@@ -48,17 +39,17 @@ header {
     text-decoration: none;
     padding: 9px 34px;
     border-radius: 22.5px;
-    font-size: var(--desktop_title);
+    font-size: $h2-font-size;
     font-weight: bold;
   }
   a:hover {
     color: white;
-    background: var(--primary_color1);
+    background: $primary;
   }
 }
 
 /*以下為手機版*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px){
   header {
     height: 90px;
     box-shadow: none;
@@ -77,11 +68,8 @@ header {
   .offcanvas {
     width: 70%;
   }
-  .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-body {
-    background: #b99664;
+  .offcanvas_left_menu {
+    background: $primary;
   }
   .left_offcanvas_body li {
     height: 19vh;
@@ -104,7 +92,7 @@ header {
   }
   .offcanvas-body a {
     display: block;
-    font-size: 0.875rem; /*14px*/
+    font-size: $h4-font-size; 
     text-align: center;
     position: absolute;
     top: 50%;
@@ -125,7 +113,7 @@ header {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 2px solid var(--primary_color1);
+    border-bottom: 2px solid $primary;
     margin: 0 auto;
     opacity: 0.9;
   }
@@ -134,7 +122,7 @@ header {
     border-radius: 0%;
     width: 20%;
     color: white;
-    background-color: var(--primary_color1);
-    font-size: 0.875rem; /*14px*/
+    background-color: $primary;
+    font-size: $h4-font-size; 
   }
-}
+  }

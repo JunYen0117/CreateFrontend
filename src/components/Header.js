@@ -11,7 +11,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
 
 const LogoMobile = styled(LogoSvg)`
-  width: 85px;
+  width: 90px;
 `;
 
 function Header() {
@@ -26,9 +26,9 @@ function Header() {
     <>
       <header className="container-fluid">
         <div className="d-none d-md-flex justify-content-between">
-          <div className="d-flex">
+          <div className="d-flex ms-5">
             <figure className="desktop_figure mx-5 mt-4">
-              <a href="#/">
+              <a href="#/" className="header_a">
                 <img src={LogoDesktop} alt="" />
               </a>
             </figure>
@@ -39,8 +39,8 @@ function Header() {
               </a>
             </li>
           </div>
-          <ul className="menu1 d-none d-md-flex pt-4">
-            <li className="shopcart_item mt-3 me-5">
+          <ul className="header_top menu1 d-none d-md-flex pt-4 ">
+            <li className="shopcart_item mt-3 me-3">
               <Shopcart1 />
             </li>
             <li className="profile_item mt-3 me-5">
@@ -67,7 +67,7 @@ function Header() {
         </ul>
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
-          <a href="#/">
+          <a href="#/" className="header_a">
             <LogoMobile />
           </a>
         </figure>
@@ -85,7 +85,7 @@ function Header() {
           </figure>
           <ul className="d-flex">
             <figure className="me-3">
-              <a href="#/">
+              <a href="#/" className="header_a">
                 <MobileSearch />
               </a>
             </figure>
