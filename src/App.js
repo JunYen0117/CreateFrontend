@@ -7,9 +7,6 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 
-import About from './pages/About';
-import User from './pages/User';
-
 import { CartProvider } from './utils/useCart';
 
 function App() {
@@ -19,12 +16,6 @@ function App() {
         <>
           <Header />
           <Switch>
-            <Route path="/user">
-              <User />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
             <Route path="/product/detail">
               <ProductDetail />
             </Route>
