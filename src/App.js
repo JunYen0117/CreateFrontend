@@ -4,6 +4,7 @@ import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import Activity from './pages/Activity';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/Activity">
+            <Activity />
           </Route>
           {/* <Route exact path="/">
           <Home />
