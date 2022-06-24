@@ -1,0 +1,149 @@
+.starter_flex{
+    width: 100vw;
+    height: 100vh;
+
+    //模組化flex_item和內文
+    .starter_flex_item_left, .starter_flex_item_mid, .starter_flex_item_right{
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        position: relative;
+        .link{
+            display: block;
+            width: auto;
+            height: 100%;
+            // &:hover{
+            //     animation: bigger .5s 1 alternate forwards;
+            // }
+            .text{
+                font-size: 36px;
+                font-weight: bold;
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-writing-mode: vertical-lr;
+                writing-mode: vertical-lr;
+            }
+        }
+
+    // 個別設定
+    }
+    .starter_flex_item_left{
+        .link{
+            background: url(../img/Starter/startpage2.jpg) 33% 50%;
+            &:hover{
+                transition: .5s;
+                background: url(../img/Starter/startpage2.jpg) 33% 60%;
+                .text{
+                    transition: .5s;
+                    font-size: 44px;
+                }
+            }
+            &:not(:hover){
+                transition: .5s;
+                background: url(../img/Starter/startpage2.jpg) 33% 50%
+            }
+            .text{
+                color: $info;
+            }
+        }
+    }
+    .starter_flex_item_mid{
+        .link{
+            background: url(../img/Starter/startpage1.jpg) center center;
+            &:hover{
+                transition: .5s;
+                background: url(../img/Starter/startpage1.jpg) center 60%;
+                .text{
+                    transition: .5s;
+                    font-size: 44px;
+                }
+            }
+            &:not(:hover){
+                transition: .5s;
+                background: url(../img/Starter/startpage1.jpg) center center;
+            }
+            .text{
+                color: $secondary;
+            }
+        }
+    }
+    .starter_flex_item_right{
+        .link{
+            background: url(../img/Starter/startpage3.jpg) center 80%;
+            &:hover{
+                transition: .5s;
+                background: url(../img/Starter/startpage3.jpg) center 90%;
+                .text{
+                    transition: .5s;
+                    font-size: 44px;
+                }
+            }
+            &:not(:hover){
+                transition: .5s;
+                background: url(../img/Starter/startpage3.jpg) center 80%;
+            }
+            .text{
+                color:black;
+            }
+        }
+    }
+}
+
+
+.starter_skip, .starter_skip:active{
+    display: block;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    color: $info;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover{
+        background: rgba(255, 255, 255, 0.25);
+        transition: .4s;
+    }
+}
+
+@keyframes bigger {
+    0% {
+        background-size: 100% 100%;
+      }
+      100% {
+        background-size: 120% 120%;
+      }
+}
+
+@media screen and (max-width: 768px){
+    .starter_flex{
+        .starter_flex_item_left, .starter_flex_item_mid, .starter_flex_item_right{
+            .link{
+                .text{
+                    font-size: 20px;
+                    -webkit-writing-mode: horizontal-tb;
+                    writing-mode: horizontal-tb;
+                }
+                &:hover{
+                    .text{
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+        .starter_flex_item_left{
+            background: url(../img/Starter/startpage2.jpg) 50% 60%;
+        }
+        .starter_flex_item_right{
+            background: url(../img/Starter/startpage3.jpg) center 85%;
+        }
+    }
+    .starter_skip, .starter_skip:active{
+        font-size: 14px;
+        position: absolute;
+        right: 50%;
+        bottom: 3%;
+        transform: translate(50%, 0%);
+    }
+}

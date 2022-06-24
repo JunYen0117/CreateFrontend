@@ -11,6 +11,8 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 
+import Starter from './pages/Starter';
+
 import { CartProvider } from './utils/useCart';
 
 function App() {
@@ -18,7 +20,8 @@ function App() {
     <CartProvider localStorageKey="Cart">
       <Router>
         <>
-          <Header />
+          <Starter />
+          {/* <Header />
           <Switch>
             <Route path="/member">
               <Member />
@@ -39,7 +42,7 @@ function App() {
               <Cart />
             </Route>
           </Switch>
-          <Footer />
+          <Footer /> */}
         </>
       </Router>
     </CartProvider>
