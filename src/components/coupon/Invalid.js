@@ -10,9 +10,9 @@ function Invalid(props) {
   const couponPrompt = () => {
     return (
       <>
-        <div className="coupon_pass_desktop text-center py-2 position-absolute">
+        {/* <div className="coupon_pass_desktop text-center py-2 position-absolute">
           已失效
-        </div>
+        </div> */}
       </>
     );
   };

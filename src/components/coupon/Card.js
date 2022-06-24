@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+// import { useState, useEffect } from 'react';
+// import { API_URL } from '../utils/config';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
@@ -9,7 +12,11 @@ const Card = (props) => {
       {/* 以下為桌機版 */}
       <div className="couponCard_desktop col-md-6 py-1 position-relative mb-5">
         {/* 這是 即將過期 的變數 */}
-        {pass}
+        {(Number(new Date('2022-06-30 11:59:59')) - Number(new Date())) /
+          (24 * 60 * 60 * 1000) <
+        7
+          ? pass
+          : ''}
         <div className="couponCard_left p-4 row ">
           <div className="dc col-md-6 w-25 mx-0 my-auto">
             <h2 className="coupon_p my-0 ps-2 py-auto">8折</h2>
