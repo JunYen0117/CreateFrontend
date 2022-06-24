@@ -2,7 +2,7 @@ import CartItem from './CartItem';
 import { useCart } from '../../utils/useCart';
 
 function CartList(props) {
-  const { cart, items, plusOne, minusOne, removeItem } = useCart();
+  const { items } = useCart();
 
   return (
     <>

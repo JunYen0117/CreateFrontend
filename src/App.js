@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
 import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
@@ -13,34 +15,34 @@ import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
 
-
-
 function App() {
   return (
     <CartProvider localStorageKey="Cart">
       <Router>
         <>
           <Header />
-          <Switch>
-            <Route path="/member">
-              <Member />
-            </Route>
-            <Route path="/themeplanning">
-              <ThemePlanning />
-            </Route>
-            <Route path="/pwdchanging">
-              <PwdChanging />
-            </Route>
-            <Route path="/product/detail">
-              <ProductDetail />
-            </Route>
-            <Route path="/product">
-              <Products />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              <Route path="/member">
+                <Member />
+              </Route>
+              <Route path="/themeplanning">
+                <ThemePlanning />
+              </Route>
+              <Route path="/pwdchanging">
+                <PwdChanging />
+              </Route>
+              <Route path="/product/detail">
+                <ProductDetail />
+              </Route>
+              <Route path="/product">
+                <Products />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+            </Switch>
+          </ScrollToTop>
           <Footer />
         </>
       </Router>

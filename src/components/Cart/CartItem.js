@@ -4,7 +4,7 @@ import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 import { useCart } from '../../utils/useCart';
 
 function CartItem(props) {
-  const { cart, items, plusOne, minusOne, removeItem } = useCart();
+  const { plusOne, minusOne, removeItem } = useCart();
   const { productId, productName, vendor, image, price, quantity } = props;
 
   return (

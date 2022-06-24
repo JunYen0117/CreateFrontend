@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
 
 function Summary() {
-  const { cart, items, plusOne, minusOne, removeItem } = useCart();
+  const { cart } = useCart();
 
   return (
     <>

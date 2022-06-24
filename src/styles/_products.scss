@@ -160,6 +160,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .product_banner {
+    img {
+      height: 20vh;
+    }
+  }
+  
   .product_sidebar {
     a {
       font-size: 12px;

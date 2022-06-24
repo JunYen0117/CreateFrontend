@@ -52,8 +52,7 @@ function ProductDetail() {
     axiosProductById();
   }, []);
 
-  console.log(productInDetail);
-  console.log(isInCart(productInDetail.id));
+  // console.log(productInDetail);
   return (
     <>
       <div className="container mt-5">

@@ -99,7 +99,7 @@ function Products() {
   return (
     <>
       <div className="mt-4 product_banner">
-        <img src={banner} alt="" />
+        <img src={banner} alt=""/>
       </div>
       <div className="container">
         <div className="row justify-content-between mt-5 mx-auto gy-3">
@@ -134,8 +134,8 @@ function Products() {
       </div>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-7"></div>
-          <div className="col-5 p-0">
+          <div className="col-md-7"></div>
+          <div className="col-12 col-md-5 p-0">
             <ul className="d-flex justify-content-between">
               {/* 用 form 表單查詢 */}
               <li className="price_filter">
