@@ -17,7 +17,7 @@
 }
 
 .orderlist-card {
-  position: relative;
+  // position: relative;
   margin-bottom: 2rem;
   font-size: $h3-font-size;
 
@@ -32,7 +32,6 @@
     }
   }
   .card-button {
-    position: absolute;
     bottom: 0;
     right: 0;
     background-color: #fff;

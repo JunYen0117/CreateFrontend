@@ -47,15 +47,20 @@ const Order = () => {
             <Col sm={12}>
               <Tab.Content className="mb-5 row mt-3">
                 <Tab.Pane eventKey="finish">
-                  {isShowOL ? (
-                    <List showOL={setIsShowOL} showOD={setIsShowOD} />
-                  ) : null}
-                  {isShowOD ? (
-                    <Detail showOL={setIsShowOL} showOD={setIsShowOD} />
-                  ) : null}
+                  <List
+                    isShowOL={isShowOL}
+                    setIsShowOL={setIsShowOL}
+                    isShowOD={isShowOD}
+                    setIsShowOD={setIsShowOD}
+                  />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <List showOL={setIsShowOL} showOD={setIsShowOD} />
+                  <List
+                    isShowOL={isShowOL}
+                    setIsShowOL={setIsShowOL}
+                    isShowOD={isShowOD}
+                    setIsShowOD={setIsShowOD}
+                  />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

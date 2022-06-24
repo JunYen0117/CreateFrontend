@@ -6,11 +6,12 @@ import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
 
 const List = (props) => {
-  const { showOL, showOD } = props;
+  const { isShowOL, setIsShowOL } = props;
+  const { isShowOD, setIsShowOD } = props;
 
   function changeIsShowOL() {
-    showOL(false);
-    showOD(true);
+    isShowOL(false);
+    isShowOD(true);
   }
   const [orders, setOrders] = useState([]);
 
@@ -52,15 +53,19 @@ const List = (props) => {
                   <th>付款方式</th>
                   <td>信用卡-付款</td>
                 </tr>
+                <button
+                  className="card-button px-3 py-2"
+                  onClick={changeIsShowOL}
+                >
+                  <FaWaze
+                    className="me-2"
+                    style={{ color: 'rgb(182, 115, 115)' }}
+                  />
+                  查看訂單明細
+                </button>
               </table>
             </div>
-            <button className="card-button px-3 py-2" onClick={changeIsShowOL}>
-              <FaWaze
-                className="me-2"
-                style={{ color: 'rgb(182, 115, 115)' }}
-              />
-              查看訂單明細
-            </button>
+            <Detail showOL={setIsShowOL} showOD={setIsShowOD} />
           </div>
         );
       })}
