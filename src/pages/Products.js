@@ -3,10 +3,12 @@ import option1 from '../img/products/option1.jpg';
 import option2 from '../img/products/option2.jpg';
 import option3 from '../img/products/option3.jpg';
 
+// react-icon
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 
 import { useState, useEffect, useRef } from 'react';
+
 import axios from 'axios';
 
 import ProductList from '../components/Products/ProductList';

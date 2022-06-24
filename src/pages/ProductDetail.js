@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useCart } from '../utils/useCart';
+import Swal from 'sweetalert2';
 
 import {
   BsPlusLg,
@@ -24,9 +25,14 @@ function ProductDetail() {
 
   // /products?productId=2
   const location = useLocation();
+  // 前往結帳
+  const goPath = useHistory();
 
-  // 在 購物車 加入 商品
-  const { addItem } = useCart();
+  // 購物車
+  const { addItem, isInCart } = useCart();
+
+  // 計算購買數量
+  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
 
   useEffect(() => {
     let axiosProductById = async () => {
@@ -47,7 +53,7 @@ function ProductDetail() {
   }, []);
 
   console.log(productInDetail);
-
+  console.log(isInCart(productInDetail.id));
   return (
     <>
       <div className="container mt-5">
@@ -69,11 +75,25 @@ function ProductDetail() {
             </div>
             <p className="h2 m-0 p-3">數量</p>
             <div className="m-0 p-3 product_count">
-              <span className="fw-bolder cursor_pointer">
+              <span
+                className="fw-bolder cursor_pointer"
+                onClick={() => {
+                  setPurchaseQuantity(
+                    purchaseQuantity === 1 ? 1 : purchaseQuantity - 1
+                  );
+                }}
+              >
                 <BsDashLg />
               </span>
-              <span className="border mx-3 h2 fw-bolder">1</span>
-              <span className="fw-bolder cursor_pointer">
+              <span className="border mx-3 h2 fw-bolder">
+                {purchaseQuantity}
+              </span>
+              <span
+                className="fw-bolder cursor_pointer"
+                onClick={() => {
+                  setPurchaseQuantity(purchaseQuantity + 1);
+                }}
+              >
                 <BsPlusLg />
               </span>
             </div>
@@ -81,13 +101,26 @@ function ProductDetail() {
               href="#/"
               alt=""
               onClick={() => {
-                const item = { ...productInDetail, quantity: 1 };
-                addItem(item);
+                const item = { ...productInDetail, quantity: purchaseQuantity };
+                if (isInCart(productInDetail.id)) {
+                  goPath.push('/cart');
+                } else {
+                  addItem(item);
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: '商品已加入購物車',
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
               }}
             >
               <div className="mb-0 p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
-                <span>加入購物車</span>
+                <span>
+                  {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
+                </span>
               </div>
             </a>
             <a
