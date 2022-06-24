@@ -10,11 +10,8 @@ function BrandPage() {
   return (
     <>
       <Brand />
-      <div className="mt-4 product_banner">
-        <img src="" alt="" />
-      </div>
-      <div className="all-button">
-        <div className="row justify-content-between mt-5 gy-3">
+      <div className="all-button container">
+        <div className="row justify-content-between mt-2 gy-3">
           <div className="col-12 col-md-6 button2">
             <a href="#/">
               <div className="product_mask">
@@ -35,7 +32,7 @@ function BrandPage() {
           </div>
         </div>
       </div>
-      <div className="price-choise">
+      <div className="container price-choise my-md-5 my-4">
         <div className="row">
           <div className="col-12 p-0">
             <ul className="d-flex justify-content-end">
@@ -43,7 +40,7 @@ function BrandPage() {
                 {/* 切換 遞增 和 遞減*/}
                 <span>價格排序</span>
                 <a href="#/" alt="">
-                  <img src={sort} />
+                  <img src={sort} alt="" />
                 </a>
               </li>
             </ul>

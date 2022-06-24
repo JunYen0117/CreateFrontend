@@ -1,4 +1,3 @@
-
 import Banner0 from '../../img/banner0.jpg';
 
 function Banner() {

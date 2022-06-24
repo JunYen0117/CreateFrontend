@@ -1,9 +1,16 @@
 // Banner
+.banner {
+    height: 35vh;
+    img {
+        height: 35vh;
+        object-fit: cover;
+    }
+}
 .banner-text {
     background-color: #dcd5ca;
     p {
         color: #b99664;
-        padding: 40px 0;
+        padding: 5vh 0;
         margin-bottom: 50px;
         font-weight: 600;
         letter-spacing: 15%;
@@ -11,9 +18,6 @@
     }
 }
 // BrandButton
-.all-button {
-    margin: 0 120px 50px 120px;
-}
 .button2 {
     padding-left: 0;
 }
@@ -21,12 +25,11 @@
     padding-right: 0;
 }
 .price-choise {
-    margin: 0 120px 50px 120px;
     ul {
         padding: 0;
     }
 }
-.line{
+.line {
     border-bottom: 2px solid $primary;
     width: 100%;
     margin-bottom: 40px;
@@ -63,117 +66,134 @@
     z-index: 5;
 }
 
-.product_item {
-    figure {
-        // RWD 待調整
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+// 切換遞增遞減：價格排序
+.product_filter{
+    span{
+        margin: 10px;
     }
 }
 
-.product_page {
-    .page-link {
-        border: 1px solid #b99664;
-        padding: 6px 13px;
-        color: #000;
-        font-weight: 600;
-    }
-    .page-link:focus {
-        box-shadow: none;
-    }
-    a:hover,
-    .active {
-        background-color: #b99664;
-        color: #fff;
-    }
-}
-
-.product_area {
-    border-top: 2px solid #b99664;
-}
-
-/*以下為手機版*/
-@media screen and (max-width: 1200px) {
-    .product_item {
-        figure {
-            // RWD 待調整
-            width: 160px;
-            height: 160px;
-        }
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .product_item {
-        figure {
-            // RWD 待調整
-            width: 128px;
-            height: 128px;
-        }
-
-        .h2 {
-            font-size: 12px;
-        }
-
-        .h3 {
-            font-size: 10px;
-        }
-    }
-    .product_option_text {
-        font-size: 2rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .product_sidebar {
-        a {
-            font-size: 12px;
-        }
-    }
-    .product_item {
-        figure {
-            // RWD 待調整
-            width: 100px;
-            height: 100px;
-        }
-    }
-    .product_option_text {
-        font-size: 3rem;
-    }
-}
 
 // Brandcard
-.brand{
+.brand {
     margin: 0 0 40px 0;
 }
-.brand-card{
+.brand-card {
     border: 1px solid $secondary;
     border-radius: 0px;
 }
-.brand-card{
-    .brand-banner{
+.brand-card {
+    .brand-banner {
         height: 100px;
         object-fit: cover;
     }
-    .brand-logo{
+    .brand-logo {
         width: 80px;
         height: 80px;
         object-fit: cover;
         margin-right: 15px;
     }
 }
-.brand-imformation{
-    h2{
+.brand-imformation {
+    height: 100%;
+    padding-right: 20px;
+    h2 {
+        max-width: 100%;
         color: #000;
         font-weight: 600;
         line-height: 25px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
     }
+    .card-text {
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+}
 
+/*以下為手機版*/
+@media screen and (max-width: 768px) {
+    // 當月經選品牌、全部店家
+    .button2, .button3{
+        padding: 0 15px;
+    }
+    .product_mask {
+        img {
+            width: 100%;
+            height: 105px;
+            object-fit: cover;
+        }
+    }
+    .product_sidebar {
+        a {
+            font-size: 12px;
+        }
+    }
+    .product_option_text {
+        font-size: 2.5rem;
+    }
+    .price-choise{
+        ul{
+            margin: 0;
+            padding: 0 15px;
+        }
+    }
+    .product_filter{
+        span{
+            font-size: 14px;
+        }
+        img{
+            width: 14px;
+        }
+    }
+    .line {
+        width: 90vw;
+        margin-bottom: 20px;
+    }
+    // 品牌卡片
+    .brand {
+        margin: 0;
+    }
+    .banner-text {
+        p {
+            padding: 3vh 4vw;
+            margin-bottom: 20px;
+            letter-spacing: 12%;
+            font-size: 12px;
+        }
+    }
+    .all-brand-card {
+        .row {
+            flex-wrap: wrap;
+        }
+    }
+    .brand-card {
+        border: 0px;
+        border-radius: 0px;
+        .brand-banner {
+            display: none;
+        }
+        .brand-logo{
+            width: 90px;
+            height: 90px;
+        }
+    }
+    .card-body {
+        align-items: center;
+    }
+    .brand-imformation {
+        h2 {
+            font-size: 14px;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
 }
