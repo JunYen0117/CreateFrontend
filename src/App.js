@@ -1,16 +1,14 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import Product from './pages/Product';
 import About from './pages/About';
-import User from './pages/User';
 import Home from './pages/Home';
+import Member from './pages/Member';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ThemePlanning from './pages/ThemePlanning';
-import SignupLogin from './components/SignupLogin/SignupLogin'
+import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
-
 
 function App() {
   return (
@@ -18,14 +16,17 @@ function App() {
       <Header />
       <Router>
         <Switch>
+          <Route path="/member">
+            <Member />
+          </Route>
           <Route path="/themePlanning">
             <ThemePlanning />
           </Route>
           <Route path="/product">
-            <Product />
+
           </Route>
           <Route path="/user">
-            <User />
+
           </Route>
           <Route path="/about">
             <About />
