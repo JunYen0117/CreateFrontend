@@ -29,7 +29,7 @@ const List = (props) => {
     <>
       {arr.map((v, i) => {
         return (
-          <div className="orderlist-card w-100 h3">
+          <div className="orderlist-card w-100 h3" key={`list-${v.orderid}`}>
             <div className="card-title d-flex py-3">
               <div className="title-num mx-2">訂單編號</div>
               <div className="title-name mx-2">{v.orderid}</div>
