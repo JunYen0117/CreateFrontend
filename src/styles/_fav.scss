@@ -67,7 +67,7 @@
 // -- Fav activity --
 
 .Fac_card{
-  
+  // height: 50%;
   &:hover{
     box-shadow: 3px 3px 3px gray;
     transform: translate(-5px, -5px);
@@ -78,13 +78,13 @@
 
 .Fac_cardimg {
   width: 30%;
-  height: 100%;
-}
+  height: 200px;
 
 .Fac_img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
 }
 
 .Fac_table {
