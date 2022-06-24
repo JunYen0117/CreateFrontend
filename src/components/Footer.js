@@ -1,23 +1,23 @@
 import { Accordion } from 'react-bootstrap';
-import { ReactComponent as IGLogo } from '../img/IGLogo.svg';
-import { ReactComponent as FBLogo } from '../img/FBLogo.svg';
-import { ReactComponent as LineLogo } from '../img/LineLogo.svg';
-import Logo2 from '../img/Logo2.svg';
+import { ReactComponent as IGLogo } from '../img/footer/IGLogo.svg';
+import { ReactComponent as FBLogo } from '../img/footer/FBLogo.svg';
+import { ReactComponent as LineLogo } from '../img/footer/LineLogo.svg';
+import Logo2 from '../img/footer/Logo2.svg';
 
 function Footer() {
   return (
     <>
       {/* 以下為桌機版畫面 */}
-      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4">
-        <div className="container footer_all">
+      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4 row">
+        <div className="container footer_all ms-5 col-11">
           {/* footer_up */}
-          <ul className="footer_up_title d-flex pt-4 footer_top ">
+          <ul className="footer_up_title d-flex pt-4 footer_top ms-5">
             <li>活動資訊</li>
             <li>幫助</li>
             <li>認識</li>
             <li className="small_item">社群</li>
           </ul>
-          <ul className="footer_up_text d-flex py-4 footer_top">
+          <ul className="footer_up_text d-flex py-4 footer_top ms-5">
             <li>
               <p>電話：03-400000</p>
               <p>地址：桃園市中壢區新生路二段421號</p>
@@ -67,7 +67,7 @@ function Footer() {
           </ul>
 
           {/* footer_down */}
-          <div className="footer_down d-flex justify-content-between mt-3">
+          <div className="footer_down d-flex justify-content-between mt-3 ms-5">
             <ul className="footer_down_left d-flex footer_top">
               <li className="me-2">
                 <a href="#/" className="footer_a">
@@ -75,7 +75,7 @@ function Footer() {
                 </a>
               </li>
               <li className="create_your_life align-self-center">
-                Create your life.
+                Create your life
               </li>
             </ul>
             <ul className="footer_down_right d-flex pt-3 footer_top">
