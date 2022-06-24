@@ -13,9 +13,12 @@ function App() {
   return (
     <>
       <Header />
-      <ThemePlanning />
+
       <Router>
         <Switch>
+          <Route path="/themePlanning">
+            <ThemePlanning />
+          </Route>
           <Route path="/product">
             <Product />
           </Route>
