@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { useState } from 'react';
 import Product from './pages/Product';
 import About from './pages/About';
 import User from './pages/User';
