@@ -1,0 +1,113 @@
+// --- Fav list ---
+
+.Fl_title {
+  padding-top: 3rem;
+  font-weight: bold;
+}
+
+.Fl_item {
+  margin-right: 5rem;
+}
+
+.Fl_nav{
+  border-bottom: 1px solid $light;
+}
+
+.Fl_btn {
+  padding-left: 0;
+  cursor: pointer;
+  color: $light;
+  font-weight: bold;
+  font-size: $h2-font-size;
+}
+
+// ---- Fav product ---
+
+.Fp_top {
+  width: 9rem;
+  height: 9rem;
+}
+
+.Fp_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Fp_heart {
+  color: rgb(194, 68, 68);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 25%;
+  bottom: 35%;
+}
+
+.Fp_button{
+  background-color: $primary;
+  border: none;
+  font-size: 13px;
+}
+
+// --- Fav article ---
+
+.Far_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Far_heart {
+  color: rgb(194, 68, 68);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+}
+
+// -- Fav activity --
+
+.Fac_card{
+  // height: 50%;
+  &:hover{
+    box-shadow: 3px 3px 3px gray;
+    transform: translate(-5px, -5px);
+   
+    
+  }
+}
+
+.Fac_cardimg {
+  width: 30%;
+  height: 200px;
+
+.Fac_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+}
+
+.Fac_table {
+  width: 100%;
+  tr {
+    th {
+      font-weight: 300;
+      // width: 100px;
+    }
+    td {
+      font-weight: 300;
+      // padding: 0.25rem 3rem;
+    }
+  }
+}
+
+.Fac_heart {
+  color: rgb(194, 68, 68);
+  font-size: 2rem;
+  position: absolute;
+  right: 2%;
+  top: 8px;
+
+}
+
+
