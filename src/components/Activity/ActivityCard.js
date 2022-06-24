@@ -30,8 +30,16 @@ function ActivityCard() {
                         <th>活動地點</th>
                         <td>台北市信義區光復南路133號</td>
                       </tr>
+                      <tr>
+                        <th>狀態</th>
+                        <td>已報名</td>
+                      </tr>
+                      <tr>
+                        <th>數量</th>
+                        <td>2</td>
+                      </tr>
                       <tr className="Fac_tr">
-                        <th>票價</th>
+                        <th>總價</th>
                         <td>NT $400</td>
                         <button className="text-white  d-block Fac_button m-0 btn btn-danger">
                           取消
