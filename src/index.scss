@@ -4,6 +4,31 @@
 @import './styles/_global.scss';
 @import './styles/_header.scss';
 @import './styles/_footer.scss';
+@import './styles/sidebar.scss';
+
+// 靜態頁面
+@import './styles/fav.scss';
+
+// 商品
+
+// 訂單
+@import './styles/_orderList.scss';
+
+
+// 購物車
+
+
+// 會員
+
+
+// 登入登出
+
+
+
+
+
+
+
 
 // 商品列表、明細
 @import './styles/_products.scss';
