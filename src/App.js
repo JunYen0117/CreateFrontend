@@ -1,10 +1,11 @@
-import Member from './pages/Member';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Member from './pages/Member';
 
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
 import Course from './pages/Course';
+import Exhibition from './pages/Exhibition';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -27,10 +28,10 @@ function App() {
       <Router>
         <>
           <Header />
-          <Switch> 
-          <Route path="/course">
-            <Course />
-          </Route>
+          <Switch>
+            <Route path="/course">
+              <Course />
+            </Route>
             <Route path="/member">
               <Member />
             </Route>
@@ -60,6 +61,9 @@ function App() {
             {isShowOD ? (
               <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}  */}
+            </Route>
+            <Route path="/exhibition">
+              <Exhibition />
             </Route>
           </Switch>
           <Footer />
