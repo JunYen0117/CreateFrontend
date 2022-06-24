@@ -1,6 +1,6 @@
 import Member from './pages/Member';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Product from './pages/Product';
+
 import About from './pages/About';
 import User from './pages/User';
 // import Home from './pages/Home';
@@ -45,35 +45,21 @@ function App() {
             <Route path="/cart">
               <Cart />
             </Route>
-          </Switch>
-          <Footer />
-        </>
-        <Switch>
-          <Route path="/fav">
-            <FavList />
-          </Route>
-          <Route path="/order">
-            <Order />
-            {/* {isShowOL ? (
+            <Route path="/fav">
+              <FavList />
+            </Route>
+            <Route path="/order">
+              <Order />
+              {/* {isShowOL ? (
               <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}
             {isShowOD ? (
               <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}  */}
-          </Route>
-          <Route path="/product">
-            <Product />
-          </Route>
-          <Route path="/user">
-            <User />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          {/* <Route exact path="/">
-          <Home />
-        </Route> */}
-        </Switch>
+            </Route>
+          </Switch>
+          <Footer />
+        </>
       </Router>
     </CartProvider>
   );
