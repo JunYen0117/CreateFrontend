@@ -8,16 +8,17 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ThemePlanning from './pages/ThemePlanning';
-import Sidebar from './components/Sidebar'
 import SignupLogin from './components/SignupLogin/SignupLogin'
 
 function App() {
   return (
     <>
       <Header />
-      <Sidebar />
       <Router>
         <Switch>
+          <Route path="/themePlanning">
+            <ThemePlanning />
+          </Route>
           <Route path="/product">
             <Product />
           </Route>
