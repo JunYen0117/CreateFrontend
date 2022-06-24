@@ -16,7 +16,6 @@ function App() {
     <>
       <Header />
       <Sidebar />
-      <SignupLogin />
       <Router>
         <Switch>
           <Route path="/product">
