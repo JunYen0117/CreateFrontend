@@ -1,5 +1,4 @@
-
-import LogoSvg1 from '../../img/logo.svg';
+import LogoSvg1 from '../../img/header/logo.svg';
 
 function ForgottenPwdBody() {
   return (
