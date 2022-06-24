@@ -1,8 +1,8 @@
 import { Accordion } from 'react-bootstrap';
-import { ReactComponent as IGLogo } from '../img/IGLogo.svg';
-import { ReactComponent as FBLogo } from '../img/FBLogo.svg';
-import { ReactComponent as LineLogo } from '../img/LineLogo.svg';
-import Logo2 from '../img/Logo2.svg';
+import { ReactComponent as IGLogo } from '../img/footer/IGLogo.svg';
+import { ReactComponent as FBLogo } from '../img/footer/FBLogo.svg';
+import { ReactComponent as LineLogo } from '../img/footer/LineLogo.svg';
+import Logo2 from '../img/footer/Logo2.svg';
 
 function Footer() {
   return (
