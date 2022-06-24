@@ -5,6 +5,7 @@ import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
 import Activity from './pages/Activity';
+import ActivityPayment from './pages/ActivityPayment'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -25,8 +26,11 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/Activity">
+          <Route path="/activity">
             <Activity />
+          </Route>
+          <Route path="/activitypayment">
+            <ActivityPayment />
           </Route>
           {/* <Route exact path="/">
           <Home />
