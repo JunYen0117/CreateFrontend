@@ -6,11 +6,72 @@ import { useCart } from '../../utils/useCart';
 function CartItem(props) {
   const { plusOne, minusOne, removeItem } = useCart();
   const { productId, productName, vendor, image, price, quantity } = props;
+  const { checkList, setCheckList } = props;
+
+  const checkItemIndex = checkList.findIndex(
+    (item) => item.productId === productId
+  );
+
+  // input checked
+  let checkProductId = { ...checkList[checkItemIndex] };
+
+  const handleCheckChange = () => {
+    let newList = [...checkList];
+
+    if (checkItemIndex > -1) {
+      newList = newList.filter((v) => v.productId !== productId);
+    } else {
+      newList = [
+        ...checkList,
+        { productId, productName, vendor, image, price, quantity },
+      ];
+    }
+
+    setCheckList(newList);
+  };
+
+  const checkListPlus = () => {
+    let newList = [...checkList];
+
+    let newQuantity = quantity + 1;
+
+    if (checkItemIndex > -1) {
+      newList[checkItemIndex] = {
+        ...newList[checkItemIndex],
+        quantity: newQuantity,
+      };
+    }
+    setCheckList(newList);
+  };
+
+  const checkListMinus = () => {
+    let newList = [...checkList];
+
+    let newQuantity = quantity > 1 ? quantity - 1 : 1;
+
+    if (checkItemIndex > -1) {
+      newList[checkItemIndex] = {
+        ...newList[checkItemIndex],
+        quantity: newQuantity,
+      };
+    }
+    setCheckList(newList);
+  };
+
+  console.log(checkList);
 
   return (
     <>
       <div className="my-3">
         <div className="cart_product_border">
+          <input
+            type="checkbox"
+            name={productName}
+            value={productName}
+            className="ms-3 cart_checkbox"
+            onChange={handleCheckChange}
+            checked={checkProductId.productId === productId}
+          />
           <AiOutlineShop className="h1 ms-3" />
           <label className="m-3">{vendor}</label>
         </div>
@@ -30,6 +91,7 @@ function CartItem(props) {
               className="fw-bolder"
               onClick={() => {
                 minusOne(productId);
+                checkListMinus();
               }}
             >
               <BsDashLg />
@@ -39,6 +101,7 @@ function CartItem(props) {
               className="fw-bolder"
               onClick={() => {
                 plusOne(productId);
+                checkListPlus();
               }}
             >
               <BsPlusLg />
