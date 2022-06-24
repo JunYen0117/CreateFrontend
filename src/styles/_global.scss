@@ -23,6 +23,7 @@ $h6-font-size:                $font-size-base !default;
   box-sizing: border-box;
   list-style: none;
 }
+<<<<<<< HEAD
 .container-fluid{
   padding-left: 0;
   padding-right: 0;
@@ -34,6 +35,17 @@ ul, p {
   padding-inline-start: 0px; 
   margin: 0;
   }
+=======
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+>>>>>>> feature/Cart
 /* =============== 文字大小 =============== */
 
 // h1: 22px
