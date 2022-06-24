@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <Header />
-      <div className="d-flex">
         <Router>
           <Switch>
             <Route path="/member">
@@ -29,7 +28,6 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </div>
       <Footer />
     </>
   );
