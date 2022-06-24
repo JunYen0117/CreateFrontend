@@ -1,7 +1,6 @@
 // import ASidebar from '../AccountSidebar/ASidebar';
 // import OrderTitle from './OrderTitle';
-import { FaArrowCircleLeft, FaFrown } from 'react-icons/fa';
-import { useHistory } from 'react-router-dom';
+import { FaFrown } from 'react-icons/fa';
 import { Button, Modal } from 'antd';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -27,8 +26,6 @@ const Detail = (props) => {
     setIsModalVisible(false);
   };
 
-  const history = useHistory();
-
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
 
@@ -42,59 +39,9 @@ const Detail = (props) => {
     getDetail();
   }, []);
 
-  // const arry = detail;
-  // console.log(arry[0].order_id);
-
-  // if (arry.length === 0) {
-  //   console.log('Array is empty!');
-  // } else {
-  //   console.log(arry[0].order_id);
-  // }
-
   return (
     <>
       {/* 訂單列表 */}
-      {/* 已完成 */}
-
-      {/* <div className="orderlist-card w-75">
-              <div className="card-title d-flex py-3">
-                <div className="title-num mx-2">20221212</div>
-                <div className="title-name mx-2">Miu</div>
-              </div>
-              <div className="card-content">
-                <table className="ol_table ">
-                  <tr>
-                    <th>訂單狀態</th>
-                    <td>finish</td>
-                  </tr>
-                  <tr>
-                    <th>訂單編號</th>
-                    <td>14</td>
-                  </tr>
-                  <tr>
-                    <th>單館統計</th>
-                    <td>14</td>
-                  </tr>
-                  <tr>
-                    <th>購買項目</th>
-                    <td>14</td>
-                  </tr>
-                  <tr>
-                    <th>產品圖片</th>
-                    <td>
-                      <img
-                        src={require('../img/Singing.png')}
-                        alt=""
-                        width={200}
-                      />
-                    </td>
-                  </tr>
-                </table>
-              </div>
-              <button className="card-button px-3 py-2">查看訂單明細</button>
-            </div> */}
-
-      {/* ===================================== */}
 
       {/* 沒有訂單 */}
       {/* <div>
@@ -106,22 +53,8 @@ const Detail = (props) => {
 
       {/* 訂單明細 */}
       <div className="orderlist-card w-100 ">
-        <div className="card-title d-flex py-3">
-          <div className="title-num mx-2">
-            <FaArrowCircleLeft
-              className="me-4"
-              onClick={() => {
-                history.goBack();
-              }}
-            />
-            訂單編號
-          </div>
-          <div className="title-name mx-2">
-            {detail.length > 0 ? detail[0].order_id : ''}
-          </div>
-        </div>
         <div className="w-100 mt-3">
-          <table className="detail-table w-100 ms-2  ">
+          <table className="detail-table w-100 ms-2">
             <thead className="text-center w-100">
               <tr>
                 <th>品牌</th>
@@ -243,14 +176,17 @@ const Detail = (props) => {
         </div>
         <div className="mt-5 position-relative">
           <button
-            className=" orderlist-b1 me-3 px-3 py-2"
+            className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
               setOrderDetailId(0);
             }}
           >
             回訂單查詢
           </button>
-          <button className=" orderlist-b2 px-3 py-2" onClick={showModal}>
+          <button
+            className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
+            onClick={showModal}
+          >
             取消訂單
           </button>
           <Modal

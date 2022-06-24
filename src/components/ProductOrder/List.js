@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
 
 const List = (props) => {
-  const { isShowOD, setIsShowOD } = props;
+
 
   const [orders, setOrders] = useState([]);
 
@@ -27,7 +26,7 @@ const List = (props) => {
     <>
       {arr.map((v, i) => {
         return (
-          <div className="orderlist-card w-100 h3" key={`list-${v.orderid}`}>
+          <div className="orderlist-card w-100 h3 " key={`list-${v.orderid}`}>
             <div className="card-title d-flex py-3">
               <div className="title-num mx-2">訂單編號</div>
               <div className="title-name mx-2">{v.orderid}</div>
