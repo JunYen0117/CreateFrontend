@@ -6,14 +6,11 @@ import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
 
 const List = (props) => {
-  const { isShowOL, setIsShowOL } = props;
   const { isShowOD, setIsShowOD } = props;
 
-  function changeIsShowOL() {
-    isShowOL(false);
-    isShowOD(true);
-  }
   const [orders, setOrders] = useState([]);
+
+  const [orderDetailId, setOrderDetailId] = useState(0);
 
   useEffect(() => {
     let getOrders = async () => {
@@ -35,27 +32,35 @@ const List = (props) => {
               <div className="title-num mx-2">訂單編號</div>
               <div className="title-name mx-2">{v.orderid}</div>
             </div>
-            <div className="card-content">
-              <table className="ol_table ">
-                <tr>
-                  <th>訂單日期</th>
-                  <td>{v.orderdate}</td>
-                </tr>
-                <tr>
-                  <th>訂單金額</th>
-                  <td>NT${v.totalsub}</td>
-                </tr>
-                <tr>
-                  <th>處理狀態</th>
-                  <td>已取貨</td>
-                </tr>
-                <tr>
-                  <th>付款方式</th>
-                  <td>信用卡-付款</td>
-                </tr>
+            {orderDetailId === v.orderid ? (
+              ''
+            ) : (
+              <div className="card-content">
+                <table className="ol_table ">
+                  <tbody>
+                    <tr>
+                      <td>訂單日期</td>
+                      <td>{v.orderdate}</td>
+                    </tr>
+                    <tr>
+                      <td>訂單金額</td>
+                      <td>NT${v.totalsub}</td>
+                    </tr>
+                    <tr>
+                      <td>處理狀態</td>
+                      <td>已取貨</td>
+                    </tr>
+                    <tr>
+                      <td>付款方式</td>
+                      <td>信用卡-付款</td>
+                    </tr>
+                  </tbody>
+                </table>
                 <button
                   className="card-button px-3 py-2"
-                  onClick={changeIsShowOL}
+                  onClick={() => {
+                    setOrderDetailId(v.orderid);
+                  }}
                 >
                   <FaWaze
                     className="me-2"
@@ -63,9 +68,17 @@ const List = (props) => {
                   />
                   查看訂單明細
                 </button>
-              </table>
-            </div>
-            <Detail showOL={setIsShowOL} showOD={setIsShowOD} />
+              </div>
+            )}
+            {orderDetailId === v.orderid ? (
+              <Detail
+                key={v.id}
+                setOrderDetailId={setOrderDetailId}
+                orderId={orderDetailId}
+              />
+            ) : (
+              ''
+            )}
           </div>
         );
       })}

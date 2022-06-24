@@ -12,7 +12,6 @@ import axios from 'axios';
 import 'antd/dist/antd.css';
 
 const Order = () => {
-  const [isShowOL, setIsShowOL] = useState(true);
   const [isShowOD, setIsShowOD] = useState(false);
   const [orders, setOrders] = useState([]);
 
@@ -47,20 +46,10 @@ const Order = () => {
             <Col sm={12}>
               <Tab.Content className="mb-5 row mt-3">
                 <Tab.Pane eventKey="finish">
-                  <List
-                    isShowOL={isShowOL}
-                    setIsShowOL={setIsShowOL}
-                    isShowOD={isShowOD}
-                    setIsShowOD={setIsShowOD}
-                  />
+                  <List isShowOD={isShowOD} setIsShowOD={setIsShowOD} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <List
-                    isShowOL={isShowOL}
-                    setIsShowOL={setIsShowOL}
-                    isShowOD={isShowOD}
-                    setIsShowOD={setIsShowOD}
-                  />
+                  <List isShowOD={isShowOD} setIsShowOD={setIsShowOD} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

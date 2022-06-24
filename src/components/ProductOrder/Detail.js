@@ -8,7 +8,10 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
-const Detail = ({ showOL, showOD }) => {
+const Detail = (props) => {
+  const { setOrderDetailId } = props;
+  const { orderId } = props;
+  console.log('orderId', orderId);
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -24,11 +27,6 @@ const Detail = ({ showOL, showOD }) => {
     setIsModalVisible(false);
   };
 
-  function changeIsShowOD() {
-    showOL(true);
-    showOD(false);
-  }
-
   const history = useHistory();
 
   const [detail, setDetail] = useState([]);
@@ -37,7 +35,7 @@ const Detail = ({ showOL, showOD }) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/1`);
+      let response = await axios.get(API_URL + `/productorder/${orderId}`);
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
     };
@@ -125,17 +123,19 @@ const Detail = ({ showOL, showOD }) => {
         <div className="w-100 mt-3">
           <table className="detail-table w-100 ms-2  ">
             <thead className="text-center w-100">
-              <th>品牌</th>
-              <th>商品編號</th>
-              <th>商品資訊</th>
-              <th>定價</th>
-              <th>數量</th>
-              <th>小計</th>
+              <tr>
+                <th>品牌</th>
+                <th>商品編號</th>
+                <th>商品資訊</th>
+                <th>定價</th>
+                <th>數量</th>
+                <th>小計</th>
+              </tr>
             </thead>
-            {detail.map((v) => {
-              return (
-                <tbody className="text-center" key={v.order_id}>
-                  <tr>
+            <tbody className="text-center">
+              {detail.map((v) => {
+                return (
+                  <tr key={`detail-${v.id}`}>
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -143,32 +143,33 @@ const Detail = ({ showOL, showOD }) => {
                     <td className="pt-3">{v.amount}</td>
                     <td className="pt-3">{v.subtotal}</td>
                   </tr>
-                </tbody>
-              );
-            })}
+                );
+              })}
+            </tbody>
           </table>
 
           <hr />
 
           <div className="d-flex justify-content-end ">
             <table className="ol_tabledown text-end w-25">
-              <tr>
-                <th></th>
-                <td>NT${detailtotal}</td>
-              </tr>
-              <tr className=" border-bottom">
-                <th>運費</th>
-                <td>NT$ 120</td>
-              </tr>
-              <tr className="text-danger">
-                <th>優惠券折抵</th>
-                <td>- NT $100</td>
-              </tr>
-
-              <tr>
-                <th>總金額</th>
-                <td className="ol_f">NT$ 2100</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>NT${detailtotal}</td>
+                </tr>
+                <tr className=" border-bottom">
+                  <td>運費</td>
+                  <td>NT$ 120</td>
+                </tr>
+                <tr className="text-danger">
+                  <td>優惠券折抵</td>
+                  <td>- NT $100</td>
+                </tr>
+                <tr>
+                  <td>總金額</td>
+                  <td className="ol_f">NT$ 2100</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -192,26 +193,28 @@ const Detail = ({ showOL, showOD }) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tr>
-              <th>收件人</th>
-              <td>小雞蛋</td>
-            </tr>
-            <tr>
-              <th>收件人地址</th>
-              <td>789 天堂路</td>
-            </tr>
-            <tr>
-              <th>收件人電話</th>
-              <td>0931266789</td>
-            </tr>
-            <tr>
-              <th>運送方式</th>
-              <td>宅配</td>
-            </tr>
-            <tr>
-              <th>備註</th>
-              <td></td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>收件人</td>
+                <td>小雞蛋</td>
+              </tr>
+              <tr>
+                <td>收件人地址</td>
+                <td>789 天堂路</td>
+              </tr>
+              <tr>
+                <td>收件人電話</td>
+                <td>0931266789</td>
+              </tr>
+              <tr>
+                <td>運送方式</td>
+                <td>宅配</td>
+              </tr>
+              <tr>
+                <td>備註</td>
+                <td></td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -222,24 +225,28 @@ const Detail = ({ showOL, showOD }) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tr>
-              <th>付款方式</th>
-              <td>線上信用卡付款</td>
-            </tr>
-            <tr>
-              <th>付款狀態</th>
-              <td>已付款</td>
-            </tr>
-            <tr>
-              <th>刷卡狀態</th>
-              <td>交易成功</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>付款方式</td>
+                <td>線上信用卡付款</td>
+              </tr>
+              <tr>
+                <td>付款狀態</td>
+                <td>已付款</td>
+              </tr>
+              <tr>
+                <td>刷卡狀態</td>
+                <td>交易成功</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className="mt-5 position-relative">
           <button
             className=" orderlist-b1 me-3 px-3 py-2"
-            onClick={changeIsShowOD}
+            onClick={() => {
+              setOrderDetailId(0);
+            }}
           >
             回訂單查詢
           </button>
