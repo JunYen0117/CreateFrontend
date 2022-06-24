@@ -19,7 +19,7 @@ function App() {
           <Route path="/member">
             <Member />
           </Route>
-          <Route path="/themePlanning">
+          <Route path="/themeplanning">
             <ThemePlanning />
           </Route>
           <Route path="/product">

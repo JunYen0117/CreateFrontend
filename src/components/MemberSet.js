@@ -2,10 +2,6 @@ import { React, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import InputGroup from 'react-bootstrap/InputGroup';
-
 import { IconContext } from 'react-icons';
 import { FaUser } from 'react-icons/fa';
 
@@ -27,7 +23,7 @@ function MemberSet() {
         <h2 className="memberset_title mb-3">帳戶設定</h2>
 
         <div>
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center mb-4">
             <figure className="memberset_figure">
               <IconContext.Provider value={{ color: '#b99664', size: '150px' }}>
                 <FaUser className="memberset_figure_SVG mx-auto" />
