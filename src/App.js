@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin'
+import PwdChanging from './pages/PwdChanging';
+
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/pwdchanging">
+            <PwdChanging />
           </Route>
           {/* <Route exact path="/">
           <Home />
