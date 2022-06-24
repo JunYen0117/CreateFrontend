@@ -37,7 +37,7 @@ const Detail = ({ showOL, showOD }) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/`);
+      let response = await axios.get(API_URL + `/productorder/1`);
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
     };

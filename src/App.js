@@ -17,8 +17,8 @@ import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
 
-import FavList from './pages/Fav/FavList';
-import Order from './pages/ProductOrder/Order';
+import FavList from './pages/FavList';
+import Order from './pages/Order';
 
 function App() {
   return (

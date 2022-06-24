@@ -1,13 +1,13 @@
-import ASidebar from '../../components/AccountSidebar/ASidebar';
+import ASidebar from '../components/AccountSidebar/ASidebar';
 import React from 'react';
-import List from '../../components/ProductOrder/List';
+import List from '../components/ProductOrder/List';
 import { useState, useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
-import Detail from '../../components/ProductOrder/Detail';
-import { API_URL } from '../../utils/config';
+import Detail from '../components/ProductOrder/Detail';
+import { API_URL } from '../utils/config';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 
