@@ -13,6 +13,8 @@ import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
 
+
+
 function App() {
   return (
     <CartProvider localStorageKey="Cart">
