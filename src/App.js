@@ -6,6 +6,7 @@ import User from './pages/User';
 import Home from './pages/Home';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
+import ExhibitionExploret from './pages/ExhibitionExplore';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -65,6 +66,9 @@ function App() {
             <Route path="/exhibition">
               <Exhibition />
             </Route>
+            <Route path="/exhibitionexplore">
+            <ExhibitionExploret />
+          </Route>
           </Switch>
           <Footer />
         </>
