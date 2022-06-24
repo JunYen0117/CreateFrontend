@@ -8,12 +8,18 @@ import FrontPage from './pages/FrontPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BrandPage from './pages/BrandPage';
+
+
+// import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <>
       <Header />
       <FrontPage />
+      {/* <Sidebar /> */}
+      <BrandPage />
       <Router>
         <Switch>
           <Route path="/product">
