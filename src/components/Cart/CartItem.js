@@ -7,17 +7,10 @@ import { CheckListContext } from '../../App.js';
 
 function CartItem(props) {
   const { items, plusOne, minusOne, removeItem, updateItem } = useCart();
-  const {
-    index,
-    productId,
-    productName,
-    vendor,
-    image,
-    price,
-    quantity,
-    checked,
-  } = props;
+  const { productId, productName, vendor, image, price, quantity, checked } =
+    props;
 
+  // 載入頁面時，重置 localStorage 的 checked 為 false
   useEffect(() => {
     let newList = [...items];
     if (items.length !== checkList.length) {
@@ -31,8 +24,6 @@ function CartItem(props) {
 
   // 加選購物車商品的清單: 取出 Context
   const { checkList, setCheckList } = useContext(CheckListContext);
-
-  // 找到對應商品的 Index
 
   // 選取商品 加入 checkList；取消選取 移除 checkList
   const handleCheckChange = () => {

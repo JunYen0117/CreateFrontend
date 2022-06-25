@@ -10,7 +10,6 @@ function CartList(props) {
         return (
           <CartItem
             key={v.id}
-            index={i}
             productId={v.id}
             productName={v.product_name}
             vendor={v.business_name}

@@ -1,7 +1,7 @@
 import CartList from '../components/Cart/CartList';
 import Summary from '../components/Cart/Summary';
 import { useCart } from '../utils/useCart';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { CheckListContext } from '../App.js';
 
 function Cart() {
@@ -10,6 +10,7 @@ function Cart() {
   // 加選購物車商品的清單: 取出 Context
   const { checkList, setCheckList } = useContext(CheckListContext);
 
+  // 全選；反選
   const handleAllCheck = () => {
     let newList = [...items];
     if (items.length !== checkList.length) {
@@ -29,13 +30,11 @@ function Cart() {
     }
     setCheckList(newList);
   };
-  // console.log('checkList', checkList);
 
   return (
     <>
       <div className="container mt-5">
         <p className="h1">購物車</p>
-
         {items.length !== 0 ? (
           <>
             <input
