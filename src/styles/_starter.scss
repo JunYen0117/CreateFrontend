@@ -1,6 +1,7 @@
 .starter_flex{
     width: 100vw;
     height: 100vh;
+    background: $primary;
 
     //模組化flex_item和內文
     .starter_flex_item_left, .starter_flex_item_mid, .starter_flex_item_right{
@@ -8,13 +9,14 @@
         height: 100%;
         flex: 1;
         position: relative;
+        // &:hover{  //測試
+        //     transition: .5s;
+        //     transform: translateY(-100vh);
+        // }
         .link{
             display: block;
             width: auto;
             height: 100%;
-            // &:hover{
-            //     animation: bigger .5s 1 alternate forwards;
-            // }
             .text{
                 font-size: 36px;
                 font-weight: bold;
@@ -26,9 +28,13 @@
                 writing-mode: vertical-lr;
             }
         }
-
-    // 個別設定
     }
+    .flying{
+        transform: translateY(-100vh);
+        transition: 1s;
+        transition-timing-function: cubic-bezier(.56,-0.42,.92,.72);
+    }
+    // 個別設定
     .starter_flex_item_left{
         .link{
             background: url(../img/Starter/startpage2.jpg) 33% 50%;
@@ -107,15 +113,8 @@
     }
 }
 
-@keyframes bigger {
-    0% {
-        background-size: 100% 100%;
-      }
-      100% {
-        background-size: 120% 120%;
-      }
-}
 
+// 手機版
 @media screen and (max-width: 768px){
     .starter_flex{
         .starter_flex_item_left, .starter_flex_item_mid, .starter_flex_item_right{
@@ -131,6 +130,11 @@
                     }
                 }
             }
+        }
+        .flying{
+            transform: translateX(100vw);
+            transition: 1s;
+            transition-timing-function: cubic-bezier(.56,-0.42,.92,.72);
         }
         .starter_flex_item_left{
             background: url(../img/Starter/startpage2.jpg) 50% 60%;
