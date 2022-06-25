@@ -12,21 +12,22 @@ function Cart() {
 
   // 全選；反選
   const handleAllCheck = () => {
-    let newList = [...items];
+    let newList = [];
     if (items.length !== checkList.length) {
       // 全選
-      newList = items.map((v) => {
-        let newCheck = { ...v };
-        newCheck['checked'] = true;
-        updateItem({ id: v.id, checked: true });
-        return newCheck;
+      newList = items.map((item) => {
+        let newItem = { ...item };
+        // update checkList checked
+        newItem['checked'] = true;
+        // update items checked
+        updateItem({ id: item.id, checked: true });
+        return newItem;
       });
     } else {
       // 反選
       items.forEach((v) => {
         updateItem({ id: v.id, checked: false });
       });
-      newList = [];
     }
     setCheckList(newList);
   };
