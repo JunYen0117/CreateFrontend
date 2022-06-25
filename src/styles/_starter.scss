@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     background: $primary;
-
+    overflow: hidden;
     //模組化flex_item和內文
     .starter_flex_item_left, .starter_flex_item_mid, .starter_flex_item_right{
         width: 100%;
