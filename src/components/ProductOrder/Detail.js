@@ -1,4 +1,3 @@
-
 import { Modal } from 'antd';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -20,9 +19,9 @@ const Detail = (props) => {
     setIsModalVisible(false);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  // const handleCancel = () => {
+  //   setIsModalVisible(false);
+  // };
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
@@ -37,6 +36,11 @@ const Detail = (props) => {
     getDetail();
   }, []);
 
+  const handleCancel = async () => {
+    // console.log('click');
+    // console.log(`/productorder/${orderId}/1`);
+    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
+  }
   return (
     <>
       {/* 訂單列表 */}
@@ -183,7 +187,7 @@ const Detail = (props) => {
           </button>
           <button
             className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
-            onClick={showModal}
+            onClick={handleCancel}
           >
             取消訂單
           </button>
@@ -191,8 +195,8 @@ const Detail = (props) => {
             title=""
             visible={isModalVisible}
             onOk={handleOk}
-            onCancel={handleCancel}
-            okText="確認" 
+            // onCancel={handleCancel}
+            okText="確認"
             OKType="$primary"
             cancelText="再想想"
             className="orderdetail_bt"

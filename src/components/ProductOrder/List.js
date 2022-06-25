@@ -5,8 +5,6 @@ import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
 
 const List = (props) => {
-
-
   const [orders, setOrders] = useState([]);
 
   const [orderDetailId, setOrderDetailId] = useState(0);
