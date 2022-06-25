@@ -50,12 +50,6 @@ function App() {
             </Route>
             <Route path="/order">
               <Order />
-              {/* {isShowOL ? (
-              <OrderList showOL={setIsShowOL} showOD={setIsShowOD} />
-            ) : null}
-            {isShowOD ? (
-              <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
-            ) : null}  */}
             </Route>
           </Switch>
           <Footer />

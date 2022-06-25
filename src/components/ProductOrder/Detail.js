@@ -1,7 +1,5 @@
-// import ASidebar from '../AccountSidebar/ASidebar';
-// import OrderTitle from './OrderTitle';
-import { FaFrown } from 'react-icons/fa';
-import { Button, Modal } from 'antd';
+
+import { Modal } from 'antd';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
@@ -194,15 +192,12 @@ const Detail = (props) => {
             visible={isModalVisible}
             onOk={handleOk}
             onCancel={handleCancel}
-            okText="確認"
+            okText="確認" 
             OKType="$primary"
             cancelText="再想想"
             className="orderdetail_bt"
           >
-            <h1>
-              確定要取消訂單嗎？
-             
-            </h1>
+            <h1>確定要取消訂單嗎？</h1>
           </Modal>
         </div>
       </div>

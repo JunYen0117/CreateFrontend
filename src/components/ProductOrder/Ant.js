@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [cancel, setCancel] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -13,7 +14,8 @@ const App = () => {
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setIsModalVisible(false)
+    ;
   };
 
   return (
