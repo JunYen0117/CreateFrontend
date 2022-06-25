@@ -5,9 +5,6 @@ import { CheckListContext } from '../../App.js';
 function Summary() {
   const { checkListTotal } = useContext(CheckListContext);
 
-  // 購物車勾選的商品總金額
-  console.log('sum', checkListTotal);
-
   return (
     <>
       <p className="h1 p-3 cart_order_summary cart_order_border">訂單摘要</p>

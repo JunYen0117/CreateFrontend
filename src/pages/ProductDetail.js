@@ -100,7 +100,11 @@ function ProductDetail() {
               href="#/"
               alt=""
               onClick={() => {
-                const item = { ...productInDetail, quantity: purchaseQuantity };
+                const item = {
+                  ...productInDetail,
+                  quantity: purchaseQuantity,
+                  checked: false,
+                };
                 if (isInCart(productInDetail.id)) {
                   goPath.push('/cart');
                 } else {

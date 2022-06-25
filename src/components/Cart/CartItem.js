@@ -2,44 +2,66 @@ import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 
 import { useCart } from '../../utils/useCart';
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { CheckListContext } from '../../App.js';
 
 function CartItem(props) {
-  const { plusOne, minusOne, removeItem } = useCart();
-  const { productId, productName, vendor, image, price, quantity } = props;
+  const { items, plusOne, minusOne, removeItem, updateItem } = useCart();
+  const {
+    index,
+    productId,
+    productName,
+    vendor,
+    image,
+    price,
+    quantity,
+    checked,
+  } = props;
+
+  useEffect(() => {
+    let newList = [...items];
+    if (items.length !== checkList.length) {
+      items.forEach((v) => {
+        updateItem({ id: v.id, checked: false });
+      });
+      newList = [];
+      setCheckList(newList);
+    }
+  }, []);
 
   // 加選購物車商品的清單: 取出 Context
   const { checkList, setCheckList } = useContext(CheckListContext);
 
   // 找到對應商品的 Index
-  const checkItemIndex = checkList.findIndex(
-    (item) => item.productId === productId
-  );
 
-  // input checked
-  let checkProductId = { ...checkList[checkItemIndex] };
-
-  // 選取商品 checkbox change
+  // 選取商品 加入 checkList；取消選取 移除 checkList
   const handleCheckChange = () => {
+    const checkItemIndex = checkList.findIndex((item) => item.id === productId);
     let newList = [...checkList];
 
     if (checkItemIndex > -1) {
-      newList = newList.filter((v) => v.productId !== productId);
+      newList = newList.filter((v) => v.id !== productId);
     } else {
       newList = [
         ...checkList,
-        { productId, productName, vendor, image, price, quantity },
+        {
+          id: productId,
+          productName,
+          vendor,
+          image,
+          price,
+          quantity,
+        },
       ];
     }
-
+    updateItem({ id: productId, checked: !checked });
     setCheckList(newList);
   };
 
   // 選中商品的數量增加
   const checkListPlus = () => {
+    const checkItemIndex = checkList.findIndex((item) => item.id === productId);
     let newList = [...checkList];
-
     let newQuantity = quantity + 1;
 
     if (checkItemIndex > -1) {
@@ -48,13 +70,14 @@ function CartItem(props) {
         quantity: newQuantity,
       };
     }
+
     setCheckList(newList);
   };
 
   // 選中商品的數量減少
   const checkListMinus = () => {
+    const checkItemIndex = checkList.findIndex((item) => item.id === productId);
     let newList = [...checkList];
-
     let newQuantity = quantity > 1 ? quantity - 1 : 1;
 
     if (checkItemIndex > -1) {
@@ -63,15 +86,19 @@ function CartItem(props) {
         quantity: newQuantity,
       };
     }
+
     setCheckList(newList);
   };
 
-
+  // 移除選中商品
+  const checkListRemove = () => {
+    let newList = [...checkList];
+    newList = newList.filter((v) => v.id !== productId);
+    setCheckList(newList);
+  };
 
   // 看結果
-  console.log(checkList);
-
-  // console.log(calcCheckListTotal());
+  console.log('checkList:', checkList);
 
   return (
     <>
@@ -83,7 +110,7 @@ function CartItem(props) {
             value={productName}
             className="ms-3 cart_checkbox"
             onChange={handleCheckChange}
-            checked={checkProductId.productId === productId}
+            checked={checked}
           />
           <AiOutlineShop className="h1 ms-3" />
           <label className="m-3">{vendor}</label>
@@ -126,6 +153,7 @@ function CartItem(props) {
               className="h1"
               onClick={() => {
                 removeItem(productId);
+                checkListRemove();
               }}
             />
           </div>

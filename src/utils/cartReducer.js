@@ -3,9 +3,6 @@ export const initialState = {
   isEmpty: true,
   totalItems: 0,
   cartTotal: 0,
-  checkItems: [],
-  checkTotalItems: 0,
-  allChecked: false,
 };
 
 // 透過 addItem 設定 item 的內容
