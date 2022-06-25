@@ -2,12 +2,17 @@ import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 
 import { useCart } from '../../utils/useCart';
+import { useContext } from 'react';
+import { CheckListContext } from '../../App.js';
 
 function CartItem(props) {
   const { plusOne, minusOne, removeItem } = useCart();
   const { productId, productName, vendor, image, price, quantity } = props;
-  const { checkList, setCheckList } = props;
 
+  // 加選購物車商品的清單: 取出 Context
+  const { checkList, setCheckList } = useContext(CheckListContext);
+
+  // 找到對應商品的 Index
   const checkItemIndex = checkList.findIndex(
     (item) => item.productId === productId
   );
@@ -15,6 +20,7 @@ function CartItem(props) {
   // input checked
   let checkProductId = { ...checkList[checkItemIndex] };
 
+  // 選取商品 checkbox change
   const handleCheckChange = () => {
     let newList = [...checkList];
 
@@ -30,6 +36,7 @@ function CartItem(props) {
     setCheckList(newList);
   };
 
+  // 選中商品的數量增加
   const checkListPlus = () => {
     let newList = [...checkList];
 
@@ -44,6 +51,7 @@ function CartItem(props) {
     setCheckList(newList);
   };
 
+  // 選中商品的數量減少
   const checkListMinus = () => {
     let newList = [...checkList];
 
@@ -58,7 +66,12 @@ function CartItem(props) {
     setCheckList(newList);
   };
 
+
+
+  // 看結果
   console.log(checkList);
+
+  // console.log(calcCheckListTotal());
 
   return (
     <>

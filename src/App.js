@@ -14,39 +14,54 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
+import { useState, createContext } from 'react';
+
+// 傳遞 checkList 使用
+export const CheckListContext = createContext(null);
 
 function App() {
+  // 加選購物車商品的清單
+  const [checkList, setCheckList] = useState([]);
+
+  // 購物車勾選的商品總金額
+  const calcCheckListTotal = () =>
+    checkList.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
-    <CartProvider localStorageKey="Cart">
-      <Router>
-        <>
-          <Header />
-          <ScrollToTop>
-            <Switch>
-              <Route path="/member">
-                <Member />
-              </Route>
-              <Route path="/themeplanning">
-                <ThemePlanning />
-              </Route>
-              <Route path="/pwdchanging">
-                <PwdChanging />
-              </Route>
-              <Route path="/product/detail">
-                <ProductDetail />
-              </Route>
-              <Route path="/product">
-                <Products />
-              </Route>
-              <Route path="/cart">
-                <Cart />
-              </Route>
-            </Switch>
-          </ScrollToTop>
-          <Footer />
-        </>
-      </Router>
-    </CartProvider>
+    <CheckListContext.Provider
+      value={{ checkList, setCheckList, checkListTotal: calcCheckListTotal() }}
+    >
+      <CartProvider localStorageKey="Cart">
+        <Router>
+          <>
+            <Header />
+            <ScrollToTop>
+              <Switch>
+                <Route path="/member">
+                  <Member />
+                </Route>
+                <Route path="/themeplanning">
+                  <ThemePlanning />
+                </Route>
+                <Route path="/pwdchanging">
+                  <PwdChanging />
+                </Route>
+                <Route path="/product/detail">
+                  <ProductDetail />
+                </Route>
+                <Route path="/product">
+                  <Products />
+                </Route>
+                <Route path="/cart">
+                  <Cart />
+                </Route>
+              </Switch>
+            </ScrollToTop>
+            <Footer />
+          </>
+        </Router>
+      </CartProvider>
+    </CheckListContext.Provider>
   );
 }
 

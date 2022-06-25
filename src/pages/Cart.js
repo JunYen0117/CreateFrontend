@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import CartList from '../components/Cart/CartList';
 import Summary from '../components/Cart/Summary';
 import { useCart } from '../utils/useCart';
 
 function Cart() {
   const { items } = useCart();
-
-  // const [checkList, setCheckList] = useState([]);
 
   return (
     <>

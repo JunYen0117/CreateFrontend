@@ -1,17 +1,8 @@
 import CartItem from './CartItem';
 import { useCart } from '../../utils/useCart';
-import { useState } from 'react';
-import { useContext, createContext } from 'react';
-
-const checkListCart = createContext(null);
-
-
-
-
 
 function CartList(props) {
   const { items } = useCart();
-  const [checkList, setCheckList] = useState([]);
 
   return (
     <>
@@ -25,8 +16,6 @@ function CartList(props) {
             image={v.image}
             price={v.price}
             quantity={v.quantity}
-            checkList={checkList}
-            setCheckList={setCheckList}
           />
         );
       })}

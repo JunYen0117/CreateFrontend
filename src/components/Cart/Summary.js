@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../utils/useCart';
+import { useContext } from 'react';
+import { CheckListContext } from '../../App.js';
 
 function Summary() {
-  const { cart } = useCart();
+  const { checkListTotal } = useContext(CheckListContext);
+
+  // 購物車勾選的商品總金額
+  console.log('sum', checkListTotal);
 
   return (
     <>
@@ -10,7 +14,7 @@ function Summary() {
       <div className="h1 p-3 cart_order_border">
         <div className="d-flex justify-content-between">
           <p>商品總計</p>
-          <p>NT ${cart.cartTotal}</p>
+          <p>NT ${checkListTotal}</p>
         </div>
         <div className="d-flex justify-content-between">
           <p>運費</p>
@@ -24,7 +28,7 @@ function Summary() {
       <div className="h1 p-3 cart_order_border">
         <div className="d-flex justify-content-between">
           <p>結帳總金額：</p>
-          <p>NT ${cart.cartTotal}</p>
+          <p>NT ${checkListTotal}</p>
         </div>
         <div className="text-center cart_checkout my-3">
           <Link to="#/">結帳去</Link>
