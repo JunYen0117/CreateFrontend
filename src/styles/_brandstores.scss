@@ -1,0 +1,53 @@
+// 品牌的Banner
+.storebanner {
+    height: 35vh;
+    margin-bottom: 60px;
+    img {
+        width: 100vh;
+        height: 35vh;
+        object-fit: cover;
+    }
+}
+// 店家資訊區塊
+.logo {
+    width: 230px;
+    height: 150px;
+}
+.brand-imformation {
+    flex-wrap: wrap;
+    margin-left: 45px;
+    .store_name {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}
+// 星星評分
+.ant-rate {
+    color: $info !important;
+    margin:0 16px 12px 0 !important;
+}
+.comment {
+    font-size: 18px;
+    .product_comment_id {
+        font-size: 18px;
+        color: $success;
+    }
+}
+.product-vendor_id{
+    p{
+        margin-bottom: 10px;
+    }
+}
+.customer_order_detail{
+    p{
+        margin-bottom: 10px;
+    }
+}
+// 數量
+.count {
+    font-size: 18px;
+}
+/* 資訊連結SCSS*/
+.border-line{
+    border-left:1px solid $success;
+}
