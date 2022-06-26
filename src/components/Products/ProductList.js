@@ -25,8 +25,8 @@ function ProductList(props) {
       setProducts(response.data.data);
       setLastPage(response.data.pagination.lastPage);
     };
-    if (Number(price.minPrice) !== 0 && Number(price.maxPrice) !== 0) return;
-    getProductAll();
+    if (Number(price.minPrice) === 0 && Number(price.maxPrice) === 0)
+      getProductAll();
   }, [page, classificationId, sort]);
 
   // 選擇商品種類，顯示選擇種類的商品

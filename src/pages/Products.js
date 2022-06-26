@@ -72,7 +72,6 @@ function Products() {
 
   // 價格區間搜尋 form
   async function handleFormSubmit(e) {
-    e.preventDefault();
     try {
       let response = await axios.get(
         `http://localhost:3003/api/product/search`,
@@ -99,7 +98,7 @@ function Products() {
   return (
     <>
       <div className="mt-4 product_banner">
-        <img src={banner} alt=""/>
+        <img src={banner} alt="" />
       </div>
       <div className="container">
         <div className="row justify-content-between mt-5 mx-auto gy-3">
@@ -156,9 +155,23 @@ function Products() {
                     ref={formMaxPrice}
                     onChange={handleChange}
                   />
+                  {/* 搜尋按鈕 */}
                   <button href="#/" alt="" className="product_price_search">
                     <span>
-                      <AiFillCaretRight onClick={handleFormSubmit} />
+                      <AiFillCaretRight
+                        onClick={(e) => {
+                          if (
+                            formMinPrice.current.value === '' &&
+                            formMaxPrice.current.value === ''
+                          ) {
+                            e.preventDefault();
+                            handleFormSubmit();
+                          } else {
+                            e.preventDefault();
+                            handleFormSubmit();
+                          }
+                        }}
+                      />
                     </span>
                   </button>
                 </form>
