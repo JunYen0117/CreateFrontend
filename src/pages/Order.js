@@ -1,6 +1,7 @@
-import ASidebar from '../components/AccountSidebar/ASidebar';
 import React from 'react';
+import ASidebar from '../components/AccountSidebar/ASidebar';
 import List from '../components/ProductOrder/List';
+// import ListCancel from '../components/ProductOrder/ListCancel';
 import { useState, useEffect } from 'react';
 import { Tab, Col, Nav, Row } from 'react-bootstrap';
 import { API_URL } from '../utils/config';
@@ -8,7 +9,7 @@ import axios from 'axios';
 import 'antd/dist/antd.css';
 
 const Order = () => {
-  const [isShowOD, setIsShowOD] = useState(false);
+  // const [isShowOD, setIsShowOD] = useState(false);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -44,9 +45,7 @@ const Order = () => {
                 <Tab.Pane eventKey="finish">
                   <List />
                 </Tab.Pane>
-                <Tab.Pane eventKey="cancel">
-                  <List />
-                </Tab.Pane>
+                <Tab.Pane eventKey="cancel">{/* <ListCancel /> */}</Tab.Pane>
               </Tab.Content>
             </Col>
           </Col>
