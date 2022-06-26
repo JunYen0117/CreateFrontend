@@ -9,8 +9,8 @@ import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
+import Products from './pages/Products/Products';
+import ProductDetail from './pages/Products/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
@@ -28,7 +28,7 @@ function App() {
     checkList.reduce((total, item) => total + item.price * item.quantity, 0);
 
   // 購物車勾選的商品總數量
-  const calcCheckListItems = (items) =>
+  const calcCheckListItems = () =>
     checkList.reduce((sum, item) => sum + item.quantity, 0);
 
   return (

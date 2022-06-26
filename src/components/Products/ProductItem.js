@@ -7,7 +7,7 @@ function ProductItem(props) {
     <>
       <div className="col-3">
         <div className="product_item">
-          <figure>
+          <figure className="w-100">
             <Link to={'/product/detail?productId=' + product.id} alt="">
               <img
                 src={`http://localhost:3003/images/product/${product.image}`}

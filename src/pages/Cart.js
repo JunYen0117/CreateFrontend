@@ -3,6 +3,7 @@ import Summary from '../components/Cart/Summary';
 import { useCart } from '../utils/useCart';
 import { useContext } from 'react';
 import { CheckListContext } from '../App.js';
+import { BsCart4 } from 'react-icons/bs';
 
 function Cart() {
   const { items, updateItem } = useCart();
@@ -34,8 +35,13 @@ function Cart() {
 
   return (
     <>
-      <div className="container mt-5">
-        <p className="h1">購物車</p>
+      <div className="container mt-5 px-4">
+        <div className="d-flex">
+          <p className="h1">
+            <BsCart4 style={{ color: '#b99664', fontSize: '30px' }} />
+          </p>
+          <div className="mt-2 mx-1 fw-bold h2">購物車</div>
+        </div>
         {items.length !== 0 ? (
           <>
             <input
@@ -46,12 +52,12 @@ function Cart() {
               checked={items.length === checkList.length}
             />
             <label className="m-0">選擇全部</label>
-            <div className="row">
+            <div className="row gx-5 mb-5">
               {/* 購物車清單 */}
-              <div className="col-md-8">
+              <div className="col-12 col-lg-8 col-xl-9">
                 <CartList />
               </div>
-              <div className="col-md-4 mt-3 w-25">
+              <div className="col-12 col-lg-4 col-xl-3 mt-3">
                 <Summary />
               </div>
             </div>

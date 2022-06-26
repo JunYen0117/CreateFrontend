@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { useCart } from '../utils/useCart';
+import { useCart } from '../../utils/useCart';
 import Swal from 'sweetalert2';
+import { productGetDetail } from '../../utils/api';
 
 import {
   BsPlusLg,
@@ -10,7 +11,6 @@ import {
   BsHeart,
   BsHeartFill,
 } from 'react-icons/bs';
-import axios from 'axios';
 
 function ProductDetail() {
   const textarr = [1, 2, 3];
@@ -41,12 +41,9 @@ function ProductDetail() {
       // 取得 Param: productId
       const productId = searchParams.get('productId');
       // 向後端要資料
-      const response = await axios.get(
-        `http://localhost:3003/api/product/detail/${productId}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await productGetDetail(productId, {
+        withCredentials: true,
+      });
       setProductInDetail(response.data[0]);
     };
     axiosProductById();
@@ -119,7 +116,7 @@ function ProductDetail() {
                 }
               }}
             >
-              <div className="mb-0 p-2 h2 product_pluscart text-center">
+              <div className="p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
                 <span>
                   {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
@@ -133,7 +130,7 @@ function ProductDetail() {
                 setHeart(!heart);
               }}
             >
-              <div className="mb-0 p-2 h2 product_pluscart text-center">
+              <div className="p-2 h2 product_pluscart text-center">
                 {heart ? (
                   <BsHeartFill className="mb-1 me-3 h1" />
                 ) : (

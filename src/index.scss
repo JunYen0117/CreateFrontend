@@ -10,10 +10,11 @@
 
 // 購物車
 @import './styles/_cart.scss';
+@import './styles/_checkoutform.scss';
 
 // 會員
-@import './styles/sidebar.scss';
-@import './styles/pwdchanging';
+@import './styles/_sidebar.scss';
+@import './styles/_pwdchanging';
 @import './styles/_member.scss';
 
 // 註冊、登入、忘記密碼

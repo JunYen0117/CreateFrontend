@@ -69,7 +69,6 @@ function Header() {
             <Link to="#/">關於我們</Link>
           </li>
         </ul>
-
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
           <a href="#/" className="header_a">
@@ -136,9 +135,9 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#/" className="header_a">
+              <Link to="/product" className="header_a">
                 購物商城
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#/" className="header_a">
@@ -169,9 +168,9 @@ function Header() {
               ></button>
             </li>
             <li>
-              <a href="#/" className="header_a">
+              <Link to="/cart" className="header_a">
                 購物車
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#/" className="header_a">

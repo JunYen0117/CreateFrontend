@@ -1,0 +1,53 @@
+.cart_checkout_btn{
+	padding: 5px 25%;
+	font-weight: 600;
+	color: #903f23;
+	background-color: #DCD5CA;	
+	border: 0;
+}
+.cart_checkout_btn:hover{
+	background-color: #b99664;
+}
+
+
+.checkout_modal_header {
+  border: 0;
+}
+
+.checkout_modal_title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #903f23;
+}
+
+.checkout_modal_body {
+  input,
+  textarea,
+  select,
+  input:focus,
+  textarea:focus,
+	select:focus {
+    border: 1px solid #b99664;
+    color: #903f23;
+    box-shadow: none;
+  }
+
+	input::placeholder {
+	  color: #b99664;
+	  font-size: 1em;
+	  font-weight:bold;
+	}
+
+  label {
+    color: #903f23;
+  }
+}
+
+.checkout_modal_btn{
+	color: #903f23;
+	background-color: #DCD5CA;
+}
+.checkout_modal_btn:hover{
+	color: #903f23;
+	background-color: #b99664;
+}

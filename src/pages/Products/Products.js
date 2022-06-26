@@ -1,19 +1,16 @@
-import banner from '../img/products/cart_banner.webp';
-import option1 from '../img/products/option1.jpg';
-import option2 from '../img/products/option2.jpg';
-import option3 from '../img/products/option3.jpg';
+import banner from '../../img/products/cart_banner.webp';
+import option1 from '../../img/products/option1.jpg';
+import option2 from '../../img/products/option2.jpg';
+import option3 from '../../img/products/option3.jpg';
 
-// react-icon
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
-
 import { useState, useEffect, useRef } from 'react';
+import { productPriceSearch } from '../../utils/api';
 
-import axios from 'axios';
-
-import ProductList from '../components/Products/ProductList';
-import ProductSidebar from '../components/Products/ProductSidebar';
-import ProductPagination from '../components/Products/ProductPagination';
+import ProductList from '../../components/Products/ProductList';
+import ProductSidebar from '../../components/Products/ProductSidebar';
+import ProductPagination from '../../components/Products/ProductPagination';
 
 function Products() {
   const [classifications, setClassifications] = useState([]);
@@ -47,18 +44,15 @@ function Products() {
   // 搜尋後換頁
   useEffect(() => {
     let getSearchProduct = async () => {
-      let response = await axios.get(
-        `http://localhost:3003/api/product/search`,
-        {
-          // 如果想要跨源讀寫 cookie
-          withCredentials: true,
-          params: {
-            page: page,
-            minPrice: price.minPrice,
-            maxPrice: price.maxPrice,
-          },
-        }
-      );
+      let response = await productPriceSearch({
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+        params: {
+          page: page,
+          minPrice: price.minPrice,
+          maxPrice: price.maxPrice,
+        },
+      });
       setProducts(response.data.data);
       setLastPage(response.data.pagination.lastPage);
     };
@@ -73,17 +67,14 @@ function Products() {
   // 價格區間搜尋 form
   async function handleFormSubmit(e) {
     try {
-      let response = await axios.get(
-        `http://localhost:3003/api/product/search`,
-        {
-          // 如果想要跨源讀寫 cookie
-          withCredentials: true,
-          params: {
-            minPrice: price.minPrice,
-            maxPrice: price.maxPrice,
-          },
-        }
-      );
+      let response = await productPriceSearch({
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+        params: {
+          minPrice: price.minPrice,
+          maxPrice: price.maxPrice,
+        },
+      });
       setProducts(response.data.data);
       setPage(1);
       setLastPage(response.data.pagination.lastPage);
@@ -137,7 +128,7 @@ function Products() {
           <div className="col-12 col-md-5 p-0">
             <ul className="d-flex justify-content-between">
               {/* 用 form 表單查詢 */}
-              <li className="price_filter">
+              <li className="price_filter mt-1">
                 <form id="priceForm">
                   <span className="me-3">NT$</span>
                   <input
@@ -203,7 +194,7 @@ function Products() {
           </div>
         </div>
         <div className="row mt-5 product_area pt-5">
-          <div className="col-2 col-md-3">
+          <div className="col-2 col-md-3 col-lg-2">
             <ProductSidebar
               classifications={classifications}
               setClassifications={setClassifications}
@@ -218,7 +209,7 @@ function Products() {
               setPrice={setPrice}
             />
           </div>
-          <div className="col-10 col-md-9 p-0">
+          <div className="col-10 col-md-9 col-lg-10 p-0">
             <ProductList
               products={products}
               setProducts={setProducts}

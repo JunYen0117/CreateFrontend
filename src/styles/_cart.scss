@@ -31,17 +31,21 @@
   background-color: #dcd5ca;
 }
 
-.cart_checkout {
-  a {
-    text-decoration: none;
-    padding: 5px 25%;
-    font-weight: 600;
-    color: #fff;
-    background-color: #d1a970;
-  }
-}
-
 .cart_checkbox{
   width: 14px;
   height: 14px;
+}
+
+/*以下為手機版*/
+@media screen and (max-width: 768px) {
+  .cart_product_border {
+    .cart_product_name {
+      font-size: 14px;
+    }
+  }
+
+  .cart_product_count{
+    font-size: 12px;
+  }
+
 }
