@@ -46,11 +46,13 @@ const data = [
   },
 ];
 
-function ExhibitionExploreMap() {
+function ExhibitionExploreMap(props) {
   //   const icon = L.icon({
   //     iconRetinaUrl: iconRetina,
   //     iconUrl: iconMarker,
   //   });
+  const { exhibitions } = props;
+
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const mapRef = useRef(null);
   function handleClick(e) {
@@ -83,24 +85,21 @@ function ExhibitionExploreMap() {
         url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" //https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org">OpenMapTiles</a>, &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
-      {data.map((item, index) => {
+      {exhibitions.map((exhibition, index) => {
         return (
-          console.log({ index }),
-          (
-            <Marker
-              key={index}
-              index={index}
-              position={item.position}
-              icon={getMarkerIcon(index)}
-              eventHandlers={{
-                click: handleClick,
-              }}
-            >
-              <Popup>
-                {item.name} <br /> <h3>你好</h3>
-              </Popup>
-            </Marker>
-          )
+          <Marker
+            key={exhibition.id}
+            index={index}
+            position={https://iter01.com/37935.html}
+            icon={getMarkerIcon(index)}
+            eventHandlers={{
+              click: handleClick,
+            }}
+          >
+            <Popup>
+              {exhibition.name} <br /> <h3>你好</h3>
+            </Popup>
+          </Marker>
         );
       })}
       ;
