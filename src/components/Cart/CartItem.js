@@ -1,5 +1,6 @@
 import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
+import Swal from 'sweetalert2';
 
 import { useCart } from '../../utils/useCart';
 import { useEffect, useContext } from 'react';
@@ -84,8 +85,17 @@ function CartItem(props) {
     setCheckList(newList);
   };
 
-  // 看結果
-  console.log('checkList:', checkList);
+  // 是否刪除
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-danger',
+      cancelButton: 'btn btn-success',
+    },
+    buttonsStyling: false,
+  });
+
+  // 勾選清單
+  // console.log('checkList:', checkList);
 
   return (
     <>
@@ -139,8 +149,23 @@ function CartItem(props) {
             <BsFillTrashFill
               className="h1"
               onClick={() => {
-                removeItem(productId);
-                checkListRemove();
+                swalWithBootstrapButtons
+                  .fire({
+                    title: '確定移除?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消',
+                    reverseButtons: true,
+                  })
+                  .then((result) => {
+                    if (result.isConfirmed) {
+                      removeItem(productId);
+                      checkListRemove();
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                      return;
+                    }
+                  });
               }}
             />
           </div>

@@ -27,9 +27,18 @@ function App() {
   const calcCheckListTotal = () =>
     checkList.reduce((total, item) => total + item.price * item.quantity, 0);
 
+  // 購物車勾選的商品總數量
+  const calcCheckListItems = (items) =>
+    checkList.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <CheckListContext.Provider
-      value={{ checkList, setCheckList, checkListTotal: calcCheckListTotal() }}
+      value={{
+        checkList,
+        setCheckList,
+        checkListTotal: calcCheckListTotal(),
+        checkListItems: calcCheckListItems(),
+      }}
     >
       <CartProvider localStorageKey="Cart">
         <Router>
