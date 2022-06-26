@@ -8,6 +8,7 @@ const Detail = (props) => {
   const { setOrderDetailId } = props;
   const { orderId } = props;
   console.log('orderId', orderId);
+
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -15,17 +16,21 @@ const Detail = (props) => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  // 取消訂單 傳給後端 使valid=0 
+  const cancelOrder = async () => {
+    setIsModalVisible(false);
+    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
+  };
+
+  const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  // const handleCancel = () => {
-  //   setIsModalVisible(false);
-  // };
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
 
+  // 取得訂單明細所需資料
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
@@ -36,15 +41,8 @@ const Detail = (props) => {
     getDetail();
   }, []);
 
-  const handleCancel = async () => {
-    // console.log('click');
-    // console.log(`/productorder/${orderId}/1`);
-    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
-  }
   return (
     <>
-      {/* 訂單列表 */}
-
       {/* 沒有訂單 */}
       {/* <div>
         <img src={require('../image/Singing.png')} className="img1" alt="" />
@@ -109,18 +107,6 @@ const Detail = (props) => {
           </div>
         </div>
       </div>
-      {/* 
-      <div className="orderlist-card w-100">
-        <div className="card-title d-flex py-3">
-          <div className="title-num mx-2">優惠折抵明細</div>
-        </div>
-        <div className="card-content">
-          <div className="row mt-3">
-            <p className="ol_p col-lg-6">單筆消費滿NT$ 2000享免運</p>
-            <p className="ol_p1 text-info col-lg-6 text-end">NT$ -120</p>
-          </div>
-        </div>
-      </div> */}
 
       <div className="orderlist-card w-100 ">
         <div className="card-title d-flex py-3">
@@ -187,15 +173,15 @@ const Detail = (props) => {
           </button>
           <button
             className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
-            onClick={handleCancel}
+            onClick={showModal}
           >
             取消訂單
           </button>
           <Modal
             title=""
             visible={isModalVisible}
-            onOk={handleOk}
-            // onCancel={handleCancel}
+            onOk={cancelOrder}
+            onCancel={handleCancel}
             okText="確認"
             OKType="$primary"
             cancelText="再想想"
@@ -209,10 +195,6 @@ const Detail = (props) => {
       {/* =========================================== */}
     </>
   );
-  // console.log(detailtotal);
-
-  // let app = [{orderid:1}]
-  // console.log(app[0].orderid);
 };
 
 export default Detail;
