@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 function Starter() {
   const [cssFlying1, setCssFlying1] = useState('noflying');
@@ -17,23 +18,55 @@ function Starter() {
     setCssFlying2('flying');
   };
 
+  const history = useHistory();
+
   return (
     <>
       <ul className="starter_flex d-flex flex-column flex-md-row">
         <li className={`starter_flex_item_left ${cssFlying1}`}>
-          <a className="link" href="#/" alt="#/" onClick={changeCss1}>
+          <div
+            className="link"
+            alt="#/"
+            onClick={() => {
+              changeCss1();
+              setTimeout(() => {
+                history.push('/product');
+              }, 1500);
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="text">課程展覽</span>
-          </a>
+          </div>
         </li>
         <li className={`starter_flex_item_mid ${cssFlying2}`}>
-          <a className="link" href="#/" alt="#/" onClick={changeCss2}>
+          <div
+            className="link"
+            alt="#/"
+            onClick={() => {
+              changeCss2();
+              setTimeout(() => {
+                history.push('/product');
+              }, 1500);
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="text">買禮物</span>
-          </a>
+          </div>
         </li>
         <li className={`starter_flex_item_right ${cssFlying3}`}>
-          <a className="link" href="#/" alt="#/" onClick={changeCss3}>
+          <div
+            className="link"
+            alt="#/"
+            onClick={() => {
+              changeCss3();
+              setTimeout(() => {
+                history.push('/product');
+              }, 1500);
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="text">藝文誌</span>
-          </a>
+          </div>
         </li>
       </ul>
       <a className="starter_skip p-2" href="#/" alt="#/">

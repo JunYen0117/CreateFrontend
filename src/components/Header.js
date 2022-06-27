@@ -14,8 +14,12 @@ const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
-function Header() {
+function Header(props) {
   const history = useHistory();
+
+  if (props.start) {
+    return <></>;
+  }
 
   return (
     <>

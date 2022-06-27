@@ -4,7 +4,11 @@ import { ReactComponent as FBLogo } from '../img/footer/FBLogo.svg';
 import { ReactComponent as LineLogo } from '../img/footer/LineLogo.svg';
 import Logo2 from '../img/footer/Logo2.svg';
 
-function Footer() {
+function Footer(props) {
+  if (props.start) {
+    return <></>;
+  }
+
   return (
     <>
       {/* 以下為桌機版畫面 */}
