@@ -1,4 +1,9 @@
 import Logo from '../../img/purple.jpg';
+import FB from '../../img/StoreInformationSVG/Facebook.svg';
+import IG from '../../img/StoreInformationSVG/Instagram.svg';
+import YT from '../../img/StoreInformationSVG/Youtube.svg';
+import Line from '../../img/StoreInformationSVG/Line.svg';
+
 import { Rate } from 'antd';
 import 'antd/dist/antd.css';
 
@@ -31,9 +36,35 @@ function StoreInformation() {
           {/* 資訊連結 */}
           <div className="col-6 d-flex align-items-end">
             <div className="border-line">
-              <div className="information">分享：</div>
-              <div className="information">地址：</div>
-              <div className="information">加入時間：</div>
+              <div className="information gx-2">
+                分享：
+                <a
+                  href="https://www.facebook.com/lancedivingpalau"
+                  className="information_icon"
+                >
+                  <img src={FB} alt="Facebook" />
+                </a>
+                <a href="/" className="information_icon">
+                  <img src={IG} alt="Instagram" />
+                </a>
+                <a
+                  href="https://youtu.be/dQw4w9WgXcQ"
+                  className="information_icon"
+                >
+                  <img src={YT} alt="Youtube" />
+                </a>
+                <a href="/" className="information_icon">
+                  <img src={Line} alt="Line" />
+                </a>
+              </div>
+              <div className="information d-flex ">
+                <div>地址：</div>
+                <p className="store_address">店家的地址address</p>
+              </div>
+              <div className="information d-flex">
+                <div>加入時間：</div>
+                <p className="create_time">2022 年 5 月</p>
+              </div>
             </div>
           </div>
         </div>

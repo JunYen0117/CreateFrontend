@@ -49,8 +49,9 @@
 }
 /* 資訊連結SCSS*/
 .border-line {
-    border-left: 2px solid $success;
+    border-left: 1px solid $success;
     padding-left: 20px;
+    padding-bottom: 5px;
     margin-left: 40px;
     .information {
         font-size: 14px;
@@ -58,9 +59,22 @@
         color: $success;
     }
 }
+.information_icon {
+    margin: 0 7px;
+}
+.store_address,
+.create_time {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 0 !important;
+    margin-left: 7px;
+}
 // TopBar
-.topbar{
+.topbar {
     margin: 0 100px;
+    .bar {
+        margin-bottom: 100px;
+    }
 }
 .topbar_nav {
     color: #acacac;
@@ -78,6 +92,7 @@
     color: #acacac;
     border: none;
     background-color: transparent;
+    font-size: 18px;
     &:hover {
         color: $primary;
     }
@@ -92,5 +107,24 @@
     &.active {
         border-bottom: 2px solid #b99664;
         color: $primary;
+    }
+}
+// 店家商品
+.productinfo {
+    margin-top: 15px;
+}
+.ratio:hover {
+    box-shadow: 8px 8px 10px #b996644d;
+}
+// 退換貨政策
+.policy-title {
+    margin: 0 0 50px 0;
+}
+.policy-list {
+    ul {
+        padding-left: 20px;
+        li {
+            list-style-type: disc;
+        }
     }
 }

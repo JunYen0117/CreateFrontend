@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import Products from './Products';
+import Policy from './Policy';
 
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
@@ -11,7 +12,7 @@ const TopBar = () => {
     <>
       <Tab.Container id="left-tabs-example" defaultActiveKey="products">
         <Row className="topbar">
-          <Col sm={12}>
+          <Col sm={12} className="bar">
             <Nav className="topbar_nav pt-4" defaultActiveKey="products">
               <Nav.Item className="mt-3">
                 <Nav.Link className="topbar_btn" eventKey="products">
@@ -30,7 +31,9 @@ const TopBar = () => {
               <Tab.Pane className="" eventKey="products">
                 <Products />
               </Tab.Pane>
-              <Tab.Pane eventKey="policy">{/* <policy /> */}</Tab.Pane>
+              <Tab.Pane eventKey="policy">
+                <Policy />
+              </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>

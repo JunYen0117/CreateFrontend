@@ -38,7 +38,7 @@ function App() {
         <>
           <Header />
           <Switch>
-            <Route path="/Front">
+            <Route path="/FrontPage">
               <FrontPage />
             </Route>
             <Route path="/Brand">

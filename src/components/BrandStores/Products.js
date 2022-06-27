@@ -5,7 +5,7 @@ function Products() {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row gy-4">
           <Product />
         </div>
       </div>
