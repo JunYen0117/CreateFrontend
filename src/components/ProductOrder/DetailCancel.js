@@ -1,57 +1,10 @@
-import { Modal } from 'antd';
-import { useState, useEffect } from 'react';
 import React from 'react';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
-
-const Detail = (props) => {
-  const { setOrderDetailId } = props;
-  const { orderId } = props;
-  // console.log('orderId', orderId);
-
-  // 刪除按鈕
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  // 取消訂單 傳給後端 使valid=0 
-  const cancelOrder = async () => {
-    setIsModalVisible(false);
-    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+import { Modal } from 'antd';
 
 
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-
-  // 取得訂單明細所需資料
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/${orderId}`);
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-    };
-    getDetail();
-  }, []);
-
+const DetailCancel = () => {
   return (
     <>
-      {/* 沒有訂單 */}
-      {/* <div>
-        <img src={require('../image/Singing.png')} className="img1" alt="" />
-        <h3>您沒有尚未付款的訂單</h3>
-      </div> */}
-
-      {/* ===================================== */}
-
-      {/* 訂單明細 */}
       <div className="orderlist-card w-100 ">
         <div className="w-100 mt-3">
           <table className="detail-table w-100 ms-2">
@@ -68,7 +21,7 @@ const Detail = (props) => {
             <tbody className="text-center">
               {detail.map((v) => {
                 return (
-                  <tr key={`detail-${v.id}`}>
+                  <tr key={`detail-${}`}>
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -88,7 +41,7 @@ const Detail = (props) => {
               <tbody>
                 <tr>
                   <td></td>
-                  <td>NT${detailtotal}</td>
+                  <td>NT$</td>
                 </tr>
                 <tr className=" border-bottom">
                   <td>運費</td>
@@ -162,39 +115,9 @@ const Detail = (props) => {
             </tbody>
           </table>
         </div>
-        <div className="mt-5 position-relative">
-          <button
-            className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
-            onClick={() => {
-              setOrderDetailId(0);
-            }}
-          >
-            回訂單查詢
-          </button>
-          <button
-            className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
-            onClick={showModal}
-          >
-            再買一次
-          </button>
-          <Modal
-            title=""
-            visible={isModalVisible}
-            onOk={cancelOrder}
-            onCancel={handleCancel}
-            okText="確認"
-            OKType="$primary"
-            cancelText="再想想"
-            className="orderdetail_bt"
-          >
-            <h1>確定要取消訂單嗎？</h1>
-          </Modal>
-        </div>
       </div>
-
-      {/* =========================================== */}
     </>
   );
 };
 
-export default Detail;
+export default DetailCancel;
