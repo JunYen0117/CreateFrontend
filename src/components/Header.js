@@ -52,7 +52,7 @@ function Header() {
         </div>
         <ul className="menu2 d-none d-md-flex justify-content-around pt-4">
           <li>
-            <Link to="#/">主題企劃</Link>
+            <Link to="/themeplanning">主題企劃</Link>
           </li>
           <li>
             <Link to="#/">活動資訊</Link>
