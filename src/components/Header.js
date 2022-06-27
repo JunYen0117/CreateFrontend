@@ -2,7 +2,6 @@ import { ReactComponent as LogoSvg } from '../img/header/logo.svg';
 import LogoDesktop from '../img/header/logo.svg';
 import { ReactComponent as Search } from '../img/header/search.svg';
 import { ReactComponent as Shopcart1 } from '../img/header/shopcart1.svg';
-import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
 import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
@@ -11,6 +10,8 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
+
+import SignupLogin from './SignupLogin/SignupLogin';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
@@ -55,7 +56,7 @@ function Header() {
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
-              <NoLogin />
+              <SignupLogin />
             </li>
           </ul>
         </div>
