@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form';
+import { IconContext } from 'react-icons';
 function SignupBody() {
   return (
     <>
