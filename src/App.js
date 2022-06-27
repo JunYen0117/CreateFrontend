@@ -29,7 +29,6 @@ function App() {
           <Header start={start} />
           <ChangeStartFlag setStart={setStart}>
             <Switch>
-              <Route path="/">{start ? <Starter /> : () => <h1>123</h1>}</Route>
               <Route path="/member">
                 <Member />
               </Route>
@@ -48,6 +47,7 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
+              <Route path="/">{start ? <Starter /> : () => <h1>123</h1>}</Route>
             </Switch>
           </ChangeStartFlag>
           <Footer start={start} />
