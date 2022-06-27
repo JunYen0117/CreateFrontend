@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
 
-const List = (props) => {
+const List = () => {
   const [orders, setOrders] = useState([]);
 
   const [orderDetailId, setOrderDetailId] = useState(0);
