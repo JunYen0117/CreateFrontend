@@ -18,10 +18,13 @@ const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
-function Header() {
+function Header(props) {
+  //傳入登入狀態，從App.js -> Header.js
+  const { isLogin, setIsLogin } = props;
+
+  //offcanvas套件：useState狀態、開關
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(false);
-
   const handleCloseLeft = () => setShowLeft(false);
   const handleCloseRight = () => setShowRight(false);
   const handleShowLeft = () => setShowLeft(true);
@@ -57,8 +60,11 @@ function Header() {
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
-              {/* <SignupLogin /> */}
-              <LoginDropdown />
+              {isLogin === true ? (
+                <LoginDropdown isLogin={isLogin} setIsLogin={setIsLogin} />
+              ) : (
+                <SignupLogin />
+              )}
             </li>
           </ul>
         </div>
@@ -120,7 +126,11 @@ function Header() {
         </ul>
 
         {/* offcanvas套件開始 */}
-        <Offcanvas className="header_offcanvas" show={showLeft} onHide={handleCloseLeft}>
+        <Offcanvas
+          className="header_offcanvas"
+          show={showLeft}
+          onHide={handleCloseLeft}
+        >
           <Offcanvas.Header className="d-none">
             {/* li包的button是關閉canvas的按鈕 */}
             <li className="d-none">

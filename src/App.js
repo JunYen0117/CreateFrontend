@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useState } from 'react';
 import Member from './pages/Member';
 
 import About from './pages/About';
@@ -31,18 +32,19 @@ import Order from './pages/ProductOrder/Order';
 // import Sidebar from './components/Sidebar';
 
 function App() {
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <CartProvider localStorageKey="Cart">
       <Router>
         <>
-          <Header />
+          <Header isLogin={isLogin} setIsLogin={setIsLogin} />
           <Switch>
-          <Route path="/Front"> 
-            <FrontPage />
-          </Route>
-          <Route path="/Brand">
-            <BrandPage />
-          </Route> 
+            <Route path="/Front">
+              <FrontPage />
+            </Route>
+            <Route path="/Brand">
+              <BrandPage />
+            </Route>
             <Route path="/course">
               <Course />
             </Route>

@@ -12,5 +12,8 @@
         display: block;
         color: $primary;
         text-decoration: none;
+        &:hover{
+            color: $info;
+        }
     }
 }

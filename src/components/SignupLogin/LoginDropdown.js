@@ -1,8 +1,13 @@
 import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function LoginDropdown() {
+function LoginDropdown(props) {
+  //傳入登入狀態，從App.js -> Header.js -> LoginDropdown.js
+  const { isLogin, setIsLogin } = props;
+
+  //dorpdown開關，讓.header_dropdown_menu會不會顯示出來？
   const [showDropdown, setShowDropdown] = useState('d-none');
   return (
     <>
@@ -21,40 +26,71 @@ function LoginDropdown() {
         <div className={`header_dropdown_menu ${showDropdown}`}>
           <ul>
             <li>
-              <a className="p-2 text-center" href="#/">
-                我的活動
-              </a>
-            </li>
-            <li>
-              <a className="p-2 text-center" href="#/">
-                我的收藏
-              </a>
-            </li>
-            <li>
-              <a
+              <Link
+                to="/activity"
                 className="p-2 text-center"
-                href="http://localhost:3000/member"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
+              >
+                我的活動
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/fav"
+                className="p-2 text-center"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
+              >
+                我的收藏
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/member"
+                className="p-2 text-center"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
               >
                 帳戶設定
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
+                to="/pwdchanging"
                 className="p-2 text-center"
-                href="http://localhost:3000/pwdchanging"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
               >
                 變更密碼
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="p-2 text-center" href="#/">
+              <Link
+                to="/order"
+                className="p-2 text-center"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
+              >
                 我的訂單
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="p-2 text-center" href="#/">
+              <Link
+                to="/Front"
+                className="p-2 text-center"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                  setIsLogin(false);
+                }}
+              >
                 登出
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
