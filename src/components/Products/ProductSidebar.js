@@ -22,9 +22,7 @@ function ProductSidebar(props) {
   // Classification
   useEffect(() => {
     let getClassification = async () => {
-      let response = await productChooseClass({
-        withCredentials: true,
-      });
+      let response = await productChooseClass();
       setClassifications(response.data);
     };
     getClassification();
@@ -34,9 +32,7 @@ function ProductSidebar(props) {
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
-        let response = await productChooseCategory(classificationId, {
-          withCredentials: true,
-        });
+        let response = await productChooseCategory(classificationId);
         setCategorys(response.data);
       };
       getCategory();

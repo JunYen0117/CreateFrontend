@@ -68,8 +68,6 @@ function Products() {
   async function handleFormSubmit(e) {
     try {
       let response = await productPriceSearch({
-        // 如果想要跨源讀寫 cookie
-        withCredentials: true,
         params: {
           minPrice: price.minPrice,
           maxPrice: price.maxPrice,

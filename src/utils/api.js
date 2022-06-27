@@ -10,6 +10,6 @@ const productRequest = axios.create({
 export const productGetAll = config => productRequest.get('/', config);
 export const productGetDetail = (productId) => productRequest.get(`/detail/${productId}`);
 export const productGetCategory = (categoryId) => productRequest.get(`/category/${categoryId}`);
-export const productChooseClass = config => productRequest.get('/classification', config);
-export const productChooseCategory = (classificationId, config) => productRequest.get(`/classification/${classificationId}/category`, config);
+export const productChooseClass = () => productRequest.get('/classification');
+export const productChooseCategory = (classificationId) => productRequest.get(`/classification/${classificationId}/category`);
 export const productPriceSearch = config => productRequest.get('/search', config);

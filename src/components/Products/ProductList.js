@@ -15,7 +15,6 @@ function ProductList(props) {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
       let response = await productGetAll({
-        withCredentials: true,
         params: {
           page: page,
           classificationId: classificationId,
@@ -42,7 +41,7 @@ function ProductList(props) {
 
   return (
     <>
-      <div className="row w-100">
+      <div className="row w-100 gy-5">
         {products.map((product, i) => {
           return <ProductItem key={product.id} product={product} />;
         })}

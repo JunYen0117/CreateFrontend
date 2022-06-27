@@ -114,15 +114,38 @@
     color: #000;
     font-weight: 600;
   }
+
   .page-link:focus {
     box-shadow: none;
   }
+
   a:hover,
   .active {
     background-color: $primary;
     color: #fff;
   }
+
+  .page_confirm{
+    background-color: #DCD5CA;
+    cursor: pointer;
+  }
+
+  .page_confirm:hover{
+    background-color: #B99664;
+  }
+
+  input{
+    width: 25px; 
+    height: 25px;
+    box-shadow: none
+  }
+
+  input:focus{
+    outline: 0 none;
+  }
 }
+
+
 
 .product_area {
   border-top: 2px solid $primary;

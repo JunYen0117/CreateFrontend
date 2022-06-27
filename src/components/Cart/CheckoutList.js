@@ -3,13 +3,6 @@ import CheckoutItem from './CheckoutItem';
 function CheckoutList(props) {
   const { checkList } = props;
 
-  // id: 16
-  // image: "6_1bao.jpg"
-  // price: 600
-  // productName: "喜寶抱枕"
-  // quantity: 1
-  // vendor: "藍天"
-
   return (
     <>
       {checkList.map((v, i) => {
