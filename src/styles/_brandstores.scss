@@ -24,7 +24,7 @@
 // 星星評分
 .ant-rate {
     color: $info !important;
-    margin:0 16px 12px 0 !important;
+    margin: 0 16px 12px 0 !important;
 }
 .comment {
     font-size: 18px;
@@ -33,13 +33,13 @@
         color: $success;
     }
 }
-.product-vendor_id{
-    p{
+.product-vendor_id {
+    p {
         margin-bottom: 10px;
     }
 }
-.customer_order_detail{
-    p{
+.customer_order_detail {
+    p {
         margin-bottom: 10px;
     }
 }
@@ -48,6 +48,49 @@
     font-size: 18px;
 }
 /* 資訊連結SCSS*/
-.border-line{
-    border-left:1px solid $success;
+.border-line {
+    border-left: 2px solid $success;
+    padding-left: 20px;
+    margin-left: 40px;
+    .information {
+        font-size: 14px;
+        margin-top: 15px;
+        color: $success;
+    }
+}
+// TopBar
+.topbar{
+    margin: 0 100px;
+}
+.topbar_nav {
+    color: #acacac;
+    border-bottom: 1px solid #acacac;
+    font-weight: bold;
+    @media screen and (max-width: 767px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+:focus-visible {
+    outline-width: 0;
+}
+.topbar_btn {
+    color: #acacac;
+    border: none;
+    background-color: transparent;
+    &:hover {
+        color: $primary;
+    }
+    &:focus {
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
+    &:active {
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
+    &.active {
+        border-bottom: 2px solid #b99664;
+        color: $primary;
+    }
 }
