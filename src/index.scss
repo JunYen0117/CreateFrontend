@@ -1,8 +1,26 @@
 // 這個檔案只連結其他scss檔
 
+// 共用
 @import './styles/_global.scss';
 @import './styles/_header.scss';
 @import './styles/_footer.scss';
 
+// 商品列表、明細
+@import './styles/_products.scss';
 
-@import './styles/sidebar.scss'
+// 購物車
+@import './styles/_cart.scss';
+
+// 會員
+@import './styles/sidebar.scss';
+@import './styles/pwdchanging';
+@import './styles/_member.scss';
+
+// 註冊、登入、忘記密碼
+@import './styles/_login.scss';
+@import './styles/_signup';
+@import './styles/_forgottenpwd';
+
+// 主題企劃
+@import './styles/_themeplanning';
+

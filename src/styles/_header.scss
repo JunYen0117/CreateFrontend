@@ -8,6 +8,7 @@
 .header_a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 header {
@@ -42,7 +43,8 @@ header {
     font-size: $h2-font-size;
     font-weight: bold;
   }
-  a:hover {
+  a:hover,
+  .active {
     color: white;
     background: $primary;
   }

@@ -24,6 +24,26 @@ $h6-font-size:                $font-size-base !default;
   list-style: none;
 }
 
+.container-fluid{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+figure{
+  margin: 0px;
+}
+
+ul, p {
+  padding-inline-start: 0px; 
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* =============== 文字大小 =============== */
 
 // h1: 22px
