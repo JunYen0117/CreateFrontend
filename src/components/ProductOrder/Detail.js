@@ -16,7 +16,7 @@ const Detail = (props) => {
     setIsModalVisible(true);
   };
 
-  // 取消訂單 傳給後端 使valid=0 
+  // 取消訂單 傳給後端 使valid=0
   const cancelOrder = async () => {
     setIsModalVisible(false);
     let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
@@ -25,7 +25,6 @@ const Detail = (props) => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
@@ -191,8 +190,6 @@ const Detail = (props) => {
           </Modal>
         </div>
       </div>
-
-      {/* =========================================== */}
     </>
   );
 };

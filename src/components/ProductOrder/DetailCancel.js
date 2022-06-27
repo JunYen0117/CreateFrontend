@@ -1,8 +1,25 @@
 import React from 'react';
-import { Modal } from 'antd';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import { useState, useEffect } from 'react';
 
+const DetailCancel = (props) => {
+  const { setOrderDetailId } = props;
+  const { orderId } = props;
 
-const DetailCancel = () => {
+  const [detail, setDetail] = useState([]);
+  const [detailtotal, setDetailTotal] = useState([]);
+
+  useEffect(() => {
+    let getDetail = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(API_URL + `/pocancel/${orderId}`);
+      setDetail(response.data.total);
+      setDetailTotal(response.data.result);
+    };
+    getDetail();
+  }, []);
+
   return (
     <>
       <div className="orderlist-card w-100 ">
@@ -21,7 +38,7 @@ const DetailCancel = () => {
             <tbody className="text-center">
               {detail.map((v) => {
                 return (
-                  <tr key={`detail-${}`}>
+                  <tr key={`detail-${v.id}`}>
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -41,7 +58,7 @@ const DetailCancel = () => {
               <tbody>
                 <tr>
                   <td></td>
-                  <td>NT$</td>
+                  <td>NT${detailtotal}</td>
                 </tr>
                 <tr className=" border-bottom">
                   <td>運費</td>
@@ -114,6 +131,16 @@ const DetailCancel = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="mt-5 position-relative">
+          <button
+            className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
+            onClick={() => {
+              setOrderDetailId(0);
+            }}
+          >
+            回訂單查詢
+          </button>
         </div>
       </div>
     </>
