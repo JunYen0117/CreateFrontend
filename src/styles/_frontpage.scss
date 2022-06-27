@@ -12,13 +12,14 @@
     }
 }
 // 標題字
-h2 {
+.front_h2 {
     font-size: 22px;
-    color: $primary;
+    color: $primary !important;
     margin: 0 120px 20px 120px;
     font-weight: 600;
     a {
         text-decoration: none;
+        color: $primary !important;
     }
 }
 // ProductCard質感商品
