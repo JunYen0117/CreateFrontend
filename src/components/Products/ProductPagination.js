@@ -28,6 +28,20 @@ function ProductPagination(props) {
     // page 是當前所在頁面
     return (
       <>
+        {page > 2 ? (
+          <li
+            className="page-item ms-3 my-2"
+            onClick={() => {
+              setPage(page - 2);
+            }}
+          >
+            <a className="page-link" href="#/">
+              {page - 2}
+            </a>
+          </li>
+        ) : (
+          ''
+        )}
         {page > 1 ? (
           <li
             className="page-item ms-3 my-2"
@@ -42,14 +56,14 @@ function ProductPagination(props) {
         ) : (
           ''
         )}
+
         <li className="page-item ms-3 my-2 active">
           <a className="page-link" href="#/">
             {page}
           </a>
         </li>
-        {page === lastPage ? (
-          ''
-        ) : (
+
+        {page <= lastPage - 1 ? (
           <li
             className="page-item ms-3 my-2"
             onClick={() => {
@@ -60,6 +74,23 @@ function ProductPagination(props) {
               {page + 1}
             </a>
           </li>
+        ) : (
+          ''
+        )}
+
+        {page <= lastPage - 2 ? (
+          <li
+            className="page-item ms-3 my-2"
+            onClick={() => {
+              setPage(page + 2);
+            }}
+          >
+            <a className="page-link" href="#/">
+              {page + 2}
+            </a>
+          </li>
+        ) : (
+          ''
         )}
       </>
     );

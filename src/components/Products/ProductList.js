@@ -33,9 +33,7 @@ function ProductList(props) {
   useEffect(() => {
     if (categoryId > 0) {
       let getProductCategory = async () => {
-        let response = await productGetCategory(categoryId, {
-          withCredentials: true,
-        });
+        let response = await productGetCategory(categoryId);
         setProducts(response.data);
       };
       getProductCategory();

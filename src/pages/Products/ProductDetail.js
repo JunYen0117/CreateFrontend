@@ -41,9 +41,7 @@ function ProductDetail() {
       // 取得 Param: productId
       const productId = searchParams.get('productId');
       // 向後端要資料
-      const response = await productGetDetail(productId, {
-        withCredentials: true,
-      });
+      const response = await productGetDetail(productId);
       setProductInDetail(response.data[0]);
     };
     axiosProductById();

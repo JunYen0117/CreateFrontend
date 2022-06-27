@@ -54,11 +54,13 @@ function Cart() {
             <label className="m-0">選擇全部</label>
             <div className="row gx-5 mb-5">
               {/* 購物車清單 */}
-              <div className="col-12 col-lg-8 col-xl-9">
+              <div className="col-12 col-lg-8 col-xl-8">
                 <CartList />
               </div>
-              <div className="col-12 col-lg-4 col-xl-3 mt-3">
-                <Summary />
+              <div className="col-12 col-lg-4 col-xl-4 mt-3">
+                <div className="cart_sticky">
+                  <Summary />
+                </div>
               </div>
             </div>
           </>

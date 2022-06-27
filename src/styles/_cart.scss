@@ -1,16 +1,40 @@
+.cart_sticky{
+  position: sticky;
+  top: 0px;
+}
+
 .cart_product_border {
   border: 1px solid #dcd5ca;
   margin-top: -1px;
   .cart_picture {
-    max-width: 200px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   .cart_product_name {
     width: 25%;
   }
 
-  .cart_product_count :nth-child(odd) {
-    cursor: pointer;
+  .cart_product_count {
+    :nth-child(odd) {
+      cursor: pointer;
+    }
+
+    :nth-child(even) {
+      font-size: 20px;
+      margin: 0 10px;
+    }
+
+    svg {
+      margin-bottom: 5px;
+    }
   }
 
   .cart_product_delete {
@@ -31,7 +55,7 @@
   background-color: #dcd5ca;
 }
 
-.cart_checkbox{
+.cart_checkbox {
   width: 14px;
   height: 14px;
 }
@@ -42,10 +66,29 @@
     .cart_product_name {
       font-size: 14px;
     }
+
+    .cart_picture {
+      width: 120px;
+      height: 120px;
+    }
+
+    .cart_product_count {
+      font-size: 14px;
+
+      :nth-child(even) {
+        font-size: 16px;
+      }
+      
+      svg {
+        font-size: 10px;
+      }
+    }
+
+
+
   }
 
-  .cart_product_count{
+  .cart_product_count {
     font-size: 12px;
   }
-
 }

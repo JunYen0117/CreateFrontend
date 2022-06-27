@@ -6,7 +6,7 @@ export const initialState = {
 };
 
 // 透過 addItem 設定 item 的內容
-// const item = action.payload ={
+// const item = action.payload = {
 //   id: '',
 //   quantity: 0,
 //   name: '',

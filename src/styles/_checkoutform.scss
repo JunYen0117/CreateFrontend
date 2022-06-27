@@ -1,10 +1,10 @@
 .cart_checkout_btn{
-	padding: 5px 25%;
 	font-weight: 600;
 	color: #903f23;
 	background-color: #DCD5CA;	
 	border: 0;
 }
+
 .cart_checkout_btn:hover{
 	background-color: #b99664;
 }
@@ -47,7 +47,20 @@
 	color: #903f23;
 	background-color: #DCD5CA;
 }
+
 .checkout_modal_btn:hover{
 	color: #903f23;
 	background-color: #b99664;
+}
+
+.cart_checkout_img{
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }

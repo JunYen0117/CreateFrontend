@@ -8,8 +8,8 @@ const productRequest = axios.create({
 
 // 商品 相關的 api
 export const productGetAll = config => productRequest.get('/', config);
-export const productGetDetail = (productId, config) => productRequest.get(`/detail/${productId}`, config);
-export const productGetCategory = (categoryId, config) => productRequest.get(`/category/${categoryId}`, config);
+export const productGetDetail = (productId) => productRequest.get(`/detail/${productId}`);
+export const productGetCategory = (categoryId) => productRequest.get(`/category/${categoryId}`);
 export const productChooseClass = config => productRequest.get('/classification', config);
 export const productChooseCategory = (classificationId, config) => productRequest.get(`/classification/${classificationId}/category`, config);
 export const productPriceSearch = config => productRequest.get('/search', config);

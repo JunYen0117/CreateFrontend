@@ -95,7 +95,7 @@ function CartItem(props) {
   });
 
   // 勾選清單
-  // console.log('checkList:', checkList);
+  console.log('checkList:', checkList);
 
   return (
     <>
@@ -113,7 +113,7 @@ function CartItem(props) {
           <label className="m-3">{vendor}</label>
         </div>
         <div className="p-3 d-flex align-items-center cart_product_border">
-          <figure className="cart_picture w-25">
+          <figure className="cart_picture">
             <img
               src={`http://localhost:3003/images/product/${image}`}
               alt=""
@@ -133,7 +133,7 @@ function CartItem(props) {
             >
               <BsDashLg />
             </span>
-            <span className="border mx-3 h2 fw-bolder">{quantity}</span>
+            <span className="border fw-bolder">{quantity}</span>
             <span
               className="fw-bolder"
               onClick={() => {
