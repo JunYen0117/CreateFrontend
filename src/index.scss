@@ -1,57 +1,58 @@
 // 這個檔案只連結其他scss檔
 
 // 共用
-@import './styles/_global.scss';
-@import './styles/_header.scss';
-@import './styles/_footer.scss';
-@import './styles/sidebar.scss';
+@import "./styles/_global.scss";
+@import "./styles/_header.scss";
+@import "./styles/_footer.scss";
+@import "./styles/frontpage.scss";
+@import "./styles/brandpage.scss";
+
+@import "./styles/sidebar.scss";
 
 // 靜態頁面
-@import './styles/fav.scss';
+@import "./styles/fav.scss";
 
 // 商品
 
 //課程詳細
-@import './styles/_course.scss';
+@import "./styles/_course.scss";
 // 訂單
-@import './styles/_orderList.scss';
+@import "./styles/_orderList.scss";
 //展覽
-@import './styles/_exhibition.scss';
-@import './styles/_exhibitionexplore.scss';
-
-
-// 購物車
-
-
-// 會員
-
-
-// 登入登出
-@import './styles/_activity.scss';
-@import './styles/_activitypayment.scss';
-
-
-
-
-
+@import "./styles/_exhibition.scss";
+@import "./styles/_exhibitionexplore.scss";
+@import './styles/_global.scss';
+@import './styles/_header.scss';
+@import './styles/headerdropdown';
+@import './styles/_footer.scss';
 
 
 // 商品列表、明細
 @import './styles/_products.scss';
 
 // 購物車
-@import './styles/_cart.scss';
 
 // 會員
-@import './styles/sidebar.scss';
-@import './styles/pwdchanging';
-@import './styles/_member.scss';
+
+// 登入登出
+@import "./styles/_activity.scss";
+@import "./styles/_activitypayment.scss";
+
+// 商品列表、明細
+@import "./styles/_products.scss";
+
+// 購物車
+@import "./styles/_cart.scss";
+
+// 會員
+@import "./styles/sidebar.scss";
+@import "./styles/pwdchanging";
+@import "./styles/_member.scss";
 
 // 註冊、登入、忘記密碼
-@import './styles/_login.scss';
-@import './styles/_signup';
-@import './styles/_forgottenpwd';
+@import "./styles/_login.scss";
+@import "./styles/_signup";
+@import "./styles/_forgottenpwd";
 
 // 主題企劃
-@import './styles/_themeplanning';
-
+@import "./styles/_themeplanning";
