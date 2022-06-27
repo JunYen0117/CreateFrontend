@@ -6,7 +6,7 @@ import User from './pages/User';
 import Home from './pages/Home';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
-import ExhibitionExploret from './pages/ExhibitionExplore';
+import ExhibitionExplore from './pages/ExhibitionExplore';
 import Activity from './pages/Activity';
 import ActivityPayment from './pages/ActivityPayment';
 
@@ -71,11 +71,11 @@ function App() {
               <OrderDetail showOL={setIsShowOL} showOD={setIsShowOD} />
             ) : null}  */}
             </Route>
-            <Route path="/exhibition">
+            <Route path="/exhibition/:exhibitionId">
               <Exhibition />
             </Route>
-            <Route path="/exhibitionexplore">
-              <ExhibitionExploret />
+            <Route path="/exhibition">
+              <ExhibitionExplore />
             </Route>
           </Switch>
           <Footer />

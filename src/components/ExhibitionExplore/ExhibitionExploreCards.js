@@ -1,4 +1,5 @@
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function ExhibitionExploreCards(props) {
   const { exhibitions } = props;
@@ -28,8 +29,8 @@ function ExhibitionExploreCards(props) {
       <div className="card-scroll">
         {exhibitions.map((exhibition, index) => {
           return (
-            <div className="exhibition_card">
-              <a href="/#">
+            <div key={exhibition.id} className="exhibition_card">
+              <Link to={`/exhibition/${exhibition.id}`}>
                 <div className="d-flex align-items-center">
                   <div className="img-date">
                     <div className="exhibition_img">
@@ -57,7 +58,7 @@ function ExhibitionExploreCards(props) {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           );
         })}
