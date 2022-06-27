@@ -21,13 +21,6 @@ function LoginA() {
 
   return (
     <>
-      {/* <button
-        onClick={() => {
-          handleShow();
-        }}
-      >
-        登入註冊
-      </button> */}
 
       <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 

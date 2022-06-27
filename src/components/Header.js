@@ -12,6 +12,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
 
 import SignupLogin from './SignupLogin/SignupLogin';
+import LoginDropdown from './SignupLogin/LoginDropdown';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
@@ -56,7 +57,8 @@ function Header() {
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
-              <SignupLogin />
+              {/* <SignupLogin /> */}
+              <LoginDropdown />
             </li>
           </ul>
         </div>

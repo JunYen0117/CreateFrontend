@@ -1,0 +1,15 @@
+.header_dropdown_menu{
+    width: 120px;
+    position: absolute;
+    top: 60px;
+    left: -33px;
+    z-index: 10;
+    font-size: $h2-font-size;
+    font-weight: bold;
+    color: white;
+    background: $secondary;
+    li a{
+        display: block;
+        text-decoration: none;
+    }
+}
