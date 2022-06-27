@@ -128,3 +128,10 @@
         }
     }
 }
+
+/*手機版*/
+@media screen and (max-width: 768px){
+    .storebanner{
+        display: none;
+    }
+}
