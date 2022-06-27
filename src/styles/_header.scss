@@ -67,6 +67,8 @@ header {
     position: absolute;
     top: 52px;
   }
+
+
   .offcanvas {
     width: 70%;
   }
@@ -92,16 +94,21 @@ header {
   .offcanvas-body .last_li {
     border-bottom: none;
   }
-  .offcanvas-body a {
+  .left_offcanvas_body li a, .right_offcanvas_body li a{
     display: block;
+    color: white;
     font-size: $h4-font-size; 
+    font-weight: bold;
     text-align: center;
+    text-decoration: none;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -40px;
     margin-top: -10px;
   }
+
+
   .mobile_search_bar_section {
     /* display: none; */
     position: sticky;

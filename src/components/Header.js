@@ -116,9 +116,9 @@ function Header() {
           </ul>
         </ul>
 
-        {/* */}
-        <Offcanvas show={showLeft} onHide={handleCloseLeft}>
-          <Offcanvas.Header>
+        {/* offcanvas套件開始 */}
+        <Offcanvas className="header_offcanvas" show={showLeft} onHide={handleCloseLeft}>
+          <Offcanvas.Header className="d-none">
             {/* li包的button是關閉canvas的按鈕 */}
             <li className="d-none">
               <button
@@ -129,7 +129,7 @@ function Header() {
               ></button>
             </li>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <Offcanvas.Body className="offcanvas_left_menu">
             <ul className="left_offcanvas_body">
               <li>
                 <a href="#/">主題企劃</a>
@@ -151,7 +151,7 @@ function Header() {
         </Offcanvas>
 
         <Offcanvas show={showRight} onHide={handleCloseRight} placement="end">
-          <Offcanvas.Header>
+          <Offcanvas.Header className="d-none">
             {/* li包的button是關閉canvas的按鈕 */}
             <li className="d-none">
               <button
@@ -162,7 +162,7 @@ function Header() {
               ></button>
             </li>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <Offcanvas.Body className="offcanvas_left_menu">
             <ul className="right_offcanvas_body">
               <li>
                 <a href="#/">購物車</a>
@@ -185,7 +185,7 @@ function Header() {
             </ul>
           </Offcanvas.Body>
         </Offcanvas>
-        {/* */}
+        {/* offcanvas套件結束 */}
       </header>
     </>
   );
