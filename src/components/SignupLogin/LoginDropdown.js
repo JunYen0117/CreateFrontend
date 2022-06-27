@@ -31,12 +31,18 @@ function LoginDropdown() {
               </a>
             </li>
             <li>
-              <a className="p-2 text-center" href="#/">
+              <a
+                className="p-2 text-center"
+                href="http://localhost:3000/member"
+              >
                 帳戶設定
               </a>
             </li>
             <li>
-              <a className="p-2 text-center" href="#/">
+              <a
+                className="p-2 text-center"
+                href="http://localhost:3000/pwdchanging"
+              >
                 變更密碼
               </a>
             </li>
