@@ -7,9 +7,12 @@
 
 .Fl_item {
   margin-right: 5rem;
+  .active {
+    color: #b99664;    
+  }
 }
 
-.Fl_nav{
+.Fl_nav {
   border-bottom: 1px solid $light;
 }
 
@@ -19,7 +22,6 @@
   color: $light;
   font-weight: bold;
   font-size: $h2-font-size;
- 
 }
 
 // ---- Fav product ---
@@ -43,7 +45,7 @@
   bottom: 35%;
 }
 
-.Fp_button{
+.Fp_button {
   background-color: $primary;
   border: none;
   font-size: 13px;
@@ -67,13 +69,11 @@
 
 // -- Fav activity --
 
-.Fac_card{
+.Fac_card {
   // height: 50%;
-  &:hover{
+  &:hover {
     box-shadow: 3px 3px 3px gray;
     transform: translate(-5px, -5px);
-   
-    
   }
 }
 
@@ -81,11 +81,11 @@
   width: 30%;
   height: 200px;
 
-.Fac_img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+  .Fac_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .Fac_table {
@@ -108,7 +108,4 @@
   position: absolute;
   right: 2%;
   top: 8px;
-
 }
-
-

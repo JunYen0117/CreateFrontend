@@ -2,11 +2,13 @@ import React from 'react';
 import ASidebar from '../components/AccountSidebar/ASidebar';
 import List from '../components/ProductOrder/List';
 import ListCancel from '../components/ProductOrder/ListCancel';
+import ListNotShipped from '../components/ProductOrder/ListNotShipped';
 import { useState, useEffect } from 'react';
 import { Tab, Col, Nav, Row } from 'react-bootstrap';
 import { API_URL } from '../utils/config';
 import axios from 'axios';
 import 'antd/dist/antd.css';
+
 
 const Order = () => {
   return (
@@ -18,7 +20,7 @@ const Order = () => {
             <h1 className="Fl_title  ">我的訂單</h1>
             <Nav className="Fl_nav" defaultActiveKey="notshipped">
               <Nav.Item className=" Fl_item mt-3 ">
-                <Nav.Link className="Fl_btn h3 " eventKey="notshipped">
+                <Nav.Link className="Fl_btn h3  " eventKey="notshipped">
                   未出貨
                 </Nav.Link>
               </Nav.Item>
@@ -41,7 +43,7 @@ const Order = () => {
             <Col sm={12}>
               <Tab.Content className="mb-5 row mt-3">
                 <Tab.Pane eventKey="notshipped">
-                  <List />
+                  <ListNotShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="shipped">
                   <List />

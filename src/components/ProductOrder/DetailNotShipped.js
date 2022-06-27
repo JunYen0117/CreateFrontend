@@ -1,13 +1,15 @@
-import { Modal } from 'antd';
-import { useState, useEffect } from 'react';
 import React from 'react';
+import { Modal } from 'antd';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import { useState, useEffect } from 'react';
 
-const Detail = (props) => {
+const DetailNotShipped = (props) => {
   const { setOrderDetailId } = props;
   const { orderId } = props;
-  // console.log('orderId', orderId);
+
+  const [detail, setDetail] = useState([]);
+  const [detailtotal, setDetailTotal] = useState([]);
 
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -16,42 +18,29 @@ const Detail = (props) => {
     setIsModalVisible(true);
   };
 
-  // 取消訂單 傳給後端 使valid=0 
+  // 取消訂單 傳給後端 使valid=0
   const cancelOrder = async () => {
     setIsModalVisible(false);
-    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
+    let [result] = await axios.get(API_URL + `/poshipped/${orderId}/2`);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-
-  // 取得訂單明細所需資料
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/${orderId}`);
+      let response = await axios.get(API_URL + `/poshipped/${orderId}`);
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
+      console.log()
     };
     getDetail();
   }, []);
 
   return (
     <>
-      {/* 沒有訂單 */}
-      {/* <div>
-        <img src={require('../image/Singing.png')} className="img1" alt="" />
-        <h3>您沒有尚未付款的訂單</h3>
-      </div> */}
-
-      {/* ===================================== */}
-
-      {/* 訂單明細 */}
       <div className="orderlist-card w-100 ">
         <div className="w-100 mt-3">
           <table className="detail-table w-100 ms-2">
@@ -175,7 +164,7 @@ const Detail = (props) => {
             className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
             onClick={showModal}
           >
-            再買一次
+            取消訂單
           </button>
           <Modal
             title=""
@@ -191,10 +180,8 @@ const Detail = (props) => {
           </Modal>
         </div>
       </div>
-
-      {/* =========================================== */}
     </>
   );
 };
 
-export default Detail;
+export default DetailNotShipped;
