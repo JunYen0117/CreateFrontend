@@ -26,8 +26,8 @@
 .all-product-card {
     margin: 0 120px 100px 120px;
 }
-.card {
-    border: 0px;
+.front_card {
+    border: 0px !important;
     padding: 0 10px;
 }
 
@@ -68,6 +68,15 @@
 }
 
 // BusinessLogo 品牌Logo
+.front_brand_card {
+    border: 0 !important;
+}
+.front_brand_name {
+    a {
+        font-size: 18px !important;
+        color: black;
+    }
+}
 .all-logo {
     margin: 0 120px 100px 120px;
     .card-body {
