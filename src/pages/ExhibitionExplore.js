@@ -8,7 +8,7 @@ import { API_URL } from '../utils/config';
 import { map } from 'leaflet';
 
 function ExhibitionExplore(props) {
-  const [exhibitions, setExhibitions] = useState([]);
+  const [exhibitions, setExhibitions] = useState({});
 
   useEffect(() => {
     let getExhibitions = async () => {

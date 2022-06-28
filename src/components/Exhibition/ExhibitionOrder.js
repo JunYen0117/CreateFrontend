@@ -11,9 +11,12 @@ function ExhibitionOrder(props) {
   const [total, setTotal] = useState(0);
 
   const { exhibition } = props;
+  const a = exhibition.exhibition[0];
+
+  console.log(a);
   return (
     <>
-      {exhibition.map((item, index) => {
+      {a.map((item, index) => {
         return (
           <div className="exhibition-order mx-2">
             <div className="row my-4">

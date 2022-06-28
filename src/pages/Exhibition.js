@@ -13,16 +13,17 @@ function Exhibition(props) {
 
   useEffect(() => {
     let getExhibition = async () => {
-      let response = await axios.get(`${API_URL}/exhibition/${exhibitionId}`);
-      setExhibition(response.data);
+      let response = await axios.get(API_URL + `/exhibition/${exhibitionId}`);
+      setExhibition(response);
     };
     getExhibition();
   }, []);
+  console.log(exhibition);
 
   return (
     <>
       <div className="container">
-        <ExhibitionCarousel />
+        <ExhibitionCarousel exhibition={exhibition} />
         <div className="d-flex">
           <div className="col-12 col-md-10">
             <ExhibitionText exhibition={exhibition} />
