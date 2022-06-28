@@ -5,7 +5,7 @@ function ProductCard(props) {
     props;
   return (
     <>
-      <div className={`card ${on_phone ? 'col' : 'col-3'}`}>
+      <div className={`card front_card ${on_phone ? 'col' : 'col-3'}`}>
         <a href={pic_href} className="ratio ratio-1x1">
           <img src={product_pic} className="card-img-top" alt="..." />
         </a>

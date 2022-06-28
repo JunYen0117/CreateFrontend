@@ -10,6 +10,7 @@ import FrontPage from './pages/FrontPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BrandPage from './pages/BrandPage';
+import BrandStores from './pages/BrandStores';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExplore from './pages/ExhibitionExplore';
@@ -44,6 +45,9 @@ function App() {
             </Route>
             <Route path="/Brand">
               <BrandPage />
+            </Route>
+            <Route path="/BrandStores">
+              <BrandStores />
             </Route>
             <Route path="/course">
               <Course />
