@@ -15,7 +15,7 @@
 }
 
 .footer_desktop {
-  margin-bottom: 0;
+  margin: 0 0 0 0;
   height: 366px;
   background-color: $primary;
 }
@@ -58,7 +58,7 @@
   .accordion-button:not(.collapsed)::after {
     background-image: url(../img/FooterMobileBtn.svg);
   }
-  .accordion-body p {
+  .accordion-body p, .copy_right {
     color: white;
     text-align: center;
   }

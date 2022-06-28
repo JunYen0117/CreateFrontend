@@ -1,5 +1,6 @@
+import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
+
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
 import Modal from 'react-bootstrap/Modal';
 
@@ -20,13 +21,8 @@ function LoginA() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          handleShow();
-        }}
-      >
-        登入註冊
-      </button>
+
+      <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 
       <Modal show={show} onHide={handleClose} className="LoginSignup">
         <Tabs
