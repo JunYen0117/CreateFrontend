@@ -9,6 +9,7 @@ const DetailCancel = (props) => {
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
+  const [detailreceiver, setDetailReceiver] = useState([]);
 
   useEffect(() => {
     let getDetail = async () => {
@@ -16,6 +17,7 @@ const DetailCancel = (props) => {
       let response = await axios.get(API_URL + `/pocancel/${orderId}`);
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
+      setDetailReceiver(response.data.receiver);
     };
     getDetail();
   }, []);
@@ -84,28 +86,34 @@ const DetailCancel = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tbody>
-              <tr>
-                <td>收件人</td>
-                <td>小雞蛋</td>
-              </tr>
-              <tr>
-                <td>收件人地址</td>
-                <td>789 天堂路</td>
-              </tr>
-              <tr>
-                <td>收件人電話</td>
-                <td>0931266789</td>
-              </tr>
-              <tr>
-                <td>運送方式</td>
-                <td>宅配</td>
-              </tr>
-              <tr>
-                <td>備註</td>
-                <td></td>
-              </tr>
-            </tbody>
+            {detailreceiver.map((v) => {
+              return (
+                <>
+                  <tbody>
+                    <tr>
+                      <td>收件人</td>
+                      <td>{v.member_name}</td>
+                    </tr>
+                    <tr>
+                      <td>收件人地址</td>
+                      <td>{v.address}</td>
+                    </tr>
+                    <tr>
+                      <td>收件人電話</td>
+                      <td>{v.phone}</td>
+                    </tr>
+                    <tr>
+                      <td>運送方式</td>
+                      <td>宅配</td>
+                    </tr>
+                    <tr>
+                      <td>備註</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </>
+              );
+            })}
           </table>
         </div>
       </div>
