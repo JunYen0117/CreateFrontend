@@ -8,7 +8,7 @@ function ArtMagazine() {
       <div className="container">
         <MagzOption />
         <div className="magz_all_line" />
-        <div className="row magz_all">
+        <div className="row magz_all px-3">
           <MagzList />
         </div>
       </div>

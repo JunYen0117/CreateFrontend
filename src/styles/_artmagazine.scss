@@ -42,14 +42,14 @@
 }
 // 分隔線
 .magz_all_line {
-    width: 100%;
+    width: 100% !important;
     height: 2px;
     background-color: $primary;
-    margin-bottom: 60px;
 }
-.row_magz_all {
+.magz_all {
     width: 100%;
     padding: 60px 0;
+    margin: 0 !important;
 }
 .magz_img {
     width: 300px;
@@ -65,8 +65,15 @@
     color: black;
     font-weight: 600;
 }
+.magz_title:hover {
+    $primary: #b99664 !important;
+}
+.magz_title:active {
+    $primary: #b99664 !important;
+}
 .magz_author_name {
     font-size: 14px !important;
+    margin-bottom: 10px !important;
 }
 .magz_list_line {
     width: 200px;
@@ -75,11 +82,12 @@
     margin-bottom: 10px;
 }
 .magz_author_context {
+    height: 100%;
     font-size: 14px !important;
     line-height: 25px;
     letter-spacing: 15%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
     overflow: hidden;
 }
