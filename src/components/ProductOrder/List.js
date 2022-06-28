@@ -9,11 +9,13 @@ const List = () => {
 
   const [orderDetailId, setOrderDetailId] = useState(0);
 
+  //連接後端 
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
       let response = await axios.get(API_URL + `/productorder`);
       setOrders(response.data);
+
     };
     getOrders();
   }, []);

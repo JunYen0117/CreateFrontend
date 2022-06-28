@@ -14,7 +14,7 @@ import ListShipped from '../components/ProductOrder/ListShipped';
 const Order = () => {
   return (
     <>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="finish">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="notshipped">
         <Row className="">
           <ASidebar />
           <Col sm={8}>

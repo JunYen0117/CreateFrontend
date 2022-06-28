@@ -18,7 +18,7 @@ const ListCancel = () => {
       // console.log(response.data);
     };
     getOrderCancel();
-  }, []);
+  }, [orderCancel]);
   let arr = orderCancel.arrcancel || [];
   // console.log(arr)
 

@@ -18,7 +18,7 @@ const ListShipped = () => {
     getOrders();
   }, []);
   let arr = orders.totalarr || [];
-  // console.log(arr);
+ 
 
   return (
     <>
@@ -45,7 +45,7 @@ const ListShipped = () => {
                     </tr>
                     <tr>
                       <td>處理狀態</td>
-                      <td>已取貨</td>
+                      <td>待收貨</td>
                     </tr>
                     <tr>
                       <td>付款方式</td>
