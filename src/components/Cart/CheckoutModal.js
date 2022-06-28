@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 import CheckoutList from './CheckoutList';
 
@@ -15,6 +16,18 @@ function CheckoutModal(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = async () => {
+    try {
+      let response = await axios.post(
+        `http://localhost:3003/api/cart/orderDetails`,
+        shippingData
+      );
+      console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
@@ -75,6 +88,7 @@ function CheckoutModal(props) {
                   type="submit"
                   onClick={(e) => {
                     e.preventDefault();
+                    handleSubmit();
                     handleClose();
                     Swal.fire({
                       position: 'center',
