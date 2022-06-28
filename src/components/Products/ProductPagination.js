@@ -104,14 +104,14 @@ function ProductPagination(props) {
               </a>
             </li>
           )}
-          <p className="h2 h-50 mb-0 mx-3">
+          <p className="h3 h-50 mb-0 mx-3">
             第{page}/{lastPage}頁
           </p>
           <div>
             <label>跳到第</label>
             <input
               type="text"
-              className="mx-1 border border-secondary"
+              className="mx-1 border border-secondary text-center"
               onChange={(e) => {
                 setJump(e.target.value);
               }}

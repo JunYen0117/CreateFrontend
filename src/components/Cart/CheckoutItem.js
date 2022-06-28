@@ -5,7 +5,7 @@ function CheckoutItem(props) {
     <>
       <div className="my-3">
         <div className="p-1 d-flex align-items-center cart_product_border">
-          <figure className="cart_checkout_img">
+          <figure className="checkout_modal_img">
             <img
               src={`http://localhost:3003/images/product/${image}`}
               alt=""

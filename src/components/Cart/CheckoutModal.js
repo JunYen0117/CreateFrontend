@@ -4,8 +4,13 @@ import Swal from 'sweetalert2';
 
 import CheckoutList from './CheckoutList';
 
-function CheckoutForm(props) {
-  const { checkList } = props;
+function CheckoutModal(props) {
+  const { checkList, checkListTotal, shippingData } = props;
+
+  // 準備要寫入資料庫的商品資料
+  // const cartCheckList = [...checkList];
+  // console.log('cartCheckList', cartCheckList);
+  console.log('shippingData', shippingData);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -29,7 +34,7 @@ function CheckoutForm(props) {
               </h1>
               <div className="text-center">
                 <button
-                  className="btn checkout_modal_btn my-3"
+                  className="cart_checkout_btn w-50 py-2"
                   onClick={(e) => {
                     e.preventDefault();
                     handleClose();
@@ -42,14 +47,22 @@ function CheckoutForm(props) {
           ) : (
             <form className="checkout_modal_body row g-3">
               <div className="col-12">
-                <h1 className="checkout_modal_title text-center">商品資訊</h1>
+                <h1 className="checkout_modal_title text-center">購買明細</h1>
               </div>
               <div className="col-12">
                 <CheckoutList checkList={checkList} />
               </div>
+              <div className="col-12 d-flex justify-content-end">
+                <p className="fw-bolder checkout_modal_items">
+                  共{checkList.length}項商品
+                </p>
+                <p className="fw-bolder checkout_modal_total">
+                  總金額 NT {checkListTotal}
+                </p>
+              </div>
               <div className="col-12 d-flex justify-content-center mb-3">
                 <button
-                  className="btn mx-3 checkout_modal_btn w-100"
+                  className="mx-3 cart_checkout_btn py-2 w-100"
                   onClick={(e) => {
                     e.preventDefault();
                     handleClose();
@@ -58,7 +71,7 @@ function CheckoutForm(props) {
                   返回購物車
                 </button>
                 <button
-                  className="btn mx-3 checkout_modal_btn w-100"
+                  className="mx-3 cart_checkout_btn py-2 w-100"
                   type="submit"
                   onClick={(e) => {
                     e.preventDefault();
@@ -83,4 +96,4 @@ function CheckoutForm(props) {
   );
 }
 
-export default CheckoutForm;
+export default CheckoutModal;

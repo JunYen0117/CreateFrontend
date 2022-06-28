@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import TwCitySelector from 'tw-city-selector/dist/tw-city-selector';
 import { CheckListContext } from '../../App.js';
-import CheckoutForm from './CheckoutForm';
+import CheckoutModal from './CheckoutModal';
 
 function Summary() {
   const { checkList, checkListTotal } = useContext(CheckListContext);
@@ -9,7 +9,6 @@ function Summary() {
   //取得縣市行政區API資料
   useEffect(() => {
     cityselect();
-    console.log('ok');
   }, []);
 
   function cityselect() {
@@ -21,6 +20,7 @@ function Summary() {
     });
   }
 
+  // 收件資料
   const [shippingData, setShippingData] = useState({
     purchaser: '',
     recipient: '',
@@ -37,8 +37,6 @@ function Summary() {
       [e.target.name]: e.target.value,
     });
   };
-
-  const testtest = ['桃園市', '台北市', '新竹市'];
 
   return (
     <>
@@ -76,7 +74,7 @@ function Summary() {
                 <label className="w-100 mb-2 h2">收件人姓名</label>
                 <input
                   type="text"
-                  placeholder="預設會員姓名"
+                  placeholder="真實姓名"
                   id="recipient"
                   name="recipient"
                   value={shippingData.recipient}
@@ -152,7 +150,11 @@ function Summary() {
           </form>
         </div>
         <div className="text-center px-3 my-3">
-          <CheckoutForm checkList={checkList} />
+          <CheckoutModal
+            checkList={checkList}
+            checkListTotal={checkListTotal}
+            shippingData={shippingData}
+          />
         </div>
       </div>
     </>
