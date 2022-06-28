@@ -5,12 +5,14 @@ import Member from './pages/Member';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+// 首頁
 import FrontPage from './pages/FrontPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BrandPage from './pages/BrandPage';
 import BrandStores from './pages/BrandStores';
+import ArtMagazine from './pages/ArtMagazine';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExploret from './pages/ExhibitionExplore';
@@ -46,8 +48,11 @@ function App() {
             <Route path="/Brand">
               <BrandPage />
             </Route>
-            <Route path="/BrandStores">
+            <Route path="/Brand/Stores">
               <BrandStores />
+            </Route>
+            <Route path="/ArtMagazine">
+              <ArtMagazine />
             </Route>
             <Route path="/course">
               <Course />
