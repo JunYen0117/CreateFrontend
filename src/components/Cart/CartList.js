@@ -12,6 +12,7 @@ function CartList(props) {
             key={v.id}
             productId={v.id}
             productName={v.product_name}
+            vendorId={v.vendor_id}
             vendor={v.business_name}
             image={v.image}
             price={v.price}

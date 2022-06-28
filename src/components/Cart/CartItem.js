@@ -8,8 +8,16 @@ import { CheckListContext } from '../../App.js';
 
 function CartItem(props) {
   const { items, plusOne, minusOne, removeItem, updateItem } = useCart();
-  const { productId, productName, vendor, image, price, quantity, checked } =
-    props;
+  const {
+    productId,
+    productName,
+    vendorId,
+    vendor,
+    image,
+    price,
+    quantity,
+    checked,
+  } = props;
 
   // 加選購物車商品的清單: 取出 Context
   const { checkList, setCheckList } = useContext(CheckListContext);
@@ -35,6 +43,7 @@ function CartItem(props) {
         {
           id: productId,
           productName,
+          vendor_id: vendorId,
           vendor,
           image,
           price,

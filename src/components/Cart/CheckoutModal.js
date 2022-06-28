@@ -11,6 +11,7 @@ function CheckoutModal(props) {
   // 準備要寫入資料庫的商品資料
   // const cartCheckList = [...checkList];
   // console.log('cartCheckList', cartCheckList);
+  console.log('checkList', checkList);
   console.log('shippingData', shippingData);
 
   const [show, setShow] = useState(false);
@@ -21,7 +22,11 @@ function CheckoutModal(props) {
     try {
       let response = await axios.post(
         `http://localhost:3003/api/cart/orderDetails`,
-        shippingData
+        {
+          shippingData,
+          checkList,
+          total: checkListTotal,
+        }
       );
       console.log(response.data);
     } catch (e) {

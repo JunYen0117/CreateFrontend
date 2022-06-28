@@ -21,8 +21,9 @@ function Summary() {
   }
 
   // 收件資料
+  // customerId 會抓 登入會員的 id
   const [shippingData, setShippingData] = useState({
-    purchaser: '',
+    customerId: '',
     recipient: '',
     email: '',
     tel: '',
