@@ -9,6 +9,7 @@ import FrontPage from './pages/FrontPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BrandPage from './pages/BrandPage';
+import BrandStores from './pages/BrandStores';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExploret from './pages/ExhibitionExplore';
@@ -37,12 +38,15 @@ function App() {
         <>
           <Header />
           <Switch>
-          <Route path="/Front"> 
-            <FrontPage />
-          </Route>
-          <Route path="/Brand">
-            <BrandPage />
-          </Route> 
+            <Route path="/FrontPage">
+              <FrontPage />
+            </Route>
+            <Route path="/Brand">
+              <BrandPage />
+            </Route>
+            <Route path="/BrandStores">
+              <BrandStores />
+            </Route>
             <Route path="/course">
               <Course />
             </Route>
