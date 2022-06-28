@@ -8,6 +8,7 @@ import { Tab, Col, Nav, Row } from 'react-bootstrap';
 import { API_URL } from '../utils/config';
 import axios from 'axios';
 import 'antd/dist/antd.css';
+import ListShipped from '../components/ProductOrder/ListShipped';
 
 
 const Order = () => {
@@ -46,7 +47,7 @@ const Order = () => {
                   <ListNotShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="shipped">
-                  <List />
+                  <ListShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="finish">
                   <List />

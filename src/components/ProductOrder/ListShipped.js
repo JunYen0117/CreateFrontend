@@ -2,22 +2,23 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
-import DetailNotShipped from './DetailNotShipped';
+import DetailShipped from './DetailShipped';
 
-const ListNotShipped = () => {
-  const [orderShipped, setOrderShipped] = useState([]);
+const ListShipped = () => {
+  const [orders, setOrders] = useState([]);
+
   const [orderDetailId, setOrderDetailId] = useState(0);
 
   useEffect(() => {
-    let getOrderShipped = async () => {
+    let getOrders = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/ponotshipped`);
-      setOrderShipped(response.data);
+      let response = await axios.get(API_URL + `/poshipped`);
+      setOrders(response.data);
     };
-    getOrderShipped();
+    getOrders();
   }, []);
-  let arr = orderShipped.arrshipped || [];
-  console.log(arr);
+  let arr = orders.totalarr || [];
+  // console.log(arr);
 
   return (
     <>
@@ -44,7 +45,7 @@ const ListNotShipped = () => {
                     </tr>
                     <tr>
                       <td>處理狀態</td>
-                      <td>訂單處理中</td>
+                      <td>已取貨</td>
                     </tr>
                     <tr>
                       <td>付款方式</td>
@@ -67,7 +68,7 @@ const ListNotShipped = () => {
               </div>
             )}
             {orderDetailId === v.orderid ? (
-              <DetailNotShipped
+              <DetailShipped
                 key={v.id}
                 setOrderDetailId={setOrderDetailId}
                 orderId={orderDetailId}
@@ -78,8 +79,10 @@ const ListNotShipped = () => {
           </div>
         );
       })}
+
+    
     </>
   );
 };
 
-export default ListNotShipped;
+export default ListShipped;
