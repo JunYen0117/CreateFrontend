@@ -1,9 +1,12 @@
 import React from 'react';
+import MagzOption from '../components/ArtMagazine/MagzOption';
 
 function ArtMagazine() {
   return (
     <>
-      <div className="container"></div>
+      <div className="container">
+        <MagzOption />
+      </div>
     </>
   );
 }
