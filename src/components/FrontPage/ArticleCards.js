@@ -4,7 +4,7 @@ import ArticleCard from './ArticleCard';
 function ArticleCards(props) {
   return (
     <>
-      <h2>
+      <h2 className="front_h2">
         <a href="/">精選文章</a>
       </h2>
       <div className="container article-container">

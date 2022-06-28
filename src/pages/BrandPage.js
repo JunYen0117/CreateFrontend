@@ -47,7 +47,7 @@ function BrandPage() {
           </div>
         </div>
       </div>
-      <div className=" container line" />
+      <div className=" container brandpage_line" />
       <div className="container">
         <div className="row">
           <Brandcard />

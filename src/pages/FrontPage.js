@@ -41,11 +41,11 @@ class FrontPage extends Component {
     return (
       <div>
         <SliderBanner />
-        <h2>
+        <h2 className="front_h2">
           <a href="/">質感商品</a>
         </h2>
         {product}
-        <h2>
+        <h2 className="front_h2">
           <a href="/">精選品牌</a>
         </h2>
         {brand}
@@ -55,4 +55,4 @@ class FrontPage extends Component {
   }
 }
 
-export default FrontPage
+export default FrontPage;

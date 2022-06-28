@@ -7,7 +7,7 @@ function CarouselContents(props) {
       <div className={`carousel-item ${a}`}>
         <div className="all-logo d-flex justify-content-between">
           {page_content.map((content) => (
-            <Card>
+            <Card className="front_brand_card">
               <div className="logo-card">
                 <a href="/">
                   <figure className="logo-pic">
@@ -19,7 +19,7 @@ function CarouselContents(props) {
                   </figure>
                 </a>
                 <Card.Body>
-                  <Card.Title className="d-flex justify-content-center">
+                  <Card.Title className="d-flex justify-content-center front_brand_name">
                     <a href="/">{content.brand_name}</a>
                   </Card.Title>
                 </Card.Body>
