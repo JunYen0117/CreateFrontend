@@ -1,4 +1,3 @@
-import { Modal } from 'antd';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
@@ -8,23 +7,6 @@ const Detail = (props) => {
   const { setOrderDetailId } = props;
   const { orderId } = props;
   // console.log('orderId', orderId);
-
-  // 刪除按鈕
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  // 取消訂單 傳給後端 使valid=0
-  const cancelOrder = async () => {
-    setIsModalVisible(false);
-    let [result] = await axios.get(API_URL + `/productorder/${orderId}/1`);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
@@ -170,24 +152,9 @@ const Detail = (props) => {
           >
             回訂單查詢
           </button>
-          <button
-            className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
-            onClick={showModal}
-          >
+          <button className=" orderlist-b2 px-3 py-2 mt-2 mb-2">
             再買一次
           </button>
-          <Modal
-            title=""
-            visible={isModalVisible}
-            onOk={cancelOrder}
-            onCancel={handleCancel}
-            okText="確認"
-            OKType="$primary"
-            cancelText="再想想"
-            className="orderdetail_bt"
-          >
-            <h1>確定要取消訂單嗎？</h1>
-          </Modal>
         </div>
       </div>
     </>

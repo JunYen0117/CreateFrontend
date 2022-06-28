@@ -34,7 +34,7 @@ const DetailNotShipped = (props) => {
       let response = await axios.get(API_URL + `/poshipped/${orderId}`);
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
-      console.log()
+      console.log();
     };
     getDetail();
   }, []);
