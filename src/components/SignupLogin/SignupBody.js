@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
@@ -17,6 +20,17 @@ function SignupBody() {
   const handleChange = (e) => {
     setSignInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
+  async function handleSubmit(e) {
+    // 停掉預設行為
+    e.preventDefault();
+    try {
+      let response = await axios.post(`http://localhost:3003/api/auth/register`, signupInfo);
+      console.log(response);
+    } catch (e) {
+      console.error(e);
+      console.log(e);
+    }
+  }
 
   const [signupPwdEye, setSignupPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
@@ -54,6 +68,8 @@ function SignupBody() {
               className="mx-auto mb-4"
               placeholder="密碼 *"
             />
+
+            {/* 眼睛模組 */}
             <div
               className="signup_eye"
               onClick={() => {
@@ -80,6 +96,8 @@ function SignupBody() {
               className="mx-auto mb-4"
               placeholder="請再確認密碼 *"
             />
+
+            {/* 眼睛模組 */}
             <div
               className="signup_eye2"
               onClick={() => {
@@ -160,14 +178,7 @@ function SignupBody() {
         </div>
         <div className="signup_footer d-flex flex-column">
           <div className="my-3 d-flex justify-content-center">
-            <input
-              type="checkbox"
-              checked={isAgree}
-              onChange={(e) => {
-                setIsAgree(e.target.checked);
-              }}
-              className="align-self-center me-3"
-            />
+            <input type="checkbox" className="align-self-center me-3" />
             <div className="isagree_text d-inline-block">
               我同意網站&ensp;
               <a href="#/" alt="#/">
@@ -180,7 +191,9 @@ function SignupBody() {
             </div>
           </div>
           <div className="d-flex justify-content-center mb-4">
-            <button className="signup_btn mx-auto">註冊</button>
+            <button className="signup_btn mx-auto" onClick={handleSubmit}>
+              註冊
+            </button>
           </div>
         </div>
       </form>

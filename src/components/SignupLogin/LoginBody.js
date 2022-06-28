@@ -6,6 +6,11 @@ import { AiOutlineEye } from 'react-icons/ai';
 import LogoSvg1 from '../../img/header/logo.svg';
 
 function LoginBody(props) {
+  //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> LoginBody.js
+  const { isLogin, setIsLogin } = props;
+
+  const [btnChangeLogin, setBtnChangeLogin] = useState(false);
+
   const [loginPwdEye, setLoginPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
   return (
@@ -48,7 +53,14 @@ function LoginBody(props) {
             </div>
           </Form.Group>
           <Form.Group className="d-flex justify-content-center mb-4">
-            <button className="login_btn mx-auto">登入</button>
+            <button
+              className="login_btn mx-auto"
+              onClick={() => {
+                props.setIsLogin(true);
+              }}
+            >
+              登入
+            </button>
           </Form.Group>
         </div>
       </Form>
