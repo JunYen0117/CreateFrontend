@@ -21,7 +21,6 @@ const DetailShipped = (props) => {
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
-
     };
     getDetail();
   }, []);
@@ -99,7 +98,7 @@ const DetailShipped = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-          {detailreceiver.map((v) => {
+            {detailreceiver.map((v) => {
               return (
                 <>
                   <tbody>
@@ -162,6 +161,12 @@ const DetailShipped = (props) => {
           >
             回訂單查詢
           </button>
+          {/* <button
+            className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
+            onClick={FinishOrder}
+          >
+            確認收貨
+          </button> */}
         </div>
       </div>
     </>

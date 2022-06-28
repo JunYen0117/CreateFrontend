@@ -12,7 +12,6 @@ const DetailNotShipped = (props) => {
   const [detailtotal, setDetailTotal] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
 
-
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -37,8 +36,6 @@ const DetailNotShipped = (props) => {
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
-
-   
     };
     getDetail();
   }, []);
@@ -107,7 +104,7 @@ const DetailNotShipped = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-          {detailreceiver.map((v) => {
+            {detailreceiver.map((v) => {
               return (
                 <>
                   <tbody>
