@@ -4,7 +4,7 @@ import { CheckListContext } from '../../App.js';
 import CheckoutModal from './CheckoutModal';
 
 function Summary() {
-  const { checkList, checkListTotal } = useContext(CheckListContext);
+  const { checkList, setCheckList, checkListTotal } = useContext(CheckListContext);
 
   //取得縣市行政區API資料
   useEffect(() => {
@@ -155,6 +155,7 @@ function Summary() {
             checkList={checkList}
             checkListTotal={checkListTotal}
             shippingData={shippingData}
+            setCheckList={setCheckList}
           />
         </div>
       </div>

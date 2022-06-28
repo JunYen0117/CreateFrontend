@@ -20,6 +20,8 @@ import { useState, createContext } from 'react';
 export const CheckListContext = createContext(null);
 
 function App() {
+  // const { items, addItem, clearCart } = useCart();
+
   // 加選購物車商品的清單
   const [checkList, setCheckList] = useState([]);
 

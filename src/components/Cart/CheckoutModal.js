@@ -2,22 +2,38 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-
 import CheckoutList from './CheckoutList';
+import { useCart } from '../../utils/useCart';
 
 function CheckoutModal(props) {
-  const { checkList, checkListTotal, shippingData } = props;
+  const { checkList, setCheckList, checkListTotal, shippingData } = props;
+  const { items, addItem, clearCart } = useCart();
+
+  // 移除結帳商品
+  const checkoutRemove = () => {
+    // 取出 未選購商品
+    let newList = items.filter((v, i) => {
+      return v.checked === false;
+    });
+
+    clearCart();
+
+    newList.forEach((v) => {
+      addItem({ ...v });
+    });
+
+    setCheckList([]);
+  };
 
   // 準備要寫入資料庫的商品資料
-  // const cartCheckList = [...checkList];
-  // console.log('cartCheckList', cartCheckList);
-  console.log('checkList', checkList);
-  console.log('shippingData', shippingData);
+  // console.log('checkList', checkList);
+  // console.log('shippingData', shippingData);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // 結帳
   const handleSubmit = async () => {
     try {
       let response = await axios.post(
@@ -94,6 +110,7 @@ function CheckoutModal(props) {
                   onClick={(e) => {
                     e.preventDefault();
                     handleSubmit();
+                    checkoutRemove();
                     handleClose();
                     Swal.fire({
                       position: 'center',
