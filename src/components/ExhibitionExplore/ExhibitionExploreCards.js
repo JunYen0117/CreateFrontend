@@ -49,7 +49,11 @@ function ExhibitionExploreCards(props) {
                   <div className="mx-3 exhibition_text">
                     <h2 className="">{exhibition.exhibition_name}</h2>
                     <div className="line" />
-                    <p>{exhibition.exhibition_intro}</p>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: `${exhibition.exhibition_intro}`,
+                      }}
+                    ></p>
                     <div className="">
                       <div className="d-flex justify-content-between">
                         <div>{exhibition.city}</div>

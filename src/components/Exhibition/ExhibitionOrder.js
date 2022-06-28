@@ -4,6 +4,7 @@ import {
   AiOutlineUndo,
 } from 'react-icons/ai';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ExhibitionOrder(props) {
   const [count, setCount] = useState(0);
@@ -38,7 +39,11 @@ function ExhibitionOrder(props) {
                   href="#/"
                   className="text-decoration-none icon"
                   style={{ color: '#903f23' }}
-                  onClick={() => {}}
+                  onClick={(e) => {
+                    setCount(0);
+                    setTotal(0);
+                    e.preventDefault();
+                  }}
                 >
                   <AiOutlineUndo />
                 </a>
@@ -46,7 +51,11 @@ function ExhibitionOrder(props) {
                   href="#/"
                   className="text-decoration-none "
                   style={{ color: '#903f23' }}
-                  onClick={() => {}}
+                  onClick={(e) => {
+                    setCount(0);
+                    setTotal(0);
+                    e.preventDefault();
+                  }}
                 >
                   重選
                 </a>
@@ -60,8 +69,9 @@ function ExhibitionOrder(props) {
                   href="#/"
                   className={`icon ${count <= 0 ? 'icon-disable' : ''}`}
                   onClick={(e) => {
-                    count <= 0 ? setCount(0) : setCount(count - 1);
-                    setTotal(count * item.exhibition_price);
+                    let newCount = count - 1;
+                    newCount < 0 ? (newCount = 0) : setCount(newCount);
+                    setTotal(newCount * item.exhibition_price);
                     e.preventDefault();
                   }}
                 >
@@ -78,8 +88,9 @@ function ExhibitionOrder(props) {
                   href="#/"
                   className={`icon ${count >= 5 ? 'icon-disable' : ''}`}
                   onClick={(e) => {
-                    count >= 5 ? setCount(5) : setCount(count + 1);
-                    setTotal(count * item.exhibition_price);
+                    let newCount = count + 1;
+                    newCount > 5 ? (newCount = 5) : setCount(newCount);
+                    setTotal(newCount * item.exhibition_price);
                     e.preventDefault();
                   }}
                 >
@@ -93,7 +104,26 @@ function ExhibitionOrder(props) {
               <div className="total-price my-2">
                 總金額 <span>NT{total}</span>
               </div>
-              <button className="my-4 submit-button">立即購買</button>
+              <Link to={'/activitypayment'}>
+                <button
+                  className="my-4 submit-button"
+                  onClick={() => {
+                    let obj = {
+                      name: `${item.exhibition_name}`,
+                      price: `${item.exhibition_price}`,
+                      count: `${count}`,
+                      date: {
+                        start: `${item.start_date}`,
+                        end: `${item.end_date}`,
+                      },
+                    };
+                    window.sessionStorage.setItem('key', JSON.stringify(obj));
+                    // sessionStorage.setItem('key', JSON.stringify(obj));
+                  }}
+                >
+                  立即購買
+                </button>
+              </Link>
             </div>
           </div>
         );

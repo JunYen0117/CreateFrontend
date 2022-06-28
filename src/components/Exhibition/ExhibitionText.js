@@ -1,6 +1,5 @@
 function ExhibitionText(props) {
   const { exhibition } = props;
-  const a = '<h1>aa</h1>';
   return (
     <>
       {exhibition.map((item, index) => {
@@ -10,20 +9,24 @@ function ExhibitionText(props) {
             <h1 className="my-3" id="exhibition-intro">
               展覽介紹
             </h1>
-            <div className="text mx-4">
-              <p>
-                {item.exhibition_intro}
-                {a}
-              </p>
-            </div>
+            <div
+              className="text mx-4"
+              dangerouslySetInnerHTML={{ __html: `${item.exhibition_intro}` }}
+            ></div>
             <h1 className="my-3" id="exhibition-des">
               展覽說明
             </h1>
-            <div className="text mx-4">{item.exhibition_des}</div>
+            <div
+              className="text mx-4"
+              dangerouslySetInnerHTML={{ __html: `${item.exhibition_des}` }}
+            ></div>
             <h1 className="my-3" id="exhibition-note">
               購買須知
             </h1>
-            <div className="text mx-4">{item.exhibition_notes}</div>
+            <div
+              className="text mx-4"
+              dangerouslySetInnerHTML={{ __html: `${item.exhibition_notes}` }}
+            ></div>
             <h1 className="my-3" id="exhibition-buy">
               票卷購買
             </h1>
