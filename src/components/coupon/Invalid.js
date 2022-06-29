@@ -4,6 +4,7 @@ import React from 'react';
 import Common from './Common';
 
 function Invalid(props) {
+  const { couponList, setNowPage, lastPage, setLastPage } = props;
   const couponPromptScript = () => {
     return <>已失效的優惠券</>;
   };
@@ -32,6 +33,10 @@ function Invalid(props) {
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
+        couponList={couponList}
+        setNowPage={setNowPage}
+        lastPage={lastPage}
+        setLastPage={setLastPage}
       />
     </>
   );

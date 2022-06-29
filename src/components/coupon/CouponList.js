@@ -1,6 +1,5 @@
 // 優惠券清單
-
-import { React, useState } from 'react';
+import { React } from 'react';
 import Available from './Available';
 import ReceiveList from './ReceiveList';
 import Invalid from './Invalid';
@@ -8,8 +7,27 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 const CouponList = () => {
+  const [couponList, setCoupons] = useState([]);
+  const [nowPage, setNowPage] = useState(1);
+  const [lastPage, setLastPage] = useState();
+  useEffect(() => {
+    let getCoupons = async () => {
+      let response = await axios.get(API_URL + '/coupons/available', {
+        params: {
+          page: nowPage,
+        },
+      });
+      setCoupons(response.data.couponList);
+      setLastPage(response.data.pagination.lastPage);
+    };
+    getCoupons();
+  }, [nowPage, lastPage]);
+
   // 寫法 2 要加的
   // const [coupon, setCoupon] = useState('available');
   return (
@@ -43,13 +61,28 @@ const CouponList = () => {
           <Col sm={12}>
             <Tab.Content className="mb-5">
               <Tab.Pane className="" eventKey="available">
-                <Available />
+                <Available
+                  couponList={couponList}
+                  setNowPage={setNowPage}
+                  lastPage={lastPage}
+                  setLastPage={setLastPage}
+                />
               </Tab.Pane>
               <Tab.Pane eventKey="receiveList">
-                <ReceiveList />
+                <ReceiveList
+                  couponList={couponList}
+                  setNowPage={setNowPage}
+                  lastPage={lastPage}
+                  setLastPage={setLastPage}
+                />
               </Tab.Pane>
               <Tab.Pane eventKey="invalid">
-                <Invalid />
+                <Invalid
+                  couponList={couponList}
+                  setNowPage={setNowPage}
+                  lastPage={lastPage}
+                  setLastPage={setLastPage}
+                />
               </Tab.Pane>
             </Tab.Content>
           </Col>

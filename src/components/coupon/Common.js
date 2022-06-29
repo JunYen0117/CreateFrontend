@@ -1,28 +1,11 @@
 import React from 'react';
 import Card from './Card';
 import Pagination from 'react-bootstrap/Pagination';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
+import { useState } from 'react';
 
 function Common(props) {
-  const { prompt, pass, use } = props;
-  const [couponList, setCoupons] = useState([]);
-  const [nowPage, setNowPage] = useState(1);
-  const [lastPage, setLastPage] = useState();
-
-  useEffect(() => {
-    let getCoupons = async () => {
-      let response = await axios.get(API_URL + '/coupons', {
-        params: {
-          page: nowPage,
-        },
-      });
-      setCoupons(response.data.couponList);
-      setLastPage(response.data.pagination.lastPage);
-    };
-    getCoupons();
-  }, [nowPage, lastPage]);
+  const { prompt, pass, use, couponList, setNowPage, lastPage, setLastPage } =
+    props;
 
   const [active, setActive] = useState(1);
   let items = [];

@@ -3,6 +3,8 @@ import React from 'react';
 import Common from './Common';
 
 function Available(props) {
+  const { couponList, setNowPage, lastPage, setLastPage } = props;
+  // 以下是優惠券的畫面
   const couponPromptScript = () => {
     return <>可領取的優惠券</>;
   };
@@ -33,6 +35,10 @@ function Available(props) {
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
+        couponList={couponList}
+        setNowPage={setNowPage}
+        lastPage={lastPage}
+        setLastPage={setLastPage}
       />
     </>
   );

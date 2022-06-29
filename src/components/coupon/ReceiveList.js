@@ -4,6 +4,7 @@ import React from 'react';
 import Common from './Common';
 
 function ReceiveList(props) {
+  const { couponList, setNowPage, lastPage, setLastPage } = props;
   const couponPromptScript = () => {
     return <>每筆訂單僅可使用一張優惠券</>;
   };
@@ -37,6 +38,10 @@ function ReceiveList(props) {
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
+        couponList={couponList}
+        setNowPage={setNowPage}
+        lastPage={lastPage}
+        setLastPage={setLastPage}
       />
     </>
   );
