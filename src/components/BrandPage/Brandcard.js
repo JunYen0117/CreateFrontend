@@ -3,7 +3,8 @@ import Banner from '../../img/banner.jpg';
 import Logo from '../../img/purple.jpg';
 
 function Brandcard(props) {
-  const { business_name, business_id } = props;
+  const { business_name, business_id, business_logo, business_introduce } =
+    props;
 
   return (
     <>
@@ -15,12 +16,14 @@ function Brandcard(props) {
           <div className="card brand-card">
             <img src={Banner} className="card-img-top brand-banner" alt="..." />
             <div className="card-body d-flex">
-              <img src={Logo} className="brand-logo" alt="" />
+              <img
+                src={`http://localhost:3003/images/brand/${business_logo}`}
+                className="brand-logo"
+                alt=""
+              />
               <div className="brand-imformation">
                 <h2>{business_name}</h2>
-                <p className="card-text">
-                  介紹introduce介紹introduce介紹introduce
-                </p>
+                <p className="card-text">{business_introduce}</p>
               </div>
             </div>
           </div>

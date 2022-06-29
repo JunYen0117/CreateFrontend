@@ -25,6 +25,8 @@ function BrandcardList() {
                 key={v.id}
                 business_name={v.business_name}
                 business_id={v.id}
+                business_logo={v.logo}
+                business_introduce={v.introduce}
               />
             );
           })}

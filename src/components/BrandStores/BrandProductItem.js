@@ -1,15 +1,21 @@
 import product1 from '../../img/P4.jpg';
 function Product(props) {
+  const { productName, productPrice, image } = props;
+
   return (
     <>
       <div className="col-2">
         <a href="/">
           <div className="ratio ratio-1x1">
-            <img src={product1} className="card-img-top" alt="..." />
+            <img
+              src={`http://localhost:3003/images/product/${image}`}
+              className="card-img-top"
+              alt=""
+            />
           </div>
           <div className="card-body productinfo">
-            <h5 className="card-title">產品名</h5>
-            <p className="money">NT. 1000</p>
+            <h5 className="card-title">{productName}</h5>
+            <p className="money">NT. {productPrice}</p>
           </div>
         </a>
       </div>

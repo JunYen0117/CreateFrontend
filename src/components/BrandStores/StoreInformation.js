@@ -9,19 +9,18 @@ import 'antd/dist/antd.css';
 
 function StoreInformation(props) {
   const { brandProducts } = props;
-  
-  const brand = [...brandProducts.brand];
 
-  console.log(brand);
+  const logo = brandProducts.logo;
+
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="card-body d-flex col-6">
-            <img src={Logo} alt="" className="logo" />
+            <img src={`http://localhost:3003/images/brand/${logo}`} alt="" className="logo" />
             <div className="brand-imformation">
-              <h2 className="store_name">廠商名稱Store</h2>
+              <h2 className="store_name">{brandProducts.brandName}</h2>
               <div className="comment d-inline-block">
                 <Rate disabled defaultValue={4} />
                 <div className="d-inline-block me-3">4.0</div>
@@ -65,11 +64,11 @@ function StoreInformation(props) {
               </div>
               <div className="information d-flex ">
                 <div>地址：</div>
-                <p className="store_address">XXX</p>
+                <p className="store_address">{brandProducts.address}</p>
               </div>
               <div className="information d-flex">
                 <div>加入時間：</div>
-                <p className="create_time">2022 年 5 月</p>
+                <p className="create_time">{brandProducts.create_time}</p>
               </div>
             </div>
           </div>

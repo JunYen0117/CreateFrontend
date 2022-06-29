@@ -1,12 +1,23 @@
 import React from 'react';
 import BrandProductItem from './BrandProductItem';
 
-function Products() {
+function Products(props) {
+  const { brand } = props;
+
   return (
     <>
       <div className="container">
         <div className="row gy-4">
-          <BrandProductItem />
+          {brand.map((v, i) => {
+            return (
+              <BrandProductItem
+                key={i}
+                productName={v.product_name}
+                productPrice={v.price}
+                image={v.image}
+              />
+            );
+          })}
         </div>
       </div>
     </>
