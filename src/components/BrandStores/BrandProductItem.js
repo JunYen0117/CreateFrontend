@@ -1,7 +1,5 @@
 import product1 from '../../img/P4.jpg';
 function Product(props) {
-  const productsArr = [1, 2, 3, 4, 5, 6, 7, 8];
-
   return (
     <>
       <div className="col-2">

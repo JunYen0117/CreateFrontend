@@ -1,12 +1,12 @@
 import React from 'react';
-import Product from './Product';
+import BrandProductItem from './BrandProductItem';
 
 function Products() {
   return (
     <>
       <div className="container">
         <div className="row gy-4">
-          <Product />
+          <BrandProductItem />
         </div>
       </div>
     </>

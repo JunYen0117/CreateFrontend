@@ -7,12 +7,18 @@ import Line from '../../img/StoreInformationSVG/Line.svg';
 import { Rate } from 'antd';
 import 'antd/dist/antd.css';
 
-function StoreInformation() {
+function StoreInformation(props) {
+  const { brandProducts } = props;
+  
+  const brand = [...brandProducts.brand];
+
+  console.log(brand);
+
   return (
     <>
       <div className="container">
         <div className="row">
-          <div class="card-body d-flex col-6">
+          <div className="card-body d-flex col-6">
             <img src={Logo} alt="" className="logo" />
             <div className="brand-imformation">
               <h2 className="store_name">廠商名稱Store</h2>
@@ -24,7 +30,7 @@ function StoreInformation() {
               <div className="d-flex justify-content-start align-items-end">
                 <div className="product-vendor_id me-md-5">
                   <p>商品數量</p>
-                  <div className="count">100</div>
+                  <div className="count">{brandProducts.quantity}</div>
                 </div>
                 <div className="customer_order_detail">
                   <p>已賣出數量</p>
@@ -59,7 +65,7 @@ function StoreInformation() {
               </div>
               <div className="information d-flex ">
                 <div>地址：</div>
-                <p className="store_address">店家的地址address</p>
+                <p className="store_address">XXX</p>
               </div>
               <div className="information d-flex">
                 <div>加入時間：</div>

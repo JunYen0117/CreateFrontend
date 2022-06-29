@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import Products from './Products';
+import BrandProductList from './BrandProductList';
 import Policy from './Policy';
 
 import Col from 'react-bootstrap/Col';
@@ -29,7 +29,7 @@ const TopBar = () => {
           <Col sm={12}>
             <Tab.Content className="mb-5">
               <Tab.Pane className="" eventKey="products">
-                <Products />
+                <BrandProductList />
               </Tab.Pane>
               <Tab.Pane eventKey="policy">
                 <Policy />
