@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import { API_URL } from '../../utils/config';
 import { useState } from 'react';
 
@@ -28,8 +29,20 @@ function LoginBody(props) {
         withCredentials: true,
       });
       console.log(response);
+      setIsLogin(true);
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1000,
+      })
     } catch (e) {
       console.error('前端沒有送到後端:' + e);
+      Swal.fire({
+        icon: 'error',
+        title: '帳號或密碼錯誤，請重新登入',
+        showConfirmButton: false,
+        timer: 1500,
+      })
     }
   }
 
@@ -85,9 +98,9 @@ function LoginBody(props) {
               type="submit"
               className="login_btn mx-auto"
               onClick={handleSubmit}
-              onClick={() => {
-                setIsLogin(true);
-              }}
+              // onClick={() => {
+              //   setIsLogin(true);
+              // }}
             >
               登入
             </button>
