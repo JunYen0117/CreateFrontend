@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
+import PaymentInputs from './PaymentInputs';
 
 function CheckoutModal(props) {
   const { items, addItem, clearCart } = useCart();
@@ -76,7 +77,7 @@ function CheckoutModal(props) {
               <div className="col-12">
                 <h1 className="checkout_modal_title text-center">購買明細</h1>
               </div>
-              <div className="col-12">
+              <div className="col-12 mt-1">
                 <CheckoutList checkList={checkList} />
               </div>
               <div className="col-12 d-flex justify-content-end">
@@ -86,6 +87,15 @@ function CheckoutModal(props) {
                 <p className="fw-bolder checkout_modal_total">
                   總金額 NT {checkListTotal}
                 </p>
+              </div>
+              <div className="col-12">
+                <h1 className="checkout_modal_title text-center">付款資訊</h1>
+              </div>
+              <div className="col-12 d-flex mt-1">
+                <p className="w-100 mx-3 checkoutmodal_color">卡號</p>
+              </div>
+              <div className="col-12 d-flex justify-content-center mt-1">
+                <PaymentInputs />
               </div>
               <div className="col-12 d-flex justify-content-center mb-3">
                 <button
