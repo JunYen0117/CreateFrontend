@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import axios from 'axios';
