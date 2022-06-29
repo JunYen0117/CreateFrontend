@@ -1,43 +1,28 @@
-import { useState } from 'react';
-import Bird from '../../img/Bird.jpg';
-import { FaShoppingCart } from 'react-icons/fa';
-import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import FavProduct from './Favproduct';
 
 const Product = () => {
-  const [showheart, setShowHeart] = useState(true);
+  const [product, setProduct] = useState([]);
+  const [arr, setArr] = useState([]);
+
+  useEffect(() => {
+    // console.log(JSON.parse(localStorage.getItem('fav')))
+    // arr = JSON.parse(localStorage.getItem('fav'));
+    setArr(JSON.parse(localStorage.getItem('fav')));
+  }, []);
+
+  console.log('fav', arr);
+
   return (
     <>
       <div className="container-fluid mb-5 px-0">
         <div className=" row d-flex">
-          {[1, 2, 3, 4, 5].map(() => {
+          {arr.map((v, i) => {
             return (
               <div className="col-2 position-relative">
-                {showheart ? (
-                  <BsHeartFill className="Fp_heart" />
-                ) : (
-                  <BsHeart className="Fp_heart" />
-                )}
-                <BsHeart
-                  className="Fp_heart"
-                  onClick={() => {
-                    setShowHeart(!showheart);
-                  }}
-                />
-                <div className=" Fp_top me-2 mb-3">
-                  <img className="Fp_img" src={Bird} alt="" />
-                </div>
-                <div className="Fp_body me-2 mb-5">
-                  <h3>鳥燈</h3>
-                  <p>NT $100</p>
-                  <button
-                    style={{ width: '9rem' }}
-                    variant="primary"
-                    className="text-white d-block Fp_button p-2"
-                  >
-                    <FaShoppingCart className="me-2 h2 m-0 " />
-                    加入購物車
-                  </button>
-                </div>
+                <FavProduct key={v.id} data={v} />
               </div>
             );
           })}

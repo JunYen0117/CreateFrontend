@@ -3,10 +3,7 @@ import Article from '../components/Fav/Article';
 import Activity from '../components/Fav/Activity';
 import Product from '../components/Fav/Product';
 import React from 'react';
-import Tab from 'react-bootstrap/Tab';
-import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
+import { Tab, Col, Nav, Row } from 'react-bootstrap';
 
 const FavList = () => {
   return (

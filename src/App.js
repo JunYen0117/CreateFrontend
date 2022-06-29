@@ -1,5 +1,7 @@
 import Member from './pages/Member';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { API_URL } from './utils/config';
 
 import About from './pages/About';
 import User from './pages/User';
@@ -19,8 +21,20 @@ import { CartProvider } from './utils/useCart';
 
 import FavList from './pages/FavList';
 import Order from './pages/Order';
+import axios from 'axios';
 
 function App() {
+  useEffect(() => {
+    let getproduct = async () => {
+      let response = await axios.get(`${API_URL}/favproduct/1`);
+
+      localStorage.removeItem('fav');
+      localStorage.setItem('fav', JSON.stringify(response.data));
+      // console.log(response.data);
+    };
+    getproduct();
+  }, []);
+
   return (
     <CartProvider localStorageKey="Cart">
       <Router>
