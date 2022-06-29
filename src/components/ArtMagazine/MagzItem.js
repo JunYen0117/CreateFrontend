@@ -19,7 +19,11 @@ function MagzItem(props) {
             </a>
             <p className="magz_author_name">{authorName}</p>
             <div className="magz_list_line"></div>
-            <p className="magz_author_context">{context}</p>
+            <div
+              className="magz_author_context"
+              dangerouslySetInnerHTML={{ __html: context }}
+            />
+            {/* <p className="magz_author_context">{context}</p> */}
           </div>
         </div>
       </div>
