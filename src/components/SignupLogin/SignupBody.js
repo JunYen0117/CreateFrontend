@@ -20,17 +20,15 @@ function SignupBody() {
   const handleChange = (e) => {
     setSignInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
-  async function handleSubmit(e) {
-    // 停掉預設行為
-    e.preventDefault();
-    try {
-      let response = await axios.post(`http://localhost:3003/api/auth/register`, signupInfo);
-      console.log(response);
-    } catch (e) {
-      console.error(e);
-      console.log(e);
-    }
-  }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   try {
+  //     let response = await axios.post(`http://localhost:3003/api/auth/register`, signupInfo);
+  //     console.log(response);
+  //   } catch (e) {
+  //     console.error('前端沒有送到後端:'+e);
+  //   }
+  // }
 
   const [signupPwdEye, setSignupPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
@@ -191,9 +189,7 @@ function SignupBody() {
             </div>
           </div>
           <div className="d-flex justify-content-center mb-4">
-            <button className="signup_btn mx-auto" onClick={handleSubmit}>
-              註冊
-            </button>
+            <button className="signup_btn mx-auto">註冊</button>
           </div>
         </div>
       </form>

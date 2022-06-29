@@ -1,5 +1,9 @@
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 import { useState } from 'react';
+
 import Form from 'react-bootstrap/Form';
+
 import { IconContext } from 'react-icons';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
@@ -10,6 +14,24 @@ function LoginBody(props) {
   const { isLogin, setIsLogin } = props;
 
   const [btnChangeLogin, setBtnChangeLogin] = useState(false);
+
+  const [loginInfo, setLoginInfo] = useState({
+    account: '',
+    password: '',
+  });
+  const handleChange = (e) => {
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      let response = await axios.post(API_URL + '/login', loginInfo);
+      console.log(response);
+    } catch (e) {
+      console.error('前端沒有送到後端:' + e);
+    }
+  }
 
   const [loginPwdEye, setLoginPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
@@ -24,6 +46,9 @@ function LoginBody(props) {
           <Form.Group className="account">
             <Form.Control
               type="text"
+              name="account"
+              value={loginInfo.account}
+              onChange={handleChange}
               className="mx-auto mb-4"
               placeholder="帳號（電子信箱）"
             />
@@ -31,6 +56,9 @@ function LoginBody(props) {
           <Form.Group className="password">
             <Form.Control
               type={pwdReveal}
+              name="password"
+              value={loginInfo.password}
+              onChange={handleChange}
               className="mx-auto mb-5"
               placeholder="密碼"
             />
@@ -54,10 +82,9 @@ function LoginBody(props) {
           </Form.Group>
           <Form.Group className="d-flex justify-content-center mb-4">
             <button
+              type="submit"
               className="login_btn mx-auto"
-              onClick={() => {
-                props.setIsLogin(true);
-              }}
+              onClick={handleSubmit}
             >
               登入
             </button>
