@@ -6,20 +6,20 @@ function ExhibitionExploreCards(props) {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <select class="m-3">
-          <option selected>選擇地區</option>
+        <select className="m-3" defaultValue={'DEFAULT'}>
+          <option value="DEFAULT">選擇地區</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <select class="m-3">
-          <option selected>選擇日期</option>
+        <select className="m-3" defaultValue={'DEFAULT'}>
+          <option value="DEFAULT">選擇日期</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <select class="m-3">
-          <option selected>選擇價錢</option>
+        <select className="m-3" defaultValue={'DEFAULT'}>
+          <option value="DEFAULT">選擇價錢</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>

@@ -1,12 +1,13 @@
-function PaymentDetails() {
-  sessionStorage.getItem('key');
-  let order = JSON.parse(sessionStorage.getItem('key'));
-  console.log(order);
+function PaymentDetails(props) {
+  const { order } = props;
   return (
     <>
       <div className="border mar p-4">
         <h1 className="mb-4 card-title">明細</h1>
-        <h2 className="mb-3">{order.name}</h2>
+        <h2 className="mb-3">
+          {order.exhibition_name}
+          {order.exhibition_id}
+        </h2>
         <h4 className="mb-5">
           日期:{order.date.start} ~ {order.date.end}
         </h4>

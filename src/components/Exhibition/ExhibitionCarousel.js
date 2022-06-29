@@ -7,7 +7,7 @@ function ExhibitionCarousel(props) {
       <Carousel className="my-3">
         {images.map((item, index) => {
           return (
-            <Carousel.Item key="index">
+            <Carousel.Item key={index}>
               <img
                 className="d-block w-100 carousel_img"
                 src={`http://localhost:3003/images/exhibition/${item.exhibition_img}`}

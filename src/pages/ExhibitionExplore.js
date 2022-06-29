@@ -23,7 +23,6 @@ function ExhibitionExplore(props) {
     });
   }
   handleExExhibitions();
-  console.log(exhibitions)
 
   return (
     <>

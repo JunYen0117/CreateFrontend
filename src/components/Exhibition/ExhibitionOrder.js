@@ -15,7 +15,7 @@ function ExhibitionOrder(props) {
     <>
       {exhibition.map((item, index) => {
         return (
-          <div className="exhibition-order mx-2">
+          <div key={index} className="exhibition-order mx-2">
             <div className="row my-4">
               <div className="col ex-title">
                 <h1>{item.exhibition_name}</h1>
@@ -109,15 +109,17 @@ function ExhibitionOrder(props) {
                   className="my-4 submit-button"
                   onClick={() => {
                     let obj = {
-                      name: `${item.exhibition_name}`,
+                      exhibition_id: `${item.id}`,
+                      exhibition_name: `${item.exhibition_name}`,
                       price: `${item.exhibition_price}`,
                       count: `${count}`,
+                      total: `${total}`,
                       date: {
                         start: `${item.start_date}`,
                         end: `${item.end_date}`,
                       },
                     };
-                    window.sessionStorage.setItem('key', JSON.stringify(obj));
+                    window.sessionStorage.setItem('order', JSON.stringify(obj));
                     // sessionStorage.setItem('key', JSON.stringify(obj));
                   }}
                 >
