@@ -10,7 +10,7 @@ function CartItem(props) {
   const { items, plusOne, minusOne, removeItem, updateItem } = useCart();
   const {
     productId,
-    productName,
+    product_name,
     vendorId,
     vendor,
     image,
@@ -42,7 +42,7 @@ function CartItem(props) {
         ...checkList,
         {
           id: productId,
-          productName,
+          product_name,
           vendor_id: vendorId,
           vendor,
           image,
@@ -112,8 +112,8 @@ function CartItem(props) {
         <div className="cart_product_border">
           <input
             type="checkbox"
-            name={productName}
-            value={productName}
+            name={product_name}
+            value={product_name}
             className="ms-3 cart_checkbox"
             onChange={handleCheckChange}
             checked={checked}
@@ -130,7 +130,7 @@ function CartItem(props) {
             />
           </figure>
           <p className="h1 text-center mx-auto cart_product_name">
-            {productName}
+            {product_name}
           </p>
           <div className="text-center mx-auto mb-2 cart_product_count">
             <span

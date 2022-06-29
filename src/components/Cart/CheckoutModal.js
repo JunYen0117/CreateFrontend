@@ -6,8 +6,9 @@ import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
 
 function CheckoutModal(props) {
-  const { checkList, setCheckList, checkListTotal, shippingData } = props;
   const { items, addItem, clearCart } = useCart();
+  const { checkList, setCheckList, checkListTotal, shippingData } = props;
+  const { show, handleClose } = props;
 
   // 移除結帳商品
   const checkoutRemove = () => {
@@ -29,10 +30,6 @@ function CheckoutModal(props) {
   // console.log('checkList', checkList);
   // console.log('shippingData', shippingData);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   // 結帳
   const handleSubmit = async () => {
     try {
@@ -52,9 +49,6 @@ function CheckoutModal(props) {
 
   return (
     <>
-      <button className="cart_checkout_btn w-100 py-2" onClick={handleShow}>
-        前往結帳
-      </button>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header
           closeButton
@@ -106,7 +100,6 @@ function CheckoutModal(props) {
                 </button>
                 <button
                   className="mx-3 cart_checkout_btn py-2 w-100"
-                  type="submit"
                   onClick={(e) => {
                     e.preventDefault();
                     handleSubmit();

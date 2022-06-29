@@ -4,7 +4,8 @@ import { CheckListContext } from '../../App.js';
 import CheckoutModal from './CheckoutModal';
 
 function Summary() {
-  const { checkList, setCheckList, checkListTotal } = useContext(CheckListContext);
+  const { checkList, setCheckList, checkListTotal } =
+    useContext(CheckListContext);
 
   //取得縣市行政區API資料
   useEffect(() => {
@@ -13,7 +14,7 @@ function Summary() {
 
   function cityselect() {
     new TwCitySelector({
-      el: '#my-selector-c',
+      el: '.my-selector-c',
       elCounty: '#county', // 在 el 裡查找 dom
       elDistrict: '#district', // 在 el 裡查找 dom
       elZipcode: '.zipcode', // 在 el 裡查找 dom
@@ -27,6 +28,7 @@ function Summary() {
     recipient: '',
     email: '',
     tel: '',
+    delivery: '',
     county: '',
     district: '',
     address: '',
@@ -38,6 +40,14 @@ function Summary() {
       [e.target.name]: e.target.value,
     });
   };
+
+  // CheckoutModal
+  const [show, setShow] = useState(false);
+  const handleShow = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+  const handleClose = () => setShow(false);
 
   return (
     <>
@@ -66,7 +76,11 @@ function Summary() {
       </div>
       <div className="h2 px-5 py-4 cart_order_border">
         <div className="container p-3">
-          <form id="my-selector-c">
+          <form
+            id="checkoutForm"
+            className="my-selector-c"
+            onSubmit={handleShow}
+          >
             <div className="checkout_modal_body row g-3">
               <div className="col-12">
                 <h1 className="checkout_modal_title text-center">收件資料</h1>
@@ -97,7 +111,7 @@ function Summary() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="col-12">
+              <div className="col-6">
                 <label className="w-100 mb-2 h2">聯絡電話</label>
                 <input
                   type="text"
@@ -108,6 +122,21 @@ function Summary() {
                   required
                   onChange={handleChange}
                 />
+              </div>
+              <div className="col-6">
+                <label className="w-100 mb-2 h2">運送方式</label>
+                <select
+                  className="form-control"
+                  id="delivery"
+                  name="delivery"
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">請選擇</option>
+                  <option value="1">超商取貨</option>
+                  <option value="2">宅配到府</option>
+                  <option value="3">門市自取</option>
+                </select>
               </div>
               <div className="col-6">
                 <label htmlFor="country" className="w-100 mb-2 h2">
@@ -147,6 +176,15 @@ function Summary() {
                   required
                 />
               </div>
+              <div className="col-12">
+                <button
+                  type="submit"
+                  form="checkoutForm"
+                  className="cart_checkout_btn py-2 w-100"
+                >
+                  前往結帳
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -156,6 +194,8 @@ function Summary() {
             checkListTotal={checkListTotal}
             shippingData={shippingData}
             setCheckList={setCheckList}
+            show={show}
+            handleClose={handleClose}
           />
         </div>
       </div>

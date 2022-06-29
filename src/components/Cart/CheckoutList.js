@@ -9,7 +9,7 @@ function CheckoutList(props) {
         return (
           <CheckoutItem
             key={v.id}
-            productName={v.productName}
+            product_name={v.product_name}
             image={v.image}
             price={v.price}
             quantity={v.quantity}
