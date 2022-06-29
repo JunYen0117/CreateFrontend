@@ -13,8 +13,6 @@ function LoginBody(props) {
   //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> LoginBody.js
   const { isLogin, setIsLogin } = props;
 
-  const [btnChangeLogin, setBtnChangeLogin] = useState(false);
-
   const [loginInfo, setLoginInfo] = useState({
     account: '',
     password: '',
@@ -26,7 +24,9 @@ function LoginBody(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      let response = await axios.post(API_URL + '/login', loginInfo);
+      let response = await axios.post(API_URL + '/login', loginInfo, {
+        withCredentials: true,
+      });
       console.log(response);
     } catch (e) {
       console.error('前端沒有送到後端:' + e);
@@ -85,6 +85,9 @@ function LoginBody(props) {
               type="submit"
               className="login_btn mx-auto"
               onClick={handleSubmit}
+              onClick={() => {
+                setIsLogin(true);
+              }}
             >
               登入
             </button>

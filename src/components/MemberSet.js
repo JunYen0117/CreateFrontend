@@ -1,22 +1,48 @@
-import { React, useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import { API_URL } from '../utils/config';
+import { React, useState, useEffect } from 'react';
 
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
 import { IconContext } from 'react-icons';
 import { FaUser } from 'react-icons/fa';
 
 function MemberSet() {
-  const [validated, setValidated] = useState(false);
+  const [member, setMember] = useState({
+    id: '',
+    member_num: '',
+    member_name: '',
+    account: '',
+    gender: '',
+    age: '',
+    phone: '',
+    address: '',
+    create_time: '',
+    valid: '',
+  });
+  useEffect(() => {
+    let getMemberInfo = async () => {
+      let response = await axios.get(API_URL + '/member', {
+        withCredentials: true,
+      });
+      console.log(response.data); //從後台拿回前台，是session的資料
+      setMember(response.data); //把資料塞進狀態
+    };
+    getMemberInfo();
+  }, []);
+  // 驗證用，還沒使用到
+  // const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  // const handleSubmit = (event) => {
+  //   const form = event.currentTarget;
+  //   if (form.checkValidity() === false) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //   }
 
-    setValidated(true);
-  };
+  //   setValidated(true);
+  // };
   return (
     <>
       <div className="memberset container-fluid my-5">
@@ -52,6 +78,9 @@ function MemberSet() {
                 </Form.Label>
 
                 <Form.Control
+                  type="text"
+                  name="account"
+                  value={member.account}
                   readOnly
                   placeholder="Email"
                   className="member_input"
@@ -67,7 +96,13 @@ function MemberSet() {
                   用戶名
                 </Form.Label>
 
-                <Form.Control className="member_input" placeholder="Name" />
+                <Form.Control
+                  type="text"
+                  name="member_name"
+                  value={member.member_name}
+                  className="member_input"
+                  placeholder="Name"
+                />
               </Form.Group>
 
               <Form.Group
@@ -78,7 +113,13 @@ function MemberSet() {
                   電話
                 </Form.Label>
 
-                <Form.Control className="member_input" placeholder="Tel" />
+                <Form.Control
+                  type="tel"
+                  name="phone"
+                  value={member.phone}
+                  className="member_input"
+                  placeholder="Tel"
+                />
               </Form.Group>
 
               <Form.Group
@@ -89,7 +130,13 @@ function MemberSet() {
                   地址
                 </Form.Label>
 
-                <Form.Control className="member_input" placeholder="Address" />
+                <Form.Control
+                  type="text"
+                  name="address"
+                  value={member.address}
+                  className="member_input"
+                  placeholder="Address"
+                />
               </Form.Group>
 
               <Form.Group
@@ -101,10 +148,11 @@ function MemberSet() {
                   性別
                 </Form.Label>
                 <Form.Control
+                  type="text"
+                  name="gender"
+                  value={member.gender}
                   className="member_input"
-                  readOnly
                   placeholder="F/M"
-                  disabled
                 />
               </Form.Group>
 
@@ -113,31 +161,19 @@ function MemberSet() {
                 controlId="formPlaintextEmail"
               >
                 <Form.Label column sm="2">
-                  生日
+                  年齡
                 </Form.Label>
-                <div className="d-flex">
-                  <Form.Control
-                    className="member_input member_birth"
-                    readOnly
-                    disabled
-                  />
-                  <p className="d-none d-md-block mx-3 my-auto">年</p>
-                  <Form.Control
-                    className="member_input member_birth"
-                    readOnly
-                    disabled
-                  />
-                  <p className="d-none d-md-block mx-3 my-auto">月</p>
-                  <Form.Control
-                    className="member_input member_birth"
-                    readOnly
-                    disabled
-                  />
-                  <p className="d-none d-md-block mx-3 my-auto">日</p>
-                </div>
+                <Form.Control
+                  type="text"
+                  name="age"
+                  value={member.age}
+                  className="member_input member_birth"
+                />
               </Form.Group>
               <Form.Group className="d-flex justify-content-center justify-content-md-end mb-5">
-                <Button className="member_update_btn mx-auto mx-md-0">更新</Button>
+                <Button className="member_update_btn mx-auto mx-md-0">
+                  更新
+                </Button>
               </Form.Group>
             </Form>
           </div>
