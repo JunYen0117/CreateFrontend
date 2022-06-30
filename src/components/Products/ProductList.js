@@ -39,6 +39,8 @@ function ProductList(props) {
     }
   }, [categoryId]);
 
+  console.log('products');
+
   return (
     <>
       <div className="row w-100 gy-5">
