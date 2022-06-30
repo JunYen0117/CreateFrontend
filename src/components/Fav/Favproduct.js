@@ -5,7 +5,21 @@ import Heart from './Heart';
 
 const FavProduct = (props) => {
   const { data } = props;
-  console.log(data);
+  // console.log(data);
+
+  // useEffect(() => {
+  //   // console.log(JSON.parse(localStorage.getItem('fav')))
+  //   // arr = JSON.parse(localStorage.getItem('fav'));
+  //   setArr(JSON.parse(localStorage.getItem('fav')));
+  //   // setArr(JSON.parse(localStorage.getItem('fav')));
+  //   let getUserLike = async () => {
+  //     let response = await axios.get(`${API_URL}/favproduct/${user_id}`);
+  //     setArr(response.data);
+  //     // console.log(response.data)
+  //   };
+  //   getUserLike();
+  // }, []);
+  
   return (
     <>
       <div className=" Fp_top me-2 mb-3">

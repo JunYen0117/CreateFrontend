@@ -18,7 +18,7 @@ const ListShipped = () => {
       setOrders(response.data);
     };
     getOrders();
-  }, []);
+  }, [orders]);
   let arr = orders.totalarr || [];
 
   return (

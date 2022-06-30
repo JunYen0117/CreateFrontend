@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import { Modal } from 'antd';
 
 const DetailShipped = (props) => {
   const { setOrderDetailId } = props;
@@ -12,6 +13,15 @@ const DetailShipped = (props) => {
   const [detailtotal, setDetailTotal] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   // 取得訂單明細所需資料
   useEffect(() => {
@@ -24,6 +34,12 @@ const DetailShipped = (props) => {
     };
     getDetail();
   }, []);
+
+  // 取消訂單 傳給後端 使valid=1
+  const finishOrder = async () => {
+    setIsModalVisible(false);
+    let [result] = await axios.get(API_URL + `/poshipped/${orderId}/3`);
+  };
 
   return (
     <>
@@ -168,15 +184,26 @@ const DetailShipped = (props) => {
           >
             回訂單查詢
           </button>
-
-          {/* TODO: link到商品頁 */}
-      
-            {/* <button
+          <button
             className=" orderlist-b2 px-3 py-2 mt-2 mb-2"
-            onClick={FinishOrder}
+            onClick={showModal}
           >
             確認收貨
-          </button> */}
+          </button>
+          <Modal
+            title=""
+            visible={isModalVisible}
+            onOk={finishOrder}
+            onCancel={handleCancel}
+            okText="確認"
+            OKType="$primary"
+            cancelText="取消"
+            className="orderdetail_bt"
+          >
+            <h1>確定收到貨了嗎？ 確認後將撥款給店家</h1>
+          </Modal>
+
+          
         </div>
       </div>
     </>
@@ -184,5 +211,3 @@ const DetailShipped = (props) => {
 };
 
 export default DetailShipped;
-
-   
