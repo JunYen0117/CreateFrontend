@@ -5,7 +5,7 @@ import Heart from './Heart';
 
 const FavProduct = (props) => {
   const { data } = props;
-  // console.log(data);
+  console.log(data);
   return (
     <>
       <div className=" Fp_top me-2 mb-3">
@@ -19,7 +19,7 @@ const FavProduct = (props) => {
           variant="primary"
           className="text-white d-block Fp_button p-2"
         >
-          <Heart data={data}/>
+          <Heart data={data} />
           <FaShoppingCart className="me-2 h2 m-0 " />
           加入購物車
         </button>

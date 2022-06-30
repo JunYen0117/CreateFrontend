@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Sidebar = () => {
   return (
@@ -27,7 +29,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a href="#/" className="text-decoration-none">
-              我的訂單
+              <Link to='/order'>我的訂單 </Link>
             </a>
           </li>
           <li>

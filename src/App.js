@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
+import ListItem from './components/ProductOrder/ListItem';
 
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -24,16 +25,7 @@ import Order from './pages/Order';
 import axios from 'axios';
 
 function App() {
-  useEffect(() => {
-    let getproduct = async () => {
-      let response = await axios.get(`${API_URL}/favproduct/1`);
-
-      localStorage.removeItem('fav');
-      localStorage.setItem('fav', JSON.stringify(response.data));
-      // console.log(response.data);
-    };
-    getproduct();
-  }, []);
+ 
 
   return (
     <CartProvider localStorageKey="Cart">
@@ -61,6 +53,9 @@ function App() {
             </Route>
             <Route path="/fav">
               <FavList />
+            </Route>
+            <Route path="/Miu">
+              <ListItem />
             </Route>
             <Route path="/order">
               <Order />

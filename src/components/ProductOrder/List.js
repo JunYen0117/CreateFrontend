@@ -3,19 +3,21 @@ import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
 import Detail from './Detail';
+import 'antd/dist/antd.css';
+import { Collapse } from 'antd';
 
 const List = () => {
   const [orders, setOrders] = useState([]);
-
   const [orderDetailId, setOrderDetailId] = useState(0);
 
-  //連接後端 
+  const { Panel } = Collapse;
+
+  //連接後端
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
       let response = await axios.get(API_URL + `/productorder`);
       setOrders(response.data);
-
     };
     getOrders();
   }, []);
@@ -81,8 +83,6 @@ const List = () => {
           </div>
         );
       })}
-
-    
     </>
   );
 };
