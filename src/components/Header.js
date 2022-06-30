@@ -6,15 +6,16 @@ import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
 import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
-
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { useCart } from '../utils/useCart';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
 function Header() {
+  const { cart } = useCart();
   const history = useHistory();
 
   return (
@@ -44,6 +45,7 @@ function Header() {
               <Link to="/cart">
                 <Shopcart1 />
               </Link>
+              <span>{cart.totalItems}</span>
             </li>
             <li className="profile_item mt-3 me-5">
               <NoLogin />
