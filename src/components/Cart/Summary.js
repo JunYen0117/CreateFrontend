@@ -3,7 +3,33 @@ import TwCitySelector from 'tw-city-selector/dist/tw-city-selector';
 import { CheckListContext } from '../../App.js';
 import CheckoutModal from './CheckoutModal';
 
+import axios from 'axios';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
 function Summary() {
+  const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+  const [clientSecret, setClientSecret] = useState('');
+
+  useEffect(() => {
+    const showStripe = async () => {
+      const response = await axios.post(
+        'http://localhost:3003/api/cart/create-payment-intent'
+      );
+      setClientSecret(response.data.clientSecret);
+    };
+    showStripe();
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
   const { checkList, setCheckList, checkListTotal } =
     useContext(CheckListContext);
 
@@ -189,14 +215,18 @@ function Summary() {
           </form>
         </div>
         <div className="text-center px-3 my-3">
-          <CheckoutModal
-            checkList={checkList}
-            checkListTotal={checkListTotal}
-            shippingData={shippingData}
-            setCheckList={setCheckList}
-            show={show}
-            handleClose={handleClose}
-          />
+          {clientSecret && (
+            <Elements stripe={stripePromise} options={options}>
+              <CheckoutModal
+                checkList={checkList}
+                checkListTotal={checkListTotal}
+                shippingData={shippingData}
+                setCheckList={setCheckList}
+                show={show}
+                handleClose={handleClose}
+              />
+            </Elements>
+          )}
         </div>
       </div>
     </>

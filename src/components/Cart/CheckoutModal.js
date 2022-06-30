@@ -3,14 +3,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
-import PaymentInputs from './PaymentInputs';
-
-import { useEffect } from 'react';
-import {
-  useStripe,
-  useElements,
-  PaymentElement,
-} from '@stripe/react-stripe-js';
+import { PaymentElement } from '@stripe/react-stripe-js';
 
 function CheckoutModal(props) {
   const { items, addItem, clearCart } = useCart();

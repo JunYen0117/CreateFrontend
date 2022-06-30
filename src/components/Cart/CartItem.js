@@ -1,7 +1,6 @@
 import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
-
 import { useCart } from '../../utils/useCart';
 import { useEffect, useContext } from 'react';
 import { CheckListContext } from '../../App.js';
