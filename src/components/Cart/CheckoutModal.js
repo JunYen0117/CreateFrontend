@@ -1,6 +1,5 @@
 import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
 import { checkoutSubmit } from '../../utils/api';
