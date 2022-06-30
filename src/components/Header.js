@@ -12,7 +12,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
 
 import SignupLogin from './SignupLogin/SignupLogin';
-import LoginDropdown from './SignupLogin/LoginDropdown';
+import LoginDropdown from './SignupLogin/LoginDropDown';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
@@ -31,6 +31,10 @@ function Header(props) {
   const handleShowRight = () => setShowRight(true);
 
   const history = useHistory();
+
+  if (window.location.href === 'http://localhost:3000/') {
+    return <></>;
+  }
   return (
     <>
       {console.log(props.isLogin)}

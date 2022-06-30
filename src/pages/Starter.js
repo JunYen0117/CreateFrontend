@@ -30,7 +30,7 @@ function Starter() {
             onClick={() => {
               changeCss1();
               setTimeout(() => {
-                history.push('/product');
+                history.push('/course');
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
@@ -60,7 +60,7 @@ function Starter() {
             onClick={() => {
               changeCss3();
               setTimeout(() => {
-                history.push('/product');
+                history.push('/themeplanning'); // <----這個會改寫路徑
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
@@ -69,9 +69,9 @@ function Starter() {
           </div>
         </li>
       </ul>
-      <a className="starter_skip p-2" href="#/" alt="#/">
+      <Link to="/Front" className="starter_skip p-2" alt="#/">
         ＳＫＩＰ
-      </a>
+      </Link>
     </>
   );
 }
