@@ -5,6 +5,13 @@ import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
 import PaymentInputs from './PaymentInputs';
 
+import { useEffect } from 'react';
+import {
+  useStripe,
+  useElements,
+  PaymentElement,
+} from '@stripe/react-stripe-js';
+
 function CheckoutModal(props) {
   const { items, addItem, clearCart } = useCart();
   const { checkList, setCheckList, checkListTotal, shippingData } = props;
@@ -91,11 +98,8 @@ function CheckoutModal(props) {
               <div className="col-12">
                 <h1 className="checkout_modal_title text-center">付款資訊</h1>
               </div>
-              <div className="col-12 d-flex mt-1">
-                <p className="w-100 mx-3 checkoutmodal_color">卡號</p>
-              </div>
               <div className="col-12 d-flex justify-content-center mt-1">
-                <PaymentInputs />
+                <PaymentElement />
               </div>
               <div className="col-12 d-flex justify-content-center mb-3">
                 <button

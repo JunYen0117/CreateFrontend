@@ -1,11 +1,41 @@
 import CartList from '../components/Cart/CartList';
 import Summary from '../components/Cart/Summary';
 import { useCart } from '../utils/useCart';
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { CheckListContext } from '../App.js';
 import { BsCart4 } from 'react-icons/bs';
 
+import axios from 'axios';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
 function Cart() {
+  const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+  const [clientSecret, setClientSecret] = useState('');
+
+  useEffect(() => {
+    const showStripe = async () => {
+      const response = await axios.post(
+        'http://localhost:3003/api/cart/create-payment-intent'
+      );
+      setClientSecret(response.data.clientSecret);
+    };
+    showStripe();
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+
+  const options = {
+    // pendding
+    clientSecret:
+      'pi_3LGE8w2eZvKYlo2C0chbzF5H_secret_MYpguHwGOOKohVI9oC1GrepYL',
+    appearance,
+  };
+
+  console.log('options', options);
+
   const { items, updateItem } = useCart();
 
   // 加選購物車商品的清單: 取出 Context
@@ -59,7 +89,9 @@ function Cart() {
               </div>
               <div className="col-12 col-lg-4 col-xl-4 mt-3">
                 <div className="cart_sticky">
-                  <Summary />
+                  <Elements stripe={stripePromise} options={options}>
+                    <Summary />
+                  </Elements>
                 </div>
               </div>
             </div>
