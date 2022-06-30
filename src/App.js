@@ -5,6 +5,8 @@ import Member from './pages/Member';
 import About from './pages/About';
 import User from './pages/User';
 import Home from './pages/Home';
+import Starter from './pages/Starter';
+
 import FrontPage from './pages/FrontPage';
 
 import Header from './components/Header';
