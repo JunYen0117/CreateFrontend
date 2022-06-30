@@ -12,6 +12,7 @@ function SignupBody() {
     member_name: '',
     account: '',
     password: '',
+    re_password: '',
     gender: '',
     age: '',
     phone: '',
@@ -20,15 +21,18 @@ function SignupBody() {
   const handleChange = (e) => {
     setSignInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   try {
-  //     let response = await axios.post(`http://localhost:3003/api/auth/register`, signupInfo);
-  //     console.log(response);
-  //   } catch (e) {
-  //     console.error('前端沒有送到後端:'+e);
-  //   }
-  // }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post(API_URL + '/signup', signupInfo, {
+        withCredentials: true,
+      });
+      // setIsLogin(true);
+      console.log(response);
+    } catch (e) {
+      console.error('前端沒有送到後端:'+e);
+    }
+  }
 
   const [signupPwdEye, setSignupPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
@@ -91,6 +95,8 @@ function SignupBody() {
             <Form.Control
               type={pwdReveal2}
               name="re_password"
+              value={signupInfo.re_password}
+              onChange={handleChange}
               className="mx-auto mb-4"
               placeholder="請再確認密碼 *"
             />
@@ -189,7 +195,7 @@ function SignupBody() {
             </div>
           </div>
           <div className="d-flex justify-content-center mb-4">
-            <button className="signup_btn mx-auto">註冊</button>
+            <button className="signup_btn mx-auto" onClick={handleSubmit}>註冊</button>
           </div>
         </div>
       </form>

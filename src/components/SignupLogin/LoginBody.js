@@ -25,7 +25,7 @@ function LoginBody(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      let response = await axios.post(API_URL + '/login', loginInfo, {
+      const response = await axios.post(API_URL + '/login', loginInfo, {
         withCredentials: true,
       });
       console.log(response);
