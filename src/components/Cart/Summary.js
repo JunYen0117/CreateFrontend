@@ -3,19 +3,17 @@ import TwCitySelector from 'tw-city-selector/dist/tw-city-selector';
 import { CheckListContext } from '../../App.js';
 import CheckoutModal from './CheckoutModal';
 
-import axios from 'axios';
+import { checkoutPayment } from '../../utils/api';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 function Summary() {
-  const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+  const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
   const [clientSecret, setClientSecret] = useState('');
 
   useEffect(() => {
     const showStripe = async () => {
-      const response = await axios.post(
-        'http://localhost:3003/api/cart/create-payment-intent'
-      );
+      const response = await checkoutPayment();
       setClientSecret(response.data.clientSecret);
     };
     showStripe();

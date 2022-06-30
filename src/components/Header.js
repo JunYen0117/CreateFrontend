@@ -44,8 +44,8 @@ function Header() {
             <li className="shopcart_item mt-3 me-3">
               <Link to="/cart">
                 <Shopcart1 />
+                <span>{cart.totalItems}</span>
               </Link>
-              <span>{cart.totalItems}</span>
             </li>
             <li className="profile_item mt-3 me-5">
               <NoLogin />

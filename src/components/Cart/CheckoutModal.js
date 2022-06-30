@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
+import { checkoutSubmit } from '../../utils/api';
 import { PaymentElement } from '@stripe/react-stripe-js';
 
 function CheckoutModal(props) {
@@ -33,15 +34,11 @@ function CheckoutModal(props) {
   // 結帳
   const handleSubmit = async () => {
     try {
-      let response = await axios.post(
-        `http://localhost:3003/api/cart/orderDetails`,
-        {
-          shippingData,
-          checkList,
-          total: checkListTotal,
-        }
-      );
-      console.log(response.data);
+      let response = await checkoutSubmit({
+        shippingData,
+        checkList,
+        total: checkListTotal,
+      });
     } catch (e) {
       console.error(e);
     }
