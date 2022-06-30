@@ -1,5 +1,29 @@
-.article_title{
-    font-size: 22px;
+// ArticleTitle
+.article_main_img {
+    width: 100%;
+    margin: 20px 0 60px 0;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.article_all_content {
+    margin: 0 120px;
+}
+.article_text {
+    margin: 0 !important;
+    .article_author {
+        font-size: 18px;
+        color: black;
+        margin-right: 20px;
+    }
+    .article_create_time {
+        font-size: 18px;
+        color: $success;
+    }
+}
+.article_title {
+    font-size: 24px;
     font-weight: 600;
-    margin: 20px 0;
+    margin: 40px 0;
 }
