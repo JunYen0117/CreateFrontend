@@ -1,6 +1,6 @@
 import React from 'react';
 import Brand from '../components/BrandPage/Banner';
-import Brandcard from '../components/BrandPage/Brandcard';
+import BrandcardList from '../components/BrandPage/BrandcardList';
 
 import Starbrand from '../img/star-brand.jpg';
 import Allbrand from '../img/all-brand.jpg';
@@ -38,7 +38,7 @@ function BrandPage() {
             <ul className="d-flex justify-content-end">
               <li className="product_filter">
                 {/* 切換 遞增 和 遞減*/}
-                <span>價格排序</span>
+                <span>排序</span>
                 <a href="#/" alt="">
                   <img src={sort} alt="" />
                 </a>
@@ -47,10 +47,10 @@ function BrandPage() {
           </div>
         </div>
       </div>
-      <div className=" container line" />
+      <div className=" container brandpage_line" />
       <div className="container">
         <div className="row">
-          <Brandcard />
+          <BrandcardList />
         </div>
       </div>
     </>

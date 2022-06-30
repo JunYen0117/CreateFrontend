@@ -10,6 +10,7 @@ import FrontPage from './pages/FrontPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BrandPage from './pages/BrandPage';
+import BrandStores from './pages/BrandStores';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExploret from './pages/ExhibitionExplore';
@@ -17,7 +18,6 @@ import Activity from './pages/Activity';
 import ActivityPayment from './pages/ActivityPayment';
 
 import ThemePlanning from './pages/ThemePlanning';
-import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 
 import Products from './pages/Products';
@@ -29,7 +29,6 @@ import { CartProvider } from './utils/useCart';
 import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
-// import Sidebar from './components/Sidebar';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -44,6 +43,9 @@ function App() {
             </Route>
             <Route path="/Brand">
               <BrandPage />
+            </Route>
+            <Route path="/BrandStores">
+              <BrandStores />
             </Route>
             <Route path="/course">
               <Course />

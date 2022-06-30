@@ -4,9 +4,14 @@
 @import "./styles/_global.scss";
 @import "./styles/_header.scss";
 @import "./styles/_footer.scss";
-@import "./styles/_frontpage.scss";
-@import "./styles/_brandpage.scss";
 @import './styles/_headerdropdown.scss';
+
+// 首頁
+@import "./styles/frontpage.scss";
+
+// 品牌頁
+@import "./styles/brandpage.scss";
+@import "./styles/brandstores.scss";
 
 @import "./styles/_sidebar.scss";
 
