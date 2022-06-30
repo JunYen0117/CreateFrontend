@@ -9,9 +9,6 @@ const Product = () => {
   const [arr, setArr] = useState([]);
 
   useEffect(() => {
-    // console.log(JSON.parse(localStorage.getItem('fav')))
-    // arr = JSON.parse(localStorage.getItem('fav'));
-    // setArr(JSON.parse(localStorage.getItem('fav')));
     let getUserLike = async () => {
       let response = await axios.get(`${API_URL}/favproduct/${user_id}`);
       setArr(response.data);

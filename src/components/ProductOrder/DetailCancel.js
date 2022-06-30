@@ -24,6 +24,13 @@ const DetailCancel = (props) => {
 
   return (
     <>
+      {/* 沒有訂單 */}
+      {/* <div>
+        <img src={require('../image/Singing.png')} className="img1" alt="" />
+        <h3>您沒有尚未付款的訂單</h3>
+      </div> */}
+      {/* ===================================== */}
+      {/* 訂單明細 */}
       <div className="orderlist-card w-100 ">
         <div className="w-100 mt-3">
           <table className="detail-table w-100 ms-2">
@@ -40,7 +47,7 @@ const DetailCancel = (props) => {
             <tbody className="text-center">
               {detail.map((v) => {
                 return (
-                  <tr key={`detail-${v.id}`}>
+                  <tr key={`detail-${v.id}`} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -72,7 +79,7 @@ const DetailCancel = (props) => {
                 </tr>
                 <tr>
                   <td>總金額</td>
-                  <td className="ol_f">NT$ 2100</td>
+                  <td className="ol_f">NT$ {detailtotal + 20} </td>
                 </tr>
               </tbody>
             </table>
@@ -91,24 +98,30 @@ const DetailCancel = (props) => {
                 <>
                   <tbody>
                     <tr>
-                      <td>收件人</td>
+                      <td className="fw-bold">付款人</td>
                       <td>{v.member_name}</td>
+                      <td className="fw-bold">付款方式</td>
+                      <td>線上信用卡付款</td>
                     </tr>
                     <tr>
-                      <td>收件人地址</td>
+                      <td className="fw-bold">付款人地址</td>
                       <td>{v.address}</td>
+                      <td className="fw-bold">付款狀態</td>
+                      <td>已付款</td>
                     </tr>
                     <tr>
-                      <td>收件人電話</td>
+                      <td className="fw-bold">收件人電話</td>
                       <td>{v.phone}</td>
+                      <td className="fw-bold">刷卡狀態</td>
+                      <td className="text-dark">交易成功</td>
                     </tr>
                     <tr>
-                      <td>運送方式</td>
+                      <td className="fw-bold">運送方式</td>
                       <td>宅配</td>
                     </tr>
                     <tr>
-                      <td>備註</td>
-                      <td></td>
+                      <td className="fw-bold">＊備註</td>
+                      <td>到家前請電話通知</td>
                     </tr>
                   </tbody>
                 </>
@@ -117,25 +130,28 @@ const DetailCancel = (props) => {
           </table>
         </div>
       </div>
-
       <div className="orderlist-card w-100 ">
         <div className="card-title d-flex py-3">
-          <div className="title-num mx-2">付款資訊</div>
+          <div className="title-num mx-2">收件人資訊</div>
         </div>
         <div className="card-content ">
           <table className="ol_table">
             <tbody>
               <tr>
-                <td>付款方式</td>
-                <td>線上信用卡付款</td>
+                <td className="fw-bold">收件人</td>
+                <td>ＸＸＸ</td>
               </tr>
               <tr>
-                <td>付款狀態</td>
-                <td>已付款</td>
+                <td className="fw-bold">收件人email</td>
+                <td>email</td>
               </tr>
               <tr>
-                <td>刷卡狀態</td>
-                <td>交易成功</td>
+                <td className="fw-bold">收件人電話</td>
+                <td>tel</td>
+              </tr>
+              <tr>
+                <td className="fw-bold">收件人地址</td>
+                <td>address</td>
               </tr>
             </tbody>
           </table>

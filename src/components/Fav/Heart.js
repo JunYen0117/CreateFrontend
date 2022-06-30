@@ -11,6 +11,16 @@ const Heart = ({ data }) => {
 
   let user_id = 1;
 
+  const addfav = async () => {
+    try {
+      let response = await axios.get(
+        `${API_URL}/favproduct/del/${user_id}/${data.product_id}`
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <>
       {showheart ? (
@@ -18,11 +28,8 @@ const Heart = ({ data }) => {
           className="Fp_heart"
           onClick={async () => {
             setShowHeart(false);
-            console.log(`${API_URL}/favproduct/del/1/1`);
-            // console.log(data.id)
-            let response = await axios.get(
-             `${API_URL}/favproduct/del/${user_id}/${data.product_id}`
-            );
+            addfav();
+
             // window.alert(`${response.data.message}`);
           }}
         />
