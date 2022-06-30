@@ -1,32 +1,43 @@
 import PaymentDetails from '../components/ActivityPayment/PaymentDetails';
 import PaymentMethod from '../components/ActivityPayment/PaymentMethod';
 import PaymentUser from '../components/ActivityPayment/PaymentUser';
-import { useState } from 'react';
+import Swal from 'sweetalert2';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../utils/config';
 function ActivityPayment() {
   sessionStorage.getItem('order');
   let order = JSON.parse(sessionStorage.getItem('order'));
+
   const [orderName, setOrderName] = useState('');
   const [orderEmail, setOrderEmail] = useState('');
   const [orderPhone, setOrderPhone] = useState('');
 
   const handleClick = async () => {
     try {
-      let response = await axios.post(
-        `http://localhost:3003/api/activitypayment`,
-        {
-          order,
-          orderName,
-          orderEmail,
-          orderPhone,
-        }
-      );
+      let response = await axios.post(API_URL + 'activitypayment', {
+        order,
+        orderName,
+        orderEmail,
+        orderPhone,
+      });
+      sessionStorage.removeItem('order');
       console.log(response.data);
+      Swal.fire({
+        title: '購買成功',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '/exhibition';
+        }
+      });
     } catch (e) {
       console.error(e);
     }
-    // todo: clear session,successmessage,page to top
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <>

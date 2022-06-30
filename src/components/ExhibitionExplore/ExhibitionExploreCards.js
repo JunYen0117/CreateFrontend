@@ -34,9 +34,8 @@ function ExhibitionExploreCards(props) {
                 <div className="d-flex align-items-center">
                   <div className="img-date">
                     <div className="exhibition_img">
-                      {/* localhost:3001/img/name/pic.jpg */}
                       <img
-                        src="https://picsum.photos/id/237/500/600"
+                        src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
                         alt="..."
                       />
                     </div>
@@ -57,7 +56,7 @@ function ExhibitionExploreCards(props) {
                     <div className="">
                       <div className="d-flex justify-content-between">
                         <div>{exhibition.city}</div>
-                        <div>{exhibition.exhibition_price}</div>
+                        <div>NT{exhibition.exhibition_price}</div>
                       </div>
                     </div>
                   </div>

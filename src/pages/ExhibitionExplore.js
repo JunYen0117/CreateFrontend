@@ -1,11 +1,10 @@
 import ExhibitionExploreMap from '../components/ExhibitionExplore/ExhibitionExploreMap';
 import ExhibitionExploreCards from '../components/ExhibitionExplore/ExhibitionExploreCards';
 import ExhibitionExploreButton from '../components/ExhibitionExplore/ExhibitionExploreButton';
-// import Ac from '../components/ExhibitionExplore/ac';
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../utils/config';
-import { map } from 'leaflet';
 
 function ExhibitionExplore(props) {
   const [exhibitions, setExhibitions] = useState([]);

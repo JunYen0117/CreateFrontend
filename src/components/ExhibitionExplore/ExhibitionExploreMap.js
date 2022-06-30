@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 // import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import markerred from '../../img/marker-red.png';
@@ -48,6 +48,7 @@ function ExhibitionExploreMap(props) {
       center={[25.0476181, 121.5152175]}
       zoom={12}
       maxZoom={18}
+      zoomControl={false}
       ref={mapRef}
     >
       <TileLayer
@@ -68,7 +69,21 @@ function ExhibitionExploreMap(props) {
             ref={popRef}
           >
             <Popup>
-              <h3>{exhibition.exhibition_name}</h3> <br /> <p>你好</p>
+              <div className="d-flex">
+                <img
+                  src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
+                  width="125px"
+                  height="80px"
+                  alt="..."
+                />
+                <div>
+                  <h4>{exhibition.exhibition_name}</h4>
+                  <div className="d-flex justify-content-between">
+                    <div>{exhibition.city}</div>
+                    <div>NT{exhibition.exhibition_price}</div>
+                  </div>
+                </div>
+              </div>
             </Popup>
           </Marker>
         );
