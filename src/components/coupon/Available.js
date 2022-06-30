@@ -3,7 +3,17 @@ import React from 'react';
 import Common from './Common';
 
 function Available(props) {
-  const { couponList, setNowPage, lastPage, setLastPage } = props;
+  const {
+    availableList,
+    setNowPage,
+    lastPage,
+    setLastPage,
+    receiveLastPage,
+    receiveList,
+    changeState,
+    invalidLastPage,
+    invalidList,
+  } = props;
   // 以下是優惠券的畫面
   const couponPromptScript = () => {
     return <>可領取的優惠券</>;
@@ -20,12 +30,12 @@ function Available(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <a href="#/" className="coupon_desktop text-decoration-none">
-          <h3 className="my-1">立即領取</h3>
-        </a>
-        <a href="#/" className="coupon_phone d-md-none text-decoration-none">
-          <h3 className="my-auto">可領取</h3>
-        </a>
+        <div className="coupon_desktop text-decoration-none">
+          <h3 className="coupon_p my-1">立即領取</h3>
+        </div>
+        <div className="coupon_phone d-md-none text-decoration-none">
+          <h3 className="coupon_p my-auto">可領取</h3>
+        </div>
       </>
     );
   };
@@ -35,10 +45,15 @@ function Available(props) {
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
-        couponList={couponList}
+        availableList={availableList}
         setNowPage={setNowPage}
         lastPage={lastPage}
         setLastPage={setLastPage}
+        receiveLastPage={receiveLastPage}
+        receiveList={receiveList}
+        invalidLastPage={invalidLastPage}
+        invalidList={invalidList}
+        changeState={changeState}
       />
     </>
   );

@@ -4,10 +4,23 @@ import React from 'react';
 import Common from './Common';
 
 function ReceiveList(props) {
-  const { couponList, setNowPage, lastPage, setLastPage } = props;
+  const {
+    availableList,
+    setNowPage,
+    lastPage,
+    setLastPage,
+    receiveLastPage,
+    receiveList,
+    changeState,
+  } = props;
+
+  console.log('receiveList', receiveList);
+  // console.log('receiveLastPage',receiveLastPage)
+
   const couponPromptScript = () => {
     return <>每筆訂單僅可使用一張優惠券</>;
   };
+
   const couponPrompt = () => {
     return (
       <>
@@ -20,28 +33,33 @@ function ReceiveList(props) {
       </>
     );
   };
+
   const couponUseBtn = () => {
     return (
       <>
-        <a href="#/" className="coupon_desktop text-decoration-none">
-          <h3 className="my-1">立即使用</h3>
-        </a>
-        <a href="#/" className="coupon_phone d-md-none text-decoration-none">
-          <h3 className="my-auto">立即使用</h3>
-        </a>
+        <div className="coupon_desktop text-decoration-none">
+          <h3 className="coupon_p my-1">立即使用</h3>
+        </div>
+        <div className="coupon_phone d-md-none text-decoration-none">
+          <h3 className="coupon_p my-auto">立即使用</h3>
+        </div>
       </>
     );
   };
+
   return (
     <>
       <Common
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
-        couponList={couponList}
+        availableList={availableList}
         setNowPage={setNowPage}
         lastPage={lastPage}
         setLastPage={setLastPage}
+        receiveLastPage={receiveLastPage}
+        receiveList={receiveList}
+        changeState={changeState}
       />
     </>
   );

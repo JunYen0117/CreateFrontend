@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { useState, useEffect } from 'react';
-// import { API_URL } from '../../utils/config';
-// import Link from 'react';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
@@ -54,10 +50,10 @@ const Card = (props) => {
           </div>
           <div className="couponCard_btn_desktop d-flex mb-4 position-absolute">
             <button className="couponCard_btn ms-2">
-              <a href="/" className="text-decoration-none">
+              <div className="text-decoration-none">
                 {/* 這是 立即使用 的變數 */}
                 {use}
-              </a>
+              </div>
             </button>
           </div>
         </div>

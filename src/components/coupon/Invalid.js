@@ -4,7 +4,18 @@ import React from 'react';
 import Common from './Common';
 
 function Invalid(props) {
-  const { couponList, setNowPage, lastPage, setLastPage } = props;
+  const {
+    availableList,
+    setNowPage,
+    lastPage,
+    setLastPage,
+    invalidLastPage,
+    receiveList,
+    invalidList,
+    receiveLastPage,
+    changeState,
+  } = props;
+  console.log(invalidList);
   const couponPromptScript = () => {
     return <>已失效的優惠券</>;
   };
@@ -20,7 +31,9 @@ function Invalid(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <h3 className="coupon_desktop text-decoration-none my-1">無法使用</h3>
+        <h3 className="coupon_desktop coupon_p text-decoration-none my-1">
+          無法使用
+        </h3>
         <h3 className="coupon_phone d-md-none text-decoration-none my-auto">
           無法使用
         </h3>
@@ -33,10 +46,15 @@ function Invalid(props) {
         pass={couponPrompt()}
         use={couponUseBtn()}
         prompt={couponPromptScript()}
-        couponList={couponList}
+        availableList={availableList}
         setNowPage={setNowPage}
         lastPage={lastPage}
         setLastPage={setLastPage}
+        receiveLastPage={receiveLastPage}
+        receiveList={receiveList}
+        invalidList={invalidList}
+        invalidLastPage={invalidLastPage}
+        changeState={changeState}
       />
     </>
   );
