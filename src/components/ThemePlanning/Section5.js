@@ -6,9 +6,9 @@ function Section5() {
     <>
       <section className="planning_section_five py-5">
         <div>
-          {section5Flex.map(() => {
+          {section5Flex.map((v,i) => {
             return (
-              <div className="d-flex flex-wrap justify-content-center">
+              <div key={i} className="d-flex flex-wrap justify-content-center">
                 <Section5FlexItem />
                 <Section5FlexItem />
                 <Section5FlexItem />

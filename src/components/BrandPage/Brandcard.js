@@ -1,75 +1,32 @@
+import { Link } from 'react-router-dom';
 import Banner from '../../img/banner.jpg';
-import Logo from '../../img/purple.jpg';
 
 function Brandcard(props) {
-  // const { vendor } = props;
+  const { business_name, business_id, business_logo, business_introduce } =
+    props;
+
   return (
     <>
-      <div className="container all-brand-card">
-        <div className="row">
-          <div className="col-12 col-md-4 brand">
-            <a href="/" className="text-decoration-none">
-              <div className="card brand-card">
-                <img
-                  src={Banner}
-                  className="card-img-top brand-banner"
-                  alt="..."
-                />
-                <div class="card-body d-flex">
-                  <img src={Logo} className="brand-logo" alt="" />
-                  <div className="brand-imformation">
-                    <h2>廠商名稱business_name</h2>
-                    <p class="card-text">
-                      介紹introduce介紹introduce介紹introduce
-                    </p>
-                  </div>
-                </div>
+      <div className="col-12 col-md-4 brand">
+        <Link
+          to={'/BrandStores?BrandId=' + business_id}
+          className="text-decoration-none"
+        >
+          <div className="card brand-card">
+            <img src={Banner} className="card-img-top brand-banner" alt="..." />
+            <div className="card-body d-flex">
+              <img
+                src={`http://localhost:3003/images/brand/${business_logo}`}
+                className="brand-logo"
+                alt=""
+              />
+              <div className="brand-imformation">
+                <h2>{business_name}</h2>
+                <p className="card-text">{business_introduce}</p>
               </div>
-            </a>
+            </div>
           </div>
-
-          <div className="col-12 col-md-4 brand">
-            <a href="/" className="text-decoration-none">
-              <div className="card brand-card">
-                <img
-                  src={Banner}
-                  className="card-img-top brand-banner"
-                  alt="..."
-                />
-                <div class="card-body d-flex">
-                  <img src={Logo} className="brand-logo" alt="" />
-                  <div className="brand-imformation">
-                    <h2>廠商名稱business_name</h2>
-                    <p class="card-text">
-                      介紹introduce介紹introduce介紹introduce
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div className="col-12 col-md-4 brand">
-            <a href="/" className="text-decoration-none">
-              <div className="card brand-card">
-                <img
-                  src={Banner}
-                  className="card-img-top brand-banner"
-                  alt="..."
-                />
-                <div class="card-body d-flex">
-                  <img src={Logo} className="brand-logo" alt="" />
-                  <div className="brand-imformation">
-                    <h2>廠商名稱business_name</h2>
-                    <p class="card-text">
-                      介紹introduce介紹introduce介紹introduce
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+        </Link>
       </div>
     </>
   );

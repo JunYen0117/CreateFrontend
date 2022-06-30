@@ -18,7 +18,6 @@ import Activity from './pages/Activity';
 import ActivityPayment from './pages/ActivityPayment';
 
 import ThemePlanning from './pages/ThemePlanning';
-import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 
 import Products from './pages/Products';
@@ -30,7 +29,6 @@ import { CartProvider } from './utils/useCart';
 import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
-// import Sidebar from './components/Sidebar';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);

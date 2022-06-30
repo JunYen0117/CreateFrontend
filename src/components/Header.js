@@ -33,6 +33,7 @@ function Header(props) {
   const history = useHistory();
   return (
     <>
+      {console.log(props.isLogin)}
       <header className="container-fluid">
         <div className="d-none d-md-flex justify-content-between">
           <div className="d-flex ms-5">
@@ -63,7 +64,7 @@ function Header(props) {
               {isLogin === true ? (
                 <LoginDropdown isLogin={isLogin} setIsLogin={setIsLogin} />
               ) : (
-                <SignupLogin />
+                <SignupLogin isLogin={isLogin} setIsLogin={setIsLogin} />
               )}
             </li>
           </ul>
@@ -178,7 +179,11 @@ function Header(props) {
           <Offcanvas.Body className="offcanvas_left_menu">
             <ul className="right_offcanvas_body">
               <li>
-                <a href="#/">登入</a>
+                {isLogin === false ? (
+                  <a href="#/">登入</a>
+                ) : (
+                  <a href="#/">登出</a>
+                )}
               </li>
               <li>
                 <a href="#/">購物車</a>
