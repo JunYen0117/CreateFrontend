@@ -38,6 +38,11 @@ function App() {
     <CartProvider localStorageKey="Cart">
       <Router>
         <>
+          <Switch>
+            <Route exact path="/">
+              <Starter />
+            </Route>
+          </Switch>
           <Header isLogin={isLogin} setIsLogin={setIsLogin} />
           <Switch>
             <Route path="/Front">
