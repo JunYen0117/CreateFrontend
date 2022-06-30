@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import BrandPage from './pages/BrandPage';
 import BrandStores from './pages/BrandStores';
 import ArtMagazine from './pages/ArtMagazine';
+import MagzArticle from './pages/MagzArticle';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExploret from './pages/ExhibitionExplore';
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route path="/ArtMagazine">
               <ArtMagazine />
+            </Route>
+            <Route path="/MagzArticle">
+              <MagzArticle />
             </Route>
             <Route path="/course">
               <Course />
