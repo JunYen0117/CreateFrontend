@@ -103,7 +103,7 @@ function Footer(props) {
       {/* 以下為手機版畫面 */}
       <footer className="footer_mobile d-flex flex-column d-md-none">
         {/* 以下為bootstrap accordion套件 */}
-        <Accordion>
+        <Accordion className="d-md-none">
           <Accordion.Item eventKey="0">
             <Accordion.Header>聯絡資訊</Accordion.Header>
             <Accordion.Body>
@@ -116,10 +116,10 @@ function Footer(props) {
             <Accordion.Header>幫助</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/">Q&A</a>
+                <a href="#/" className='footer_a'>Q&A</a>
               </p>
               <p>
-                <a href="#/">客服</a>
+                <a href="#/" className='footer_a'>客服</a>
               </p>
             </Accordion.Body>
           </Accordion.Item>
@@ -127,10 +127,10 @@ function Footer(props) {
             <Accordion.Header>認識</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/">關於迴廊</a>
+                <a href="#/" className='footer_a'>關於迴廊</a>
               </p>
               <p>
-                <a href="#/">Business</a>
+                <a href="#/" className='footer_a'>Business</a>
               </p>
             </Accordion.Body>
           </Accordion.Item>
@@ -158,7 +158,7 @@ function Footer(props) {
           <p className="create_your_life mx-auto mt-2">Create your life.</p>
         </div>
         <div className="d-flex justify-content-center pb-2">
-          <div className="mx-4">©2022</div>
+          <div className="copy_right mx-4">©2022</div>
           <div className="mx-4">
             <a href="#/" className="footer_a">
               隱私權政策

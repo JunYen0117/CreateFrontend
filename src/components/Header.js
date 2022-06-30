@@ -2,25 +2,42 @@ import { ReactComponent as LogoSvg } from '../img/header/logo.svg';
 import LogoDesktop from '../img/header/logo.svg';
 import { ReactComponent as Search } from '../img/header/search.svg';
 import { ReactComponent as Shopcart1 } from '../img/header/shopcart1.svg';
-import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
 import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
 
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useState } from 'react';
+
+import SignupLogin from './SignupLogin/SignupLogin';
+import LoginDropdown from './SignupLogin/LoginDropdown';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
 function Header(props) {
+
+
+  //傳入登入狀態，從App.js -> Header.js
+  const { isLogin, setIsLogin } = props;
+
+  //offcanvas套件：useState狀態、開關
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
+  const handleCloseLeft = () => setShowLeft(false);
+  const handleCloseRight = () => setShowRight(false);
+  const handleShowLeft = () => setShowLeft(true);
+  const handleShowRight = () => setShowRight(true);
+
   const history = useHistory();
 
   if (props.start) {
     return <></>;
   }
-
+  
   return (
     <>
       <header className="container-fluid">
@@ -36,8 +53,8 @@ function Header(props) {
                 <img src={LogoDesktop} alt="" />
               </span>
             </figure>
-            <li className="search_item d-none d-md-block mt-5">
-              <input className="search_bar" type="text" />
+            <li className="search_item d-none d-md-block">
+              <input className="search_bar ps-3" type="text" />
               <a href="#/" className="search_icon">
                 <Search />
               </a>
@@ -50,13 +67,17 @@ function Header(props) {
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
-              <NoLogin />
+              {isLogin === true ? (
+                <LoginDropdown isLogin={isLogin} setIsLogin={setIsLogin} />
+              ) : (
+                <SignupLogin />
+              )}
             </li>
           </ul>
         </div>
         <ul className="menu2 d-none d-md-flex justify-content-around pt-4">
           <li>
-            <Link to="#/">主題企劃</Link>
+            <Link to="/themeplanning">主題企劃</Link>
           </li>
           <li>
             <Link to="#/">活動資訊</Link>
@@ -73,7 +94,6 @@ function Header(props) {
             <Link to="#/">關於我們</Link>
           </li>
         </ul>
-
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
           <a href="#/" className="header_a">
@@ -87,7 +107,7 @@ function Header(props) {
               href="#offcanvas_left"
               role="button"
               aria-controls="offcanvasExample"
-              className="header_a"
+              onClick={handleShowLeft}
             >
               <Hamburger />
             </a>
@@ -104,7 +124,7 @@ function Header(props) {
                 href="#offcanvas_right"
                 role="button"
                 aria-controls="offcanvasExample"
-                className="header_a"
+                onClick={handleShowRight}
               >
                 <More />
               </a>
@@ -112,14 +132,13 @@ function Header(props) {
           </ul>
         </ul>
 
-        {/* offcanvas效果 */}
-        <div
-          className="offcanvas_left offcanvas offcanvas-start d-md-none"
-          tabIndex="-1"
-          id="offcanvas_left"
-          aria-labelledby="offcanvasExampleLabel"
+        {/* offcanvas套件開始 */}
+        <Offcanvas
+          className="header_offcanvas"
+          show={showLeft}
+          onHide={handleCloseLeft}
         >
-          <ul className="offcanvas_left_menu offcanvas-body d-flex flex-column justify-content-around">
+          <Offcanvas.Header className="d-none">
             {/* li包的button是關閉canvas的按鈕 */}
             <li className="d-none">
               <button
@@ -129,40 +148,30 @@ function Header(props) {
                 aria-label="Close"
               ></button>
             </li>
-            <li>
-              <a href="#/" className="header_a">
-                主題企劃
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                活動資訊
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                購物商城
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                文章專欄
-              </a>
-            </li>
-            <li className="last_li">
-              <a href="#/" className="header_a">
-                關於我們
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="offcanvas_left offcanvas offcanvas-end d-md-none"
-          tabIndex="-1"
-          id="offcanvas_right"
-          aria-labelledby="offcanvasExampleLabel"
-        >
-          <ul className="offcanvas_left_menu offcanvas-body d-flex flex-column justify-content-around">
+          </Offcanvas.Header>
+          <Offcanvas.Body className="offcanvas_left_menu">
+            <ul className="left_offcanvas_body">
+              <li>
+                <a href="#/">主題企劃</a>
+              </li>
+              <li>
+                <a href="#/">活動資訊</a>
+              </li>
+              <li>
+                <a href="#/">購物商城</a>
+              </li>
+              <li>
+                <a href="#/">文章專欄</a>
+              </li>
+              <li className="last_li">
+                <a href="#/">關於我們</a>
+              </li>
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
+
+        <Offcanvas show={showRight} onHide={handleCloseRight} placement="end">
+          <Offcanvas.Header className="d-none">
             {/* li包的button是關閉canvas的按鈕 */}
             <li className="d-none">
               <button
@@ -172,38 +181,34 @@ function Header(props) {
                 aria-label="Close"
               ></button>
             </li>
-            <li>
-              <a href="#/" className="header_a">
-                購物車
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                我的活動
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                我的收藏
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                帳戶設定
-              </a>
-            </li>
-            <li>
-              <a href="#/" className="header_a">
-                變更密碼
-              </a>
-            </li>
-            <li className="last_li">
-              <a href="#/" className="header_a">
-                我的訂單
-              </a>
-            </li>
-          </ul>
-        </div>
+          </Offcanvas.Header>
+          <Offcanvas.Body className="offcanvas_left_menu">
+            <ul className="right_offcanvas_body">
+              <li>
+                <a href="#/">登入</a>
+              </li>
+              <li>
+                <a href="#/">購物車</a>
+              </li>
+              <li>
+                <a href="#/">我的活動</a>
+              </li>
+              <li>
+                <a href="#/">我的收藏</a>
+              </li>
+              <li>
+                <a href="#/">帳戶設定</a>
+              </li>
+              <li>
+                <a href="#/">變更密碼</a>
+              </li>
+              <li className="last_li">
+                <a href="#/">我的訂單</a>
+              </li>
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
+        {/* offcanvas套件結束 */}
       </header>
     </>
   );
