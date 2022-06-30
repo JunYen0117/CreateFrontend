@@ -41,7 +41,7 @@ function Header(props) {
               <span
                 className="header_a"
                 onClick={() => {
-                  history.push('/');
+                  history.push('/Front');
                 }}
               >
                 <img src={LogoDesktop} alt="" />
@@ -146,19 +146,37 @@ function Header(props) {
           <Offcanvas.Body className="offcanvas_left_menu">
             <ul className="left_offcanvas_body">
               <li>
-                <a href="#/">主題企劃</a>
+                {<SignupLogin />}
+                {isLogin === false ? (
+                  <a href="#/">登入</a>
+                ) : (
+                  <a href="#/">登出</a>
+                )}
               </li>
               <li>
-                <a href="#/">活動資訊</a>
+                <NavLink to="/themeplanning" exact onClick={handleCloseLeft}>
+                  主題企劃
+                </NavLink>
               </li>
               <li>
-                <a href="#/">購物商城</a>
+                <NavLink to="#/" exact onClick={handleCloseLeft}>
+                  活動資訊
+                </NavLink>
               </li>
               <li>
-                <a href="#/">文章專欄</a>
+                <NavLink to="/product" exact onClick={handleCloseLeft}>
+                  購物商城
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="#/" exact onClick={handleCloseLeft}>
+                  文章專欄
+                </NavLink>
               </li>
               <li className="last_li">
-                <a href="#/">關於我們</a>
+                <NavLink to="#/" exact onClick={handleCloseLeft}>
+                  關於我們
+                </NavLink>
               </li>
             </ul>
           </Offcanvas.Body>
@@ -179,29 +197,39 @@ function Header(props) {
           <Offcanvas.Body className="offcanvas_left_menu">
             <ul className="right_offcanvas_body">
               <li>
-                {isLogin === false ? (
-                  <a href="#/">登入</a>
-                ) : (
-                  <a href="#/">登出</a>
-                )}
+                <Link to="/cart" onClick={handleCloseRight}>
+                  購物車
+                </Link>
               </li>
               <li>
-                <a href="#/">購物車</a>
+                <Link to="#/" onClick={handleCloseRight}>
+                  我的活動
+                </Link>
               </li>
               <li>
-                <a href="#/">我的活動</a>
+                <Link to="#/" onClick={handleCloseRight}>
+                  我的收藏
+                </Link>
               </li>
               <li>
-                <a href="#/">我的收藏</a>
+                <Link to="/member" onClick={handleCloseRight}>
+                  帳戶設定
+                </Link>
               </li>
               <li>
-                <a href="#/">帳戶設定</a>
+                <Link to="/pwdchanging" onClick={handleCloseRight}>
+                  變更密碼
+                </Link>
               </li>
               <li>
-                <a href="#/">變更密碼</a>
+                <Link to="#/" onClick={handleCloseRight}>
+                  我的訂單
+                </Link>
               </li>
               <li className="last_li">
-                <a href="#/">我的訂單</a>
+                <Link to="#/" onClick={handleCloseRight}>
+                  優惠券
+                </Link>
               </li>
             </ul>
           </Offcanvas.Body>

@@ -82,13 +82,16 @@ header {
     background: $primary;
     padding: 0 0 0 0;
   }
-  .left_offcanvas_body li {
-    height: 19vh;
-    position: relative;
-    border-bottom: 1px solid white;
-    a {
-      width: 100px;
-    }
+  .left_offcanvas_body{
+    margin: 0 0 0 0;
+    li{
+      height: 16.5vh;
+      position: relative;
+      border-bottom: 1px solid white;
+        a{
+          width: 100px;
+        }
+    }    
   }
   .right_offcanvas_body{
     margin: 0 0 0 0;
