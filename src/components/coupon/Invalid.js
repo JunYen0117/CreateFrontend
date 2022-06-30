@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Common from './Common';
+import { useState } from 'react';
 
 function Invalid(props) {
   const {
@@ -16,6 +17,9 @@ function Invalid(props) {
     changeState,
   } = props;
   console.log(invalidList);
+
+  const [notUse, setNotUse] = useState(true);
+
   const couponPromptScript = () => {
     return <>已失效的優惠券</>;
   };
@@ -31,10 +35,10 @@ function Invalid(props) {
   const couponUseBtn = () => {
     return (
       <>
-        <h3 className="coupon_desktop coupon_p text-decoration-none my-1">
+        <h3 className="coupon_desktop coupon_p text-decoration-none my-1 mx-auto">
           無法使用
         </h3>
-        <h3 className="coupon_phone d-md-none text-decoration-none my-auto">
+        <h3 className="coupon_phone d-md-none text-decoration-none my-auto  mx-auto">
           無法使用
         </h3>
       </>
@@ -55,6 +59,8 @@ function Invalid(props) {
         invalidList={invalidList}
         invalidLastPage={invalidLastPage}
         changeState={changeState}
+        notUse={notUse}
+        setNotUse={setNotUse}
       />
     </>
   );

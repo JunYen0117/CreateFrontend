@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
-  const { pass, use, coupon } = props;
+  const { pass, use, coupon, notUse } = props;
 
   // 判斷優惠券折扣，在電腦版優惠券顯示
   const [discount, setDiscount] = useState(null);
@@ -49,12 +49,19 @@ const Card = (props) => {
             </h5>
           </div>
           <div className="couponCard_btn_desktop d-flex mb-4 position-absolute">
-            <button className="couponCard_btn ms-2">
-              <div className="text-decoration-none">
+            {!notUse ? (
+              <button className="couponCard_btn ms-2">
+                <div className="text-decoration-none">
+                  {/* 這是 立即使用 的變數 */}
+                  {use}
+                </div>
+              </button>
+            ) : (
+              <div className="ms-2 couponCard_btn_notUse text-center">
                 {/* 這是 立即使用 的變數 */}
                 {use}
               </div>
-            </button>
+            )}
           </div>
         </div>
       </div>
@@ -81,12 +88,27 @@ const Card = (props) => {
               {coupon.coupon_end_period}
               {/* 資料庫欄位名稱：coupon_end_period		 */}
             </h5>
-            <button className="couponCard_btn_phone mx-auto px-2 position-absolute">
-              <a href="#/" className="text-decoration-none">
-                {/* 這是 立即使用 的變數 */}
-                {use}
-              </a>
-            </button>
+
+            {!notUse ? (
+              <button
+                className={`couponCard_btn_phone mx-auto px-2 position-absolute`}
+              >
+                <a href="/" className="text-decoration-none">
+                  {/* 這是 立即使用 的變數 */}
+                  {use}
+                </a>
+              </button>
+            ) : (
+              <button
+                className={`couponCard_btn_phone mx-auto px-2 position-absolute disable`}
+              >
+                <span className="text-decoration-none">
+                  {/* 這是 立即使用 的變數 */}
+                  {use}
+                </span>
+              </button>
+            )}
+
             {/* 2022-07-31 11:59:59 */}
             <div className="coupon_pass_phone d-md-none text-center py-2 position-absolute">
               {/* (資料庫的日期時間 - 現在的日期時間) / (24*60*60*1000) 如果 < 7天 就顯示即將過期*/}

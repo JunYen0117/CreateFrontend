@@ -1,6 +1,7 @@
 // 可領取優惠券
 import React from 'react';
 import Common from './Common';
+import { useState } from 'react';
 
 function Available(props) {
   const {
@@ -14,6 +15,9 @@ function Available(props) {
     invalidLastPage,
     invalidList,
   } = props;
+
+  const [notUse, setNotUse] = useState(false);
+
   // 以下是優惠券的畫面
   const couponPromptScript = () => {
     return <>可領取的優惠券</>;
@@ -54,6 +58,8 @@ function Available(props) {
         invalidLastPage={invalidLastPage}
         invalidList={invalidList}
         changeState={changeState}
+        notUse={notUse}
+        setNotUse={setNotUse}
       />
     </>
   );

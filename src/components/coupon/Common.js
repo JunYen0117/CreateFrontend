@@ -20,6 +20,8 @@ function Common(props) {
     invalidList,
     invalidLastPage,
     changeState,
+    notUse,
+    setNotUse,
   } = props;
 
   switch (changeState) {
@@ -103,12 +105,24 @@ function Common(props) {
         <div className="coupon d-flex d-grid flex-wrap justify-content-between mx-1 row">
           {data &&
             data.map((coupon, index) => {
-              return <Card key={index} pass={pass} use={use} coupon={coupon} />;
+              return (
+                <Card
+                  key={index}
+                  pass={pass}
+                  use={use}
+                  coupon={coupon}
+                  notUse={notUse}
+                  setNotUse={setNotUse}
+                />
+              );
             })}
         </div>
       </div>
       <div className="coupon pt-5">
-        <Pagination size="sm" className="justify-content-center">
+        <Pagination
+          size="sm"
+          className="justify-content-center coupon_pagination d-none"
+        >
           {items}
         </Pagination>
       </div>

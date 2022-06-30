@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Common from './Common';
+import { useState } from 'react';
 
 function ReceiveList(props) {
   const {
@@ -16,6 +17,8 @@ function ReceiveList(props) {
 
   console.log('receiveList', receiveList);
   // console.log('receiveLastPage',receiveLastPage)
+
+  const [notUse, setNotUse] = useState(false);
 
   const couponPromptScript = () => {
     return <>每筆訂單僅可使用一張優惠券</>;
@@ -60,6 +63,8 @@ function ReceiveList(props) {
         receiveLastPage={receiveLastPage}
         receiveList={receiveList}
         changeState={changeState}
+        notUse={notUse}
+        setNotUse={setNotUse}
       />
     </>
   );
