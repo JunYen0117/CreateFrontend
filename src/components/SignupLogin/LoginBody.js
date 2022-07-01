@@ -1,8 +1,7 @@
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { API_URL } from '../../utils/config';
 import { useState } from 'react';
-
 import Form from 'react-bootstrap/Form';
 
 import { IconContext } from 'react-icons';
@@ -34,7 +33,7 @@ function LoginBody(props) {
         icon: 'success',
         showConfirmButton: false,
         timer: 1000,
-      })
+      });
     } catch (e) {
       console.error('前端沒有送到後端:' + e);
       Swal.fire({
@@ -42,7 +41,7 @@ function LoginBody(props) {
         title: '帳號或密碼錯誤，請重新登入',
         showConfirmButton: false,
         timer: 1500,
-      })
+      });
     }
   }
 

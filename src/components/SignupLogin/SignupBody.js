@@ -1,36 +1,46 @@
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { API_URL } from '../../utils/config';
-
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 import { IconContext } from 'react-icons';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
-function SignupBody() {
+
+function SignupBody(props) {
+  //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> SignupBody.js
+  const { isLogin, setIsLogin } = props;
+
   const [signupInfo, setSignInfo] = useState({
-    member_name: '',
-    account: '',
-    password: '',
-    re_password: '',
-    gender: '',
-    age: '',
-    phone: '',
-    address: '',
+    member_name: 'fffff',
+    account: '@test.com',
+    password: '123456',
+    re_password: '123456',
+    gender: 'ff',
+    age: '20',
+    phone: '9999999',
+    address: '9999999',
   });
   const handleChange = (e) => {
     setSignInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const response = await axios.post(API_URL + '/signup', signupInfo, {
         withCredentials: true,
       });
-      // setIsLogin(true);
-      console.log(response);
+      console.log('aaaaaa');
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: false,
+        title: '註冊成功',
+        timer: 1500,
+      });
     } catch (e) {
-      console.error('前端沒有送到後端:'+e);
+      console.error('前端沒有送到後端:' + e);
     }
   }
 
@@ -195,7 +205,9 @@ function SignupBody() {
             </div>
           </div>
           <div className="d-flex justify-content-center mb-4">
-            <button className="signup_btn mx-auto" onClick={handleSubmit}>註冊</button>
+            <button className="signup_btn mx-auto" onClick={handleSubmit}>
+              註冊
+            </button>
           </div>
         </div>
       </form>

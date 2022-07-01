@@ -24,7 +24,6 @@ function SignupLogin(props) {
 
   return (
     <>
-
       <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 
       <Modal show={show} onHide={handleClose} className="LoginSignup">
@@ -35,10 +34,10 @@ function SignupLogin(props) {
           className="login_header d-flex"
         >
           <Tab eventKey="signup" title="註冊">
-            <SignupBody />
+            <SignupBody setIsLogin={setIsLogin} isLogin={isLogin} />
           </Tab>
           <Tab eventKey="login" title="登入">
-            <LoginBody isLogin={isLogin} setIsLogin={setIsLogin}/>
+            <LoginBody isLogin={isLogin} setIsLogin={setIsLogin} />
           </Tab>
           <Tab eventKey="forgotten_pwd" title="忘記密碼">
             <ForgottenPwdBody />
