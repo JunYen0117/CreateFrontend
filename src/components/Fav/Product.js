@@ -12,12 +12,12 @@ const Product = () => {
     let getUserLike = async () => {
       let response = await axios.get(`${API_URL}/favproduct/${user_id}`);
       setArr(response.data);
-      // console.log(response.data)
+      // console.log('product', response.data);
     };
     getUserLike();
   }, []);
 
-  console.log('fav', arr);
+  // console.log('favproduct', arr);
 
   return (
     <>

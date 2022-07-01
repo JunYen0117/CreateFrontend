@@ -1,11 +1,11 @@
 import React from 'react';
 import Bird from '../../img/Bird.jpg';
 import { FaShoppingCart } from 'react-icons/fa';
-import Heart from './Heart';
+import FpHeart from './FpHeart';
 
 const FavProduct = (props) => {
   const { data } = props;
-  // console.log(data);
+  // console.log('favproduct', data);
 
   // useEffect(() => {
   //   // console.log(JSON.parse(localStorage.getItem('fav')))
@@ -33,7 +33,7 @@ const FavProduct = (props) => {
           variant="primary"
           className="text-white d-block Fp_button p-2"
         >
-          <Heart data={data} />
+          <FpHeart data={data} />
           <FaShoppingCart className="me-2 h2 m-0 " />
           加入購物車
         </button>
