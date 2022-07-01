@@ -22,7 +22,7 @@ const Product = () => {
   return (
     <>
       <div className="container-fluid mb-5 px-0">
-        <div className=" row d-flex">
+        <div className=" row ">
           {arr.map((v, i) => {
             return (
               <div className="col-2 position-relative">
