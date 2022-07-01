@@ -3,7 +3,7 @@ import React from 'react';
 const Sidebar = () => {
   return (
     <>
-      <div className="sidebar">
+      <div className="sidebar d-flex">
         <ul className="col-md-4 text-center">
           <li>
             <a href="#/" className="text-decoration-none ">
