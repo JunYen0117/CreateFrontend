@@ -2,8 +2,8 @@ import { AiOutlineShop } from 'react-icons/ai';
 import { BsPlusLg, BsDashLg, BsFillTrashFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useCart } from '../../utils/useCart';
-import { useEffect, useContext } from 'react';
-import { CheckListContext } from '../../App.js';
+import { useCheckList } from '../../utils/useCheckList';
+import { useEffect } from 'react';
 
 function CartItem(props) {
   const { items, plusOne, minusOne, removeItem, updateItem } = useCart();
@@ -18,8 +18,8 @@ function CartItem(props) {
     checked,
   } = props;
 
-  // 加選購物車商品的清單: 取出 Context
-  const { checkList, setCheckList } = useContext(CheckListContext);
+  // 加選購物車商品的清單
+  const { checkList, setCheckList } = useCheckList();
 
   // 載入頁面時，重置 items,CheckList 的 checked 為 false，並清空checkList
   useEffect(() => {
@@ -102,6 +102,26 @@ function CartItem(props) {
     buttonsStyling: false,
   });
 
+  const handleDeleteItem = () => {
+    swalWithBootstrapButtons
+      .fire({
+        title: '確定移除?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '確定',
+        cancelButtonText: '取消',
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          removeItem(productId);
+          checkListRemove();
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          return;
+        }
+      });
+  };
+
   // 勾選清單
   // console.log('checkList:', checkList);
 
@@ -154,28 +174,7 @@ function CartItem(props) {
           </div>
           <p className="h2 fw-bolder text-center mx-auto w-25">NT {price}</p>
           <div className="d-flex align-items-center mx-auto cart_product_delete">
-            <BsFillTrashFill
-              className="h1"
-              onClick={() => {
-                swalWithBootstrapButtons
-                  .fire({
-                    title: '確定移除?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: '確定',
-                    cancelButtonText: '取消',
-                    reverseButtons: true,
-                  })
-                  .then((result) => {
-                    if (result.isConfirmed) {
-                      removeItem(productId);
-                      checkListRemove();
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                      return;
-                    }
-                  });
-              }}
-            />
+            <BsFillTrashFill className="h1" onClick={handleDeleteItem} />
           </div>
         </div>
       </div>

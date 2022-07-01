@@ -1,15 +1,13 @@
 import CartList from '../components/Cart/CartList';
 import Summary from '../components/Cart/Summary';
 import { useCart } from '../utils/useCart';
-import { useContext } from 'react';
-import { CheckListContext } from '../App.js';
+import { useCheckList } from '../utils/useCheckList';
 import { BsCart4 } from 'react-icons/bs';
 
 function Cart() {
   const { items, updateItem } = useCart();
-
-  // 加選購物車商品的清單: 取出 Context
-  const { checkList, setCheckList } = useContext(CheckListContext);
+  // 加選購物車商品的清單
+  const { checkList, setCheckList } = useCheckList();
 
   // 全選；反選
   const handleAllCheck = () => {
@@ -53,7 +51,6 @@ function Cart() {
             />
             <label className="m-0">選擇全部</label>
             <div className="row gx-5 mb-5">
-              {/* 購物車清單 */}
               <div className="col-12 col-lg-8 col-xl-8">
                 <CartList />
               </div>

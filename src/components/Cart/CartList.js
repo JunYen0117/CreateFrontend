@@ -3,7 +3,6 @@ import { useCart } from '../../utils/useCart';
 
 function CartList(props) {
   const { items } = useCart();
-
   return (
     <>
       {items.map((v, i) => {

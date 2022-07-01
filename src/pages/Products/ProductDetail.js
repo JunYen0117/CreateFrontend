@@ -3,7 +3,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
 import Swal from 'sweetalert2';
 import { productGetDetail } from '../../utils/api';
-
 import {
   BsPlusLg,
   BsDashLg,
@@ -15,7 +14,11 @@ import {
 function ProductDetail() {
   const textarr = [1, 2, 3];
   const [heart, setHeart] = useState(false);
-
+  // 購物車
+  const { addItem, isInCart } = useCart();
+  // 計算購買數量
+  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+  // 商品明細
   const [productInDetail, setProductInDetail] = useState({
     id: 0,
     product_name: '',
@@ -32,12 +35,6 @@ function ProductDetail() {
   // 前往結帳
   const goPath = useHistory();
 
-  // 購物車
-  const { addItem, isInCart } = useCart();
-
-  // 計算購買數量
-  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
-
   useEffect(() => {
     let axiosProductById = async () => {
       // 根據 URL 建立 Params 物件
@@ -51,7 +48,27 @@ function ProductDetail() {
     axiosProductById();
   }, []);
 
-  // console.log(productInDetail);
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    const item = {
+      ...productInDetail,
+      quantity: purchaseQuantity,
+      checked: false,
+    };
+    if (isInCart(productInDetail.id)) {
+      goPath.push('/cart');
+    } else {
+      addItem(item);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '商品已加入購物車',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
   return (
     <>
       <div className="container mt-5">
@@ -95,29 +112,7 @@ function ProductDetail() {
                 <BsPlusLg />
               </span>
             </div>
-            <a
-              href="#/"
-              alt=""
-              onClick={() => {
-                const item = {
-                  ...productInDetail,
-                  quantity: purchaseQuantity,
-                  checked: false,
-                };
-                if (isInCart(productInDetail.id)) {
-                  goPath.push('/cart');
-                } else {
-                  addItem(item);
-                  Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: '商品已加入購物車',
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
-                }
-              }}
-            >
+            <a href="#/" alt="" onClick={handleAddCart}>
               <div className="p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
                 <span>

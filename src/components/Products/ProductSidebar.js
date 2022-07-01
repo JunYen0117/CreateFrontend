@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-
 import { productChooseClass, productChooseCategory } from '../../utils/api';
-
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
 
 function ProductSidebar(props) {

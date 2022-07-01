@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useCheckList } from '../../utils/useCheckList';
 import TwCitySelector from 'tw-city-selector/dist/tw-city-selector';
-import { CheckListContext } from '../../App.js';
 import CheckoutModal from './CheckoutModal';
 
 import { checkoutPayment } from '../../utils/api';
@@ -8,9 +8,11 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 function Summary() {
+  const { checkList, setCheckList, checkListTotal } = useCheckList();
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
   const [clientSecret, setClientSecret] = useState('');
 
+  // 接收key
   useEffect(() => {
     const showStripe = async () => {
       const response = await checkoutPayment();
@@ -18,18 +20,6 @@ function Summary() {
     };
     showStripe();
   }, []);
-
-  const appearance = {
-    theme: 'stripe',
-  };
-
-  const options = {
-    clientSecret,
-    appearance,
-  };
-
-  const { checkList, setCheckList, checkListTotal } =
-    useContext(CheckListContext);
 
   //取得縣市行政區API資料
   useEffect(() => {
@@ -44,6 +34,21 @@ function Summary() {
       elZipcode: '.zipcode', // 在 el 裡查找 dom
     });
   }
+
+  const appearance = {
+    theme: 'stripe',
+  };
+
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
+  const deliveryMethod = [
+    { id: 1, method: '超商取貨' },
+    { id: 2, method: '宅配到府' },
+    { id: 3, method: '門市自取' },
+  ];
 
   // 收件資料
   // customerId 會抓 登入會員的 id
@@ -157,13 +162,15 @@ function Summary() {
                   required
                 >
                   <option value="">請選擇</option>
-                  <option value="1">超商取貨</option>
-                  <option value="2">宅配到府</option>
-                  <option value="3">門市自取</option>
+                  {deliveryMethod.map((delivery) => (
+                    <option key={delivery.id} value={delivery.id}>
+                      {delivery.method}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="col-6">
-                <label htmlFor="country" className="w-100 mb-2 h2">
+                <label htmlFor="county" className="w-100 mb-2 h2">
                   縣市
                 </label>
                 <select

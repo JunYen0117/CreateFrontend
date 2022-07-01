@@ -14,36 +14,11 @@ import ProductDetail from './pages/Products/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
-import { useState, createContext } from 'react';
-
-// 傳遞 checkList 使用
-export const CheckListContext = createContext(null);
-
-// export const IsLoginContext = createContext(null);
+import { CheckListProvider } from './utils/useCheckList';
 
 function App() {
-  // const { items, addItem, clearCart } = useCart();
-
-  // 加選購物車商品的清單
-  const [checkList, setCheckList] = useState([]);
-
-  // 購物車勾選的商品總金額
-  const calcCheckListTotal = () =>
-    checkList.reduce((total, item) => total + item.price * item.quantity, 0);
-
-  // 購物車勾選的商品總數量
-  const calcCheckListItems = () =>
-    checkList.reduce((sum, item) => sum + item.quantity, 0);
-
   return (
-    <CheckListContext.Provider
-      value={{
-        checkList,
-        setCheckList,
-        checkListTotal: calcCheckListTotal(),
-        checkListItems: calcCheckListItems(),
-      }}
-    >
+    <CheckListProvider>
       <CartProvider localStorageKey="Cart">
         <Router>
           <>
@@ -74,7 +49,7 @@ function App() {
           </>
         </Router>
       </CartProvider>
-    </CheckListContext.Provider>
+    </CheckListProvider>
   );
 }
 

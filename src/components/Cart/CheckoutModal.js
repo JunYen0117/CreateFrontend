@@ -43,6 +43,20 @@ function CheckoutModal(props) {
     }
   };
 
+  const handleConfirmCheckout = (e) => {
+    e.preventDefault();
+    handleSubmit();
+    checkoutRemove();
+    handleClose();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '結帳成功',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   return (
     <>
       <Modal show={show} onHide={handleClose} centered>
@@ -102,19 +116,7 @@ function CheckoutModal(props) {
                 </button>
                 <button
                   className="mx-3 cart_checkout_btn py-2 w-100"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSubmit();
-                    checkoutRemove();
-                    handleClose();
-                    Swal.fire({
-                      position: 'center',
-                      icon: 'success',
-                      title: '結帳成功',
-                      showConfirmButton: false,
-                      timer: 1500,
-                    });
-                  }}
+                  onClick={handleConfirmCheckout}
                 >
                   確認結帳
                 </button>
