@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 
-const FartHeart = ({ data }) => {
+const HeartProduct = ({ data }) => {
   const [showheart, setShowHeart] = useState(true);
+  // console.log(data);
   data = data || {};
-  // console.log('fartHeart', data);
 
   let user_id = 1;
 
   const delfav = async () => {
     try {
       let response = await axios.get(
-        `${API_URL}/favblog/del/${user_id}/${data.blog_id}`
+        `${API_URL}/fav/product/del/${user_id}/${data.product_id}`
       );
     } catch (e) {
       console.error(e);
@@ -25,7 +25,7 @@ const FartHeart = ({ data }) => {
     <>
       {showheart ? (
         <BsHeartFill
-          className="Far_heart"
+          className="Fp_heart"
           onClick={async () => {
             setShowHeart(false);
             delfav();
@@ -35,14 +35,14 @@ const FartHeart = ({ data }) => {
         />
       ) : (
         <BsHeart
-          className="Far_heart"
+          className="Fp_heart"
           onClick={async () => {
             setShowHeart(true);
-            // console.log(`${API_URL}/favblog/add/1/1`);
+            // console.log(`${API_URL}/favproduct/add/1/1`);
 
             // console.log(user.id);
             let response = await axios.get(
-              `${API_URL}/favblog/add/${user_id}/${data.blog_id}`
+              `${API_URL}/fav/product/add/${user_id}/${data.product_id}`
             );
             // window.alert(`${response.data.message}`);
           }}
@@ -52,4 +52,4 @@ const FartHeart = ({ data }) => {
   );
 };
 
-export default FartHeart;
+export default HeartProduct;

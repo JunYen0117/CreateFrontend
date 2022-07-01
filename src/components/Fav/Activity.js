@@ -10,7 +10,7 @@ const Activity = () => {
 
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/favactivity/${user_id}`);
+      let response = await axios.get(`${API_URL}/fav/activity/${user_id}`);
       setArr(response.data);
       // console.log('activity', response.data);
     };
@@ -19,18 +19,18 @@ const Activity = () => {
 
   // console.log('favactivity', arr);
 
-
   return (
     <>
       <div className="container-fluid mb-5 px-0">
-        <div className="row ">
-          {arr.map((v) => {
+        <div className="row">
+          {arr.map((v, i) => {
             return (
-              <>
-                <div className="col-2 position-relative">
-                  <FavActivity key={v.id} data={v} />
-                </div>
-              </>
+              <div
+                className=" Fac_card d-flex px-0 position-relative mb-3 border"
+                key={v.id}
+              >
+                <FavActivity data={v} />
+              </div>
             );
           })}
         </div>

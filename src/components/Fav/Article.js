@@ -10,7 +10,7 @@ const Article = () => {
 
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/favblog/${user_id}`);
+      let response = await axios.get(`${API_URL}/fav/blog/${user_id}`);
       setArr(response.data);
       // console.log('article', response.data);
     };
@@ -22,11 +22,14 @@ const Article = () => {
   return (
     <>
       <div className="container-fluid mb-5 px-0">
-        <div className="row ">
+        <div className="row">
           {arr.map((v, i) => {
             return (
-              <div className="col-2 position-relative">
-                <FavArticle key={v.id} data={v} />
+              <div
+                className=" Fac_card d-flex px-0 position-relative mb-3 border"
+                key={v.id}
+              >
+                <FavArticle data={v} />
               </div>
             );
           })}

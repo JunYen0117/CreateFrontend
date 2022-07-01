@@ -1,7 +1,7 @@
 import React from 'react';
 import Bird from '../../img/Bird.jpg';
 import { FaShoppingCart } from 'react-icons/fa';
-import FpHeart from './FpHeart';
+import HeartProduct from './HeartProduct';
 
 const FavProduct = (props) => {
   const { data } = props;
@@ -37,7 +37,7 @@ const FavProduct = (props) => {
           variant="primary"
           className="text-white d-block Fp_button p-2 mt-2"
         >
-          <FpHeart data={data} />
+          <HeartProduct data={data} />
           <FaShoppingCart className="me-2 h2 m-0 " />
           加入購物車
         </button>

@@ -1,43 +1,50 @@
-import { useState } from 'react';
+import React from 'react';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
-import axios from 'axios';
+import { useState } from 'react';
 import { API_URL } from '../../utils/config';
+import axios from 'axios';
 
-const FavactHeart = ({ data }) => {
+const HeartArticle = ({ data }) => {
   const [showheart, setShowHeart] = useState(true);
-  // console.log(data);
   data = data || {};
+  // console.log('fartHeart', data);
 
   let user_id = 1;
 
   const delfav = async () => {
     try {
       let response = await axios.get(
-        `${API_URL}/favactivity/del/${user_id}/${data.exhibition_id}`
+        `${API_URL}/fav/blog/del/${user_id}/${data.blog_id}`
       );
     } catch (e) {
       console.error(e);
     }
   };
+
   return (
     <>
       {showheart ? (
         <BsHeartFill
-          className="Fac_heart"
+          className="Far_heart"
           onClick={async () => {
             setShowHeart(false);
             delfav();
+
+            // window.alert(`${response.data.message}`);
           }}
         />
       ) : (
         <BsHeart
-          className="Fac_heart"
+          className="Far_heart"
           onClick={async () => {
             setShowHeart(true);
+            // console.log(`${API_URL}/favblog/add/1/1`);
 
+            // console.log(user.id);
             let response = await axios.get(
-              `${API_URL}/favactivity/add/${user_id}/${data.exhibition_id}`
+              `${API_URL}/fav/blog/add/${user_id}/${data.blog_id}`
             );
+            // window.alert(`${response.data.message}`);
           }}
         />
       )}
@@ -45,4 +52,4 @@ const FavactHeart = ({ data }) => {
   );
 };
 
-export default FavactHeart;
+export default HeartArticle;

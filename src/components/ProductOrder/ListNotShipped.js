@@ -25,7 +25,7 @@ const ListNotShipped = () => {
     <>
       {arr.map((v, i) => {
         return (
-          <Collapse accordion className="orderlist-card">
+          <Collapse accordion className="orderlist-card" key={i}>
             <Panel
               header={`訂單編號 ${v.orderid}`}
               key="1"

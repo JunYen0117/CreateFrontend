@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -7,34 +8,34 @@ const Sidebar = () => {
       <div className="sidebar">
         <ul className="col-md-4 text-center">
           <li>
-            <a href="#/" className="text-decoration-none ">
+            <NavLink href="#/" className="text-decoration-none">
               我的活動
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
-              <Link to="/fav">我的收藏</Link>
-            </a>
+            <NavLink href="/fav" className="text-decoration-none">
+              我的收藏
+            </NavLink>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <NavLink href="#/" className="text-decoration-none">
               帳戶設定
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <NavLink href="#/" className="text-decoration-none">
               變更密碼
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
-              <Link to="/order">我的訂單 </Link>
-            </a>
+            <NavLink href="/order" className="text-decoration-none">
+              我的訂單
+            </NavLink>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <NavLink href="#/" className="text-decoration-none">
               優惠券
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

@@ -10,7 +10,7 @@ const Product = () => {
 
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/favproduct/${user_id}`);
+      let response = await axios.get(`${API_URL}/fav/product/${user_id}`);
       setArr(response.data);
       // console.log('product', response.data);
     };
@@ -25,8 +25,8 @@ const Product = () => {
         <div className=" row ">
           {arr.map((v, i) => {
             return (
-              <div className="col-2 position-relative">
-                <FavProduct key={v.id} data={v} />
+              <div className="col-2 position-relative" key={v.id}>
+                <FavProduct  data={v} />
               </div>
             );
           })}
