@@ -19,6 +19,8 @@ import { useState, createContext } from 'react';
 // 傳遞 checkList 使用
 export const CheckListContext = createContext(null);
 
+// export const IsLoginContext = createContext(null);
+
 function App() {
   // const { items, addItem, clearCart } = useCart();
 

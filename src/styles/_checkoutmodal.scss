@@ -30,7 +30,7 @@
 .checkout_modal_title {
   font-size: 22px;
   font-weight: 600;
-  color: #903f23;
+  color: #000;
 }
 
 .checkout_modal_body {
@@ -41,23 +41,28 @@
   textarea:focus,
 	select:focus {
     border: 1px solid #DCD5CA;
-    color: #903f23;
+    color: #000;
     box-shadow: none;
   }
 
 	input::placeholder {
-	  color: #b99664;
+	  color: #d4ccbd;
 	  font-size: 1rem;
 	}
 
   label {
-    color: #903f23;
+    color: #000;
   }
 }
 
 .checkout_modal_btn:hover{
 	color: #903f23;
 	background-color: #b99664;
+}
+
+.checkout_list{
+  overflow: auto;
+  height: 260px;
 }
 
 .checkout_modal_items{

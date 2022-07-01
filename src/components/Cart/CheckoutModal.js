@@ -73,7 +73,7 @@ function CheckoutModal(props) {
               <div className="col-12">
                 <h1 className="checkout_modal_title text-center">購買明細</h1>
               </div>
-              <div className="col-12 mt-1">
+              <div className="col-12 mt-1 checkout_list">
                 <CheckoutList checkList={checkList} />
               </div>
               <div className="col-12 d-flex justify-content-end">
@@ -88,7 +88,7 @@ function CheckoutModal(props) {
                 <h1 className="checkout_modal_title text-center">付款資訊</h1>
               </div>
               <div className="col-12 d-flex justify-content-center mt-1">
-                <PaymentElement />
+                <PaymentElement className="w-100" />
               </div>
               <div className="col-12 d-flex justify-content-center mb-3">
                 <button

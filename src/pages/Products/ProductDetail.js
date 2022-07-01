@@ -21,6 +21,10 @@ function ProductDetail() {
     product_name: '',
     price: 0,
     image: '1_1咖啡壺.jpg',
+    vendor_id: 0,
+    business_name: '',
+    product_intro: '',
+    product_info: '',
   });
 
   // /products?productId=2
@@ -140,26 +144,22 @@ function ProductDetail() {
           </div>
         </div>
         {/* 商品介紹 */}
-        <div className="row justify-content-start my-3">
-          <div className="col-md-9">
+        <div className="row justify-content-start">
+          <div className="col-md-9 px-5 py-3">
             <h1 className="fw-bolder">商品介紹</h1>
-            <p className="h2">
-              商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹
-            </p>
+            <pre className="h2">{productInDetail.product_intro}</pre>
           </div>
         </div>
         {/* 商品資訊 */}
-        <div className="row justify-content-start my-3">
-          <div className="col-md-9">
+        <div className="row justify-content-start">
+          <div className="col-md-9 px-5 py-3">
             <h1 className="fw-bolder">商品資訊</h1>
-            <p className="h2">
-              商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊
-            </p>
+            <pre className="h2">{productInDetail.product_info}</pre>
           </div>
         </div>
         {/* 購買評價 */}
         <div className="row justify-content-start my-3">
-          <div className="col-12">
+          <div className="col-12 px-5 py-3">
             <h1 className="fw-bolder">購買評價</h1>
             {textarr.map((v, i) => {
               return (
