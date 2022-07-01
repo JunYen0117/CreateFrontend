@@ -3,6 +3,7 @@ import PaymentMethod from '../components/ActivityPayment/PaymentMethod';
 import PaymentUser from '../components/ActivityPayment/PaymentUser';
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../utils/config';
 function ActivityPayment() {
@@ -13,9 +14,10 @@ function ActivityPayment() {
   const [orderEmail, setOrderEmail] = useState('');
   const [orderPhone, setOrderPhone] = useState('');
 
-  const handleClick = async () => {
+  const history = useHistory();
+  const handleClick = async (e) => {
     try {
-      let response = await axios.post(API_URL + 'activitypayment', {
+      let response = await axios.post(API_URL + '/activitypayment', {
         order,
         orderName,
         orderEmail,
@@ -28,17 +30,13 @@ function ActivityPayment() {
         icon: 'success',
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = '/exhibition';
+          history.push('/');
         }
       });
     } catch (e) {
       console.error(e);
     }
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return (
     <>
       <div className="container mt-4 mb-5 activitypayment">
@@ -59,9 +57,9 @@ function ActivityPayment() {
             確認付款
           </button>
         </div>
-        <p>
+        {/* <p>
           orderName:{orderName},orderEmail:{orderEmail},orderPhone:{orderPhone}
-        </p>
+        </p> */}
       </div>
     </>
   );

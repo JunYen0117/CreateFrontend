@@ -8,6 +8,9 @@ import { API_URL } from '../utils/config';
 
 function ExhibitionExplore(props) {
   const [exhibitions, setExhibitions] = useState([]);
+  const [city, setCity] = useState('');
+  const [level, setLevel] = useState('');
+  const [date, setDate] = useState('');
 
   useEffect(() => {
     let getExhibitions = async () => {
@@ -28,7 +31,15 @@ function ExhibitionExplore(props) {
       <ExhibitionExploreButton />
       <div className="row container-fluid m-0 p-0">
         <div className="col-12 col-md-4">
-          <ExhibitionExploreCards exhibitions={exhibitions} />
+          <ExhibitionExploreCards
+            exhibitions={exhibitions}
+            city={city}
+            setCity={setCity}
+            level={level}
+            setLevel={setLevel}
+            date={date}
+            setDate={setDate}
+          />
         </div>
         <div className="d-none d-md-block col-md-8 p-0">
           <ExhibitionExploreMap exhibitions={exhibitions} />

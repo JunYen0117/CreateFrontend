@@ -1,5 +1,15 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import Swal from 'sweetalert2';
+
 function ActivityCard(props) {
+  const { state } = props;
   const { avtivity } = props;
+  const { changed, setChanged } = props;
+  let orderId = '';
+  let chState = '';
+
   avtivity.map((item, index) => {
     if (item.state === 1) {
       return (item.state_text = '已報名');
@@ -9,25 +19,25 @@ function ActivityCard(props) {
       return (item.state_text = '已使用');
     }
   });
-  // const handleClick = async () => {
-  //   try {
-  //     let response = await axios.put(API_URL + '/activity', {
-  //       params: {
-  //         order_id: order_id,
-  //         change_state:change_state
-  //       },
-  //     });
-  //     console.log(response.data);
-  //     Swal.fire({
-  //       title: '購買成功',
-  //       icon: 'success',
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //       }
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
+  const handleClick = async () => {
+    try {
+      let response = await axios.put(API_URL + '/activity/state', {
+        orderId: orderId,
+        changeState: chState,
+      });
+      console.log(response.data);
+
+      // Swal.fire({
+      //   title: '購買成功',
+      //   icon: 'success',
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //   }
+      // });
+    } catch (e) {
+      console.error(e);
+    }
+  };
   return (
     <>
       <div className="container-fluid mb-5 px-0">
@@ -80,12 +90,73 @@ function ActivityCard(props) {
                       </tr>
                     </tbody>
                   </table>
-                  <button
-                    className="text-white  d-block Fac_button m-0 btn btn-danger"
-                    // onClick={handleClick}
-                  >
-                    取消
-                  </button>
+                  {state === 1 ? (
+                    <div className="d-flex justify-content-end">
+                      <button
+                        className="text-white  d-block Fac_button m-0 btn btn-primary mx-3"
+                        onClick={() => {
+                          orderId = item.id;
+                          chState = 0;
+                          Swal.fire({
+                            title: '您確定要使用票卷嗎?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: '確定',
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                '您的票卷',
+                                '555566667788',
+                                'success'
+                                //QR Code API
+                              ).then((result) => {
+                                if (result.isConfirmed) {
+                                  setChanged(!changed);
+                                }
+                              });
+                            }
+                            handleClick();
+                          });
+                        }}
+                      >
+                        使用
+                      </button>
+                      <button
+                        className="text-white  d-block Fac_button m-0 btn btn-danger"
+                        onClick={() => {
+                          orderId = item.id;
+                          chState = 2;
+                          Swal.fire({
+                            title: '您確定要取消活動嗎?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: '確定',
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                '取消',
+                                '您的活動已取消',
+                                'success'
+                              ).then((result) => {
+                                if (result.isConfirmed) {
+                                  setChanged(!changed);
+                                }
+                              });
+                            }
+                            handleClick();
+                          });
+                        }}
+                      >
+                        取消
+                      </button>
+                    </div>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             );

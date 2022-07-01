@@ -9,6 +9,9 @@ import { API_URL } from '../utils/config';
 function Avtivity(props) {
   const [avtivity, setAvtivity] = useState([]);
   const [state, setState] = useState(1);
+
+  const [changed, setChanged] = useState(false);
+
   useEffect(() => {
     let getAvtivitys = async () => {
       let response = await axios.get(API_URL + '/activity', {
@@ -19,7 +22,8 @@ function Avtivity(props) {
       setAvtivity(response.data);
     };
     getAvtivitys();
-  }, [state, setState]);
+  }, [state, setState, changed]);
+
   return (
     <>
       <div className="container pt-5">
@@ -29,8 +33,13 @@ function Avtivity(props) {
           </div>
 
           <div className="col-8">
-            <ActivityTitle setState={setState} />
-            <ActivityCard avtivity={avtivity} />
+            <ActivityTitle setState={setState} state={state} />
+            <ActivityCard
+              avtivity={avtivity}
+              state={state}
+              changed={changed}
+              setChanged={setChanged}
+            />
           </div>
         </div>
       </div>

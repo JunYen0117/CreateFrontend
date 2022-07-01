@@ -1,4 +1,5 @@
 const ActivityTitle = (props) => {
+  const { state, setState } = props;
   return (
     <>
       <h1>我的訂單</h1>
@@ -6,8 +7,9 @@ const ActivityTitle = (props) => {
         <a
           href="#/"
           className="me-5"
-          onClick={() => {
-            props.setState(1);
+          onClick={(e) => {
+            e.preventDefault();
+            setState(1);
           }}
         >
           已報名
@@ -15,16 +17,18 @@ const ActivityTitle = (props) => {
         <a
           href="#/"
           className="me-5"
-          onClick={() => {
-            props.setState(2);
+          onClick={(e) => {
+            e.preventDefault();
+            setState(2);
           }}
         >
           已取消
         </a>
         <a
           href="#/"
-          onClick={() => {
-            props.setState(0);
+          onClick={(e) => {
+            e.preventDefault();
+            setState(0);
           }}
         >
           已結束

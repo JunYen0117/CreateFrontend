@@ -4,10 +4,7 @@ function PaymentDetails(props) {
     <>
       <div className="border mar p-4">
         <h1 className="mb-4 card-title">明細</h1>
-        <h2 className="mb-3">
-          {order.exhibition_name}
-          {order.exhibition_id}
-        </h2>
+        <h2 className="mb-3">{order.exhibition_name}</h2>
         <h4 className="mb-5">
           日期:{order.date.start} ~ {order.date.end}
         </h4>
