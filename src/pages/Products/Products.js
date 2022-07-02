@@ -192,7 +192,7 @@ function Products() {
           </div>
         </div>
         <div className="row mt-5 product_area pt-5">
-          <div className="col-2 col-md-3 col-lg-2">
+          <div className="product_sidebar_container col-md-3 col-lg-2">
             <ProductSidebar
               classifications={classifications}
               setClassifications={setClassifications}
@@ -207,7 +207,7 @@ function Products() {
               setPrice={setPrice}
             />
           </div>
-          <div className="col-10 col-md-9 col-lg-10 p-0">
+          <div className="col-12 col-md-9 col-lg-10 p-0">
             <ProductList
               products={products}
               setProducts={setProducts}

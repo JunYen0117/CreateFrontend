@@ -91,20 +91,58 @@
   }
 }
 
-.product_item {
-  figure {
-    // RWD 待調整
-    width: 220px;
-    height: 220px;
-    overflow: hidden;
-    img {
+.product_list{
+  --bs-gutter-y: 0px;
+  --bs-gutter-y: 0px;
+  .product_item {
+    width: 22%;
+    height: 22vw;
+    padding-left: 0px;
+    padding-right: 0px;
+    &:hover{
+      transition: .4s;
+      box-shadow: 0 0 7px hsla(35, 38%, 56%, 0.5);
+    }
+    .to_product_detail{
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
+      text-decoration: none;
+      .product_item_avatar {
+        height: 60%;
+        background: black;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .card_title{
+        font-weight: bold;
+      }
+      .card_brand{
+        color: $success;
+      }
+      .card_price{
+        color: $primary;
+        font-weight: bold;
+      }
+    }
+  }
+
+ // hover時，圖片變暗的特效
+  .product_item:hover{
+    .to_product_detail{
+      .product_item_avatar{
+        img{
+          opacity: .9;
+          transition: .4s;
+        }
+      }
     }
   }
 }
+
 
 .product_page {
   .page-link {
@@ -156,8 +194,7 @@
 /*以下為手機版*/
 @media screen and (max-width: 1200px) {
   .product_item {
-    figure {
-      // RWD 待調整
+    .product_item_avatar {
       width: 180px;
       height: 180px;
     }
@@ -166,8 +203,7 @@
 
 @media screen and (max-width: 992px) {
   .product_item {
-    figure {
-      // RWD 待調整
+    .product_item_avatar {
       width: 128px;
       height: 128px;
     }
@@ -191,19 +227,24 @@
       height: 20vh;
     }
   }
-  
-  .product_sidebar {
-    a {
-      font-size: 12px;
+  .product_sidebar_container{
+    display: none;
+    .product_sidebar {
+      a {
+        font-size: 12px;
+      }
     }
   }
-  .product_item {
-    figure {
-      // RWD 待調整
-      width: 100px;
-      height: 100px;
+  .product_list{
+    .product_item {
+      width: 42%;
+      height: 290px;
+      .product_item_avatar {
+        width: 100px;
+        height: 65%;
+      }
     }
-  }
+  } 
   .product_option_text {
     font-size: 3rem;
   }
