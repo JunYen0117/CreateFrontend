@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Banner from '../../img/banner.jpg';
-import Logo from '../../img/purple.jpg';
 
 function Brandcard(props) {
   const { business_name, business_id, business_logo, business_introduce } =
