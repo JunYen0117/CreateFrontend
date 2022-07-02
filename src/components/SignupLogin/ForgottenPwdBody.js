@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
-import { useState } from 'react';
 import LogoSvg1 from '../../img/header/logo.svg';
 
 function ForgottenPwdBody() {
@@ -9,8 +8,8 @@ function ForgottenPwdBody() {
     try {
       const response = await axios.get(API_URL + '/email');
       console.log(response);
-    } catch (e) {
-      console.error('前端寄email錯誤' + e);
+    } catch {
+      console.error('前端寄email錯誤');
     }
   }
   return (
