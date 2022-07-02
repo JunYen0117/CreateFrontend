@@ -26,7 +26,7 @@ const Product = () => {
           {arr.map((v, i) => {
             return (
               <div className="col-2 position-relative" key={v.id}>
-                <FavProduct  data={v} />
+                <FavProduct data={v} />
               </div>
             );
           })}

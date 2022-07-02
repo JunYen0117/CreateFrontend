@@ -15,7 +15,7 @@ const FavArticle = (props) => {
       >
         <img className="Far_img" src={Milu} alt="" />
       </div>
-      <div className="col-9 mx-3 mt-2 ">
+      <div className="col-10 ms-3 mt-3 position-relative">
         <HeartArticle className="Far_heart" data={data}/>
         <h2>{data.title}</h2>
         <p className="Far_context lh-lg">{data.article_context}</p>

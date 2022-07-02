@@ -29,7 +29,7 @@ const FavProduct = (props) => {
           alt=""
         />
       </div>
-      <div className="Fp_body me-2 mb-5">
+      <div className="Fp_body me-2 mb-5 position-relative">
         <h3 style={{ height: '40px' }}>{data.product_name}</h3>
         <p>NT$ {data.price}</p>
         <button

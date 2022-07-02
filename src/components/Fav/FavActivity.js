@@ -8,10 +8,7 @@ const FavActivity = (props) => {
 
   return (
     <>
-      <div
-        className=" col-4 position-relative "
-        style={{ width: '13rem', height: '10rem' }}
-      >
+      <div className=" col-3  " style={{ width: '13rem', height: '10rem' }}>
         <img className="Far_img" src={Milu} alt="" />
       </div>
       <div className="col-9 mx-3 mt-2 position-relative">
@@ -34,7 +31,7 @@ const FavActivity = (props) => {
               <th className="fw-normal">活動地點</th>
               <td className="fw-normal">{data.exhibition_location}</td>
             </tr>
-            <tr className="Fac_tr">
+            <tr>
               <th className="fw-normal">票價</th>
               <td className="fw-normal">NT$ {data.exhibition_price}</td>
             </tr>
