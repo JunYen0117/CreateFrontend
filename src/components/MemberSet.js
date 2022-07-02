@@ -9,7 +9,18 @@ import { IconContext } from 'react-icons';
 import { FaUser } from 'react-icons/fa';
 
 function MemberSet() {
-  const [member, setMember] = useState(null);
+  const [avatar, setAvatar] = useState('');
+  const [member, setMember] = useState({
+    id: '',
+    account: '',
+    member_name: '',
+    phone: '',
+    address: '',
+    gender: '',
+    age: '',
+    avatar: '',
+  });
+  const [updateImg, setUpdateImg] = useState(true);
 
   function handleChange(e) {
     setMember({ ...member, [e.target.name]: e.target.value });
@@ -27,12 +38,13 @@ function MemberSet() {
         });
         console.log(response.data); //從後台拿回前台，是session的資料
         setMember(response.data.customer); //把資料塞進狀態
+        setAvatar(response.data.customer.avatar);
       } catch (e) {
         console.error('尚未登入');
       }
     };
     getMemberInfo();
-  }, []);
+  }, [updateImg]);
 
   // 如果沒有登入，則不顯示會員資料
   if (member === null) {
@@ -41,18 +53,29 @@ function MemberSet() {
 
   // console.log('member', member);
 
-  // 驗證用，還沒使用到
-  // const [validated, setValidated] = useState(false);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      // 如果表單有圖片，會用 FormData 的方式來上傳
+      let formData = new FormData();
+      formData.append('id', member.id);
+      formData.append('avatar', member.avatar);
+      formData.append('member_name', member.member_name);
+      formData.append('phone', member.phone);
+      formData.append('address', member.address);
+      formData.append('gender', member.gender);
+      formData.append('age', member.age);
 
-  // const handleSubmit = (event) => {
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
-
-  //   setValidated(true);
-  // };
+      let response = await axios.post(
+        `${API_URL}/member/editprofile`,
+        formData
+      );
+      console.log(response.data);
+      setUpdateImg(!updateImg);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   return (
     <>
@@ -63,7 +86,15 @@ function MemberSet() {
           <div className="d-flex justify-content-center mb-4">
             <figure className="memberset_figure">
               <IconContext.Provider value={{ color: '#b99664', size: '150px' }}>
-                <FaUser className="memberset_figure_SVG mx-auto" />
+                {avatar ? (
+                  <img
+                    src={`http://localhost:3003/images${avatar}`}
+                    alt=""
+                    className="img-fluid"
+                  ></img>
+                ) : (
+                  <FaUser className="memberset_figure_SVG mx-auto" />
+                )}
               </IconContext.Provider>
             </figure>
           </div>
@@ -188,7 +219,10 @@ function MemberSet() {
                 />
               </Form.Group>
               <Form.Group className="d-flex justify-content-center justify-content-md-end mb-5">
-                <Button className="member_update_btn mx-auto mx-md-0">
+                <Button
+                  className="member_update_btn mx-auto mx-md-0"
+                  onClick={handleSubmit}
+                >
                   更新
                 </Button>
               </Form.Group>
