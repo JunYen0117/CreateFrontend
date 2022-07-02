@@ -9,28 +9,38 @@ import { IconContext } from 'react-icons';
 import { FaUser } from 'react-icons/fa';
 
 function MemberSet() {
-  const [member, setMember] = useState({
-    id: '',
-    member_num: '',
-    member_name: '',
-    account: '',
-    gender: '',
-    age: '',
-    phone: '',
-    address: '',
-    create_time: '',
-    valid: '',
-  });
+  const [member, setMember] = useState(null);
+
+  function handleChange(e) {
+    setMember({ ...member, [e.target.name]: e.target.value });
+  }
+
+  function handleAvatar(e) {
+    setMember({ ...member, avatar: e.target.files[0] });
+  }
+
   useEffect(() => {
     let getMemberInfo = async () => {
-      let response = await axios.get(API_URL + '/member', {
-        withCredentials: true,
-      });
-      console.log(response.data); //從後台拿回前台，是session的資料
-      setMember(response.data); //把資料塞進狀態
+      try {
+        let response = await axios.get(API_URL + '/member/info', {
+          withCredentials: true,
+        });
+        console.log(response.data); //從後台拿回前台，是session的資料
+        setMember(response.data.customer); //把資料塞進狀態
+      } catch (e) {
+        console.error('尚未登入');
+      }
     };
     getMemberInfo();
   }, []);
+
+  // 如果沒有登入，則不顯示會員資料
+  if (member === null) {
+    return <></>;
+  }
+
+  // console.log('member', member);
+
   // 驗證用，還沒使用到
   // const [validated, setValidated] = useState(false);
 
@@ -43,6 +53,7 @@ function MemberSet() {
 
   //   setValidated(true);
   // };
+
   return (
     <>
       <div className="memberset container-fluid my-5">
@@ -66,7 +77,12 @@ function MemberSet() {
                   修改頭像
                 </Form.Label>
 
-                <Form.Control type="file" className="member_input" />
+                <Form.Control
+                  className="member_input"
+                  type="file"
+                  name="avatar"
+                  onChange={handleAvatar}
+                />
               </Form.Group>
 
               <Form.Group
@@ -102,6 +118,7 @@ function MemberSet() {
                   value={member.member_name}
                   className="member_input"
                   placeholder="Name"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
@@ -119,6 +136,7 @@ function MemberSet() {
                   value={member.phone}
                   className="member_input"
                   placeholder="Tel"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
@@ -136,14 +154,11 @@ function MemberSet() {
                   value={member.address}
                   className="member_input"
                   placeholder="Address"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
-              <Form.Group
-                className="d-block d-md-flex mb-4"
-                controlId=""
-                disabled
-              >
+              <Form.Group className="d-block d-md-flex mb-4" disabled>
                 <Form.Label column sm="2">
                   性別
                 </Form.Label>
@@ -153,12 +168,13 @@ function MemberSet() {
                   value={member.gender}
                   className="member_input"
                   placeholder="F/M"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group
                 className="d-block d-md-flex mb-5"
-                controlId="formPlaintextEmail"
+                controlId="formPlaintextAge"
               >
                 <Form.Label column sm="2">
                   年齡
@@ -168,6 +184,7 @@ function MemberSet() {
                   name="age"
                   value={member.age}
                   className="member_input member_birth"
+                  onChange={handleChange}
                 />
               </Form.Group>
               <Form.Group className="d-flex justify-content-center justify-content-md-end mb-5">

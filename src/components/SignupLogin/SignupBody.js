@@ -22,6 +22,7 @@ function SignupBody(props) {
     phone: '9999999',
     address: '9999999',
   });
+
   const handleChange = (e) => {
     setSignInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
@@ -29,9 +30,7 @@ function SignupBody(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL + '/signup', signupInfo, {
-        withCredentials: true,
-      });
+      const response = await axios.post(API_URL + '/auth/signup', signupInfo);
       console.log('aaaaaa');
       Swal.fire({
         icon: 'success',
@@ -63,6 +62,7 @@ function SignupBody(props) {
           <Form.Group className="account">
             <Form.Control
               type="text"
+              id="signupAccount"
               name="account"
               value={signupInfo.account}
               onChange={handleChange}
@@ -74,6 +74,7 @@ function SignupBody(props) {
           <Form.Group className="password">
             <Form.Control
               type={pwdReveal}
+              id="signupPassword"
               name="password"
               value={signupInfo.password}
               onChange={handleChange}
@@ -104,6 +105,7 @@ function SignupBody(props) {
           <Form.Group className="re_password">
             <Form.Control
               type={pwdReveal2}
+              id="re_password"
               name="re_password"
               value={signupInfo.re_password}
               onChange={handleChange}
@@ -134,6 +136,7 @@ function SignupBody(props) {
           <Form.Group className="member_name">
             <Form.Control
               type="text"
+              id="member_name"
               name="member_name"
               value={signupInfo.member_name}
               onChange={handleChange}
@@ -145,6 +148,7 @@ function SignupBody(props) {
           <Form.Group className="phone">
             <Form.Control
               type="tel"
+              id="phone"
               name="phone"
               value={signupInfo.phone}
               onChange={handleChange}
@@ -156,6 +160,7 @@ function SignupBody(props) {
           <Form.Group className="address">
             <Form.Control
               type="text"
+              id="address"
               name="address"
               value={signupInfo.address}
               onChange={handleChange}
@@ -166,6 +171,7 @@ function SignupBody(props) {
 
           <Form.Group className="gender">
             <Form.Select
+              id="gender"
               name="gender"
               value={signupInfo.gender}
               onChange={handleChange}
@@ -182,6 +188,7 @@ function SignupBody(props) {
           <Form.Group className="age">
             <Form.Control
               type="text"
+              id="age"
               name="age"
               value={signupInfo.age}
               onChange={handleChange}

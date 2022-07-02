@@ -1,5 +1,5 @@
-import axios from 'axios';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -17,6 +17,7 @@ function LoginBody(props) {
     account: '',
     password: '',
   });
+
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
@@ -24,7 +25,7 @@ function LoginBody(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL + '/login', loginInfo, {
+      const response = await axios.post(API_URL + '/auth/login', loginInfo, {
         withCredentials: true,
       });
       console.log(response);
@@ -47,6 +48,7 @@ function LoginBody(props) {
 
   const [loginPwdEye, setLoginPwdEye] = useState(false);
   const [pwdReveal, setPwdReveal] = useState('password');
+
   return (
     <>
       <Form className="login_form">
@@ -58,6 +60,7 @@ function LoginBody(props) {
           <Form.Group className="account">
             <Form.Control
               type="text"
+              id="loginAccount"
               name="account"
               value={loginInfo.account}
               onChange={handleChange}
@@ -68,11 +71,13 @@ function LoginBody(props) {
           <Form.Group className="password">
             <Form.Control
               type={pwdReveal}
+              id="loginPassword"
               name="password"
               value={loginInfo.password}
               onChange={handleChange}
               className="mx-auto mb-5"
               placeholder="密碼"
+              autoComplete="on"
             />
             <div
               className="login_eye"

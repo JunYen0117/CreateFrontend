@@ -1,5 +1,6 @@
 import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
-
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +10,20 @@ function LoginDropdown(props) {
 
   //dorpdown開關，讓.header_dropdown_menu會不會顯示出來？
   const [showDropdown, setShowDropdown] = useState('d-none');
+
+  const handleLogout = async () => {
+    try {
+      const logout = await axios.get(API_URL + '/auth/logout', {
+        withCredentials: true,
+      });
+      console.log('logout:', logout);
+      setShowDropdown('d-none');
+      setIsLogin(false);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <>
       <div>
@@ -84,10 +99,7 @@ function LoginDropdown(props) {
               <Link
                 to="/Front"
                 className="p-2 text-center"
-                onClick={() => {
-                  setShowDropdown('d-none');
-                  setIsLogin(false);
-                }}
+                onClick={handleLogout}
               >
                 登出
               </Link>

@@ -37,7 +37,7 @@ function Header(props) {
   }
   return (
     <>
-      {console.log(props.isLogin)}
+      {/* console.log(props.isLogin)*/}
       <header className="container-fluid">
         <div className="d-none d-md-flex justify-content-between">
           <div className="d-flex ms-5">

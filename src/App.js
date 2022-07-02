@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from './utils/config';
 import Member from './pages/Member';
 
 import About from './pages/About';
@@ -31,9 +33,31 @@ import { CartProvider } from './utils/useCart';
 import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
-
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState({
+    userID: '',
+  });
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const checkLogin = await axios.get(API_URL + '/member/info', {
+          withCredentials: true,
+        });
+        setIsLogin(true);
+        setUser({
+          userID: checkLogin.data.customer.id,
+        });
+      } catch (e) {
+        console.error('尚未登入');
+      }
+    })();
+  }, []);
+
+  console.log('isLogin', isLogin);
+  console.log('user', user);
+
   return (
     <CartProvider localStorageKey="Cart">
       <Router>
