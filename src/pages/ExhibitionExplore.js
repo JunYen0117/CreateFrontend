@@ -8,24 +8,30 @@ import { API_URL } from '../utils/config';
 
 function ExhibitionExplore(props) {
   const [exhibitions, setExhibitions] = useState([]);
-  const [city, setCity] = useState('');
+  const [area, setArea] = useState('');
   const [level, setLevel] = useState('');
   const [date, setDate] = useState('');
 
   useEffect(() => {
     let getExhibitions = async () => {
-      let response = await axios.get(API_URL + '/exhibition');
+      let response = await axios.get(API_URL + '/exhibition', {
+        params: {
+          area: area,
+          level: level,
+          date: date,
+        },
+      });
       setExhibitions(response.data);
     };
     getExhibitions();
-  }, []);
+  }, [area, level, date]);
   function handleExExhibitions() {
     exhibitions.map((item, index) => {
       return (item.position = { lat: item.latitude, lng: item.longitude });
     });
   }
   handleExExhibitions();
-
+  console.log(area, level, date);
   return (
     <>
       <ExhibitionExploreButton />
@@ -33,8 +39,8 @@ function ExhibitionExplore(props) {
         <div className="col-12 col-md-4">
           <ExhibitionExploreCards
             exhibitions={exhibitions}
-            city={city}
-            setCity={setCity}
+            area={area}
+            setArea={setArea}
             level={level}
             setLevel={setLevel}
             date={date}
