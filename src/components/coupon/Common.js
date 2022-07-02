@@ -22,6 +22,7 @@ function Common(props) {
     changeState,
     notUse,
     setNotUse,
+    refreshList,
   } = props;
 
   switch (changeState) {
@@ -44,8 +45,8 @@ function Common(props) {
       break;
     }
   }
-  console.log('changeState:', changeState);
-  console.log('data:', data);
+  console.log('changeState:', changeState, data, invalidList);
+  // console.log('data:', data, invalidList);
 
   // 正規寫法寫不出來，棄用
   // const [data, setData] = useState({});
@@ -103,8 +104,7 @@ function Common(props) {
         </h4>
         {/* div不能放在map裡面，因為這樣 d-flex 會一直重複生成，所以要放在外面 */}
         <div className="coupon d-flex d-grid flex-wrap justify-content-between mx-1 row">
-          {data &&
-            data.map((coupon, index) => {
+          {data.map((coupon, index) => {
               return (
                 <Card
                   key={index}
@@ -113,6 +113,7 @@ function Common(props) {
                   coupon={coupon}
                   notUse={notUse}
                   setNotUse={setNotUse}
+                  refreshList={refreshList}
                 />
               );
             })}

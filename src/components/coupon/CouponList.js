@@ -11,36 +11,40 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
+
 const CouponList = () => {
+  // 撈出使用者全部可領取的優惠券 (coupon_send_status=1)
   const [availableList, setAvailable] = useState([]);
   const [nowPage, setNowPage] = useState(1);
   const [lastPage, setLastPage] = useState();
+  const [changeState, setChangeState] = useState(3);
 
-  const [receiveLastPage, setReceiveLastPage] = useState();
-  const [nowReceivePage, setReceiveNowPage] = useState(1);
-  const [receiveList, setReceiveList] = useState([]);
-
-  const [invalidLastPage, setInvalidLastPage] = useState();
-  const [nowInvalidPage, setInvalidNowPage] = useState(1);
-  const [invalidList, setInvalidList] = useState([]);
-
-  const [changeState, setChangeState] = useState(1);
+  const [insertCoupon, setInsertCoupon] = useState({
+    customer_id: 1, // 到時候要抓 user_id 然後設定setInsertCoupon
+    coupon_id: 3, // 到時候要抓 user_id 然後設定setInsertCoupon
+  });
+  let getCoupons = async () => {
+    let response = await axios.get(API_URL + '/coupons/available', {
+      params: {
+        page: nowPage,
+      },
+    });
+    setAvailable(response.data.availableList);
+    setLastPage(response.data.pagination.lastPage);
+  };
 
   useEffect(() => {
-    let getCoupons = async () => {
-      let response = await axios.get(API_URL + '/coupons/available', {
-        params: {
-          page: nowPage,
-        },
-      });
-      setAvailable(response.data.availableList);
-      setLastPage(response.data.pagination.lastPage);
-    };
     getCoupons();
+
+
   }, [nowPage, lastPage]);
 
   // console.log(availableList);
 
+  // 撈出全部使用者可使用的優惠券
+  const [receiveLastPage, setReceiveLastPage] = useState();
+  const [nowReceivePage, setReceiveNowPage] = useState(1);
+  const [receiveList, setReceiveList] = useState([]);
   useEffect(() => {
     let getCoupons = async () => {
       let response = await axios.get(API_URL + '/coupons/receive', {
@@ -52,12 +56,15 @@ const CouponList = () => {
       setReceiveLastPage(response.data.pagination.receiveLastPage);
     };
     getCoupons();
-    console.log('receiveLastPage', receiveLastPage);
-    console.log('nowReceivePage', nowReceivePage);
+    // console.log('receiveLastPage', receiveLastPage);
+    // console.log('nowReceivePage', nowReceivePage);
   }, [nowReceivePage, receiveLastPage]);
-  console.log('receiveList', receiveList);
+  // console.log('receiveList', receiveList);
 
   // 撈出全部使用者擁有的優惠券但已失效
+  const [invalidLastPage, setInvalidLastPage] = useState();
+  const [nowInvalidPage, setInvalidNowPage] = useState(1);
+  const [invalidList, setInvalidList] = useState([]);
   useEffect(() => {
     let getCoupons = async () => {
       let response = await axios.get(API_URL + '/coupons/invalid', {
@@ -65,14 +72,18 @@ const CouponList = () => {
           page: nowInvalidPage,
         },
       });
-      setInvalidList(response.data.invalidList);
-      setInvalidLastPage(response.data.pagination.invalidLastPage);
+      // setInvalidList(response.data.invalidList);
+      // setInvalidLastPage(response.data.pagination.invalidLastPage);
     };
     getCoupons();
     // console.log('invalidLastPage', invalidLastPage);
     // console.log('nowInvalidPage', nowInvalidPage);
   }, [nowInvalidPage, invalidLastPage]);
   console.log('invalidList:', invalidList);
+
+  function refreshList() {
+    console.log('refreshList');
+  }
 
   // 寫法 2 要加的
   // const [coupon, setCoupon] = useState('available');
@@ -124,7 +135,10 @@ const CouponList = () => {
                   setReceiveList={setReceiveList}
                   nowReceivePage={nowReceivePage}
                   setReceiveNowPage={setReceiveNowPage}
+                  invalidList={invalidList}
+                  invalidLastPage={invalidLastPage}
                   changeState={changeState}
+                  refreshList={refreshList}
                 />
               </Tab.Pane>
               <Tab.Pane
@@ -140,6 +154,8 @@ const CouponList = () => {
                   setLastPage={setLastPage}
                   receiveLastPage={receiveLastPage}
                   receiveList={receiveList}
+                  invalidList={invalidList}
+                  invalidLastPage={invalidLastPage}
                   changeState={changeState}
                 />
               </Tab.Pane>

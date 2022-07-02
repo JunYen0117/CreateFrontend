@@ -16,7 +16,7 @@ function Invalid(props) {
     receiveLastPage,
     changeState,
   } = props;
-  console.log(invalidList);
+  console.log('invalid component', invalidList);
 
   const [notUse, setNotUse] = useState(true);
 

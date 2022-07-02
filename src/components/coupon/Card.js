@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
+
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
   const { pass, use, coupon, notUse } = props;
@@ -50,15 +53,33 @@ const Card = (props) => {
           </div>
           <div className="couponCard_btn_desktop d-flex mb-4 position-absolute">
             {!notUse ? (
-              <button className="couponCard_btn ms-2">
+              <button
+                className="couponCard_btn ms-2"
+                onClick={async (e) => {
+      //                 // 領取優惠券
+      // let response = await axios.post(
+      //   API_URL + '/coupons/insertCoupon',
+      //   insertCoupon
+      // );
+      // console.log(response);
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: '領取成功',
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  props.refreshList();
+                }}
+              >
                 <div className="text-decoration-none">
-                  {/* 這是 立即使用 的變數 */}
+                  {/* 這是 立即使用/領取 的變數 */}
                   {use}
                 </div>
               </button>
             ) : (
               <div className="ms-2 couponCard_btn_notUse text-center">
-                {/* 這是 立即使用 的變數 */}
+                {/* 這是 立即使用/領取 的變數 */}
                 {use}
               </div>
             )}
@@ -82,28 +103,35 @@ const Card = (props) => {
             <h5 className="coupon_p text-start my-0 pt-2">使用期限：</h5>
             <h5 className="coupon_p text-start my-0 pt-1">
               {coupon.coupon_start_period}至
-              {/* 資料庫欄位名稱：coupon_start_period	 */}
             </h5>
             <h5 className="coupon_p text-start my-0 mb-1">
               {coupon.coupon_end_period}
-              {/* 資料庫欄位名稱：coupon_end_period		 */}
             </h5>
 
             {!notUse ? (
               <button
                 className={`couponCard_btn_phone mx-auto px-2 position-absolute`}
+                onClick={(e) => {
+                  // 資料庫要資料重新渲染一次
+                  props.refreshList();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: '領取成功',
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }}
               >
-                <a href="/" className="text-decoration-none">
-                  {/* 這是 立即使用 的變數 */}
-                  {use}
-                </a>
+                {/* 這是 立即使用/領取 的變數 */}
+                {use}
               </button>
             ) : (
               <button
                 className={`couponCard_btn_phone mx-auto px-2 position-absolute disable`}
               >
                 <span className="text-decoration-none">
-                  {/* 這是 立即使用 的變數 */}
+                  {/* 這是 立即使用/領取 的變數 */}
                   {use}
                 </span>
               </button>

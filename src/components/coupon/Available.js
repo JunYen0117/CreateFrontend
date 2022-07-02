@@ -14,6 +14,7 @@ function Available(props) {
     changeState,
     invalidLastPage,
     invalidList,
+    refreshList,
   } = props;
 
   const [notUse, setNotUse] = useState(false);
@@ -60,6 +61,7 @@ function Available(props) {
         changeState={changeState}
         notUse={notUse}
         setNotUse={setNotUse}
+        refreshList={refreshList}
       />
     </>
   );
