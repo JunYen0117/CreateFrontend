@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
+import { API_URL } from '../../utils/config';
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import { productGetDetail } from '../../utils/api';
 import {
@@ -12,8 +14,13 @@ import {
 } from 'react-icons/bs';
 
 function ProductDetail() {
+  
+  // 消費者1
+  let user_id = 1;
+
   const textarr = [1, 2, 3];
   const [heart, setHeart] = useState(false);
+  const [arr, setArr] = useState([]);
   // 購物車
   const { addItem, isInCart } = useCart();
   // 計算購買數量
@@ -47,6 +54,54 @@ function ProductDetail() {
     };
     axiosProductById();
   }, []);
+
+  // 抓收藏的user
+  useEffect(() => {
+    let getUserLike = async () => {
+      let response = await axios.get(`${API_URL}/fav/product/${user_id}`);
+      setArr(response.data);
+      // console.log('product', response.data);
+    };
+    getUserLike();
+  }, []);
+
+  const delfav = async (e) => {
+    // console.log(productInDetail.id);
+    // console.log(`${API_URL}/fav/product/del/${user_id}/${productInDetail.id}`);
+    try {
+      let response = await axios.get(
+        `${API_URL}/fav/product/del/${user_id}/${productInDetail.id}`
+      );
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已取消收藏',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const addfav = async (e) => {
+    // console.log(productInDetail.id);
+    // console.log(`${API_URL}/fav/product/add/${user_id}/${productInDetail.id}`);
+    try {
+      let response = await axios.get(
+        `${API_URL}/fav/product/add/${user_id}/${productInDetail.id}`
+      );
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已加入收藏',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const handleAddCart = (e) => {
     e.preventDefault();
@@ -123,7 +178,14 @@ function ProductDetail() {
             <a
               href="#/"
               alt=""
-              onClick={() => {
+              onClick={(e) => {
+                if (heart === true) {
+                  // console.log('del');
+                  delfav(e);
+                } else {
+                  addfav(e);
+                  // console.log('add');
+                }
                 setHeart(!heart);
               }}
             >
