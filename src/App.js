@@ -29,99 +29,78 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
+import { LoginProvider } from './utils/useLogin';
 
 import FavList from './pages/Fav/FavList';
 import Order from './pages/ProductOrder/Order';
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [user, setUser] = useState({
-    userID: '',
-  });
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const checkLogin = await axios.get(API_URL + '/member/info', {
-          withCredentials: true,
-        });
-        setIsLogin(true);
-        setUser({
-          userID: checkLogin.data.customer.id,
-        });
-      } catch (e) {
-        console.error('尚未登入');
-      }
-    })();
-  }, []);
-
-  console.log('isLogin', isLogin);
-  console.log('user', user);
-
   return (
-    <CartProvider localStorageKey="Cart">
-      <Router>
-        <>
-          <Switch>
-            <Route exact path="/">
-              <Starter />
-            </Route>
-          </Switch>
-          <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-          <Switch>
-            <Route path="/Front">
-              <FrontPage />
-            </Route>
-            <Route path="/Brand">
-              <BrandPage />
-            </Route>
-            <Route path="/BrandStores">
-              <BrandStores />
-            </Route>
-            <Route path="/course">
-              <Course />
-            </Route>
-            <Route path="/activity">
-              <Activity />
-            </Route>
-            <Route path="/activitypayment">
-              <ActivityPayment />
-            </Route>
-            <Route path="/member">
-              <Member />
-            </Route>
-            <Route path="/themeplanning">
-              <ThemePlanning />
-            </Route>
-            <Route path="/pwdchanging">
-              <PwdChanging />
-            </Route>
-            <Route path="/product/detail">
-              <ProductDetail />
-            </Route>
-            <Route path="/product">
-              <Products />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-            <Route path="/fav">
-              <FavList />
-            </Route>
-            <Route path="/order">
-              <Order />
-            </Route>
-            <Route path="/exhibition">
-              <Exhibition />
-            </Route>
-            <Route path="/exhibitionexplore">
-              <ExhibitionExploret />
-            </Route>
-          </Switch>
-          <Footer />
-        </>
-      </Router>
-    </CartProvider>
+    <LoginProvider>
+      <CartProvider localStorageKey="Cart">
+        <Router>
+          <>
+            <Switch>
+              <Route exact path="/">
+                <Starter />
+              </Route>
+            </Switch>
+            <Header />
+            <Switch>
+              <Route path="/Front">
+                <FrontPage />
+              </Route>
+              <Route path="/Brand">
+                <BrandPage />
+              </Route>
+              <Route path="/BrandStores">
+                <BrandStores />
+              </Route>
+              <Route path="/course">
+                <Course />
+              </Route>
+              <Route path="/activity">
+                <Activity />
+              </Route>
+              <Route path="/activitypayment">
+                <ActivityPayment />
+              </Route>
+              <Route path="/member">
+                <Member />
+              </Route>
+              <Route path="/themeplanning">
+                <ThemePlanning />
+              </Route>
+              <Route path="/pwdchanging">
+                <PwdChanging />
+              </Route>
+              <Route path="/product/detail">
+                <ProductDetail />
+              </Route>
+              <Route path="/product">
+                <Products />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+              <Route path="/fav">
+                <FavList />
+              </Route>
+              <Route path="/order">
+                <Order />
+              </Route>
+              <Route path="/exhibition">
+                <Exhibition />
+              </Route>
+              <Route path="/exhibitionexplore">
+                <ExhibitionExploret />
+              </Route>
+            </Switch>
+            <Footer />
+          </>
+        </Router>
+      </CartProvider>
+    </LoginProvider>
   );
 }
 

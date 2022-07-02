@@ -14,13 +14,15 @@ import { useState } from 'react';
 import SignupLogin from './SignupLogin/SignupLogin';
 import LoginDropdown from './SignupLogin/LoginDropdown';
 
+import { useLogin } from '../utils/useLogin';
+
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
-function Header(props) {
+function Header() {
   //傳入登入狀態，從App.js -> Header.js
-  const { isLogin, setIsLogin } = props;
+  const { isLogin } = useLogin();
 
   //offcanvas套件：useState狀態、開關
   const [showLeft, setShowLeft] = useState(false);
@@ -35,6 +37,7 @@ function Header(props) {
   if (window.location.href === 'http://localhost:3000/') {
     return <></>;
   }
+
   return (
     <>
       {/* console.log(props.isLogin)*/}
@@ -65,11 +68,7 @@ function Header(props) {
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
-              {isLogin === true ? (
-                <LoginDropdown isLogin={isLogin} setIsLogin={setIsLogin} />
-              ) : (
-                <SignupLogin isLogin={isLogin} setIsLogin={setIsLogin} />
-              )}
+              {isLogin === true ? <LoginDropdown /> : <SignupLogin />}
             </li>
           </ul>
         </div>

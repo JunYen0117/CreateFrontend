@@ -8,9 +8,8 @@ import { IconContext } from 'react-icons';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 
-function SignupBody(props) {
+function SignupBody() {
   //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> SignupBody.js
-  const { isLogin, setIsLogin } = props;
 
   const [signupInfo, setSignInfo] = useState({
     member_name: 'fffff',

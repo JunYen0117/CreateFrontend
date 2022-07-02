@@ -4,9 +4,11 @@ import { API_URL } from '../../utils/config';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function LoginDropdown(props) {
+import { useLogin } from '../../utils/useLogin';
+
+function LoginDropdown() {
   //傳入登入狀態，從App.js -> Header.js -> LoginDropdown.js
-  const { isLogin, setIsLogin } = props;
+  const { setIsLogin } = useLogin();
 
   //dorpdown開關，讓.header_dropdown_menu會不會顯示出來？
   const [showDropdown, setShowDropdown] = useState('d-none');
@@ -16,7 +18,7 @@ function LoginDropdown(props) {
       const logout = await axios.get(API_URL + '/auth/logout', {
         withCredentials: true,
       });
-      console.log('logout:', logout);
+      // console.log('logout:', logout);
       setShowDropdown('d-none');
       setIsLogin(false);
     } catch (e) {

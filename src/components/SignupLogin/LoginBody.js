@@ -9,9 +9,11 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 import LogoSvg1 from '../../img/header/logo.svg';
 
-function LoginBody(props) {
+import { useLogin } from '../../utils/useLogin';
+
+function LoginBody() {
   //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> LoginBody.js
-  const { isLogin, setIsLogin } = props;
+  const { setIsLogin } = useLogin();
 
   const [loginInfo, setLoginInfo] = useState({
     account: '',
@@ -28,7 +30,7 @@ function LoginBody(props) {
       const response = await axios.post(API_URL + '/auth/login', loginInfo, {
         withCredentials: true,
       });
-      console.log(response);
+      // console.log(response);
       setIsLogin(true);
       Swal.fire({
         icon: 'success',
@@ -102,9 +104,6 @@ function LoginBody(props) {
               type="submit"
               className="login_btn mx-auto"
               onClick={handleSubmit}
-              // onClick={() => {
-              //   setIsLogin(true);
-              // }}
             >
               登入
             </button>
