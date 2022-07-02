@@ -1,20 +1,23 @@
 // import '../../styles/_frontpage.scss';
 
 function ProductCard(props) {
-  const { pic_href, product_pic, product, brand_href, brand, cost, on_phone } =
-    props;
+  const { image, product_name, vendor_id, price, on_phone } = props;
   return (
     <>
       <div className={`card front_card ${on_phone ? 'col' : 'col-3'}`}>
-        <a href={pic_href} className="ratio ratio-1x1">
-          <img src={product_pic} className="card-img-top" alt="..." />
+        <a href="/" className="ratio ratio-1x1">
+          <img
+            src={'http://localhost:3003/images/product/' + image}
+            className="card-img-top"
+            alt="..."
+          />
         </a>
         <div className="card-body">
-          <h5 className="card-title">{product}</h5>
-          <a href={brand_href} className="card-text">
-            {brand}
+          <h5 className="card-title">{product_name}</h5>
+          <a href="/" className="card-text">
+            {vendor_id}
           </a>
-          <p className="money">NT. {cost}</p>
+          <p className="money">NT. {price}</p>
         </div>
       </div>
     </>

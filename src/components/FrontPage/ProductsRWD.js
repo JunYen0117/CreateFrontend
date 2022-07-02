@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 function ProductsRWD(props) {
-  const { datas, on_phone } = props;
+  const { datas, on_phone, Comp } = props;
   return (
     <>
       <Swiper
@@ -17,22 +17,15 @@ function ProductsRWD(props) {
       >
         {datas.map((Productdatas, index) => {
           const a = index === 0 ? 'active' : '';
-          return (
-            Productdatas.map((content) => (
-              <SwiperSlide>
-                <ProductCard
-                  key={content.product}
-                  product={content.product}
-                  brand={content.brand}
-                  product_pic={content.product_pic}
-                  brand_href={content.brand_href}
-                  pic_href={content.pic_href}
-                  cost={content.cost}
-                  on_phone={on_phone}
-                />
-              </SwiperSlide>
-            ))
-          );
+          return Productdatas.map((content) => (
+            <SwiperSlide>
+              <Comp
+                // key={content.product}
+                {...content}
+                on_phone={on_phone}
+              />
+            </SwiperSlide>
+          ));
         })}
       </Swiper>
     </>

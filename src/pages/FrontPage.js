@@ -4,37 +4,75 @@ import SliderBanner from '../components/FrontPage/SliderBanner';
 import ArticleCards from '../components/FrontPage/ArticleCards';
 import Carousel from '../components/FrontPage/Carousel';
 import CarouselContents from '../components/FrontPage/CarouselContents';
+import ProductCard from '../components/FrontPage/ProductCard';
+import Brand from '../components/FrontPage/Brand';
 
 import datas from '../test/data/ArticleCard.json';
-import Productdatas from '../test/data/ProductCard.json';
 import Contents from '../test/data/Business.json';
 import ProductsRWD from '../components/FrontPage/ProductsRWD';
+import axios from 'axios';
+
+function arrayConvert(array, n) {
+  // code
+  let ans = [];
+  let subAns = [];
+  array.forEach((element, i) => {
+    subAns.push(element);
+    if ((i + 1) % n === 0) {
+      ans.push(subAns);
+      subAns = [];
+    } else if (i + 1 === array.length) {
+      ans.push(subAns);
+    }
+  });
+  return ans;
+}
 
 class FrontPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { matches: window.matchMedia('(min-width: 768px)').matches };
+    this.state = {
+      matches: window.matchMedia('(min-width: 768px)').matches,
+      Productdatas: [],
+      Branddatas: [],
+    };
   }
   componentDidMount() {
     const handler = (e) => this.setState({ matches: e.matches });
     window.matchMedia('(min-width: 768px)').addEventListener('change', handler);
+    axios.get('http://localhost:3003/api/front/product').then((res) => {
+      console.log(res.data);
+      this.setState({ Productdatas: arrayConvert(res.data, 4) });
+    });
+    axios.get('http://localhost:3003/api/front/brand').then((res) => {
+      console.log(arrayConvert(res.data, 4));
+      this.setState({ Branddatas: arrayConvert(res.data, 4) });
+    });
   }
   render() {
     let product = (
-      <ProductsRWD datas={Productdatas} on_phone={!this.state.matches} />
+      <ProductsRWD
+        datas={this.state.Productdatas}
+        Comp={ProductCard}
+        on_phone={!this.state.matches}
+      />
     );
     let brand = (
-      <ProductsRWD datas={Productdatas} on_phone={!this.state.matches} />
+      <ProductsRWD
+        datas={this.state.Branddatas}
+        Comp={Brand}
+        on_phone={!this.state.matches}
+      />
     );
     if (this.state.matches) {
       product = (
         <Carousel key_="test1">
-          <ProductCards datas={Productdatas} />
+          <ProductCards datas={this.state.Productdatas} />
         </Carousel>
       );
       brand = (
         <Carousel key_="test2">
-          <CarouselContents contents={Contents} />
+          <CarouselContents datas={this.state.Branddatas} />
         </Carousel>
       );
     }
