@@ -23,8 +23,8 @@ import flo190 from '../../img/ArticleImg/flower190-2.jpg';
 import art101 from '../../img/ArticleImg/art101-2.jpg';
 import art1012 from '../../img/ArticleImg/art101-3.jpg';
 // 9
-import aaa from '../../img/ArticleImg/art101-3.jpg';
-
+import museum1 from '../../img/ArticleImg/museum1.jpeg';
+import museum2 from '../../img/ArticleImg/museum2.jpeg';
 
 function ArticleTitle() {
   return (
