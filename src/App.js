@@ -9,16 +9,19 @@ import User from './pages/User';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
 import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 import ListItem from './components/ProductOrder/ListItem';
 
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
+import Products from './pages/Products/Products';
+import ProductDetail from './pages/Products/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
+import { CheckListProvider } from './utils/useCheckList';
 
 import FavList from './pages/FavList';
 import Order from './pages/Order';
@@ -37,43 +40,47 @@ function App() {
   // }, []);
 
   return (
-    <CartProvider localStorageKey="Cart">
-      <Router>
-        <>
-          <Header />
-          <Switch>
-            <Route path="/member">
-              <Member />
-            </Route>
-            <Route path="/themeplanning">
-              <ThemePlanning />
-            </Route>
-            <Route path="/pwdchanging">
-              <PwdChanging />
-            </Route>
-            <Route path="/product/detail">
-              <ProductDetail />
-            </Route>
-            <Route path="/product">
-              <Products />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-            <Route path="/fav">
-              <FavList />
-            </Route>
-            <Route path="/Miu">
-              <ListItem />
-            </Route>
-            <Route path="/order">
-              <Order />
-            </Route>
-          </Switch>
-          <Footer />
-        </>
-      </Router>
-    </CartProvider>
+    <CheckListProvider>
+      <CartProvider localStorageKey="Cart">
+        <Router>
+          <>
+            <Header />
+            <ScrollToTop>
+              <Switch>
+                <Route path="/member">
+                  <Member />
+                </Route>
+                <Route path="/themeplanning">
+                  <ThemePlanning />
+                </Route>
+                <Route path="/pwdchanging">
+                  <PwdChanging />
+                </Route>
+                <Route path="/product/detail">
+                  <ProductDetail />
+                </Route>
+                <Route path="/product">
+                  <Products />
+                </Route>
+                <Route path="/cart">
+                  <Cart />
+                </Route>
+                <Route path="/fav">
+                  <FavList />
+                </Route>
+                <Route path="/Miu">
+                  <ListItem />
+                </Route>
+                <Route path="/order">
+                  <Order />
+                </Route>
+              </Switch>
+            </ScrollToTop>
+            <Footer />
+          </>
+        </Router>
+      </CartProvider>
+    </CheckListProvider>
   );
 }
 

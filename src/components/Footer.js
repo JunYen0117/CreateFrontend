@@ -112,10 +112,14 @@ function Footer() {
             <Accordion.Header>幫助</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/">Q&A</a>
+                <a href="#/" className="footer_a">
+                  Q&A
+                </a>
               </p>
               <p>
-                <a href="#/">客服</a>
+                <a href="#/" className="footer_a">
+                  客服
+                </a>
               </p>
             </Accordion.Body>
           </Accordion.Item>
@@ -123,10 +127,14 @@ function Footer() {
             <Accordion.Header>認識</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/">關於迴廊</a>
+                <a href="#/" className="footer_a">
+                  關於迴廊
+                </a>
               </p>
               <p>
-                <a href="#/">Business</a>
+                <a href="#/" className="footer_a">
+                  Business
+                </a>
               </p>
             </Accordion.Body>
           </Accordion.Item>

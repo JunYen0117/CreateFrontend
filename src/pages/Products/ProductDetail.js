@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { useCart } from '../utils/useCart';
+import { useCart } from '../../utils/useCart';
 import Swal from 'sweetalert2';
-
+import { productGetDetail } from '../../utils/api';
 import {
   BsPlusLg,
   BsDashLg,
@@ -10,29 +10,30 @@ import {
   BsHeart,
   BsHeartFill,
 } from 'react-icons/bs';
-import axios from 'axios';
 
 function ProductDetail() {
   const textarr = [1, 2, 3];
   const [heart, setHeart] = useState(false);
-
+  // 購物車
+  const { addItem, isInCart } = useCart();
+  // 計算購買數量
+  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+  // 商品明細
   const [productInDetail, setProductInDetail] = useState({
     id: 0,
     product_name: '',
     price: 0,
     image: '1_1咖啡壺.jpg',
+    vendor_id: 0,
+    business_name: '',
+    product_intro: '',
+    product_info: '',
   });
 
   // /products?productId=2
   const location = useLocation();
   // 前往結帳
   const goPath = useHistory();
-
-  // 購物車
-  const { addItem, isInCart } = useCart();
-
-  // 計算購買數量
-  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
 
   useEffect(() => {
     let axiosProductById = async () => {
@@ -41,19 +42,33 @@ function ProductDetail() {
       // 取得 Param: productId
       const productId = searchParams.get('productId');
       // 向後端要資料
-      const response = await axios.get(
-        `http://localhost:3003/api/product/detail/${productId}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await productGetDetail(productId);
       setProductInDetail(response.data[0]);
     };
     axiosProductById();
   }, []);
 
-  console.log(productInDetail);
-  console.log(isInCart(productInDetail.id));
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    const item = {
+      ...productInDetail,
+      quantity: purchaseQuantity,
+      checked: false,
+    };
+    if (isInCart(productInDetail.id)) {
+      goPath.push('/cart');
+    } else {
+      addItem(item);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '商品已加入購物車',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
   return (
     <>
       <div className="container mt-5">
@@ -97,26 +112,8 @@ function ProductDetail() {
                 <BsPlusLg />
               </span>
             </div>
-            <a
-              href="#/"
-              alt=""
-              onClick={() => {
-                const item = { ...productInDetail, quantity: purchaseQuantity };
-                if (isInCart(productInDetail.id)) {
-                  goPath.push('/cart');
-                } else {
-                  addItem(item);
-                  Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: '商品已加入購物車',
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
-                }
-              }}
-            >
-              <div className="mb-0 p-2 h2 product_pluscart text-center">
+            <a href="#/" alt="" onClick={handleAddCart}>
+              <div className="p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
                 <span>
                   {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
@@ -130,7 +127,7 @@ function ProductDetail() {
                 setHeart(!heart);
               }}
             >
-              <div className="mb-0 p-2 h2 product_pluscart text-center">
+              <div className="p-2 h2 product_pluscart text-center">
                 {heart ? (
                   <BsHeartFill className="mb-1 me-3 h1" />
                 ) : (
@@ -142,26 +139,22 @@ function ProductDetail() {
           </div>
         </div>
         {/* 商品介紹 */}
-        <div className="row justify-content-start my-3">
-          <div className="col-md-9">
+        <div className="row justify-content-start">
+          <div className="col-md-9 px-5 py-3">
             <h1 className="fw-bolder">商品介紹</h1>
-            <p className="h2">
-              商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹商品介紹
-            </p>
+            <pre className="h2">{productInDetail.product_intro}</pre>
           </div>
         </div>
         {/* 商品資訊 */}
-        <div className="row justify-content-start my-3">
-          <div className="col-md-9">
+        <div className="row justify-content-start">
+          <div className="col-md-9 px-5 py-3">
             <h1 className="fw-bolder">商品資訊</h1>
-            <p className="h2">
-              商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊商品資訊
-            </p>
+            <pre className="h2">{productInDetail.product_info}</pre>
           </div>
         </div>
         {/* 購買評價 */}
         <div className="row justify-content-start my-3">
-          <div className="col-12">
+          <div className="col-12 px-5 py-3">
             <h1 className="fw-bolder">購買評價</h1>
             {textarr.map((v, i) => {
               return (

@@ -6,15 +6,16 @@ import { ReactComponent as NoLogin } from '../img/header/nologin.svg';
 import { ReactComponent as Hamburger } from '../img/header/Hamburger.svg';
 import { ReactComponent as MobileSearch } from '../img/header/MobileSearch.svg';
 import { ReactComponent as More } from '../img/header/More.svg';
-
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { useCart } from '../utils/useCart';
 
 const LogoMobile = styled(LogoSvg)`
   width: 90px;
 `;
 
 function Header() {
+  const { cart } = useCart();
   const history = useHistory();
 
   return (
@@ -43,6 +44,7 @@ function Header() {
             <li className="shopcart_item mt-3 me-3">
               <Link to="/cart">
                 <Shopcart1 />
+                <span>{cart.totalItems}</span>
               </Link>
             </li>
             <li className="profile_item mt-3 me-5">
@@ -69,7 +71,6 @@ function Header() {
             <Link to="#/">關於我們</Link>
           </li>
         </ul>
-
         {/* 以下為手機版 */}
         <figure className="mobile_figure d-md-none mx-auto">
           <a href="#/" className="header_a">
@@ -136,9 +137,9 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#/" className="header_a">
+              <Link to="/product" className="header_a">
                 購物商城
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#/" className="header_a">
@@ -169,9 +170,9 @@ function Header() {
               ></button>
             </li>
             <li>
-              <a href="#/" className="header_a">
+              <Link to="/cart" className="header_a">
                 購物車
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#/" className="header_a">

@@ -94,8 +94,8 @@
 .product_item {
   figure {
     // RWD 待調整
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     overflow: hidden;
     img {
       width: 100%;
@@ -109,19 +109,45 @@
 .product_page {
   .page-link {
     border: 1px solid $primary;
+    border-radius: 0 !important;
     padding: 6px 13px;
     color: #000;
     font-weight: 600;
   }
+
   .page-link:focus {
     box-shadow: none;
   }
+
   a:hover,
   .active {
     background-color: $primary;
     color: #fff;
   }
+
+  .page_confirm{
+    color: #903f23;
+    background-color: #DCD5CA;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .page_confirm:hover{
+    background-color: #B99664;
+  }
+
+  input{
+    width: 25px; 
+    height: 25px;
+    box-shadow: none
+  }
+
+  input:focus{
+    outline: 0 none;
+  }
 }
+
+
 
 .product_area {
   border-top: 2px solid $primary;
@@ -132,8 +158,8 @@
   .product_item {
     figure {
       // RWD 待調整
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
     }
   }
 }
@@ -160,6 +186,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .product_banner {
+    img {
+      height: 20vh;
+    }
+  }
+  
   .product_sidebar {
     a {
       font-size: 12px;
@@ -178,6 +210,11 @@
 }
 
 /* ------------ Product Detail ------------*/
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 
 .product_description {
   p {
@@ -194,6 +231,10 @@
   font-weight: 700;
 }
 
+.product_pluscart:hover{
+  background-color: #B99664;
+}
+
 .productdetail_comment{
   max-width: 960px;
   span {
@@ -201,4 +242,5 @@
     background-color: #B99664;
   }
 }
+
 

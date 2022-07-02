@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/antd.css';
 import './index.scss';
-
+import 'bootstrap/dist/js/bootstrap.bundle'; // 加這行
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
