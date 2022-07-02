@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
-const Detail = (props) => {
+const DetailFinish = (props) => {
   const { setOrderDetailId } = props;
   const { orderId } = props;
   // console.log('orderId', orderId);
@@ -16,7 +16,9 @@ const Detail = (props) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/${orderId}`);
+      let response = await axios.get(
+        API_URL + `/productorder/finish/${orderId}`
+      );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
@@ -181,4 +183,4 @@ const Detail = (props) => {
   );
 };
 
-export default Detail;
+export default DetailFinish;

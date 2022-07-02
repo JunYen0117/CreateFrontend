@@ -14,7 +14,7 @@ const ListShipped = () => {
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/poshipped`);
+      let response = await axios.get(API_URL + `/productorder/shipped`);
       setOrders(response.data);
     };
     getOrders();

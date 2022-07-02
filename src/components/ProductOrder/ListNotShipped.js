@@ -13,7 +13,7 @@ const ListNotShipped = () => {
   useEffect(() => {
     let getOrderShipped = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/ponotshipped`);
+      let response = await axios.get(API_URL + `/productorder/notshipped`);
       setOrderShipped(response.data);
     };
     getOrderShipped();

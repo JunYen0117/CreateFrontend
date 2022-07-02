@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
-import Detail from './Detail';
+import Detail from './DetailFinish';
 import 'antd/dist/antd.css';
 
 const ListItem = () => {

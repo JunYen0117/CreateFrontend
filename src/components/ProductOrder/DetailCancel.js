@@ -14,7 +14,9 @@ const DetailCancel = (props) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/pocancel/${orderId}`);
+      let response = await axios.get(
+        API_URL + `/productorder/cancel/${orderId}`
+      );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);

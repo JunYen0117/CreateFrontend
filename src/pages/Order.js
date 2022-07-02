@@ -1,6 +1,6 @@
 import React from 'react';
 import ASidebar from '../components/AccountSidebar/ASidebar';
-import List from '../components/ProductOrder/List';
+import ListFinish from '../components/ProductOrder/ListFinish';
 import ListCancel from '../components/ProductOrder/ListCancel';
 import ListNotShipped from '../components/ProductOrder/ListNotShipped';
 import { useState, useEffect } from 'react';
@@ -50,7 +50,7 @@ const Order = () => {
                   <ListShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="finish">
-                  <List />
+                  <ListFinish />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
                   <ListCancel />

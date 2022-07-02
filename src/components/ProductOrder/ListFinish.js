@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
-import Detail from './Detail';
+import Detail from './DetailFinish';
 import 'antd/dist/antd.css';
 
-const ListItem = () => {
+const ListFinish = () => {
   const [orders, setOrders] = useState([]);
   const [orderDetailId, setOrderDetailId] = useState(0);
 
@@ -16,7 +16,7 @@ const ListItem = () => {
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder`);
+      let response = await axios.get(API_URL + `/productorder/finish`);
       setOrders(response.data);
     };
     getOrders();
@@ -89,4 +89,4 @@ const ListItem = () => {
   );
 };
 
-export default ListItem;
+export default ListFinish;

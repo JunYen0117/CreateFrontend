@@ -14,7 +14,7 @@ const ListCancel = () => {
   useEffect(() => {
     let getOrderCancel = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/pocancel`);
+      let response = await axios.get(API_URL + `/productorder/cancel`);
       setOrderCancel(response.data);
       // console.log(response.data);
     };

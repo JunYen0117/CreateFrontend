@@ -22,7 +22,9 @@ const DetailNotShipped = (props) => {
   // 取消訂單 傳給後端 使valid=0
   const cancelOrder = async () => {
     setIsModalVisible(false);
-    let [result] = await axios.get(API_URL + `/ponotshipped/${orderId}/2`);
+    let [result] = await axios.get(
+      API_URL + `/productorder/notshipped/${orderId}/2`
+    );
   };
 
   const handleCancel = () => {
@@ -32,7 +34,9 @@ const DetailNotShipped = (props) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/poshipped/${orderId}`);
+      let response = await axios.get(
+        API_URL + `/productorder/shipped/${orderId}`
+      );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
