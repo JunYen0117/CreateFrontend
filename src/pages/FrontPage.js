@@ -80,11 +80,11 @@ class FrontPage extends Component {
       <div>
         <SliderBanner />
         <h2 className="front_h2">
-          <a href="/">質感商品</a>
+          <a href="http://localhost:3000/Product">質感商品</a>
         </h2>
         {product}
         <h2 className="front_h2">
-          <a href="/">精選品牌</a>
+          <a href="http://localhost:3000/Brand">精選品牌</a>
         </h2>
         {brand}
         <ArticleCards datas={datas} />

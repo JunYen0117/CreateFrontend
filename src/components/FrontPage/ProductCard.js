@@ -8,7 +8,7 @@ function ProductCard(props) {
         <a href="/" className="ratio ratio-1x1">
           <img
             src={'http://localhost:3003/images/product/' + image}
-            className="card-img-top"
+            className="card-img-top ratio ratio-1x1"
             alt="..."
           />
         </a>
