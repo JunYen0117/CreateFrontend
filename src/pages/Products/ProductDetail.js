@@ -71,10 +71,10 @@ function ProductDetail() {
 
   return (
     <>
-      <div className="container mt-5">
+      <div className="container">
         <div className="row">
-          <div className="col-md-6 p-5">
-            <figure className="figure">
+          <div className="col-md-6 p-2 p-md-4">
+            <figure className="product_detail_main_pic">
               <img
                 src={`http://localhost:3003/images/product/${productInDetail.image}`}
                 className="img-fluid"
@@ -83,37 +83,39 @@ function ProductDetail() {
             </figure>
           </div>
           {/* 商品描述 */}
-          <div className="col-md-4 p-5 product_description d-flex flex-column justify-content-around">
-            <p className="h1 m-0 p-3">{productInDetail.product_name}</p>
+          <div className="col-md-6 p-2 p-md-4 product_description d-flex flex-column ">
+            <p className="h1 m-0 p-3 my-md-4">{productInDetail.product_name}</p>
             <div className="h2 m-0 p-3">
-              <span>NT $ {productInDetail.price}</span>
+              <span className="price">NT $ {productInDetail.price}</span>
             </div>
-            <p className="h2 m-0 p-3">數量</p>
-            <div className="m-0 p-3 product_count">
-              <span
-                className="fw-bolder cursor_pointer"
-                onClick={() => {
-                  setPurchaseQuantity(
-                    purchaseQuantity === 1 ? 1 : purchaseQuantity - 1
-                  );
-                }}
-              >
-                <BsDashLg />
-              </span>
-              <span className="border mx-3 h2 fw-bolder">
-                {purchaseQuantity}
-              </span>
-              <span
-                className="fw-bolder cursor_pointer"
-                onClick={() => {
-                  setPurchaseQuantity(purchaseQuantity + 1);
-                }}
-              >
-                <BsPlusLg />
-              </span>
+            <div className="d-flex mb-md-4">
+              <p className="me-3 p-3 align-self-center">數量</p>
+              <div className="me-3 p-3 product_count align-self-center">
+                <span
+                  className="fw-bolder cursor_pointer"
+                  onClick={() => {
+                    setPurchaseQuantity(
+                      purchaseQuantity === 1 ? 1 : purchaseQuantity - 1
+                    );
+                  }}
+                >
+                  <BsDashLg />
+                </span>
+                <span className="border mx-3 h2 fw-bolder">
+                  {purchaseQuantity}
+                </span>
+                <span
+                  className="fw-bolder cursor_pointer"
+                  onClick={() => {
+                    setPurchaseQuantity(purchaseQuantity + 1);
+                  }}
+                >
+                  <BsPlusLg />
+                </span>
+              </div>
             </div>
             <a href="#/" alt="" onClick={handleAddCart}>
-              <div className="p-2 h2 product_pluscart text-center">
+              <div className="mb-md-5 p-2 h2 product_pluscart text-center">
                 <BsFillCartPlusFill className="mb-1 me-3 h1" />
                 <span>
                   {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
@@ -127,7 +129,7 @@ function ProductDetail() {
                 setHeart(!heart);
               }}
             >
-              <div className="p-2 h2 product_pluscart text-center">
+              <div className="mb-md-5 p-2 h2 product_pluscart text-center">
                 {heart ? (
                   <BsHeartFill className="mb-1 me-3 h1" />
                 ) : (
@@ -152,36 +154,39 @@ function ProductDetail() {
             <pre className="h2">{productInDetail.product_info}</pre>
           </div>
         </div>
+
         {/* 購買評價 */}
         <div className="row justify-content-start my-3">
-          <div className="col-12 px-5 py-3">
+          <div className="col-12 p-3 px-md-5">
             <h1 className="fw-bolder">購買評價</h1>
             {textarr.map((v, i) => {
               return (
-                <div key={i} className="my-4">
-                  <p className="h2">Customer Name</p>
-                  <div className="card mb-3 productdetail_comment">
-                    <div className="row g-0">
-                      <div className="col-md-4">
-                        <img
-                          src={`http://localhost:3003/images/product/${productInDetail.image}`}
-                          alt=""
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="col-md-8 p-3">
-                        <div className="card-body d-flex flex-column justify-content-between h-100">
-                          <p className="card-text h2 lh-lg">
-                            這件商品好讚喔！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！
-                          </p>
-                          <div>
-                            <span className="h2 px-3 py-1 fw-bolder">
-                              質感優異
-                            </span>
-                            <span className="h2 px-3 py-1 ms-3 fw-bolder">
-                              符合期待
-                            </span>
-                          </div>
+                <div key={i} className="productdetail_whole_card my-4">
+                  <div className="productdetail_user_info d-flex">
+                    <figure className=" me-md-3 my-1"> ＜img＞ </figure>
+                    <div className="name_area h2 mx-md-3 p-1">Name</div>
+                    <div className="star_area mx-md-3 p-1">放星星的地方</div>
+                  </div>
+                  <div className="productdetail_card mb-3 row g-0">
+                    <div className="productdetail_card_avatar col-12 col-md-4">
+                      <img
+                        src={`http://localhost:3003/images/product/${productInDetail.image}`}
+                        alt=""
+                        className=""
+                      />
+                    </div>
+                    <div className="productdetail_card_content col-12 col-md-8 p-3">
+                      <div className="d-flex flex-column justify-content-between h-100">
+                        <p className="user_comment h2">
+                          這件商品好讚喔！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！
+                        </p>
+                        <div>
+                          <span className="h2 px-3 py-1 fw-bolder">
+                            質感優異
+                          </span>
+                          <span className="h2 px-3 py-1 ms-3 fw-bolder">
+                            符合期待
+                          </span>
                         </div>
                       </div>
                     </div>
