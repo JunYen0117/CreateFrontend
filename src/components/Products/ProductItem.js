@@ -13,7 +13,7 @@ function ProductItem(props) {
               alt=""
             ></img>
           </span>
-          <span className="card_title d-block h2 ms-2 mt-2 mt-xl-4">{product.product_name}</span>
+          <span className="card_title d-block h2 ms-2 mt-2">{product.product_name}</span>
           <span className="card_brand d-block h3 ms-2">品牌：{product.business_name}</span>
           <span className="card_price d-block h2 ms-2">NT$ {product.price}</span>
         </Link>

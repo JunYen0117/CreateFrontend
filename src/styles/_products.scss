@@ -198,6 +198,12 @@
       width: 180px;
       height: 180px;
     }
+    .card_title, .card_price{
+      font-size: 12px;
+    }
+    .card_brand{
+      font-size: 10px;
+    }
   }
 }
 
@@ -206,14 +212,6 @@
     .product_item_avatar {
       width: 128px;
       height: 128px;
-    }
-
-    .h2 {
-      font-size: 12px;
-    }
-
-    .h3 {
-      font-size: 10px;
     }
   }
   .product_option_text {
