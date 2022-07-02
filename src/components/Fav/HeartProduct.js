@@ -3,6 +3,8 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
 const HeartProduct = ({ data }) => {
   const [showheart, setShowHeart] = useState(true);
@@ -21,6 +23,16 @@ const HeartProduct = ({ data }) => {
     }
   };
 
+  const addfav = async () => {
+    try {
+      let response = await axios.get(
+        `${API_URL}/fav/product/add/${user_id}/${data.product_id}`
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <>
       {showheart ? (
@@ -29,8 +41,13 @@ const HeartProduct = ({ data }) => {
           onClick={async () => {
             setShowHeart(false);
             delfav();
-
-            // window.alert(`${response.data.message}`);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: '取消收藏',
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }}
         />
       ) : (
@@ -38,13 +55,14 @@ const HeartProduct = ({ data }) => {
           className="Fp_heart"
           onClick={async () => {
             setShowHeart(true);
-            // console.log(`${API_URL}/favproduct/add/1/1`);
-
-            // console.log(user.id);
-            let response = await axios.get(
-              `${API_URL}/fav/product/add/${user_id}/${data.product_id}`
-            );
-            // window.alert(`${response.data.message}`);
+            addfav();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: '已成功加入收藏',
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }}
         />
       )}
