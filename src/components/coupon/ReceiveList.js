@@ -2,23 +2,35 @@
 
 import React from 'react';
 import Common from './Common';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 function ReceiveList(props) {
-  const {
-    availableList,
-    setNowPage,
-    lastPage,
-    setLastPage,
-    receiveLastPage,
-    receiveList,
-    changeState,
-  } = props;
-
-  console.log('receiveList', receiveList);
+  // console.log('receiveList', couponList);
   // console.log('receiveLastPage',receiveLastPage)
 
-  const [notUse, setNotUse] = useState(false);
+  // 撈出全部使用者可使用的優惠券
+  const [receiveLastPage, setReceiveLastPage] = useState();
+  const [nowPage, setNowPage] = useState(1);
+  const [receiveList, setReceiveList] = useState([]);
+  useEffect(() => {
+    let getCoupons = async () => {
+      let response = await axios.get(API_URL + '/coupons/receive', {
+        params: {
+          page: nowPage,
+        },
+      });
+      console.log(response.data);
+      setReceiveList(response.data.receiveList);
+      setReceiveLastPage(response.data.pagination.receiveLastPage);
+    };
+    getCoupons();
+    // console.log('receiveLastPage', receiveLastPage);
+    // console.log('nowReceivePage', nowReceivePage);
+  }, [nowPage, receiveLastPage]);
+  // console.log('receiveList', receiveList);
+  console.log('receiveLastPage', receiveLastPage);
 
   const couponPromptScript = () => {
     return <>每筆訂單僅可使用一張優惠券</>;
@@ -51,22 +63,15 @@ function ReceiveList(props) {
   };
 
   return (
-    <>
-      <Common
-        pass={couponPrompt()}
-        use={couponUseBtn()}
-        prompt={couponPromptScript()}
-        availableList={availableList}
-        setNowPage={setNowPage}
-        lastPage={lastPage}
-        setLastPage={setLastPage}
-        receiveLastPage={receiveLastPage}
-        receiveList={receiveList}
-        changeState={changeState}
-        notUse={notUse}
-        setNotUse={setNotUse}
-      />
-    </>
+    <Common
+      pass={couponPrompt()}
+      use={couponUseBtn()}
+      prompt={couponPromptScript()}
+      data={receiveList}
+      page={receiveLastPage}
+      setNowPage={setNowPage}
+      notUse={false}
+    />
   );
 }
 

@@ -2,23 +2,35 @@
 
 import React from 'react';
 import Common from './Common';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 function Invalid(props) {
-  const {
-    availableList,
-    setNowPage,
-    lastPage,
-    setLastPage,
-    invalidLastPage,
-    receiveList,
-    invalidList,
-    receiveLastPage,
-    changeState,
-  } = props;
-  console.log('invalid component', invalidList);
+  const { couponList } = props;
+  console.log('invalid component', couponList);
 
-  const [notUse, setNotUse] = useState(true);
+  // 撈出全部使用者擁有的優惠券但已失效
+  const [invalidLastPage, setInvalidLastPage] = useState();
+  const [nowPage, setNowPage] = useState(1);
+  const [invalidList, setInvalidList] = useState([]);
+  useEffect(() => {
+    let getCoupons = async () => {
+      let response = await axios.get(API_URL + '/coupons/invalid', {
+        params: {
+          page: nowPage,
+        },
+      });
+     console.log( response.data.invalidList);
+      setInvalidList(response.data.invalidList);
+      setInvalidLastPage(response.data.pagination.invalidLastPage);
+    };
+    getCoupons();
+    // console.log('invalidLastPage', invalidLastPage);
+    // console.log('nowInvalidPage', nowInvalidPage);
+  }, [nowPage, invalidLastPage]);
+  console.log('invalidList:', invalidList);
+  console.log('invalidLastPage:', invalidLastPage);
 
   const couponPromptScript = () => {
     return <>已失效的優惠券</>;
@@ -45,24 +57,15 @@ function Invalid(props) {
     );
   };
   return (
-    <>
-      <Common
-        pass={couponPrompt()}
-        use={couponUseBtn()}
-        prompt={couponPromptScript()}
-        availableList={availableList}
-        setNowPage={setNowPage}
-        lastPage={lastPage}
-        setLastPage={setLastPage}
-        receiveLastPage={receiveLastPage}
-        receiveList={receiveList}
-        invalidList={invalidList}
-        invalidLastPage={invalidLastPage}
-        changeState={changeState}
-        notUse={notUse}
-        setNotUse={setNotUse}
-      />
-    </>
+    <Common
+      pass={couponPrompt()}
+      use={couponUseBtn()}
+      prompt={couponPromptScript()}
+      data={invalidList}
+      page={invalidLastPage}
+      setNowPage={setNowPage}
+      notUse={true}
+    />
   );
 }
 

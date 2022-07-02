@@ -3,95 +3,46 @@ import Card from './Card';
 import Pagination from 'react-bootstrap/Pagination';
 import { useState } from 'react';
 
-let data = {};
-let page = '';
+// let data = {};
+// let page = '';
 
 function Common(props) {
   const {
     prompt,
     pass,
     use,
-    availableList,
+    data,
+    page, // lastPage
     setNowPage,
-    lastPage,
-    setLastPage,
-    receiveLastPage,
-    receiveList,
-    invalidList,
-    invalidLastPage,
-    changeState,
     notUse,
-    setNotUse,
     refreshList,
+    insertCoupon,
   } = props;
 
-  switch (changeState) {
-    case 1: {
-      data = availableList;
-      page = lastPage;
-      break;
-    }
-    case 2: {
-      data = receiveList;
-      page = receiveLastPage;
-      break;
-    }
-    case 3: {
-      data = invalidList;
-      page = invalidLastPage;
-      break;
-    }
-    default: {
-      break;
-    }
-  }
-  console.log('changeState:', changeState, data, invalidList);
-  // console.log('data:', data, invalidList);
-
-  // 正規寫法寫不出來，棄用
-  // const [data, setData] = useState({});
-  // const [page, setPage] = useState('');
-  // switch (changeState) {
-  //   case 1: {
-  //     setData(availableList);
-  //     setPage(lastPage);
-  //     break;
-  //   }
-  //   case 2: {
-  //     setData(receiveList);
-  //     setPage(receiveLastPage);
-  //     break;
-  //   }
-  //   case 3: {
-  //     setData(invalidList);
-  //     setPage(invalidLastPage);
-  //     break;
-  //   }
-  //   default: {
-  //     break;
-  //   }
-  // }
-  // console.log('changeState:', changeState);
-  // console.log('data:', data);
-
   const [active, setActive] = useState(1);
-  let items = [];
-  // console.log('receive',page)
-  for (let number = 1; number <= page; number++) {
-    items.push(
-      <Pagination.Item
-        key={number}
-        active={number === active}
-        onClick={(e) => {
-          setActive(number);
-          setNowPage(number);
-          setLastPage(number);
-        }}
-      >
-        {number}
-      </Pagination.Item>
-    );
+
+  function getPagination() {
+    console.log('getPagination');
+    let items = [];
+    console.log('common-page', page);
+    for (let number = 1; number <= page; number++) {
+      items.push(
+        <Pagination.Item
+          key={number}
+          active={number === active}
+          onClick={(e) => {
+            setActive(number);
+            setNowPage(number);
+          }}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+    console.log('items', items);
+    return items;
   }
+
   console.log(data);
   // console.log('receiveList', receiveList);
 
@@ -105,26 +56,26 @@ function Common(props) {
         {/* div不能放在map裡面，因為這樣 d-flex 會一直重複生成，所以要放在外面 */}
         <div className="coupon d-flex d-grid flex-wrap justify-content-between mx-1 row">
           {data.map((coupon, index) => {
-              return (
-                <Card
-                  key={index}
-                  pass={pass}
-                  use={use}
-                  coupon={coupon}
-                  notUse={notUse}
-                  setNotUse={setNotUse}
-                  refreshList={refreshList}
-                />
-              );
-            })}
+            return (
+              <Card
+                key={index}
+                pass={pass}
+                use={use}
+                coupon={coupon}
+                notUse={notUse}
+                insertCoupon={insertCoupon}
+                refreshList={refreshList}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="coupon pt-5">
         <Pagination
           size="sm"
-          className="justify-content-center coupon_pagination d-none"
+          className="justify-content-center coupon_pagination"
         >
-          {items}
+          {getPagination()}
         </Pagination>
       </div>
     </>

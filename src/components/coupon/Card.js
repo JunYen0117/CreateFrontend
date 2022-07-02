@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
-  const { pass, use, coupon, notUse } = props;
+  const { pass, use, coupon, notUse, insertCoupon, refreshList } = props;
 
   // 判斷優惠券折扣，在電腦版優惠券顯示
   const [discount, setDiscount] = useState(null);
@@ -56,12 +57,12 @@ const Card = (props) => {
               <button
                 className="couponCard_btn ms-2"
                 onClick={async (e) => {
-      //                 // 領取優惠券
-      // let response = await axios.post(
-      //   API_URL + '/coupons/insertCoupon',
-      //   insertCoupon
-      // );
-      // console.log(response);
+                  // 領取優惠券
+                  let response = await axios.post(
+                    API_URL + '/coupons/insertCoupon',
+                    insertCoupon
+                  );
+                  console.log(response);
                   Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -69,7 +70,7 @@ const Card = (props) => {
                     showConfirmButton: false,
                     timer: 1500,
                   });
-                  props.refreshList();
+                  refreshList();
                 }}
               >
                 <div className="text-decoration-none">
@@ -113,7 +114,7 @@ const Card = (props) => {
                 className={`couponCard_btn_phone mx-auto px-2 position-absolute`}
                 onClick={(e) => {
                   // 資料庫要資料重新渲染一次
-                  props.refreshList();
+                  refreshList();
                   Swal.fire({
                     position: 'center',
                     icon: 'success',
