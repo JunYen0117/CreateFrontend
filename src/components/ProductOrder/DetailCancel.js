@@ -49,7 +49,7 @@ const DetailCancel = (props) => {
             <tbody className="text-center">
               {detail.map((v,i) => {
                 return (
-                  <tr key={`detail-${i}`} className="detail_td">
+                  <tr key={`detail-${v.id}`} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import CommentModal from './CommentModal';
 
 const DetailFinish = (props) => {
   const { setOrderDetailId } = props;
@@ -10,6 +11,7 @@ const DetailFinish = (props) => {
 
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
+  const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
 
   // 取得訂單明細所需資料
@@ -21,13 +23,14 @@ const DetailFinish = (props) => {
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
+      setDetailPayment(response.data.payment);
       setDetailReceiver(response.data.receiver);
-      // console.log(response.data);
+
     };
     getDetail();
   }, []);
 
-  // console.log(detailreceiver);
+  console.log(detailreceiver);
   return (
     <>
       {/* 沒有訂單 */}
@@ -99,7 +102,7 @@ const DetailFinish = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            {detailreceiver.map((v) => {
+            {detailpayment.map((v) => {
               return (
                 <>
                   <tbody>
@@ -142,41 +145,40 @@ const DetailFinish = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tbody>
-              <tr>
-                <td className="fw-bold">收件人</td>
-                <td>ＸＸＸ</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人email</td>
-                <td>email</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人電話</td>
-                <td>tel</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人地址</td>
-                <td>address</td>
-              </tr>
-            </tbody>
+            {detailreceiver.map((v) => {
+              return (
+                <tbody>
+                  <tr>
+                    <td className="fw-bold">收件人</td>
+                    <td>{v.recipient}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人email</td>
+                    <td>{v.recipient_email}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人電話</td>
+                    <td>{v.tel}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人地址</td>
+                    <td>{v.address}</td>
+                  </tr>
+                </tbody>
+              );
+            })}
           </table>
         </div>
         <div className="mt-5 position-relative">
           <button
-            className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
+            className=" orderlist-b1 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
               setOrderDetailId(0);
             }}
           >
             回訂單查詢
           </button>
-
-          {/* TODO: link到商品頁 */}
-
-          <button className=" orderlist-b2 px-3 py-2 mt-2 mb-2">
-            再買一次
-          </button>
+          <CommentModal />
         </div>
       </div>
     </>

@@ -20,7 +20,7 @@ const ListFinish = () => {
       setOrders(response.data);
     };
     getOrders();
-  }, [orders]);
+  }, []);
   let arr = orders.totalarr || [];
   // console.log(arr);
 
@@ -28,7 +28,7 @@ const ListFinish = () => {
     <>
       {arr.map((v, i) => {
         return (
-          <Collapse accordion className="orderlist-card">
+          <Collapse accordion className="orderlist-card" key={i}>
             <Panel
               header={`訂單編號 ${v.orderid}`}
               key="1"

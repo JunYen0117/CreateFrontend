@@ -30,7 +30,7 @@ const ListItem = () => {
       <ASidebar />
       {arr.map((v, i) => {
         return (
-          <Collapse accordion>
+          <Collapse accordion key={i}>
             <Panel header={`電單編號 ${v.orderid}`} key="1">
               {orderDetailId === v.orderid ? (
                 ''

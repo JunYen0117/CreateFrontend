@@ -17,7 +17,7 @@ const ListNotShipped = () => {
       setOrderShipped(response.data);
     };
     getOrderShipped();
-  }, [orderShipped]);
+  }, []);
   let arr = orderShipped.arrshipped || [];
   // console.log(arr);
 
