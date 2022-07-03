@@ -13,7 +13,7 @@ function MagzList() {
     };
     getArtmagzs();
   }, []);
-  // console.log(artmagzs);
+  
   return (
     <>
       {artmagzs.map((v, i) => {
@@ -24,6 +24,7 @@ function MagzList() {
             context={v.article_context}
             image={v.image}
             authorName={v.author_name}
+            name={v.id}
           />
         );
       })}

@@ -1,11 +1,12 @@
 import A1 from '../../img/A1.jpg';
 function MagzItem(props) {
-  const { title, context, image, authorName } = props;
+  const { title, context, image, name, authorName } = props;
+  const url = `http://localhost:3000/ArtMagazine?name=${name}`;
   return (
     <>
       <div className="magz_list col-12 justify-content-start mb-3">
         <div className="d-flex align-items-start ">
-          <a href="/">
+          <a href={url}>
             <div className="magz_img flex-shrink-0">
               <img
                 src={`http://localhost:3003/images/artmagzs/${image}`}
@@ -14,7 +15,7 @@ function MagzItem(props) {
             </div>
           </a>
           <div className="magz_text">
-            <a href="/" className="magz_title">
+            <a href={url} className="magz_title">
               {title}
             </a>
             <p className="magz_author_name">{authorName}</p>

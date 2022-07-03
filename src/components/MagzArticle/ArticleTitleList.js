@@ -1,4 +1,6 @@
 import ArticleTitle from './ArticleTitle';
+import React from 'react';
+
 function ArticleTitleList() {
   return (
     <>
