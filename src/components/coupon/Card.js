@@ -8,13 +8,14 @@ import 'sweetalert2/src/sweetalert2.scss';
 const Card = (props) => {
   const { pass, use, coupon, notUse, insertCoupon, refreshList } = props;
 
+  console.log('coupon:', coupon);
   // 判斷優惠券折扣，在電腦版優惠券顯示
   const [discount, setDiscount] = useState(null);
   useEffect(() => {
     if (coupon.discount === 60) {
       setDiscount('免運');
-    } else if (coupon.discount < 100) {
-      let newDiscount = coupon.discount / 10;
+    } else if (coupon.discount < 1) {
+      let newDiscount = parseInt(coupon.discount * 10);
       setDiscount(`${newDiscount}折`);
     } else if (coupon.discount === 100) {
       setDiscount('$100');
