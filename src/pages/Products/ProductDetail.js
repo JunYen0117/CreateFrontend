@@ -14,13 +14,11 @@ import {
 } from 'react-icons/bs';
 
 function ProductDetail() {
-  
   // 消費者1
   let user_id = 1;
 
   const textarr = [1, 2, 3];
   const [heart, setHeart] = useState(false);
-  const [arr, setArr] = useState([]);
   // 購物車
   const { addItem, isInCart } = useCart();
   // 計算購買數量
@@ -39,15 +37,15 @@ function ProductDetail() {
 
   // /products?productId=2
   const location = useLocation();
+  // 根據 URL 建立 Params 物件
+  const searchParams = new URLSearchParams(location.search);
+  // 取得 Param: productId
+  const productId = searchParams.get('productId');
   // 前往結帳
   const goPath = useHistory();
 
   useEffect(() => {
     let axiosProductById = async () => {
-      // 根據 URL 建立 Params 物件
-      const searchParams = new URLSearchParams(location.search);
-      // 取得 Param: productId
-      const productId = searchParams.get('productId');
       // 向後端要資料
       const response = await productGetDetail(productId);
       setProductInDetail(response.data[0]);
@@ -55,12 +53,17 @@ function ProductDetail() {
     axiosProductById();
   }, []);
 
-  // 抓收藏的user
+  // 確認收藏
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/fav/product/${user_id}`);
-      setArr(response.data);
-      // console.log('product', response.data);
+      let response = await axios.get(
+        `${API_URL}/fav/product/check/${user_id}/${productId}`
+      );
+      if (response.data.length === 0) {
+        setHeart(false);
+      } else {
+        setHeart(true);
+      }
     };
     getUserLike();
   }, []);
@@ -106,7 +109,12 @@ function ProductDetail() {
   const handleAddCart = (e) => {
     e.preventDefault();
     const item = {
-      ...productInDetail,
+      id: productInDetail.id,
+      product_name: productInDetail.product_name,
+      price: productInDetail.price,
+      image: productInDetail.image,
+      vendor_id: productInDetail.vendor_id,
+      business_name: productInDetail.business_name,
       quantity: purchaseQuantity,
       checked: false,
     };
