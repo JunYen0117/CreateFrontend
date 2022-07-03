@@ -25,14 +25,15 @@ function ActivityPayment() {
       });
       sessionStorage.removeItem('order');
       console.log(response.data);
-      Swal.fire({
-        title: '購買成功',
-        icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          history.push('/');
-        }
-      });
+      window.location.href = response.data.payUrl;
+      // Swal.fire({
+      //   title: '購買成功',
+      //   icon: 'success',
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     history.push('/');
+      //   }
+      // });
     } catch (e) {
       console.error(e);
     }
