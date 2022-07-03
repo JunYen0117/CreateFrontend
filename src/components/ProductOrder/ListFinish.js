@@ -20,7 +20,7 @@ const ListFinish = () => {
       setOrders(response.data);
     };
     getOrders();
-  }, [orders]);
+  }, []);
   let arr = orders.totalarr || [];
   // console.log(arr);
 

@@ -27,7 +27,9 @@ const DetailShipped = (props) => {
   useEffect(() => {
     let getDetail = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/shipped/${orderId}`);
+      let response = await axios.get(
+        API_URL + `/productorder/shipped/${orderId}`
+      );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
@@ -38,7 +40,9 @@ const DetailShipped = (props) => {
   // 取消訂單 傳給後端 使valid=1
   const finishOrder = async () => {
     setIsModalVisible(false);
-    let [result] = await axios.get(API_URL + `/productorder/shipped/${orderId}/3`);
+    let [result] = await axios.get(
+      API_URL + `/productorder/shipped/${orderId}/3`
+    );
   };
 
   return (
@@ -114,36 +118,34 @@ const DetailShipped = (props) => {
           <table className="ol_table">
             {detailreceiver.map((v) => {
               return (
-                <>
-                  <tbody>
-                    <tr>
-                      <td className="fw-bold">付款人</td>
-                      <td>{v.member_name}</td>
-                      <td className="fw-bold">付款方式</td>
-                      <td>線上信用卡付款</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">付款人地址</td>
-                      <td>{v.address}</td>
-                      <td className="fw-bold">付款狀態</td>
-                      <td>已付款</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">收件人電話</td>
-                      <td>{v.phone}</td>
-                      <td className="fw-bold">刷卡狀態</td>
-                      <td className="text-dark">交易成功</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">運送方式</td>
-                      <td>宅配</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">＊備註</td>
-                      <td>到家前請電話通知</td>
-                    </tr>
-                  </tbody>
-                </>
+                <tbody key={`table-${v.id}`}>
+                  <tr>
+                    <td className="fw-bold">付款人</td>
+                    <td>{v.member_name}</td>
+                    <td className="fw-bold">付款方式</td>
+                    <td>線上信用卡付款</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">付款人地址</td>
+                    <td>{v.address}</td>
+                    <td className="fw-bold">付款狀態</td>
+                    <td>已付款</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人電話</td>
+                    <td>{v.phone}</td>
+                    <td className="fw-bold">刷卡狀態</td>
+                    <td className="text-dark">交易成功</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">運送方式</td>
+                    <td>宅配</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">＊備註</td>
+                    <td>到家前請電話通知</td>
+                  </tr>
+                </tbody>
               );
             })}
           </table>
@@ -202,8 +204,6 @@ const DetailShipped = (props) => {
           >
             <h1>確定收到貨了嗎？ 確認後將撥款給店家</h1>
           </Modal>
-
-          
         </div>
       </div>
     </>
