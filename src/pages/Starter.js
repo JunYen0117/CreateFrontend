@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 
 function Starter() {
   const [cssFlying1, setCssFlying1] = useState('noflying');
@@ -18,8 +17,6 @@ function Starter() {
     setCssFlying2('flying');
   };
 
-  const history = useHistory();
-
   return (
     <>
       <ul className="starter_flex d-flex flex-column flex-md-row">
@@ -30,7 +27,7 @@ function Starter() {
             onClick={() => {
               changeCss1();
               setTimeout(() => {
-                history.push('/course');
+                window.location.href = 'http://localhost:3000/course';
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
@@ -45,7 +42,7 @@ function Starter() {
             onClick={() => {
               changeCss2();
               setTimeout(() => {
-                history.push('/product');
+                window.location.href = 'http://localhost:3000/product';
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
@@ -56,11 +53,12 @@ function Starter() {
         <li className={`starter_flex_item_right ${cssFlying3}`}>
           <div
             className="link"
+            href="/themeplanning"
             alt="#/"
             onClick={() => {
               changeCss3();
               setTimeout(() => {
-                history.push('/themeplanning'); // <----這個會改寫路徑
+                window.location.href = 'http://localhost:3000/themeplanning'; // <----這個會改寫路徑
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
@@ -69,9 +67,9 @@ function Starter() {
           </div>
         </li>
       </ul>
-      <Link to="/Front" className="starter_skip p-2" alt="#/">
+      <a href="/Front" className="starter_skip p-2" alt="#/">
         ＳＫＩＰ
-      </Link>
+      </a>
     </>
   );
 }
