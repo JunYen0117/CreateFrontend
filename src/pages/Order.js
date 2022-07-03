@@ -1,4 +1,3 @@
-import React from 'react';
 import ASidebar from '../components/AccountSidebar/ASidebar';
 import ListFinish from '../components/ProductOrder/ListFinish';
 import ListCancel from '../components/ProductOrder/ListCancel';
@@ -36,7 +35,11 @@ const Order = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className=" Fl_item mt-3 ">
-                <Nav.Link className="Fl_btn h3" eventKey="finish">
+                <Nav.Link
+                  className="Fl_btn h3"
+                  eventKey="finish"
+                  onClick={() => setOrderStatus(1)}
+                >
                   已完成
                 </Nav.Link>
               </Nav.Item>
@@ -59,10 +62,10 @@ const Order = () => {
                   <ListShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="finish">
-                  <ListFinish />
+                  <ListFinish orderStatus={orderStatus} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <ListCancel orderStatus={orderStatus}/>
+                  <ListCancel orderStatus={orderStatus} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

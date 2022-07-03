@@ -7,36 +7,37 @@ import { Collapse } from 'antd';
 
 const ListNotShipped = () => {
   const [orderShipped, setOrderShipped] = useState([]);
-  const [orderDetailId, setOrderDetailId] = useState(0);
-  const { Panel } = Collapse;
-
+  const [orderId, setOrderId] = useState(0);
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
+  const { Panel } = Collapse;
 
   useEffect(() => {
     getOrderShipped();
-  }, [orderDetailId]);
+  }, [orderId]);
 
   const getOrderShipped = async () => {
     // axios.get(URL, config)
     let response = await axios.get(API_URL + `/productorder/notshipped`);
     setOrderShipped(response.data);
   };
+  // console.log('list', orderShipped);
 
   useEffect(() => {
-    if (orderDetailId === 0) return;
+    if (orderId === 0) return;
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderDetailId}`
+        API_URL + `/productorder/notshipped/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
     };
     getDetail();
-  }, [orderDetailId]);
+  }, [orderId]);
+
 
   let arr = orderShipped.arrshipped || [];
 
@@ -50,7 +51,7 @@ const ListNotShipped = () => {
               key="1"
               className=" card-title"
             >
-              {orderDetailId === v.orderid ? (
+              {orderId === v.orderid ? (
                 ''
               ) : (
                 <div className="card-content">
@@ -77,7 +78,7 @@ const ListNotShipped = () => {
                   <button
                     className="card-button px-3 py-2"
                     onClick={() => {
-                      setOrderDetailId(v.orderid);
+                      setOrderId(v.orderid);
                     }}
                   >
                     <FaWaze
@@ -88,10 +89,10 @@ const ListNotShipped = () => {
                   </button>
                 </div>
               )}
-              {orderDetailId === v.orderid ? (
+              {orderId === v.orderid ? (
                 <DetailNotShipped
-                  setOrderDetailId={setOrderDetailId}
-                  orderId={orderDetailId}
+                  setOrderId={setOrderId}
+                  orderId={orderId}
                   detail={detail}
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}

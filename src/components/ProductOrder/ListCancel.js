@@ -1,4 +1,3 @@
-import React from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
@@ -8,10 +7,14 @@ import { Collapse } from 'antd';
 
 const ListCancel = (props) => {
   const { orderStatus } = props;
-
   const [orderCancel, setOrderCancel] = useState([]);
-  const [orderDetailId, setOrderDetailId] = useState(0);
+  const [orderId, setOrderId] = useState(0);
   const { Panel } = Collapse;
+  const [detail, setDetail] = useState([]);
+  const [detailtotal, setDetailTotal] = useState([]);
+  const [detailreceiver, setDetailReceiver] = useState([]);
+
+  // console.log('sda', detail);
 
   useEffect(() => {
     let getOrderCancel = async () => {
@@ -23,7 +26,21 @@ const ListCancel = (props) => {
     getOrderCancel();
   }, [orderStatus]);
   let arr = orderCancel.arrcancel || [];
-  // console.log(arr)
+  // console.log('sd',arr)
+
+  useEffect(() => {
+    if (orderId === 0) return;
+    let getDetail = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(
+        API_URL + `/productorder/cancel/${orderId}`
+      );
+      setDetail(response.data.total);
+      setDetailTotal(response.data.result);
+      setDetailReceiver(response.data.receiver);
+    };
+    getDetail();
+  }, [orderId]);
 
   return (
     <>
@@ -35,7 +52,7 @@ const ListCancel = (props) => {
               key="1"
               className=" card-title"
             >
-              {orderDetailId === v.orderid ? (
+              {orderId === v.orderid ? (
                 ''
               ) : (
                 <div className="card-content">
@@ -62,7 +79,7 @@ const ListCancel = (props) => {
                   <button
                     className="card-button px-3 py-2"
                     onClick={() => {
-                      setOrderDetailId(v.orderid);
+                      setOrderId(v.orderid);
                     }}
                   >
                     <FaWaze
@@ -73,11 +90,14 @@ const ListCancel = (props) => {
                   </button>
                 </div>
               )}
-              {orderDetailId === v.orderid ? (
+              {orderId === v.orderid ? (
                 <DetailCancel
                   key={v.id}
-                  setOrderDetailId={setOrderDetailId}
-                  orderId={orderDetailId}
+                  setOrderId={setOrderId}
+                  orderId={orderId}
+                  detail={detail}
+                  detailtotal={detailtotal}
+                  detailreceiver={detailreceiver}
                 />
               ) : (
                 ''

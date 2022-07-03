@@ -5,13 +5,11 @@ import { API_URL } from '../../utils/config';
 import { Modal } from 'antd';
 
 const DetailShipped = (props) => {
-  const { setOrderDetailId } = props;
+  const { setOrderId } = props;
   const { orderId } = props;
-  // console.log('orderId', orderId);
+  const { detail, detailtotal, detailreceiver } = props;
 
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-  const [detailreceiver, setDetailReceiver] = useState([]);
+  //  console.log('detail',detail);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -23,23 +21,10 @@ const DetailShipped = (props) => {
     setIsModalVisible(false);
   };
 
-  // 取得訂單明細所需資料
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderId}`
-      );
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-      setDetailReceiver(response.data.receiver);
-    };
-    getDetail();
-  }, []);
-
   // 取消訂單 傳給後端 使valid=1
   const finishOrder = async () => {
     setIsModalVisible(false);
+    setOrderId(1);
     let [result] = await axios.get(
       API_URL + `/productorder/shipped/${orderId}/3`
     );
@@ -68,9 +53,9 @@ const DetailShipped = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v,i) => {
+              {detail.map((v) => {
                 return (
-                  <tr key={`detail-${i}`} className="detail_td">
+                  <tr key={v.id} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -181,7 +166,7 @@ const DetailShipped = (props) => {
           <button
             className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
-              setOrderDetailId(0);
+              setOrderId(0);
             }}
           >
             回訂單查詢

@@ -3,13 +3,17 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
-import Detail from './DetailFinish';
+import DetailFinish from './DetailFinish';
 import 'antd/dist/antd.css';
 
-const ListFinish = () => {
+const ListFinish = (props) => {
+  const { orderStatus } = props;
   const [orders, setOrders] = useState([]);
-  const [orderDetailId, setOrderDetailId] = useState(0);
-
+  const [orderId, setOrderId] = useState(0);
+  const [detail, setDetail] = useState([]);
+  const [detailtotal, setDetailTotal] = useState([]);
+  const [detailpayment, setDetailPayment] = useState([]);
+  const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
 
   //連接後端
@@ -20,9 +24,25 @@ const ListFinish = () => {
       setOrders(response.data);
     };
     getOrders();
-  }, []);
+  }, [orderStatus]);
   let arr = orders.totalarr || [];
   // console.log(arr);
+
+  // 取得訂單明細所需資料
+  useEffect(() => {
+    if (orderId === 0) return;
+    let getDetail = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(
+        API_URL + `/productorder/finish/${orderId}`
+      );
+      setDetail(response.data.total);
+      setDetailTotal(response.data.result);
+      setDetailPayment(response.data.payment);
+      setDetailReceiver(response.data.receiver);
+    };
+    getDetail();
+  }, [orderId]);
 
   return (
     <>
@@ -34,7 +54,7 @@ const ListFinish = () => {
               key="1"
               className=" card-title"
             >
-              {orderDetailId === v.orderid ? (
+              {orderId === v.orderid ? (
                 ''
               ) : (
                 <div className="card-content">
@@ -61,7 +81,7 @@ const ListFinish = () => {
                   <button
                     className="card-button px-3 py-2"
                     onClick={() => {
-                      setOrderDetailId(v.orderid);
+                      setOrderId(v.orderid);
                     }}
                   >
                     <FaWaze
@@ -72,11 +92,15 @@ const ListFinish = () => {
                   </button>
                 </div>
               )}
-              {orderDetailId === v.orderid ? (
-                <Detail
+              {orderId === v.orderid ? (
+                <DetailFinish
                   key={v.id}
-                  setOrderDetailId={setOrderDetailId}
-                  orderId={orderDetailId}
+                  setOrderId={setOrderId}
+                  orderId={orderId}
+                  detail={detail}
+                  detailtotal={detailtotal}
+                  detailreceiver={detailreceiver}
+                  detailpayment={detailpayment}
                 />
               ) : (
                 ''

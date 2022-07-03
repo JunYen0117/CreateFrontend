@@ -5,10 +5,11 @@ import { API_URL } from '../../utils/config';
 import { useState } from 'react';
 
 const DetailNotShipped = (props) => {
-  const { setOrderDetailId } = props;
+  const { setOrderId } = props;
   const { orderId } = props;
   const { detail, detailtotal, detailreceiver } = props;
 
+  // console.log(detailtotal);
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -22,7 +23,7 @@ const DetailNotShipped = (props) => {
       `${API_URL}/productorder/notshipped/${orderId}/2`
     );
     setIsModalVisible(false);
-    setOrderDetailId(0);
+    setOrderId(0);
   };
 
   const handleCancel = () => {
@@ -165,7 +166,7 @@ const DetailNotShipped = (props) => {
           <button
             className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
-              setOrderDetailId(0);
+              setOrderId(0);
             }}
           >
             回訂單查詢

@@ -1,29 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
-import { useState, useEffect } from 'react';
 
 const DetailCancel = (props) => {
-  const { setOrderDetailId } = props;
+  const { setOrderId } = props;
   const { orderId } = props;
-
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-  const [detailreceiver, setDetailReceiver] = useState([]);
-
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(
-        API_URL + `/productorder/cancel/${orderId}`
-      );
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-      setDetailReceiver(response.data.receiver);
-    };
-    getDetail();
-  }, []);
-
+  const { detail, detailtotal, detailreceiver } = props;
+//  console.log('cancel', orderId)
   return (
     <>
       {/* 沒有訂單 */}
@@ -160,7 +143,7 @@ const DetailCancel = (props) => {
           <button
             className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
-              setOrderDetailId(0);
+              setOrderId(0);
             }}
           >
             回訂單查詢

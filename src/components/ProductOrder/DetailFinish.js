@@ -5,32 +5,12 @@ import { API_URL } from '../../utils/config';
 import CommentModal from './CommentModal';
 
 const DetailFinish = (props) => {
-  const { setOrderDetailId } = props;
+  const { setOrderId } = props;
   const { orderId } = props;
   // console.log('orderId', orderId);
+  const { detail, detailtotal, detailreceiver, detailpayment } = props;
 
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-  const [detailpayment, setDetailPayment] = useState([]);
-  const [detailreceiver, setDetailReceiver] = useState([]);
-
-  // 取得訂單明細所需資料
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(
-        API_URL + `/productorder/finish/${orderId}`
-      );
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-      setDetailPayment(response.data.payment);
-      setDetailReceiver(response.data.receiver);
-
-    };
-    getDetail();
-  }, []);
-
-  console.log(detailreceiver);
+ 
   return (
     <>
       {/* 沒有訂單 */}
@@ -171,7 +151,7 @@ const DetailFinish = (props) => {
           <button
             className=" orderlist-b1 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
-              setOrderDetailId(0);
+              setOrderId(0);
             }}
           >
             回訂單查詢
