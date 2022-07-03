@@ -1,11 +1,14 @@
 import React from 'react';
-import ArticleTitle from '../components/MagzArticle/ArticleTitle';
+import ArticleTitleList from '../components/MagzArticle/ArticleTitleList';
+import CommentAPP from '../components/MagzArticle/CommentAPP';
 
 function MagzArticle() {
   return (
     <>
-      <div className="container mt-5">
-        <ArticleTitle />
+      <div className="container my-4">
+        <ArticleTitleList />
+        <div className="demarcation" />
+        <CommentAPP />
       </div>
     </>
   );
