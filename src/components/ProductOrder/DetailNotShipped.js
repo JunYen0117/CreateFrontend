@@ -2,15 +2,12 @@ import React from 'react';
 import { Modal } from 'antd';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const DetailNotShipped = (props) => {
   const { setOrderDetailId } = props;
   const { orderId } = props;
-
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-  const [detailreceiver, setDetailReceiver] = useState([]);
+  const { detail, detailtotal, detailreceiver } = props;
 
   // 刪除按鈕
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -21,28 +18,16 @@ const DetailNotShipped = (props) => {
 
   // 取消訂單 傳給後端 使valid=0
   const cancelOrder = async () => {
-    setIsModalVisible(false);
-    let [result] = await axios.get(
-      API_URL + `/productorder/notshipped/${orderId}/2`
+    let result = await axios.get(
+      `${API_URL}/productorder/notshipped/${orderId}/2`
     );
+    setIsModalVisible(false);
+    setOrderDetailId(0);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderId}`
-      );
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-      setDetailReceiver(response.data.receiver);
-    };
-    getDetail();
-  }, []);
 
   return (
     <>
@@ -67,7 +52,7 @@ const DetailNotShipped = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v,i) => {
+              {detail.map((v, i) => {
                 return (
                   <tr key={`detail-${i}`} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
@@ -115,38 +100,36 @@ const DetailNotShipped = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            {detailreceiver.map((v) => {
+            {detailreceiver.map((v, i) => {
               return (
-                <>
-                  <tbody>
-                    <tr>
-                      <td className="fw-bold">付款人</td>
-                      <td>{v.member_name}</td>
-                      <td className="fw-bold">付款方式</td>
-                      <td>線上信用卡付款</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">付款人地址</td>
-                      <td>{v.address}</td>
-                      <td className="fw-bold">付款狀態</td>
-                      <td>已付款</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">收件人電話</td>
-                      <td>{v.phone}</td>
-                      <td className="fw-bold">刷卡狀態</td>
-                      <td className="text-dark">交易成功</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">運送方式</td>
-                      <td>宅配</td>
-                    </tr>
-                    <tr>
-                      <td className="fw-bold">＊備註</td>
-                      <td>到家前請電話通知</td>
-                    </tr>
-                  </tbody>
-                </>
+                <tbody key={`table-${v.id}`}>
+                  <tr>
+                    <td className="fw-bold">付款人</td>
+                    <td>{v.member_name}</td>
+                    <td className="fw-bold">付款方式</td>
+                    <td>線上信用卡付款</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">付款人地址</td>
+                    <td>{v.address}</td>
+                    <td className="fw-bold">付款狀態</td>
+                    <td>已付款</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人電話</td>
+                    <td>{v.phone}</td>
+                    <td className="fw-bold">刷卡狀態</td>
+                    <td className="text-dark">交易成功</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">運送方式</td>
+                    <td>宅配</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">＊備註</td>
+                    <td>到家前請電話通知</td>
+                  </tr>
+                </tbody>
               );
             })}
           </table>

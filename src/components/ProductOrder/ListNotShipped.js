@@ -10,16 +10,35 @@ const ListNotShipped = () => {
   const [orderDetailId, setOrderDetailId] = useState(0);
   const { Panel } = Collapse;
 
+  const [detail, setDetail] = useState([]);
+  const [detailtotal, setDetailTotal] = useState([]);
+  const [detailreceiver, setDetailReceiver] = useState([]);
+
   useEffect(() => {
-    let getOrderShipped = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/notshipped`);
-      setOrderShipped(response.data);
-    };
     getOrderShipped();
-  }, []);
+  }, [orderDetailId]);
+
+  const getOrderShipped = async () => {
+    // axios.get(URL, config)
+    let response = await axios.get(API_URL + `/productorder/notshipped`);
+    setOrderShipped(response.data);
+  };
+
+  useEffect(() => {
+    if (orderDetailId === 0) return;
+    let getDetail = async () => {
+      // axios.get(URL, config)
+      let response = await axios.get(
+        API_URL + `/productorder/shipped/${orderDetailId}`
+      );
+      setDetail(response.data.total);
+      setDetailTotal(response.data.result);
+      setDetailReceiver(response.data.receiver);
+    };
+    getDetail();
+  }, [orderDetailId]);
+
   let arr = orderShipped.arrshipped || [];
-  // console.log(arr);
 
   return (
     <>
@@ -71,9 +90,11 @@ const ListNotShipped = () => {
               )}
               {orderDetailId === v.orderid ? (
                 <DetailNotShipped
-                  key={v.id}
                   setOrderDetailId={setOrderDetailId}
                   orderId={orderDetailId}
+                  detail={detail}
+                  detailtotal={detailtotal}
+                  detailreceiver={detailreceiver}
                 />
               ) : (
                 ''

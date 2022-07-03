@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 import DetailCancel from './DetailCancel';
 import { Collapse } from 'antd';
 
-const ListCancel = () => {
+const ListCancel = (props) => {
+  const { orderStatus } = props;
+
   const [orderCancel, setOrderCancel] = useState([]);
   const [orderDetailId, setOrderDetailId] = useState(0);
   const { Panel } = Collapse;
@@ -19,7 +21,7 @@ const ListCancel = () => {
       // console.log(response.data);
     };
     getOrderCancel();
-  }, []);
+  }, [orderStatus]);
   let arr = orderCancel.arrcancel || [];
   // console.log(arr)
 

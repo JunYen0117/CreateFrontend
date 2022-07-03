@@ -10,8 +10,9 @@ import axios from 'axios';
 import 'antd/dist/antd.css';
 import ListShipped from '../components/ProductOrder/ListShipped';
 
-
 const Order = () => {
+  const [orderStatus, setOrderStatus] = useState(2);
+
   return (
     <>
       <Tab.Container id="left-tabs-example" defaultActiveKey="notshipped">
@@ -21,7 +22,11 @@ const Order = () => {
             <h1 className="Fl_title  ">我的訂單</h1>
             <Nav className="Fl_nav" defaultActiveKey="notshipped">
               <Nav.Item className=" Fl_item mt-3 ">
-                <Nav.Link className="Fl_btn h3  " eventKey="notshipped">
+                <Nav.Link
+                  className="Fl_btn h3  "
+                  eventKey="notshipped"
+                  onClick={() => setOrderStatus(2)}
+                >
                   未出貨
                 </Nav.Link>
               </Nav.Item>
@@ -36,7 +41,11 @@ const Order = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className=" Fl_item mt-3 ">
-                <Nav.Link className=" Fl_btn h3" eventKey="cancel">
+                <Nav.Link
+                  className=" Fl_btn h3"
+                  eventKey="cancel"
+                  onClick={() => setOrderStatus(0)}
+                >
                   已取消
                 </Nav.Link>
               </Nav.Item>
@@ -53,7 +62,7 @@ const Order = () => {
                   <ListFinish />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <ListCancel />
+                  <ListCancel orderStatus={orderStatus}/>
                 </Tab.Pane>
               </Tab.Content>
             </Col>
