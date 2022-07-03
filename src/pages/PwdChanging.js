@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import PwdChangingSet from '../components/PwdChangingSet/PwdChangingSet'
+import PwdChangingSet from '../components/PwdChangingSet/PwdChangingSet';
 
 const PwdChanging = (props) => {
   return (

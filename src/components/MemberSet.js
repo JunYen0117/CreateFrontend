@@ -7,8 +7,10 @@ import Form from 'react-bootstrap/Form';
 
 import { IconContext } from 'react-icons';
 import { FaUser } from 'react-icons/fa';
+import { useLogin } from '../utils/useLogin';
 
 function MemberSet() {
+  const { isLogin } = useLogin();
   const [avatar, setAvatar] = useState('');
   const [member, setMember] = useState({
     id: '',
@@ -20,7 +22,28 @@ function MemberSet() {
     age: '',
     avatar: '',
   });
-  const [updateImg, setUpdateImg] = useState(true);
+
+  // 進入頁面時，取得會員資料
+  useEffect(() => {
+    getMemberInfo();
+  }, []);
+
+  function getCurrentMemberInfo() {
+    return axios.get(API_URL + '/member/info', {
+      withCredentials: true,
+    });
+  }
+
+  const getMemberInfo = async () => {
+    try {
+      let response = await getCurrentMemberInfo();
+      console.log(response.data); //從後台拿回前台，是session的資料
+      setMember(response.data.customer); //把資料塞進狀態
+      setAvatar(response.data.customer.avatar);
+    } catch (e) {
+      console.error('尚未登入');
+    }
+  };
 
   function handleChange(e) {
     setMember({ ...member, [e.target.name]: e.target.value });
@@ -30,28 +53,9 @@ function MemberSet() {
     setMember({ ...member, avatar: e.target.files[0] });
   }
 
-  useEffect(() => {
-    let getMemberInfo = async () => {
-      try {
-        let response = await axios.get(API_URL + '/member/info', {
-          withCredentials: true,
-        });
-        console.log(response.data); //從後台拿回前台，是session的資料
-        setMember(response.data.customer); //把資料塞進狀態
-        setAvatar(response.data.customer.avatar);
-      } catch (e) {
-        console.error('尚未登入');
-      }
-    };
-    getMemberInfo();
-  }, [updateImg]);
-
-  // 如果沒有登入，則不顯示會員資料
-  if (member === null) {
-    return <></>;
+  function updateMemberInfo(formData) {
+    return axios.post(`${API_URL}/member/edit/profile`, formData);
   }
-
-  // console.log('member', member);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -66,15 +70,19 @@ function MemberSet() {
       formData.append('gender', member.gender);
       formData.append('age', member.age);
 
-      let response = await axios.post(
-        `${API_URL}/member/editprofile`,
-        formData
-      );
-      console.log(response.data);
-      setUpdateImg(!updateImg);
+      let response = await updateMemberInfo(formData);
+      getMemberInfo();
+      // console.log(response);
     } catch (e) {
       console.error(e);
     }
+  }
+
+  // console.log('member', member);
+
+  // 如果沒有登入，則不顯示會員資料
+  if (!isLogin) {
+    return <></>;
   }
 
   return (
