@@ -120,18 +120,24 @@ button {
     }
 }
 .article_card {
-    padding: 20px;
-    max-width: 100%;
-    max-height: 100%;
+    padding: 20px !important;
+    // max-width: 100%;
+    // max-height: 100%;
     a {
         text-decoration: none;
+        margin: 0 20px;
     }
+}
+.act{
+    max-width: 90%;
+    max-height: 100%;
 }
 .article_card:hover {
     box-shadow: 0px 0px 20px #b996644d;
 }
 .article_text {
     margin-left: 20px !important;
+    padding-left: 20px !important; 
     h3 {
         max-width: 100%;
         color: black;
