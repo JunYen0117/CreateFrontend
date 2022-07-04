@@ -1,7 +1,7 @@
+import Swal from 'sweetalert2';
 import axios from 'axios';
 import { API_URL } from '../utils/config';
 import { React, useState, useEffect } from 'react';
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -73,6 +73,11 @@ function MemberSet() {
       let response = await updateMemberInfo(formData);
       getMemberInfo();
       // console.log(response);
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1000,
+      });
     } catch (e) {
       console.error(e);
     }
@@ -197,18 +202,23 @@ function MemberSet() {
                 />
               </Form.Group>
 
-              <Form.Group className="d-block d-md-flex mb-4" disabled>
-                <Form.Label column sm="2">
+              <Form.Group className="d-block d-md-flex mb-4">
+              <Form.Label column sm="2">
                   性別
                 </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="gender"
-                  value={member.gender}
-                  className="member_input"
-                  placeholder="F/M"
-                  onChange={handleChange}
-                />
+              <Form.Select
+              id="gender"
+              name="gender"
+              value={member.gender}
+              onChange={handleChange}
+              className="gender_select mx-auto"
+              aria-label="Default select example"
+            >
+              <option>請選擇性別</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
+              <option value="不提供">不提供</option>
+            </Form.Select>
               </Form.Group>
 
               <Form.Group
