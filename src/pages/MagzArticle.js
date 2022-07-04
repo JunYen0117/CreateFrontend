@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import ArticleTitle from '../components/MagzArticle/ArticleTitle';
+import NextPreNav from '../components/MagzArticle/NextPreNav';
 import CommentAPP from '../components/MagzArticle/CommentAPP';
 
 function MagzArticle() {
@@ -36,6 +37,7 @@ function MagzArticle() {
       <div className="container my-4">
         <ArticleTitle MagzArticle={MagzArticle} />
         <div className="demarcation" />
+        <NextPreNav />
         <CommentAPP />
       </div>
     </>
