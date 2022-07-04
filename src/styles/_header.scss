@@ -93,6 +93,10 @@ header {
         }
     }    
   }
+  .offcanvas_right_menu {
+    background: $success;
+    padding: 0 0 0 0;
+  }
   .right_offcanvas_body{
     margin: 0 0 0 0;
   }
@@ -120,7 +124,6 @@ header {
     margin-left: -40px;
     margin-top: -10px;
   }
-
 
   .mobile_search_bar_section {
     /* display: none; */

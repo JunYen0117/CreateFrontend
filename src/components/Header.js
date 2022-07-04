@@ -197,7 +197,7 @@ function Header() {
               ></button>
             </li>
           </Offcanvas.Header>
-          <Offcanvas.Body className="offcanvas_left_menu">
+          <Offcanvas.Body className="offcanvas_right_menu">
             <ul className="right_offcanvas_body">
               <li>
                 <Link to="/cart" onClick={handleCloseRight}>

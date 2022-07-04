@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -6,34 +6,34 @@ const Sidebar = () => {
       <div className="sidebar">
         <ul className="col-md-4 text-center">
           <li>
-            <a href="#/" className="text-decoration-none ">
+            <Link to="/activity" className="text-decoration-none ">
               我的活動
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <Link to="/fav" className="text-decoration-none">
               我的收藏
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <Link to="/member" className="text-decoration-none">
               帳戶設定
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <Link to="/pwdchanging" className="text-decoration-none">
               變更密碼
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <Link to="/order" className="text-decoration-none">
               我的訂單
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#/" className="text-decoration-none">
+            <Link to="/coupon" className="text-decoration-none">
               優惠券
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
