@@ -137,16 +137,15 @@ function ProductDetail() {
       <div className="container">
         <div className="row">
           <div className="col-md-6 d-flex p-2 p-md-4">
-            <figure className="product_detail_main_pic align-self-center">
+            <figure className="product_detail_main_pic">
               <img
                 src={`http://localhost:3003/images/product/${productInDetail.image}`}
-                className="img-fluid"
                 alt=""
               />
             </figure>
           </div>
           {/* 商品描述 */}
-          <div className="col-md-6 p-2 p-md-4 product_description d-flex flex-column ">
+          <div className="col-md-6 col-lg-5 col-xl-4 p-2 p-md-4 product_description d-flex flex-column ">
             <p className="h1 m-0 p-3 my-md-4">{productInDetail.product_name}</p>
             <div className="h2 m-0 p-3">
               <span className="price">NT $ {productInDetail.price}</span>

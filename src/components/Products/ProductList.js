@@ -41,7 +41,7 @@ function ProductList(props) {
 
   return (
     <>
-      <div className="product_list d-flex flex-wrap justify-content-center w-100 ">
+      <div className="product_list d-flex flex-wrap justify-content-start w-100 ">
         {products.map((product, i) => {
           return <ProductItem key={product.id} product={product} />;
         })}
