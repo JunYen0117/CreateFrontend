@@ -58,7 +58,7 @@ function Starter() {
             onClick={() => {
               changeCss3();
               setTimeout(() => {
-                window.location.href = 'http://localhost:3000/themeplanning'; // <----這個會改寫路徑
+                window.location.href = 'http://localhost:3000/article'; // <----這個會改寫路徑
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}

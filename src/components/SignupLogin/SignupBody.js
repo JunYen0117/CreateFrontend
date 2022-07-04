@@ -8,8 +8,10 @@ import { IconContext } from 'react-icons';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 
+import { useLogin } from '../../utils/useLogin';
 function SignupBody() {
   //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js -> SignupBody.js
+  const { setIsLogin } = useLogin();
 
   const [signupInfo, setSignInfo] = useState({
     member_name: 'fffff',
@@ -30,15 +32,20 @@ function SignupBody() {
     e.preventDefault();
     try {
       const response = await axios.post(API_URL + '/auth/signup', signupInfo);
-      console.log('aaaaaa');
       Swal.fire({
         icon: 'success',
         showConfirmButton: false,
-        title: '註冊成功',
+        title: '註冊成功，請再次登入',
         timer: 1500,
       });
     } catch (e) {
-      console.error('前端沒有送到後端:' + e);
+      console.log(e)
+      console.log(e.response.data.error)
+      Swal.fire({
+        icon: 'error',
+        title: '註冊失敗，請檢查欄位',
+      });
+      
     }
   }
 

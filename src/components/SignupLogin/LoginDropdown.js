@@ -2,7 +2,7 @@ import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { useLogin } from '../../utils/useLogin';
 
@@ -12,6 +12,7 @@ function LoginDropdown() {
 
   //dorpdown開關，讓.header_dropdown_menu會不會顯示出來？
   const [showDropdown, setShowDropdown] = useState('d-none');
+  const history = useHistory();
 
   const handleLogout = async () => {
     try {
@@ -23,6 +24,18 @@ function LoginDropdown() {
       setIsLogin(false);
     } catch (e) {
       console.error(e);
+    }
+    // 如果在會員中心、購物車按登出，就要跳到首頁
+    if (
+      window.location.href === 'http://localhost:3000/activity' ||
+      window.location.href === 'http://localhost:3000/fav' ||
+      window.location.href === 'http://localhost:3000/member' ||
+      window.location.href === 'http://localhost:3000/pwdchanging' ||
+      window.location.href === 'http://localhost:3000/order' ||
+      window.location.href === 'http://localhost:3000/coupon' ||
+      window.location.href === 'http://localhost:3000/cart'
+    ) {
+      history.push('/Front');
     }
   };
 
@@ -95,6 +108,17 @@ function LoginDropdown() {
                 }}
               >
                 我的訂單
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/coupon"
+                className="p-2 text-center"
+                onClick={() => {
+                  setShowDropdown('d-none');
+                }}
+              >
+                優惠券
               </Link>
             </li>
             <li>
