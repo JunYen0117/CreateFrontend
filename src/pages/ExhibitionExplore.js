@@ -34,8 +34,8 @@ function ExhibitionExplore(props) {
   console.log(area, level, date);
   return (
     <>
-      <ExhibitionExploreButton />
-      <div className="row container-fluid m-0 p-0">
+      {/* <ExhibitionExploreButton /> */}
+      <div className="row container-fluid m-0 p-0 mt-2">
         <div className="col-12 col-md-4">
           <ExhibitionExploreCards
             exhibitions={exhibitions}
