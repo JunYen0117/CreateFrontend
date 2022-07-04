@@ -1,5 +1,5 @@
 import React from 'react';
-import ASidebar from '../components/AccountSidebar/ASidebar';
+import Sidebar from '../components/Sidebar';
 import ListFinish from '../components/ProductOrder/ListFinish';
 import ListCancel from '../components/ProductOrder/ListCancel';
 import ListNotShipped from '../components/ProductOrder/ListNotShipped';
@@ -17,7 +17,9 @@ const Order = () => {
     <>
       <Tab.Container id="left-tabs-example" defaultActiveKey="notshipped">
         <Row className="">
-          <ASidebar />
+        <div className="col-3 d-flex justify-content-center mt-4">
+          <Sidebar />
+        </div>
           <Col sm={8}>
             <h1 className="Fl_title  ">我的訂單</h1>
             <Nav className="Fl_nav" defaultActiveKey="notshipped">

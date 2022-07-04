@@ -1,4 +1,4 @@
-import ASidebar from '../components/AccountSidebar/ASidebar';
+import Sidebar from '../components/Sidebar';
 import Article from '../components/Fav/Article';
 import Activity from '../components/Fav/Activity';
 import FavProductList from '../components/Fav/FavProductList';
@@ -9,9 +9,11 @@ const FavList = () => {
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="product">
       <Row>
-        <ASidebar />
+        <div className="col-3 d-flex justify-content-center mt-4">
+          <Sidebar />
+        </div>
         <Col sm={8}>
-          <h1 className="Fl_title ">我的收藏</h1>
+          <h1 className="Fl_title">我的收藏</h1>
           <Nav className="Fl_nav" defaultActiveKey="product">
             <Nav.Item className=" Fl_item mt-3 ">
               <Nav.Link className="Fl_btn" eventKey="product">

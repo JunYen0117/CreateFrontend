@@ -14,7 +14,6 @@ import ScrollToTop from './components/ScrollToTop';
 import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
-import ListItem from './components/ProductOrder/ListItem';
 
 import Products from './pages/Products/Products';
 import ProductDetail from './pages/Products/ProductDetail';
@@ -67,9 +66,6 @@ function App() {
                 </Route>
                 <Route path="/fav">
                   <FavList />
-                </Route>
-                <Route path="/Miu">
-                  <ListItem />
                 </Route>
                 <Route path="/order">
                   <Order />
