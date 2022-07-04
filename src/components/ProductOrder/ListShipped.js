@@ -10,6 +10,7 @@ const ListShipped = () => {
   const [orderId, setOrderId] = useState(0);
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
+  const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
 
@@ -35,17 +36,17 @@ const ListShipped = () => {
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
+      setDetailPayment(response.data.payment);
       setDetailReceiver(response.data.receiver);
     };
     getDetail();
   }, [orderId]);
 
-
   return (
     <>
-      {arr.map((v, i) => {
+      {arr.map((v,i) => {
         return (
-          <Collapse accordion className="orderlist-card">
+          <Collapse accordion className="orderlist-card" key={i}>
             <Panel
               header={`訂單編號 ${v.orderid}`}
               key="1"
@@ -97,6 +98,7 @@ const ListShipped = () => {
                   detail={detail}
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}
+                  detailpayment={detailpayment}
                 />
               ) : (
                 ''

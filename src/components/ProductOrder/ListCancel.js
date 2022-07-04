@@ -12,6 +12,7 @@ const ListCancel = (props) => {
   const { Panel } = Collapse;
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
+  const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
 
   // console.log('sda', detail);
@@ -38,6 +39,9 @@ const ListCancel = (props) => {
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
+      setDetailPayment(response.data.payment);
+      
+        
     };
     getDetail();
   }, [orderId]);
@@ -98,6 +102,8 @@ const ListCancel = (props) => {
                   detail={detail}
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}
+                  detailpayment={detailpayment}
+
                 />
               ) : (
                 ''

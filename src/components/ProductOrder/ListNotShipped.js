@@ -10,6 +10,7 @@ const ListNotShipped = () => {
   const [orderId, setOrderId] = useState(0);
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
+  const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
 
@@ -34,6 +35,7 @@ const ListNotShipped = () => {
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
+      setDetailPayment(response.data.payment);
     };
     getDetail();
   }, [orderId]);
@@ -96,6 +98,7 @@ const ListNotShipped = () => {
                   detail={detail}
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}
+                  detailpayment={detailpayment}
                 />
               ) : (
                 ''

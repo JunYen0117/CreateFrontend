@@ -5,8 +5,8 @@ import { API_URL } from '../../utils/config';
 const DetailCancel = (props) => {
   const { setOrderId } = props;
   const { orderId } = props;
-  const { detail, detailtotal, detailreceiver } = props;
-//  console.log('cancel', orderId)
+  const { detail, detailtotal, detailreceiver, detailpayment } = props;
+  //  console.log('cancel', orderId)
   return (
     <>
       {/* 沒有訂單 */}
@@ -78,7 +78,7 @@ const DetailCancel = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            {detailreceiver.map((v) => {
+            {detailpayment.map((v) => {
               return (
                 <tbody key={`table-${v.id}`}>
                   <tr>
@@ -94,18 +94,10 @@ const DetailCancel = (props) => {
                     <td>已付款</td>
                   </tr>
                   <tr>
-                    <td className="fw-bold">收件人電話</td>
+                    <td className="fw-bold">付款人電話</td>
                     <td>{v.phone}</td>
                     <td className="fw-bold">刷卡狀態</td>
                     <td className="text-dark">交易成功</td>
-                  </tr>
-                  <tr>
-                    <td className="fw-bold">運送方式</td>
-                    <td>宅配</td>
-                  </tr>
-                  <tr>
-                    <td className="fw-bold">＊備註</td>
-                    <td>到家前請電話通知</td>
                   </tr>
                 </tbody>
               );
@@ -119,24 +111,36 @@ const DetailCancel = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tbody>
-              <tr>
-                <td className="fw-bold">收件人</td>
-                <td>ＸＸＸ</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人email</td>
-                <td>email</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人電話</td>
-                <td>tel</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人地址</td>
-                <td>address</td>
-              </tr>
-            </tbody>
+            {detailreceiver.map((v) => {
+              return (
+                <tbody key={v.id}>
+                  <tr>
+                    <td className="fw-bold">收件人</td>
+                    <td>{v.recipient}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人email</td>
+                    <td>{v.recipient_email}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人電話</td>
+                    <td>{v.tel}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人地址</td>
+                    <td>{v.address}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">運送方式</td>
+                    <td>{v.delivery}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">＊備註</td>
+                    <td>到家前請電話通知</td>
+                  </tr>
+                </tbody>
+              );
+            })}
           </table>
         </div>
         <div className="mt-5 position-relative">
