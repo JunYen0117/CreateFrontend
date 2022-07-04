@@ -8,7 +8,7 @@ function Footer() {
   return (
     <>
       {/* 以下為桌機版畫面 */}
-      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4 row">
+      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4 row mx-0">
         <div className="container footer_all ms-5 col-11">
           {/* footer_up */}
           <ul className="footer_up_title d-flex pt-4 footer_top ms-5">
