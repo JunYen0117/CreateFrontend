@@ -15,7 +15,6 @@ import ThemePlanning from './pages/ThemePlanning';
 import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 
-
 import Products from './pages/Products/Products';
 import ProductDetail from './pages/Products/ProductDetail';
 import Cart from './pages/Cart';

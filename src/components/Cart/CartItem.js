@@ -123,7 +123,7 @@ function CartItem(props) {
   };
 
   // 勾選清單
-  // console.log('checkList:', checkList);
+  console.log('checkList:', checkList);
 
   return (
     <>

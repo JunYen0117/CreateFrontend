@@ -1,6 +1,4 @@
-import React from 'react';
-import { NavLink } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -8,32 +6,32 @@ const Sidebar = () => {
       <div className="sidebar">
         <ul className="col-md-4 text-center">
           <li>
-            <NavLink href="#/" className="text-decoration-none">
+            <NavLink to="/activity" className="text-decoration-none" exact>
               我的活動
             </NavLink>
           </li>
           <li>
-            <NavLink href="/fav" className="text-decoration-none">
+            <NavLink to="/fav" className="text-decoration-none" exact>
               我的收藏
             </NavLink>
           </li>
           <li>
-            <NavLink href="#/" className="text-decoration-none">
+            <NavLink to="/account" className="text-decoration-none" exact>
               帳戶設定
             </NavLink>
           </li>
           <li>
-            <NavLink href="#/" className="text-decoration-none">
+            <NavLink to="/password" className="text-decoration-none" exact>
               變更密碼
             </NavLink>
           </li>
           <li>
-            <NavLink href="/order" className="text-decoration-none">
+            <NavLink to="/order" className="text-decoration-none" exact>
               我的訂單
             </NavLink>
           </li>
           <li>
-            <NavLink href="#/" className="text-decoration-none">
+            <NavLink to="/coupon" className="text-decoration-none" exact>
               優惠券
             </NavLink>
           </li>
