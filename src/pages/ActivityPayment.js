@@ -7,6 +7,13 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../utils/config';
 function ActivityPayment() {
+  const history = useHistory();
+  if (sessionStorage.getItem('order')) {
+    console.log('有資料');
+  } else {
+    console.log('沒資料');
+    history.push('/exhibition');
+  }
   sessionStorage.getItem('order');
   let order = JSON.parse(sessionStorage.getItem('order'));
 
@@ -14,7 +21,6 @@ function ActivityPayment() {
   const [orderEmail, setOrderEmail] = useState('');
   const [orderPhone, setOrderPhone] = useState('');
 
-  const history = useHistory();
   const handleClick = async (e) => {
     try {
       let response = await axios.post(API_URL + '/activitypayment', {
@@ -58,9 +64,6 @@ function ActivityPayment() {
             確認付款
           </button>
         </div>
-        {/* <p>
-          orderName:{orderName},orderEmail:{orderEmail},orderPhone:{orderPhone}
-        </p> */}
       </div>
     </>
   );

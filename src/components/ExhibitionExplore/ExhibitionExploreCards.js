@@ -16,7 +16,7 @@ function ExhibitionExploreCards(props) {
             setArea(e.target.value);
           }}
         >
-          <option value="" disabled selected hidden>
+          <option value="DEFAULT" disabled hidden>
             選擇地區
           </option>
           <option value="">全部地區</option>
@@ -31,7 +31,7 @@ function ExhibitionExploreCards(props) {
             setDate(e.target.value);
           }}
         >
-          <option value="" disabled selected hidden>
+          <option value="DEFAULT" disabled hidden>
             選擇時間
           </option>
           <option value="">全部時間</option>
@@ -46,7 +46,7 @@ function ExhibitionExploreCards(props) {
             setLevel(e.target.value);
           }}
         >
-          <option value="" disabled selected hidden>
+          <option value="DEFAULT" disabled hidden>
             選擇價錢
           </option>
           <option value="">全部價錢</option>
