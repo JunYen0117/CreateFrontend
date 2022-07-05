@@ -10,10 +10,13 @@ function ReceiveList(props) {
   // console.log('receiveList', couponList);
   // console.log('receiveLastPage',receiveLastPage)
 
+  const { updateCoupon } = props;
+
   // 撈出全部使用者可使用的優惠券
   const [receiveLastPage, setReceiveLastPage] = useState();
   const [nowPage, setNowPage] = useState(1);
   const [receiveList, setReceiveList] = useState([]);
+
   useEffect(() => {
     let getCoupons = async () => {
       let response = await axios.get(API_URL + '/coupons/receive', {
@@ -28,9 +31,27 @@ function ReceiveList(props) {
     getCoupons();
     // console.log('receiveLastPage', receiveLastPage);
     // console.log('nowReceivePage', nowReceivePage);
-  }, [nowPage, receiveLastPage]);
+  }, [nowPage, receiveLastPage, updateCoupon]);
   // console.log('receiveList', receiveList);
   console.log('receiveLastPage', receiveLastPage);
+
+  // useEffect(() => {
+  //   let getCoupons = async () => {
+  //     let response = await axios.get(API_URL + '/coupons/receive', {
+  //       params: {
+  //         page: nowPage,
+  //       },
+  //     });
+  //     console.log(response.data);
+  //     setReceiveList(response.data.receiveList);
+  //     setReceiveLastPage(response.data.pagination.receiveLastPage);
+  //   };
+  //   getCoupons();
+  // console.log('receiveLastPage', receiveLastPage);
+  // console.log('nowReceivePage', nowReceivePage);
+  // }, [nowPage, receiveLastPage]);
+  // console.log('receiveList', receiveList);
+  // console.log('receiveLastPage', receiveLastPage);
 
   const couponPromptScript = () => {
     return <>每筆訂單僅可使用一張優惠券</>;

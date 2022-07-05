@@ -7,11 +7,10 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
+import { useState } from 'react';
 
 const CouponList = () => {
-  function refreshList() {
-    console.log('refreshList');
-  }
+  const [updateCoupon, setUpdateCoupon] = useState(true);
 
   // 寫法 2 要加的
   // const [coupon, setCoupon] = useState('available');
@@ -46,10 +45,13 @@ const CouponList = () => {
           <Col sm={12}>
             <Tab.Content className="mb-5">
               <Tab.Pane className="" eventKey="available">
-                <Available refreshList={refreshList} />
+                <Available
+                  updateCoupon={updateCoupon}
+                  setUpdateCoupon={setUpdateCoupon}
+                />
               </Tab.Pane>
               <Tab.Pane eventKey="receiveList">
-                <ReceiveList />
+                <ReceiveList updateCoupon={updateCoupon} />
               </Tab.Pane>
               <Tab.Pane eventKey="invalid">
                 <Invalid />

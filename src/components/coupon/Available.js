@@ -6,29 +6,26 @@ import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
 function Available(props) {
+  const { updateCoupon, setUpdateCoupon } = props;
+
   // 撈出使用者全部可領取的優惠券 (coupon_send_status=1)
   const [availableList, setAvailable] = useState([]);
   const [nowPage, setNowPage] = useState(1);
   const [lastPage, setLastPage] = useState();
 
-  const [insertCoupon] = useState({
-    customer_id: 1, // 到時候要抓 user_id 然後設定setInsertCoupon
-    coupon_id: 10, // 到時候要抓 user_id 然後設定setInsertCoupon
-  });
   let getCoupons = async () => {
     let response = await axios.get(API_URL + '/coupons/available', {
       params: {
         page: nowPage,
       },
     });
-
     setAvailable(response.data.availableList);
     setLastPage(response.data.pagination.lastPage);
   };
   console.log('available-LastPage', lastPage);
   useEffect(() => {
     getCoupons();
-  }, [nowPage, lastPage]);
+  }, [nowPage, lastPage, updateCoupon]);
   // console.log('available-LastPage', lastPage);
   // console.log(availableList);
 
@@ -73,7 +70,8 @@ function Available(props) {
       page={lastPage}
       setNowPage={setNowPage}
       notUse={false}
-      insertCoupon={insertCoupon}
+      setUpdateCoupon={setUpdateCoupon}
+      updateCoupon={updateCoupon}
     />
   );
 }

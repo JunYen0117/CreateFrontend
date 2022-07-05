@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from './Card';
 import Pagination from 'react-bootstrap/Pagination';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 // let data = {};
 // let page = '';
@@ -16,8 +18,17 @@ function Common(props) {
     setNowPage,
     notUse,
     refreshList,
-    insertCoupon,
+    updateCoupon,
+    setUpdateCoupon,
   } = props;
+
+  useEffect(() => {
+    let getCoupons = async () => {
+      let response = await axios.get(API_URL + '/coupons/updateCoupon');
+      console.log(response.data);
+    };
+    getCoupons();
+  }, []);
 
   const [active, setActive] = useState(1);
 
@@ -63,8 +74,9 @@ function Common(props) {
                 use={use}
                 coupon={coupon}
                 notUse={notUse}
-                insertCoupon={insertCoupon}
                 refreshList={refreshList}
+                updateCoupon={updateCoupon}
+                setUpdateCoupon={setUpdateCoupon}
               />
             );
           })}

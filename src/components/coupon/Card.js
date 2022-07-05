@@ -6,8 +6,14 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
-  const { pass, use, coupon, notUse, insertCoupon, refreshList, data } = props;
+  const { pass, use, coupon, notUse, setUpdateCoupon, refreshList, data, updateCoupon } = props;
 
+  const insertCouponDetail = {
+    customer_id: 2,
+    coupon_id: coupon.coupon_no,
+  };
+
+  console.log('insertCouponDetail', insertCouponDetail);
   console.log('coupon:', coupon);
   // 判斷優惠券折扣，在電腦版優惠券顯示
   const [discount, setDiscount] = useState(null);
@@ -61,7 +67,7 @@ const Card = (props) => {
                   // 領取優惠券
                   let response = await axios.post(
                     API_URL + '/coupons/insertCoupon',
-                    insertCoupon
+                    insertCouponDetail
                   );
                   console.log(response);
                   Swal.fire({
@@ -71,7 +77,7 @@ const Card = (props) => {
                     showConfirmButton: false,
                     timer: 1500,
                   });
-                  refreshList(data);
+                  setUpdateCoupon(!updateCoupon);
                 }}
               >
                 <div className="text-decoration-none">
