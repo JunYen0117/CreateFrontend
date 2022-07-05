@@ -14,10 +14,8 @@ const ListFinish = (props) => {
   const [detailtotal, setDetailTotal] = useState([]);
   const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
+  const [comment, setComment] = useState([]);
   const { Panel } = Collapse;
-
-
- 
 
   //連接後端
   useEffect(() => {
@@ -29,7 +27,6 @@ const ListFinish = (props) => {
     getOrders();
   }, [orderStatus]);
   let arr = orders.totalarr || [];
-
 
   // 取得訂單明細所需資料
   useEffect(() => {
@@ -47,7 +44,21 @@ const ListFinish = (props) => {
     getDetail();
   }, [orderId]);
 
-  // console.log('12', detail);
+  // 取得評論判斷
+  useEffect(() => {
+    if (orderId === 0) return;
+    let getComment = async () => {
+      let response = await axios.get(API_URL + `/comment/product/checked`, {
+        params: {
+          orderId: orderId,
+        },
+      });
+      setComment(response.data);
+    };
+    getComment();
+  }, [orderId]);
+
+  console.log('commit', comment);
 
   return (
     <>
@@ -106,6 +117,7 @@ const ListFinish = (props) => {
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}
                   detailpayment={detailpayment}
+                  comment={comment}
                 />
               ) : (
                 ''
