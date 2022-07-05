@@ -22,6 +22,7 @@ const DetailFinish = (props) => {
       </div> */}
       {/* ===================================== */}
       {/* 訂單明細 */}
+     
       <div className="orderlist-card w-100 ">
         <div className="w-100 mt-3">
           <table className="detail-table w-100 ms-2">
@@ -163,6 +164,7 @@ const DetailFinish = (props) => {
             setCommentList={setCommentList}
             commentList={commentList}
             comment={comment}
+            orderId={orderId}
           />
         </div>
       </div>
