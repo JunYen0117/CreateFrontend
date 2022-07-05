@@ -4,6 +4,7 @@ import axios from 'axios';
 import ArticleTitle from '../components/MagzArticle/ArticleTitle';
 import NextPreNav from '../components/MagzArticle/NextPreNav';
 import CommentAPP from '../components/MagzArticle/CommentAPP';
+import Boardslist from '../components/MagzArticle/Boardslist';
 
 function MagzArticle() {
   const [MagzArticle, setMagzArticle] = useState({
@@ -39,6 +40,10 @@ function MagzArticle() {
         <div className="demarcation" />
         <NextPreNav />
         <CommentAPP />
+        <div className="d-flex justify-content-center">
+          <div className="comment-demarcation" />
+        </div>
+        <Boardslist />
       </div>
     </>
   );
