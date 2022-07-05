@@ -61,86 +61,29 @@ const CommentItem = (props) => {
         <div className="col-3">NT ${subtotal}</div>
         <div className="col-3 ">
           {star >= 1 ? (
-            <FaStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(1);
-                // handleOnChange(e);
-              }}
-            />
+            <FaStar className="comment_star" onClick={() => setStar(1)} />
           ) : (
-            <FaRegStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(1);
-                // handleOnChange(e);
-              }}
-            />
+            <FaRegStar className="comment_star" onClick={() => setStar(1)} />
           )}
           {star >= 2 ? (
-            <FaStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(2);
-                // handleOnChange(e);
-              }}
-            />
+            <FaStar className="comment_star" onClick={() => setStar(2)} />
           ) : (
-            <FaRegStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(2);
-                // handleOnChange(e);
-              }}
-            />
+            <FaRegStar className="comment_star" onClick={() => setStar(2)} />
           )}
           {star >= 3 ? (
-            <FaStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(3);
-                // handleOnChange(e);
-              }}
-            />
+            <FaStar className="comment_star" onClick={() => setStar(3)} />
           ) : (
-            <FaRegStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(3);
-                // handleOnChange(e);
-              }}
-            />
+            <FaRegStar className="comment_star" onClick={() => setStar(3)} />
           )}
           {star >= 4 ? (
-            <FaStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(4);
-                // handleOnChange(e);
-              }}
-            />
+            <FaStar className="comment_star" onClick={() => setStar(4)} />
           ) : (
-            <FaRegStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(4);
-              }}
-            />
+            <FaRegStar className="comment_star" onClick={() => setStar(4)} />
           )}
           {star >= 5 ? (
-            <FaStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(5);
-              }}
-            />
+            <FaStar className="comment_star" onClick={() => setStar(5)} />
           ) : (
-            <FaRegStar
-              className="comment_star"
-              onClick={(e) => {
-                setStar(5);
-              }}
-            />
+            <FaRegStar className="comment_star" onClick={() => setStar(5)} />
           )}
         </div>
       </div>

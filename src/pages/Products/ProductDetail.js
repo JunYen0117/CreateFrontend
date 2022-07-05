@@ -12,13 +12,16 @@ import {
   BsHeart,
   BsHeartFill,
 } from 'react-icons/bs';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 function ProductDetail() {
   // 消費者1
   let user_id = 1;
-
   const textarr = [1, 2, 3];
+  // 收藏
   const [heart, setHeart] = useState(false);
+  // 評論
+  const [comment, setComment] = useState([]);
   // 購物車
   const { addItem, isInCart } = useCart();
   // 計算購買數量
@@ -44,9 +47,9 @@ function ProductDetail() {
   // 前往結帳
   const goPath = useHistory();
 
+  // 商品明細
   useEffect(() => {
     let axiosProductById = async () => {
-      // 向後端要資料
       const response = await productGetDetail(productId);
       setProductInDetail(response.data[0]);
     };
@@ -67,6 +70,24 @@ function ProductDetail() {
     };
     getUserLike();
   }, []);
+
+  // 商品評論
+  useEffect(() => {
+    let getProductComment = async () => {
+      let response = await axios.get(`${API_URL}/comment/product/${productId}`);
+      setComment(response.data);
+    };
+    getProductComment();
+  }, []);
+
+  // 產生星星
+  const getStars = (starCount) => {
+    let stars = [];
+    for (let i = 0; i < starCount; i++) {
+      stars.push(<FaStar key={i} className="comment_star" />);
+    }
+    return stars;
+  };
 
   const delfav = async (e) => {
     // console.log(productInDetail.id);
@@ -228,35 +249,22 @@ function ProductDetail() {
         <div className="row justify-content-start my-3">
           <div className="col-12 p-3 px-md-5">
             <h1 className="fw-bolder">購買評價</h1>
-            {textarr.map((v, i) => {
+            {comment.map((v, i) => {
               return (
                 <div key={i} className="productdetail_whole_card my-4">
                   <div className="productdetail_user_info d-flex">
                     <figure className=" me-md-3 my-1"> ＜img＞ </figure>
-                    <div className="name_area h2 mx-md-3 p-1">Name</div>
-                    <div className="star_area mx-md-3 p-1">放星星的地方</div>
+                    <div className="name_area h2 mx-md-3 p-1">
+                      {v.member_name}
+                    </div>
+                    <div className="star_area mx-md-3 p-1">
+                      {getStars(v.star)}
+                    </div>
                   </div>
                   <div className="productdetail_card mb-3 row g-0">
-                    <div className="productdetail_card_avatar col-12 col-md-4">
-                      <img
-                        src={`http://localhost:3003/images/product/${productInDetail.image}`}
-                        alt=""
-                        className=""
-                      />
-                    </div>
                     <div className="productdetail_card_content col-12 col-md-8 p-3">
                       <div className="d-flex flex-column justify-content-between h-100">
-                        <p className="user_comment h2">
-                          這件商品好讚喔！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！這件商品好讚！
-                        </p>
-                        <div>
-                          <span className="h2 px-3 py-1 fw-bolder">
-                            質感優異
-                          </span>
-                          <span className="h2 px-3 py-1 ms-3 fw-bolder">
-                            符合期待
-                          </span>
-                        </div>
+                        <p className="user_comment h2">{v.comment}</p>
                       </div>
                     </div>
                   </div>
