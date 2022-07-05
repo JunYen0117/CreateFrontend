@@ -5,13 +5,11 @@ import { API_URL } from '../../utils/config';
 import { Modal } from 'antd';
 
 const DetailShipped = (props) => {
-  const { setOrderDetailId } = props;
+  const { setOrderId } = props;
   const { orderId } = props;
-  // console.log('orderId', orderId);
+  const { detail, detailtotal, detailreceiver, detailpayment } = props;
 
-  const [detail, setDetail] = useState([]);
-  const [detailtotal, setDetailTotal] = useState([]);
-  const [detailreceiver, setDetailReceiver] = useState([]);
+  //  console.log('detail',detail);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -23,23 +21,10 @@ const DetailShipped = (props) => {
     setIsModalVisible(false);
   };
 
-  // 取得訂單明細所需資料
-  useEffect(() => {
-    let getDetail = async () => {
-      // axios.get(URL, config)
-      let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderId}`
-      );
-      setDetail(response.data.total);
-      setDetailTotal(response.data.result);
-      setDetailReceiver(response.data.receiver);
-    };
-    getDetail();
-  }, []);
-
   // 取消訂單 傳給後端 使valid=1
   const finishOrder = async () => {
     setIsModalVisible(false);
+    setOrderId(1);
     let [result] = await axios.get(
       API_URL + `/productorder/shipped/${orderId}/3`
     );
@@ -68,9 +53,9 @@ const DetailShipped = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v) => {
+              {detail.map((v,i) => {
                 return (
-                  <tr key={`detail-${v.id}`} className="detail_td">
+                  <tr key={i} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -116,7 +101,7 @@ const DetailShipped = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            {detailreceiver.map((v) => {
+            {detailpayment.map((v) => {
               return (
                 <tbody key={`table-${v.id}`}>
                   <tr>
@@ -132,18 +117,10 @@ const DetailShipped = (props) => {
                     <td>已付款</td>
                   </tr>
                   <tr>
-                    <td className="fw-bold">收件人電話</td>
+                    <td className="fw-bold">付款人電話</td>
                     <td>{v.phone}</td>
                     <td className="fw-bold">刷卡狀態</td>
                     <td className="text-dark">交易成功</td>
-                  </tr>
-                  <tr>
-                    <td className="fw-bold">運送方式</td>
-                    <td>宅配</td>
-                  </tr>
-                  <tr>
-                    <td className="fw-bold">＊備註</td>
-                    <td>到家前請電話通知</td>
                   </tr>
                 </tbody>
               );
@@ -157,31 +134,43 @@ const DetailShipped = (props) => {
         </div>
         <div className="card-content ">
           <table className="ol_table">
-            <tbody>
-              <tr>
-                <td className="fw-bold">收件人</td>
-                <td>ＸＸＸ</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人email</td>
-                <td>email</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人電話</td>
-                <td>tel</td>
-              </tr>
-              <tr>
-                <td className="fw-bold">收件人地址</td>
-                <td>address</td>
-              </tr>
-            </tbody>
+            {detailreceiver.map((v) => {
+              return (
+                <tbody key={v.id}>
+                  <tr>
+                    <td className="fw-bold">收件人</td>
+                    <td>{v.recipient}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人email</td>
+                    <td>{v.recipient_email}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人電話</td>
+                    <td>{v.tel}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">收件人地址</td>
+                    <td>{v.address}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">運送方式</td>
+                    <td>{v.delivery}</td>
+                  </tr>
+                  <tr>
+                    <td className="fw-bold">＊備註</td>
+                    <td>到家前請電話通知</td>
+                  </tr>
+                </tbody>
+              );
+            })}
           </table>
         </div>
         <div className="mt-5 position-relative">
           <button
             className=" orderlist-b1 me-3 px-3 py-2 mt-2 mb-2 "
             onClick={() => {
-              setOrderDetailId(0);
+              setOrderId(0);
             }}
           >
             回訂單查詢

@@ -5,8 +5,6 @@ import ListCancel from '../components/ProductOrder/ListCancel';
 import ListNotShipped from '../components/ProductOrder/ListNotShipped';
 import { useState, useEffect } from 'react';
 import { Tab, Col, Nav, Row } from 'react-bootstrap';
-import { API_URL } from '../utils/config';
-import axios from 'axios';
 import 'antd/dist/antd.css';
 import ListShipped from '../components/ProductOrder/ListShipped';
 
@@ -17,9 +15,9 @@ const Order = () => {
     <>
       <Tab.Container id="left-tabs-example" defaultActiveKey="notshipped">
         <Row className="">
-        <div className="col-3 d-flex justify-content-center mt-4">
-          <Sidebar />
-        </div>
+          <div className="col-3 d-flex justify-content-center mt-4">
+            <Sidebar />
+          </div>
           <Col sm={8}>
             <h1 className="Fl_title  ">我的訂單</h1>
             <Nav className="Fl_nav" defaultActiveKey="notshipped">
@@ -38,7 +36,11 @@ const Order = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className=" Fl_item mt-3 ">
-                <Nav.Link className="Fl_btn h3" eventKey="finish">
+                <Nav.Link
+                  className="Fl_btn h3"
+                  eventKey="finish"
+                  onClick={() => setOrderStatus(1)}
+                >
                   已完成
                 </Nav.Link>
               </Nav.Item>
@@ -61,10 +63,10 @@ const Order = () => {
                   <ListShipped />
                 </Tab.Pane>
                 <Tab.Pane eventKey="finish">
-                  <ListFinish />
+                  <ListFinish orderStatus={orderStatus} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancel">
-                  <ListCancel orderStatus={orderStatus}/>
+                  <ListCancel orderStatus={orderStatus} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>
