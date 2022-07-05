@@ -81,7 +81,7 @@ const FavProduct = (props) => {
         <p>NT$ {product.price}</p>
         <HeartProduct data={product} />
         <button
-          style={{ width: '9rem' }}
+          style={{ width: '10rem' }}
           variant="primary"
           className="text-white d-block Fp_button p-2 mt-2"
           onClick={handleAddCart}

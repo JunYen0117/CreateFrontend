@@ -7,11 +7,11 @@ import CommentModal from './CommentModal';
 const DetailFinish = (props) => {
   const { setOrderId } = props;
   const { orderId } = props;
-  const { detail, detailtotal, detailreceiver, detailpayment } = props;
-  console.log('detail', detail);
+  const { detail, detailtotal, detailreceiver, detailpayment, comment } = props;
+  // console.log('detail', detail);
   const [commentList, setCommentList] = useState([]);
 
-  // console.log('commentList', commentList);
+  // console.log('commentList', comment);
 
   return (
     <>
@@ -162,6 +162,7 @@ const DetailFinish = (props) => {
             detail={detail}
             setCommentList={setCommentList}
             commentList={commentList}
+            comment={comment}
           />
         </div>
       </div>
