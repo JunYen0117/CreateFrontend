@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import CommentItem from './CommentItem';
+import 'sweetalert2/src/sweetalert2.scss';
+import Swal from 'sweetalert2';
 
 function CommentModal(props) {
   const { detail } = props;
@@ -59,7 +61,19 @@ function CommentModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             取消
           </Button>
-          <Button variant="primary" onClick={addComment}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              addComment();
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '評論成功',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }}
+          >
             確認
           </Button>
         </Modal.Footer>

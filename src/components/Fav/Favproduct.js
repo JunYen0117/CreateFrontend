@@ -79,13 +79,14 @@ const FavProduct = (props) => {
       <div className="Fp_body me-2 mb-5">
         <h3 style={{ height: '40px' }}>{product.product_name}</h3>
         <p>NT$ {product.price}</p>
+        <HeartProduct data={product} />
         <button
-          style={{ width: '9rem' }}
+          style={{ width: '10rem' }}
           variant="primary"
           className="text-white d-block Fp_button p-2 mt-2"
           onClick={handleAddCart}
         >
-          <HeartProduct data={product} />
+    
           <FaShoppingCart className="me-2 h2 m-0 " />
           {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
         </button>
