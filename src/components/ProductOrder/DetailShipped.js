@@ -53,9 +53,9 @@ const DetailShipped = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v) => {
+              {detail.map((v,i) => {
                 return (
-                  <tr key={v.id} className="detail_td">
+                  <tr key={i} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>

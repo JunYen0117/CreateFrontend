@@ -1,5 +1,4 @@
 import React from 'react';
-import Bird from '../../img/Bird.jpg';
 import { FaShoppingCart } from 'react-icons/fa';
 import HeartProduct from './HeartProduct';
 

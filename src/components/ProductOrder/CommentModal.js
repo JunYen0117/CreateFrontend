@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import Bird  from '../../img/Bird.jpg';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import CommentItem from './CommentItem';
 
-function CommentModal() {
+function CommentModal(props) {
+  const { detail } = props;
+  const { commentList, setCommentList } = props;
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  console.log('ff', commentList);
+
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
+  // 加到資料庫
+  const addComment = async () => {
+    try {
+      let response = await axios.post(
+        `${API_URL}/comment/product/add`,
+        commentList
+      );
+      handleClose();
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
@@ -22,23 +41,27 @@ function CommentModal() {
         <Modal.Header closeButton>
           <div className="comment_title">撰寫評論</div>
         </Modal.Header>
-        <Modal.Body>
-          <div className="ms-1 mb-3 row">
-            <div className="comment_img col-3 p-0">
-              <img src={Bird} alt="" />
-            </div>
-            <div className="col-3">product name</div>
-            <div className="col-3">product price</div>
-            <div className="col-3">star</div>
-          </div>
-          <Form.Control as="textarea" rows={3} />
-        </Modal.Body>
+        {detail.map((v, i) => {
+          return (
+            <CommentItem
+              key={i}
+              productId={v.product_id}
+              image={v.image}
+              product_name={v.product_name}
+              subtotal={v.subtotal}
+              commentList={commentList}
+              setCommentList={setCommentList}
+              detail={detail}
+              // setDataFromItem={setDataFromItem}
+            />
+          );
+        })}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            取消
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" onClick={addComment}>
+            確認
           </Button>
         </Modal.Footer>
       </Modal>

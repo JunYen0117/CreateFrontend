@@ -7,8 +7,11 @@ import CommentModal from './CommentModal';
 const DetailFinish = (props) => {
   const { setOrderId } = props;
   const { orderId } = props;
-  // console.log('orderId', orderId);
   const { detail, detailtotal, detailreceiver, detailpayment } = props;
+  console.log('detail', detail);
+  const [commentList, setCommentList] = useState([]);
+
+  // console.log('commentList', commentList);
 
   return (
     <>
@@ -33,9 +36,9 @@ const DetailFinish = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v) => {
+              {detail.map((v, i) => {
                 return (
-                  <tr key={`detail-${v.id}`} className="detail_td">
+                  <tr key={`detail-${i}`} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
                     <td className="pt-3">{v.product_num}</td>
                     <td className="pt-3">{v.product_name}</td>
@@ -116,7 +119,7 @@ const DetailFinish = (props) => {
           <table className="ol_table">
             {detailreceiver.map((v) => {
               return (
-                <tbody>
+                <tbody key={v.id}>
                   <tr>
                     <td className="fw-bold">收件人</td>
                     <td>{v.recipient}</td>
@@ -155,7 +158,11 @@ const DetailFinish = (props) => {
           >
             回訂單查詢
           </button>
-          <CommentModal />
+          <CommentModal
+            detail={detail}
+            setCommentList={setCommentList}
+            commentList={commentList}
+          />
         </div>
       </div>
     </>

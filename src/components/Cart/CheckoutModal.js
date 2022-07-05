@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
 import { checkoutSubmit } from '../../utils/api';
+
 import { PaymentElement } from '@stripe/react-stripe-js';
 
 function CheckoutModal(props) {

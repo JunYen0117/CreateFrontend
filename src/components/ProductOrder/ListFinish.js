@@ -16,6 +16,9 @@ const ListFinish = (props) => {
   const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
 
+
+ 
+
   //連接後端
   useEffect(() => {
     let getOrders = async () => {
@@ -26,7 +29,7 @@ const ListFinish = (props) => {
     getOrders();
   }, [orderStatus]);
   let arr = orders.totalarr || [];
-  // console.log(arr);
+
 
   // 取得訂單明細所需資料
   useEffect(() => {
@@ -43,6 +46,8 @@ const ListFinish = (props) => {
     };
     getDetail();
   }, [orderId]);
+
+  // console.log('12', detail);
 
   return (
     <>
