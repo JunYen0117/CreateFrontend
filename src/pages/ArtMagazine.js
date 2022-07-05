@@ -4,11 +4,14 @@ import { useLocation } from 'react-router-dom';
 import MagzOption from '../components/ArtMagazine/MagzOption';
 import MagzList from '../components/ArtMagazine/MagzList';
 import ArticleTitle from '../components/MagzArticle/ArticleTitle';
+import NextPreNav from '../components/MagzArticle/NextPreNav';
 import CommentAPP from '../components/MagzArticle/CommentAPP';
+import CommentInput from '../components/MagzArticle/CommentInput';
 
 function ArtMagazine() {
   const search = useLocation().search;
   const name = new URLSearchParams(search).get('name');
+  console.log('first');
   if (name === null) {
     return (
       <>
@@ -27,7 +30,8 @@ function ArtMagazine() {
       <div className="container my-4">
         <ArticleTitle name={name} />
         <div className="demarcation" />
-        <CommentAPP name={name} />
+        <NextPreNav />
+        <CommentInput name={name} />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import avatar from '../../img/potato.jpg';
 
-function Board() {
+function Board(props) {
   return (
     <>
       <div className="all-comment-board d-flex">
@@ -10,7 +10,7 @@ function Board() {
           </span>
         </div>
         <div className="others-comment">
-          <p>這是一篇很棒文章!</p>
+          <p>{props.children}</p>
         </div>
       </div>
     </>
