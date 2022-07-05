@@ -6,7 +6,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
-  const { pass, use, coupon, notUse, insertCoupon, refreshList } = props;
+  const { pass, use, coupon, notUse, insertCoupon, refreshList, data } = props;
 
   console.log('coupon:', coupon);
   // 判斷優惠券折扣，在電腦版優惠券顯示
@@ -71,7 +71,7 @@ const Card = (props) => {
                     showConfirmButton: false,
                     timer: 1500,
                   });
-                  refreshList();
+                  refreshList(data);
                 }}
               >
                 <div className="text-decoration-none">
@@ -115,7 +115,7 @@ const Card = (props) => {
                 className={`couponCard_btn_phone mx-auto px-2 position-absolute`}
                 onClick={(e) => {
                   // 資料庫要資料重新渲染一次
-                  refreshList();
+                  refreshList(data);
                   Swal.fire({
                     position: 'center',
                     icon: 'success',

@@ -34,8 +34,15 @@ function Available(props) {
 
   // 以下是優惠券的畫面
   const couponPromptScript = () => {
-    return <>可領取的優惠券</>;
+    if (availableList.length === 0) {
+      // console.log('invalidList.length:', availableList.length);
+      return <>沒有可領取的優惠券</>;
+    } else {
+      // console.log('invalidList.length:', availableList.length);
+      return <>可領取的優惠券</>;
+    }
   };
+
   const couponPrompt = () => {
     return (
       <>

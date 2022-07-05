@@ -5,6 +5,7 @@ import Common from './Common';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import { data } from 'autoprefixer';
 
 function Invalid(props) {
   const { couponList } = props;
@@ -21,7 +22,7 @@ function Invalid(props) {
           page: nowPage,
         },
       });
-     console.log( response.data.invalidList);
+      console.log(response.data.invalidList);
       setInvalidList(response.data.invalidList);
       setInvalidLastPage(response.data.pagination.invalidLastPage);
     };
@@ -33,7 +34,13 @@ function Invalid(props) {
   console.log('invalidLastPage:', invalidLastPage);
 
   const couponPromptScript = () => {
-    return <>已失效的優惠券</>;
+    if (invalidList.length === 0) {
+      // console.log('invalidList.length:', invalidList.length);
+      return <>沒有已失效的優惠券</>;
+    } else {
+      // console.log('invalidList.length:', invalidList.length);
+      return <>已失效的優惠券</>;
+    }
   };
   const couponPrompt = () => {
     return (
