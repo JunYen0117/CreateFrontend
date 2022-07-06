@@ -13,9 +13,7 @@ function Section7FlexItem() {
           </a>
           <img className="pic" src={exhi1} alt="#/" />
         </figure>
-        <h5 className="p-1 p-md-3">
-          果陀劇場 - 生命最美好的五分鐘
-        </h5>
+        <h5 className="p-1 p-md-3">果陀劇場 - 生命最美好的五分鐘</h5>
         <ul className="d-flex justify-content-between p-1 p-md-3 pb-md-5">
           <li className="site">桃園市</li>
           <li className="price">NT 480</li>
@@ -29,9 +27,7 @@ function Section7FlexItem() {
           </a>
           <img className="pic" src={exhi2} alt="#/" />
         </figure>
-        <h5 className="p-1 p-md-3">
-          以拉號奇航 - 台灣插畫展
-        </h5>
+        <h5 className="p-1 p-md-3">以拉號奇航 - 台灣插畫展</h5>
         <ul className="d-flex justify-content-between p-1 p-md-3 pb-md-5">
           <li className="site">台北市</li>
           <li className="price">NT 300</li>
@@ -45,9 +41,7 @@ function Section7FlexItem() {
           </a>
           <img className="pic" src={exhi3} alt="#/" />
         </figure>
-        <h5 className="p-1 p-md-3">
-          蔡草如 - 神話、戲台與逆光赤城
-        </h5>
+        <h5 className="p-1 p-md-3">蔡草如 - 神話、戲台與逆光赤城</h5>
         <ul className="d-flex justify-content-between p-1 p-md-3 pb-md-5">
           <li className="site">高雄市</li>
           <li className="price">NT 80</li>
