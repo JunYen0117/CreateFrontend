@@ -89,10 +89,10 @@ function App() {
               <Route path="/order">
                 <Order />
               </Route>
-              <Route path="/exhibition">
+              <Route path="/exhibition/:exhibitionId">
                 <Exhibition />
               </Route>
-              <Route path="/exhibitionexplore">
+              <Route path="/exhibition">
                 <ExhibitionExplore />
               </Route>
             </Switch>
