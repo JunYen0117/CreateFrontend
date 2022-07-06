@@ -11,9 +11,8 @@ import LoginBody from './LoginBody';
 import SignupBody from './SignupBody';
 import ForgottenPwdBody from './ForgottenPwdBody';
 
-function SignupLogin(props) {
+function SignupLogin() {
   //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js
-  const { isLogin, setIsLogin } = props;
 
   const [show, setShow] = useState(false);
 
@@ -24,7 +23,6 @@ function SignupLogin(props) {
 
   return (
     <>
-
       <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 
       <Modal show={show} onHide={handleClose} className="LoginSignup">
@@ -38,7 +36,7 @@ function SignupLogin(props) {
             <SignupBody />
           </Tab>
           <Tab eventKey="login" title="登入">
-            <LoginBody isLogin={isLogin} setIsLogin={setIsLogin}/>
+            <LoginBody />
           </Tab>
           <Tab eventKey="forgotten_pwd" title="忘記密碼">
             <ForgottenPwdBody />

@@ -5,6 +5,7 @@
 @import "./styles/_header.scss";
 @import "./styles/_footer.scss";
 @import './styles/_headerdropdown.scss';
+@import './styles/starter';
 
 // 首頁
 @import "./styles/frontpage.scss";
@@ -28,7 +29,11 @@
 @import "./styles/_exhibition.scss";
 @import "./styles/_exhibitionexplore.scss";
 
+@import './styles/_sidebar.scss';
+@import './styles/_coupon.scss';
 
+// 起始頁
+@import './styles/starter';
 // 商品列表、明細
 @import './styles/_products.scss';
 
