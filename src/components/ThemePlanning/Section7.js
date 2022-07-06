@@ -15,8 +15,6 @@ function Section7() {
         </p>
         <div className="d-flex justify-content-center">
           <Section7FlexItem />
-          <Section7FlexItem />
-          <Section7FlexItem />
         </div>
         <button className="d-flex justify-content-center mt-4 mb-5">
           逛更多〖展覽資訊〗

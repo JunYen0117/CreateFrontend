@@ -14,8 +14,6 @@ function Section8() {
         </p>
         <div className="d-flex justify-content-center">
           <Section8FlexItem />
-          <Section8FlexItem />
-          <Section8FlexItem />
         </div>
         <button className="d-flex justify-content-center mt-4 mb-5">
           逛更多〖專屬活動〗

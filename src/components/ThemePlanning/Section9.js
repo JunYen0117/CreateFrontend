@@ -16,11 +16,6 @@ function Section9() {
         </p>
         <div className="d-flex justify-content-center">
           <Section9FlexItem />
-          <Section9FlexItem />
-        </div>
-        <div className="d-flex justify-content-center">
-          <Section9FlexItem />
-          <Section9FlexItem />
         </div>
       </section>
     </>
