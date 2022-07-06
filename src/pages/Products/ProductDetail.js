@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
+import { useLogin } from '../../utils/useLogin';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -15,9 +16,8 @@ import {
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
 function ProductDetail() {
-  // 消費者1
-  let user_id = 1;
-  const textarr = [1, 2, 3];
+  // 消費者
+  const { user } = useLogin();
   // 收藏
   const [heart, setHeart] = useState(false);
   // 評論
@@ -60,16 +60,18 @@ function ProductDetail() {
   useEffect(() => {
     let getUserLike = async () => {
       let response = await axios.get(
-        `${API_URL}/fav/product/check/${user_id}/${productId}`
+        `${API_URL}/fav/product/check/${user.userID}/${productId}`
       );
+      console.log('like', response.data);
       if (response.data.length === 0) {
         setHeart(false);
       } else {
         setHeart(true);
       }
     };
+    if (!user.userID) return;
     getUserLike();
-  }, []);
+  }, [user.userID]);
 
   // 商品評論
   useEffect(() => {
@@ -94,7 +96,7 @@ function ProductDetail() {
     // console.log(`${API_URL}/fav/product/del/${user_id}/${productInDetail.id}`);
     try {
       let response = await axios.get(
-        `${API_URL}/fav/product/del/${user_id}/${productInDetail.id}`
+        `${API_URL}/fav/product/del/${user.userID}/${productInDetail.id}`
       );
       Swal.fire({
         position: 'center',
@@ -113,7 +115,7 @@ function ProductDetail() {
     // console.log(`${API_URL}/fav/product/add/${user_id}/${productInDetail.id}`);
     try {
       let response = await axios.get(
-        `${API_URL}/fav/product/add/${user_id}/${productInDetail.id}`
+        `${API_URL}/fav/product/add/${user.userID}/${productInDetail.id}`
       );
       Swal.fire({
         position: 'center',
@@ -253,7 +255,12 @@ function ProductDetail() {
               return (
                 <div key={i} className="productdetail_whole_card my-4">
                   <div className="productdetail_user_info d-flex">
-                    <figure className=" me-md-3 my-1"> ＜img＞ </figure>
+                    <figure className=" me-md-3 my-1">
+                      <img
+                        src={`http://localhost:3003/images${v.avatar}`}
+                        alt=""
+                      ></img>
+                    </figure>
                     <div className="name_area h2 mx-md-3 p-1">
                       {v.member_name}
                     </div>

@@ -2,20 +2,22 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import FavProduct from './FavProduct';
+import { useLogin } from '../../utils/useLogin';
 
 const FavProductList = () => {
-  let user_id = 1;
+  const { user } = useLogin();
 
   const [favProducts, setFavProducts] = useState([]);
 
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/fav/product/${user_id}`);
+      let response = await axios.get(`${API_URL}/fav/product/${user.userID}`);
       setFavProducts(response.data);
       // console.log('product', response.data);
     };
+    if (!user.userID) return;
     getUserLike();
-  }, []);
+  }, [user.userID]);
 
   // console.log('favProducts', favProducts);
 

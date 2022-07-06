@@ -296,9 +296,15 @@ pre {
   figure{
     width: 70px;
     height: 70px;
-    background: lightgray;
     border-radius: 50%;
-
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(185, 150, 100, 0.4);
+    img{
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
   }
   .name_area{
     align-self: center;
