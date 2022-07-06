@@ -26,6 +26,7 @@ import FavList from './pages/FavList';
 import Order from './pages/Order';
 import axios from 'axios';
 
+
 function App() {
   // useEffect(() => {
   //   let getproduct = async () => {
@@ -70,6 +71,7 @@ function App() {
                 <Route path="/order">
                   <Order />
                 </Route>
+            
               </Switch>
             </ScrollToTop>
             <Footer />

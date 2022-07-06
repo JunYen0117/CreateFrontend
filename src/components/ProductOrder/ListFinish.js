@@ -58,7 +58,9 @@ const ListFinish = (props) => {
     getComment();
   }, [orderId]);
 
-  console.log('commit', comment);
+  // console.log('commit', comment);
+
+  const text = `123456 \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`
 
   return (
     <>
@@ -66,7 +68,10 @@ const ListFinish = (props) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
-              header={`訂單編號 ${v.orderid}`}
+              header={
+                `訂單編號 ${v.orderid}` +
+                `${text}||日期 2022333333金額 $3424`
+              }
               key="1"
               className=" card-title"
             >
