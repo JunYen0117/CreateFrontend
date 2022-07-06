@@ -3,10 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from './utils/config';
 import Member from './pages/Member';
-
-import About from './pages/About';
-import User from './pages/User';
-import Home from './pages/Home';
+import Coupon from './pages/Coupon';
 import Starter from './pages/Starter';
 
 import FrontPage from './pages/FrontPage';
@@ -58,6 +55,9 @@ function App() {
               </Route>
               <Route path="/course">
                 <Course />
+              </Route>
+              <Route path="/Coupon">
+                <Coupon />
               </Route>
               <Route path="/activity">
                 <Activity />
