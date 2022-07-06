@@ -37,7 +37,7 @@ const ListShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderId}`
+        API_URL + `/productorder/shipped/${customer_id}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);

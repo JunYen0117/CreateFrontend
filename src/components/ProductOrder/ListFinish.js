@@ -37,7 +37,7 @@ const ListFinish = (props) => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/finish/${orderId}`
+        API_URL + `/productorder/finish/${customer_id}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
@@ -63,8 +63,6 @@ const ListFinish = (props) => {
 
   // console.log('commit', comment);
 
-  const text = `123456 \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`;
-
   return (
     <>
       {arr.map((v, i) => {
@@ -72,7 +70,9 @@ const ListFinish = (props) => {
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
               header={
-                `訂單編號 ${v.orderid}` + `${text}||日期 2022333333金額 $3424`
+                `訂單編號 ${v.orderid}` +
+                `
+                 日期 ${v.orderdate} 金額 ${v.totalsub}`
               }
               key="1"
               className=" card-title"

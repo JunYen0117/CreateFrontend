@@ -19,7 +19,7 @@ const ListNotShipped = () => {
   }, [orderId]);
 
   let customer_id = 1;
-  
+
   const getOrderShipped = async () => {
     // axios.get(URL, config)
     let response = await axios.get(
@@ -34,7 +34,7 @@ const ListNotShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/notshipped/${orderId}`
+        API_URL + `/productorder/notshipped/${customer_id}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
@@ -43,6 +43,8 @@ const ListNotShipped = () => {
     };
     getDetail();
   }, [orderId]);
+
+  // console.log(orderId);
 
   let arr = orderShipped.arrshipped || [];
 
