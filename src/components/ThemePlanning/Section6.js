@@ -1,6 +1,3 @@
-import Pic4 from '../../img/themeplanning/Pic4.png';
-
-
 function Section6() {
     return (
       <>
@@ -17,17 +14,8 @@ function Section6() {
           <br />
           讓你在畢業時也能繼續充實自己！
         </p>
-        <div className="d-flex justify-content-center pb-5">
-          <figure className="mx-1 mx-md-2">
-            <img src={Pic4} alt="#/" />
-          </figure>
-          <figure className="mx-1 mx-md-2">
-            <img src={Pic4} alt="#/" />
-          </figure>
-        </div>
       </section>
       </>
     );
   }
-  
   export default Section6;

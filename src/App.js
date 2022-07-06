@@ -12,7 +12,7 @@ import BrandPage from './pages/BrandPage';
 import BrandStores from './pages/BrandStores';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
-import ExhibitionExploret from './pages/ExhibitionExplore';
+import ExhibitionExplore from './pages/ExhibitionExplore';
 import Activity from './pages/Activity';
 import ActivityPayment from './pages/ActivityPayment';
 
@@ -88,7 +88,7 @@ function App() {
                     <Order />
                   </Route>
                   <Route path="/exhibitionexplore">
-                    <ExhibitionExploret />
+                    <ExhibitionExplore />
                   </Route>
                   <Route path="/exhibition">
                     <Exhibition />

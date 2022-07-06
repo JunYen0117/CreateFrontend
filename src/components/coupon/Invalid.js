@@ -9,7 +9,7 @@ import { data } from 'autoprefixer';
 
 function Invalid(props) {
   const { couponList } = props;
-  console.log('invalid component', couponList);
+  // console.log('invalid component', couponList);
 
   // 撈出全部使用者擁有的優惠券但已失效
   const [invalidLastPage, setInvalidLastPage] = useState();
@@ -22,7 +22,7 @@ function Invalid(props) {
           page: nowPage,
         },
       });
-      console.log(response.data.invalidList);
+      // console.log(response.data.invalidList);
       setInvalidList(response.data.invalidList);
       setInvalidLastPage(response.data.pagination.invalidLastPage);
     };
@@ -30,8 +30,8 @@ function Invalid(props) {
     // console.log('invalidLastPage', invalidLastPage);
     // console.log('nowInvalidPage', nowInvalidPage);
   }, [nowPage, invalidLastPage]);
-  console.log('invalidList:', invalidList);
-  console.log('invalidLastPage:', invalidLastPage);
+  // console.log('invalidList:', invalidList);
+  // console.log('invalidLastPage:', invalidLastPage);
 
   const couponPromptScript = () => {
     if (invalidList.length === 0) {

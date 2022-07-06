@@ -24,7 +24,7 @@ function ReceiveList(props) {
           page: nowPage,
         },
       });
-      console.log(response.data);
+      // console.log(response.data);
       setReceiveList(response.data.receiveList);
       setReceiveLastPage(response.data.pagination.receiveLastPage);
     };
@@ -33,7 +33,7 @@ function ReceiveList(props) {
     // console.log('nowReceivePage', nowReceivePage);
   }, [nowPage, receiveLastPage, updateCoupon]);
   // console.log('receiveList', receiveList);
-  console.log('receiveLastPage', receiveLastPage);
+  // console.log('receiveLastPage', receiveLastPage);
 
   // useEffect(() => {
   //   let getCoupons = async () => {

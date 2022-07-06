@@ -11,7 +11,7 @@ function CommentModal(props) {
   const { detail, comment, orderId } = props;
   const { commentList, setCommentList } = props;
   const [show, setShow] = useState(false);
-  // console.log('ff', comment);
+  // console.log('detail', detail);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);

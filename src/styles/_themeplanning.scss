@@ -204,6 +204,7 @@
     background: white;
     .avatar{
         width: 100%;
+        height: 20vw;
         position: relative;
         a{
             position: absolute;
@@ -212,6 +213,7 @@
         }
         .pic{
             width: 100%;
+            height: 100%;
         }
     }
 }
@@ -275,20 +277,25 @@
 /* .planning_section_nine */
 .section9_article_card{
     width: 40%;
-    img{
-        width: 100%;
+    figure{
+        height: 20vw;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }
-.planning_section_nine span{
+.planning_section_nine .span{
     display: inline-block;
-    font-size: var(--desktop_title);
+    font-size: 18px;
     font-weight: bold;
 }
 @media screen and (max-width: 900px) {
     .section9_article_card{
     width: 46%;
     }
-    .planning_section_nine span{
+    .planning_section_nine .span{
     font-size: var(--mobile_title);
     }
 }

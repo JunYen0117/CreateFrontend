@@ -1,185 +1,100 @@
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function ExhibitionExploreCards() {
+function ExhibitionExploreCards(props) {
+  const { exhibitions } = props;
+  const { level, setLevel } = props;
+  const { area, setArea } = props;
+  const { date, setDate } = props;
+
   return (
     <>
       <div className="d-flex justify-content-center">
-        <select class="m-3">
-          <option selected>選擇地區</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          className="m-3 "
+          defaultValue={'DEFAULT'}
+          onChange={(e) => {
+            setArea(e.target.value);
+          }}
+        >
+          <option value="DEFAULT" disabled hidden>
+            選擇地區
+          </option>
+          <option value="">全部地區</option>
+          <option value="北部">北部</option>
+          <option value="中部">中部</option>
+          <option value="南部">南部</option>
         </select>
-        <select class="m-3">
-          <option selected>選擇日期</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          className="m-3 "
+          defaultValue={'DEFAULT'}
+          onChange={(e) => {
+            setDate(e.target.value);
+          }}
+        >
+          <option value="DEFAULT" disabled hidden>
+            選擇時間
+          </option>
+          <option value="">全部時間</option>
+          <option value="1">近一個月</option>
+          <option value="2">近兩個月</option>
+          <option value="3">近三個月</option>
         </select>
-        <select class="m-3">
-          <option selected>選擇價錢</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          className="m-3 "
+          defaultValue={'DEFAULT'}
+          onChange={(e) => {
+            setLevel(e.target.value);
+          }}
+        >
+          <option value="DEFAULT" disabled hidden>
+            選擇價錢
+          </option>
+          <option value="">全部價錢</option>
+          <option value="1">150以內</option>
+          <option value="2">150 ~ 300</option>
+          <option value="3">300以上</option>
         </select>
       </div>
 
       <div className="card-scroll">
-        <div className="exhibition_card">
-          <a href="/#">
-            <div className="d-flex align-items-center">
-              <div className="img-date">
-                <div className="exhibition_img">
-                  {/* localhost:3001/img/name/pic.jpg */}
-                  <img src="https://picsum.photos/id/237/500/600" alt="..." />
-                </div>
-                <div className="date">
-                  <div>2022/6/3 - 2022/9/13</div>
-                </div>
-              </div>
-              <div className="mx-3 exhibition_text">
-                <h2 className="">
-                  【2022澎湖花火節】限時折50｜澎湖吉貝一日遊｜暢玩水上活動｜來回船票
-                  & 島上機車 & 目斗嶼登島｜赤崁碼頭出發
-                </h2>
-                <div className="line" />
-                <p>
-                  喔喔喔喔喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試
-                </p>
-                <div className="">
-                  <div className="d-flex justify-content-between">
-                    <div>桃園市</div>
-                    <div>NT200</div>
+        {exhibitions.map((exhibition, index) => {
+          return (
+            <div key={exhibition.id} className="exhibition_card">
+              <Link to={`/exhibition/${exhibition.id}`}>
+                <div className="d-flex align-items-center">
+                  <div className="img-date">
+                    <div className="exhibition_img">
+                      <img
+                        src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
+                        alt="..."
+                      />
+                    </div>
+                    <div className="date">
+                      <div>
+                        {exhibition.start_date} - {exhibition.end_date}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mx-3 exhibition_text">
+                    <h2 className="">{exhibition.exhibition_name}</h2>
+                    <div className="line" />
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: `${exhibition.exhibition_intro}`,
+                      }}
+                    ></p>
+                    <div className="">
+                      <div className="d-flex justify-content-between city">
+                        <div>{exhibition.city}</div>
+                        <div>NT{exhibition.exhibition_price}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
-          </a>
-        </div>
-        <div className="exhibition_card">
-          <a href="/#">
-            <div className="d-flex align-items-center">
-              <div className="img-date">
-                <div className="exhibition_img">
-                  {/* localhost:3001/img/name/pic.jpg */}
-                  <img src="https://picsum.photos/id/237/500/600" alt="..." />
-                </div>
-                <div className="date">
-                  <div>2022/6/3 - 2022/9/13</div>
-                </div>
-              </div>
-              <div className="mx-3 exhibition_text">
-                <h2 className="">
-                  【2022澎湖花火節】限時折50｜澎湖吉貝一日遊｜暢玩水上活動｜來回船票
-                  & 島上機車 & 目斗嶼登島｜赤崁碼頭出發
-                </h2>
-                <div className="line" />
-                <p>
-                  喔喔喔喔喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試
-                </p>
-                <div className="">
-                  <div className="d-flex justify-content-between">
-                    <div>桃園市</div>
-                    <div>NT200</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="exhibition_card">
-          <a href="/#">
-            <div className="d-flex align-items-center">
-              <div className="img-date">
-                <div className="exhibition_img">
-                  {/* localhost:3001/img/name/pic.jpg */}
-                  <img src="https://picsum.photos/id/237/500/600" alt="..." />
-                </div>
-                <div className="date">
-                  <div>2022/6/3 - 2022/9/13</div>
-                </div>
-              </div>
-              <div className="mx-3 exhibition_text">
-                <h2 className="">
-                  【2022澎湖花火節】限時折50｜澎湖吉貝一日遊｜暢玩水上活動｜來回船票
-                  & 島上機車 & 目斗嶼登島｜赤崁碼頭出發
-                </h2>
-                <div className="line" />
-                <p>
-                  喔喔喔喔喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試
-                </p>
-                <div className="">
-                  <div className="d-flex justify-content-between">
-                    <div>桃園市</div>
-                    <div>NT200</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="exhibition_card">
-          <a href="/#">
-            <div className="d-flex align-items-center">
-              <div className="img-date">
-                <div className="exhibition_img">
-                  {/* localhost:3001/img/name/pic.jpg */}
-                  <img src="https://picsum.photos/id/237/500/600" alt="..." />
-                </div>
-                <div className="date">
-                  <div>2022/6/3 - 2022/9/13</div>
-                </div>
-              </div>
-              <div className="mx-3 exhibition_text">
-                <h2 className="">
-                  【2022澎湖花火節】限時折50｜澎湖吉貝一日遊｜暢玩水上活動｜來回船票
-                  & 島上機車 & 目斗嶼登島｜赤崁碼頭出發
-                </h2>
-                <div className="line" />
-                <p>
-                  喔喔喔喔喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試
-                </p>
-                <div className="">
-                  <div className="d-flex justify-content-between">
-                    <div>桃園市</div>
-                    <div>NT200</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="exhibition_card">
-          <a href="/#">
-            <div className="d-flex align-items-center">
-              <div className="img-date">
-                <div className="exhibition_img">
-                  {/* localhost:3001/img/name/pic.jpg */}
-                  <img src="https://picsum.photos/id/237/500/600" alt="..." />
-                </div>
-                <div className="date">
-                  <div>2022/6/3 - 2022/9/13</div>
-                </div>
-              </div>
-              <div className="mx-3 exhibition_text">
-                <h2 className="">
-                  【2022澎湖花火節】限時折50｜澎湖吉貝一日遊｜暢玩水上活動｜來回船票
-                  & 島上機車 & 目斗嶼登島｜赤崁碼頭出發
-                </h2>
-                <div className="line" />
-                <p>
-                  喔喔喔喔喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試測試測試喔喔測試測試喔喔測試測試喔喔測試測試喔喔測試測試
-                </p>
-                <div className="">
-                  <div className="d-flex justify-content-between">
-                    <div>桃園市</div>
-                    <div>NT200</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+          );
+        })}
       </div>
     </>
   );

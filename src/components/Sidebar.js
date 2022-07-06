@@ -16,12 +16,12 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/account" className="text-decoration-none" exact>
+            <NavLink to="/member" className="text-decoration-none" exact>
               帳戶設定
             </NavLink>
           </li>
           <li>
-            <NavLink to="/password" className="text-decoration-none" exact>
+            <NavLink to="/pwdchanging" className="text-decoration-none" exact>
               變更密碼
             </NavLink>
           </li>

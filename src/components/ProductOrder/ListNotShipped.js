@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLogin } from '../../utils/useLogin';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
@@ -13,17 +14,17 @@ const ListNotShipped = () => {
   const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
+  const { user } = useLogin();
 
   useEffect(() => {
+    if (!user.userID) return;
     getOrderShipped();
-  }, [orderId]);
-
-  let customer_id = 1;
+  }, [user.userID, orderId]);
 
   const getOrderShipped = async () => {
     // axios.get(URL, config)
     let response = await axios.get(
-      API_URL + `/productorder/notshipped/${customer_id}`
+      API_URL + `/productorder/notshipped/${user.userID}`
     );
     setOrderShipped(response.data);
   };
@@ -34,7 +35,7 @@ const ListNotShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/notshipped/${customer_id}/${orderId}`
+        API_URL + `/productorder/notshipped/${user.userID}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);

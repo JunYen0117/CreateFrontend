@@ -22,7 +22,7 @@ function Available(props) {
     setAvailable(response.data.availableList);
     setLastPage(response.data.pagination.lastPage);
   };
-  console.log('available-LastPage', lastPage);
+  // console.log('available-LastPage', lastPage);
   useEffect(() => {
     getCoupons();
   }, [nowPage, lastPage, updateCoupon]);

@@ -1,31 +1,29 @@
+.carousel_img{
+  width:800px;
+  height:600px;
+  margin: auto;
+}
 .exhibition-sidebar{
     position: sticky;
-    top:20px;
-      .nav-item{
-        // position: relative;
-        // left: 30px;
-          .nav-link{
-            position: relative;
-            color:black;
-            &:hover{
-              color:$primary;
-            }
-            &:focus{
-              &::before{
-                content: "";
-                display: inline-block;
-                width: 5px;
-                height: 20px;
-                position: relative;
-                right: 10px;
-                align-self: center;
-                background: $primary;
-              }
-              color:$primary;
-              font-weight: bold;
-            }
-          }
-        }
+    top:200px;
+    .nav-link{
+      color:black;
+    }
+    .is-active{
+      font-weight: bold;
+      color: $primary;
+      &::before{
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 20px;
+        position: relative;
+        right: 10px;
+        align-self: center;
+        background: $primary;
+      }
+
+    }
   }
   .exhibition-text{
       
@@ -34,8 +32,15 @@
           font-weight: bolder;
           color: $primary;
       }
+      .text{
+        line-height: 25px;
+        font-size: 16px;
+        font-weight: 500;
+
+      }
       h1{
         font-weight: bold;
+     
       }
      
   }

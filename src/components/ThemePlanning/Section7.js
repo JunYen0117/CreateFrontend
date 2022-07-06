@@ -11,11 +11,8 @@ function Section7() {
           <br />
           保有對主題最大程度的想像
           <br />
-
         </p>
         <div className="d-flex justify-content-center">
-          <Section7FlexItem />
-          <Section7FlexItem />
           <Section7FlexItem />
         </div>
         <button className="d-flex justify-content-center mt-4 mb-5">

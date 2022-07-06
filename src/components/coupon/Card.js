@@ -13,8 +13,8 @@ const Card = (props) => {
     coupon_id: coupon.coupon_no,
   };
 
-  console.log('insertCouponDetail', insertCouponDetail);
-  console.log('coupon:', coupon);
+  // console.log('insertCouponDetail', insertCouponDetail);
+  // console.log('coupon:', coupon);
   // 判斷優惠券折扣，在電腦版優惠券顯示
   const [discount, setDiscount] = useState(null);
   useEffect(() => {

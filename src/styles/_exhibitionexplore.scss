@@ -2,11 +2,9 @@
     height: 100vh;
 }
 select {
-	appearance: none !important; //取消箭頭
-    height: 40px;
-    padding: 5px;
+
     border: 1px solid $primary;
-    // -webkit-appearance: none;
+
     
 }
 .card-scroll{
@@ -25,19 +23,18 @@ select {
     .img-date{
         .date{
            
-           h3{
-            bottom: 0px;
-            position: absolute;
-           }
+            color: black;
+
         }
     }
+
 }
 .exhibition_img {
     width: 180px;
-    height: 125px;
+    
     img {
         width: 180px;
-        height: 125px;
+        
         object-fit: cover;
     }
 }
@@ -72,20 +69,19 @@ select {
         
     }
     .city{
-        position: absolute;
-        bottom: 0px;
+        color: black;
     }
 }
 
-.button2 {
+.activity-button1 {
     padding-left: 0;
     margin: 0;
 }
-.button3 {
+.activity-button2 {
     padding-right: 0;
     margin: 0;
 }
-.product_mask {
+.activity_mask {
     position: relative;
     img {
         width: 100%;
@@ -94,7 +90,7 @@ select {
     }
 }
 
-.product_option_mask {
+.activity_option_mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -103,7 +99,7 @@ select {
     background-color: rgb(165, 182, 164, 0.5);
 }
 
-.product_option_text {
+.activity_option_text {
     width: 100%;
     text-align: center;
     font-size: 3rem;

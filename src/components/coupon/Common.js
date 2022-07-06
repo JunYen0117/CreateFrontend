@@ -25,7 +25,7 @@ function Common(props) {
   useEffect(() => {
     let getCoupons = async () => {
       let response = await axios.get(API_URL + '/coupons/updateCoupon');
-      console.log(response.data);
+      // console.log(response.data);
     };
     getCoupons();
   }, []);
@@ -33,9 +33,9 @@ function Common(props) {
   const [active, setActive] = useState(1);
 
   function getPagination() {
-    console.log('getPagination');
+    // console.log('getPagination');
     let items = [];
-    console.log('common-page', page);
+    // console.log('common-page', page);
     for (let number = 1; number <= page; number++) {
       items.push(
         <Pagination.Item
@@ -50,11 +50,11 @@ function Common(props) {
         </Pagination.Item>
       );
     }
-    console.log('items', items);
+    // console.log('items', items);
     return items;
   }
 
-  console.log(data);
+  // console.log(data);
   // console.log('receiveList', receiveList);
 
   return (
