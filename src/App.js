@@ -30,9 +30,7 @@ import { LoginProvider } from './utils/useLogin';
 import FavList from './pages/FavList';
 import Order from './pages/Order';
 
-
 function App() {
-
   return (
     <LoginProvider>
       <CheckListProvider>
