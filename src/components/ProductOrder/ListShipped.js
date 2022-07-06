@@ -18,11 +18,16 @@ const ListShipped = () => {
     getOrders();
   }, [orderId]);
 
+  let customer_id = 1;
+
   const getOrders = async () => {
     // axios.get(URL, config)
-    let response = await axios.get(API_URL + `/productorder/shipped`);
+    let response = await axios.get(
+      API_URL + `/productorder/shipped/${customer_id}`
+    );
     setOrders(response.data);
   };
+  // console.log('s', orders);
 
   let arr = orders.totalarr || [];
 
@@ -32,7 +37,7 @@ const ListShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/shipped/${orderId}`
+        API_URL + `/productorder/shipped/${customer_id}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
@@ -44,7 +49,7 @@ const ListShipped = () => {
 
   return (
     <>
-      {arr.map((v,i) => {
+      {arr.map((v, i) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel

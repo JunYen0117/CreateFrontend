@@ -8,7 +8,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2';
 
 function CommentModal(props) {
-  const { detail, comment } = props;
+  const { detail, comment, orderId } = props;
   const { commentList, setCommentList } = props;
   const [show, setShow] = useState(false);
   // console.log('ff', comment);
@@ -39,7 +39,10 @@ function CommentModal(props) {
           去評論
         </button>
       ) : (
-        <button className=" orderlist-b2 px-3 py-2 mt-2 mb-2" disabled>
+        <button
+          className=" orderlist-b2 px-3 py-2 mt-2 mb-2 comment_button"
+          disabled
+        >
           已評論
         </button>
       )}
@@ -59,6 +62,7 @@ function CommentModal(props) {
               commentList={commentList}
               setCommentList={setCommentList}
               detail={detail}
+              orderId={orderId}
             />
           );
         })}

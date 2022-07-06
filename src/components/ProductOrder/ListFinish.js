@@ -17,11 +17,14 @@ const ListFinish = (props) => {
   const [comment, setComment] = useState([]);
   const { Panel } = Collapse;
 
+  let customer_id = 1;
   //連接後端
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/finish`);
+      let response = await axios.get(
+        API_URL + `/productorder/finish/${customer_id}`
+      );
       setOrders(response.data);
     };
     getOrders();
@@ -34,7 +37,7 @@ const ListFinish = (props) => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/finish/${orderId}`
+        API_URL + `/productorder/finish/${customer_id}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
@@ -58,7 +61,7 @@ const ListFinish = (props) => {
     getComment();
   }, [orderId]);
 
-  console.log('commit', comment);
+  // console.log('commit', comment);
 
   return (
     <>
@@ -66,7 +69,11 @@ const ListFinish = (props) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
-              header={`訂單編號 ${v.orderid}`}
+              header={
+                `訂單編號 ${v.orderid}` +
+                `
+                 日期 ${v.orderdate} 金額 ${v.totalsub}`
+              }
               key="1"
               className=" card-title"
             >

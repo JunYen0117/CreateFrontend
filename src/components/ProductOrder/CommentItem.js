@@ -5,7 +5,7 @@ import { FaStar, FaRegStar } from 'react-icons/fa';
 
 const CommentItem = (props) => {
   const { commentList, setCommentList } = props;
-  const { productId, image, product_name, subtotal, detail } = props;
+  const { productId, image, product_name, subtotal, detail, orderId } = props;
   // 初始值為1
   const [star, setStar] = useState(1);
 
@@ -41,6 +41,7 @@ const CommentItem = (props) => {
 
     newList[commentIndex] = {
       ...newList[commentIndex],
+      order_id: orderId,
       customer_id: 1,
       star: star,
       comment: e.target.value,
@@ -87,7 +88,12 @@ const CommentItem = (props) => {
           )}
         </div>
       </div>
-      <Form.Control as="textarea" rows={3} onChange={handleOnChange} />
+      <Form.Control
+        as="textarea"
+        rows={3}
+        onChange={handleOnChange}
+        placeholder="請輸入評論"
+      />
     </Modal.Body>
   );
 };

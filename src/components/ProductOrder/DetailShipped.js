@@ -6,7 +6,7 @@ import { Modal } from 'antd';
 
 const DetailShipped = (props) => {
   const { setOrderId } = props;
-  const { orderId } = props;
+  const { orderId, customer_id } = props;
   const { detail, detailtotal, detailreceiver, detailpayment } = props;
 
   //  console.log('detail',detail);
@@ -26,7 +26,7 @@ const DetailShipped = (props) => {
     setIsModalVisible(false);
     setOrderId(1);
     let [result] = await axios.get(
-      API_URL + `/productorder/shipped/${orderId}/3`
+      API_URL + `/productorder/shipped/${customer_id}/${orderId}/3`
     );
   };
 
@@ -53,7 +53,7 @@ const DetailShipped = (props) => {
               </tr>
             </thead>
             <tbody className="text-center">
-              {detail.map((v,i) => {
+              {detail.map((v, i) => {
                 return (
                   <tr key={i} className="detail_td">
                     <td className="pt-3">{v.business_name}</td>
