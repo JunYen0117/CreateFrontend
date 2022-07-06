@@ -7,6 +7,10 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../utils/config';
 function ActivityPayment() {
+  const [phoneMessage, setPhoneMessage] = useState('');
+  const [emailMessage, setEmailMessage] = useState('');
+  const [nameMessage, setNameMessage] = useState('');
+
   const history = useHistory();
   if (sessionStorage.getItem('order')) {
     console.log('有資料');
@@ -22,26 +26,44 @@ function ActivityPayment() {
   const [orderPhone, setOrderPhone] = useState('');
 
   const handleClick = async (e) => {
-    try {
-      let response = await axios.post(API_URL + '/activitypayment', {
-        order,
-        orderName,
-        orderEmail,
-        orderPhone,
+    if (
+      orderName !== '' &&
+      orderEmail !== '' &&
+      orderPhone !== '' &&
+      nameMessage === '' &&
+      emailMessage === '' &&
+      nameMessage === ''
+    ) {
+      try {
+        let response = await axios.post(API_URL + '/activitypayment', {
+          order,
+          orderName,
+          orderEmail,
+          orderPhone,
+        });
+        sessionStorage.removeItem('order');
+        console.log(response.data);
+        window.location.href = response.data.payUrl;
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      if (orderName === '') {
+        setNameMessage('❌欄位尚未填寫');
+      }
+      if (orderEmail === '') {
+        setEmailMessage('❌欄位尚未填寫');
+      }
+      if (orderPhone === '') {
+        setPhoneMessage('❌欄位尚未填寫');
+      }
+      Swal.fire({
+        title: '有欄位未填或填寫錯誤',
+        icon: 'warning',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確定',
       });
-      sessionStorage.removeItem('order');
-      console.log(response.data);
-      window.location.href = response.data.payUrl;
-      // Swal.fire({
-      //   title: '購買成功',
-      //   icon: 'success',
-      // }).then((result) => {
-      //   if (result.isConfirmed) {
-      //     history.push('/');
-      //   }
-      // });
-    } catch (e) {
-      console.error(e);
     }
   };
   return (
@@ -53,6 +75,12 @@ function ActivityPayment() {
           setOrderName={setOrderName}
           setOrderEmail={setOrderEmail}
           setOrderPhone={setOrderPhone}
+          setPhoneMessage={setPhoneMessage}
+          setEmailMessage={setEmailMessage}
+          setNameMessage={setNameMessage}
+          phoneMessage={phoneMessage}
+          emailMessage={emailMessage}
+          nameMessage={nameMessage}
         />
         <PaymentMethod />
         <div className="text-end">

@@ -106,12 +106,17 @@ function ActivityCard(props) {
                             confirmButtonText: '確定',
                           }).then((result) => {
                             if (result.isConfirmed) {
-                              Swal.fire(
-                                '您的票卷',
-                                '555566667788',
-                                'success'
+                              Swal.fire({
+                                title: '您的票卷',
+                                iconHtml:
+                                  '<img src="http://localhost:3003/images/exhibition/ticket.png">',
+                                text: '入場時請出示給現場人員',
+                                customClass: {
+                                  icon: 'no-border',
+                                },
+
                                 //QR Code API
-                              ).then((result) => {
+                              }).then((result) => {
                                 if (result.isConfirmed) {
                                   setChanged(!changed);
                                 }

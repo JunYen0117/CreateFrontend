@@ -84,7 +84,7 @@ function ExhibitionExploreCards(props) {
                       }}
                     ></p>
                     <div className="">
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-between city">
                         <div>{exhibition.city}</div>
                         <div>NT{exhibition.exhibition_price}</div>
                       </div>

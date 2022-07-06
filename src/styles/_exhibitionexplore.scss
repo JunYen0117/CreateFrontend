@@ -2,11 +2,9 @@
     height: 100vh;
 }
 select {
-	// appearance: none !important; //取消箭頭
-    // height: 40px;
-    // padding: 5px;
+
     border: 1px solid $primary;
-    // -webkit-appearance: none;
+
     
 }
 .card-scroll{
@@ -25,12 +23,11 @@ select {
     .img-date{
         .date{
            
-           h3{
-            bottom: 0px;
-            position: absolute;
-           }
+            color: black;
+
         }
     }
+
 }
 .exhibition_img {
     width: 180px;
@@ -72,8 +69,7 @@ select {
         
     }
     .city{
-        position: absolute;
-        bottom: 0px;
+        color: black;
     }
 }
 
