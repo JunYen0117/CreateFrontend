@@ -17,10 +17,14 @@ const ListCancel = (props) => {
 
   // console.log('sda', detail);
 
+  let customer_id = 1;
+
   useEffect(() => {
     let getOrderCancel = async () => {
       // axios.get(URL, config)
-      let response = await axios.get(API_URL + `/productorder/cancel`);
+      let response = await axios.get(
+        API_URL + `/productorder/cancel/${customer_id}`
+      );
       setOrderCancel(response.data);
       // console.log(response.data);
     };
@@ -40,8 +44,6 @@ const ListCancel = (props) => {
       setDetailTotal(response.data.result);
       setDetailReceiver(response.data.receiver);
       setDetailPayment(response.data.payment);
-      
-        
     };
     getDetail();
   }, [orderId]);
@@ -103,7 +105,6 @@ const ListCancel = (props) => {
                   detailtotal={detailtotal}
                   detailreceiver={detailreceiver}
                   detailpayment={detailpayment}
-
                 />
               ) : (
                 ''

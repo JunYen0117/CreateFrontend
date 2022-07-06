@@ -9,7 +9,7 @@ const DetailShipped = (props) => {
   const { orderId } = props;
   const { detail, detailtotal, detailreceiver, detailpayment } = props;
 
-  //  console.log('detail',detail);
+   console.log('detail',detail);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 

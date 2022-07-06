@@ -18,9 +18,13 @@ const ListNotShipped = () => {
     getOrderShipped();
   }, [orderId]);
 
+  let customer_id = 1;
+  
   const getOrderShipped = async () => {
     // axios.get(URL, config)
-    let response = await axios.get(API_URL + `/productorder/notshipped`);
+    let response = await axios.get(
+      API_URL + `/productorder/notshipped/${customer_id}`
+    );
     setOrderShipped(response.data);
   };
   // console.log('list', orderShipped);
@@ -39,7 +43,6 @@ const ListNotShipped = () => {
     };
     getDetail();
   }, [orderId]);
-
 
   let arr = orderShipped.arrshipped || [];
 
