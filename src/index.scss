@@ -6,11 +6,11 @@
 @import "./styles/_footer.scss";
 
 // 首頁
-@import "./styles/frontpage.scss";
+@import "./styles/_frontpage.scss";
 
 // 品牌頁
-@import "./styles/brandpage.scss";
-@import "./styles/brandstores.scss";
+@import "./styles/_brandpage.scss";
+@import "./styles/_brandstores.scss";
 
 @import "./styles/sidebar.scss";
 
@@ -30,6 +30,10 @@
 @import './styles/_header.scss';
 @import './styles/headerdropdown';
 @import './styles/_footer.scss';
+
+// 文章頁
+@import "./styles/_artmagazine.scss";
+@import "./styles/magzarticle";
 
 
 // 商品列表、明細
