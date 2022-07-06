@@ -1,7 +1,19 @@
 // import '../../styles/_frontpage.scss';
 import ProductCard from './ProductCard';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function ProductCards(props) {
+  // const [frontproduct, setFrontproduct] = useState;
+
+  // useEffect(() => {
+  //   let getFrontproduct = async () => {
+  //     // http://localhost:3003/api/brandpage
+  //     let response = await axios.get('http://localhost:3003/api/front');
+  //     setFrontproduct(response.data);
+  //   };
+  //   getFrontproduct();
+  // }, []);
   return (
     <>
       {props.datas.map((Productdatas, index) => {
@@ -10,15 +22,7 @@ function ProductCards(props) {
           <div className={`carousel-item ${a}`}>
             <div className="all-logo d-flex justify-content-between">
               {Productdatas.map((content) => (
-                <ProductCard
-                  key={content.product}
-                  product={content.product}
-                  brand={content.brand}
-                  product_pic={content.product_pic}
-                  brand_href={content.brand_href}
-                  pic_href={content.pic_href}
-                  cost={content.cost}
-                />
+                <ProductCard {...content} />
               ))}
             </div>
           </div>
