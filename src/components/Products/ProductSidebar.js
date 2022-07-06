@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-
 import { productChooseClass, productChooseCategory } from '../../utils/api';
-
 import { ReactComponent as CategoryIcon } from '../../img/products/product_category.svg';
 
 function ProductSidebar(props) {
@@ -22,9 +20,7 @@ function ProductSidebar(props) {
   // Classification
   useEffect(() => {
     let getClassification = async () => {
-      let response = await productChooseClass({
-        withCredentials: true,
-      });
+      let response = await productChooseClass();
       setClassifications(response.data);
     };
     getClassification();
@@ -34,9 +30,7 @@ function ProductSidebar(props) {
   useEffect(() => {
     if (classificationId > 0) {
       let getCategory = async () => {
-        let response = await productChooseCategory(classificationId, {
-          withCredentials: true,
-        });
+        let response = await productChooseCategory(classificationId);
         setCategorys(response.data);
       };
       getCategory();

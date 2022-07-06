@@ -11,7 +11,9 @@ import LoginBody from './LoginBody';
 import SignupBody from './SignupBody';
 import ForgottenPwdBody from './ForgottenPwdBody';
 
-function LoginA() {
+function SignupLogin() {
+  //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,7 +23,6 @@ function LoginA() {
 
   return (
     <>
-
       <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 
       <Modal show={show} onHide={handleClose} className="LoginSignup">
@@ -46,4 +47,4 @@ function LoginA() {
   );
 }
 
-export default LoginA;
+export default SignupLogin;

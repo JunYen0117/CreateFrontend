@@ -2,8 +2,7 @@ import CartItem from './CartItem';
 import { useCart } from '../../utils/useCart';
 
 function CartList(props) {
-  const { cart, items, plusOne, minusOne, removeItem } = useCart();
-
+  const { items } = useCart();
   return (
     <>
       {items.map((v, i) => {
@@ -11,11 +10,13 @@ function CartList(props) {
           <CartItem
             key={v.id}
             productId={v.id}
-            productName={v.product_name}
+            product_name={v.product_name}
+            vendorId={v.vendor_id}
             vendor={v.business_name}
             image={v.image}
             price={v.price}
             quantity={v.quantity}
+            checked={v.checked}
           />
         );
       })}

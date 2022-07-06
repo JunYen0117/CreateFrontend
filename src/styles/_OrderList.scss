@@ -6,6 +6,7 @@
     margin-right: 10px;
     &:hover {
       color: $primary;
+
       text-decoration: none;
       border-bottom-style: solid;
     }
@@ -17,22 +18,16 @@
 }
 
 .orderlist-card {
-  position: relative;
-  margin-bottom: 2rem;
+  // position: relative;
+  // margin-bottom: 2rem;
   font-size: $h3-font-size;
+  font-weight: bold;
 
   .card-title {
     background: $secondary;
-    .title-num {
-      font-weight: bold;
-    }
-    .title-name {
-      color: #000;
-      // font-weight: 900;
-    }
+    color: #000;
   }
   .card-button {
-    position: absolute;
     bottom: 0;
     right: 0;
     background-color: #fff;
@@ -49,9 +44,19 @@
 }
 
 .ol_table {
+  // margin-left: 10%;
+  tr {
+    font-weight: 400;
+    td {
+      padding: 0.5rem 3rem;
+    }
+  }
+}
+
+.ol_tableList {
   margin-left: 10%;
   tr {
-    font-weight: 500;
+    font-weight: 400;
     td {
       padding: 0.5rem 3rem;
     }
@@ -70,6 +75,12 @@
 }
 
 .card-content {
+  position: relative;
+  .card-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
   p {
     font-weight: 900;
   }
@@ -102,11 +113,43 @@
 }
 
 .orderdetail_bt {
-  h1{
+  h1 {
     font-size: 20px;
     font-weight: 300;
-    color: $success;
+    color: $primary;
   }
 }
 
+.ant-btn-primary {
+  color: #fff;
+  border-color: $primary;
+  background: $primary;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+  &:hover {
+    background-color: #fff;
+    border-color: rgb(221, 219, 217);
+    color: #000;
+  }
+}
 
+.ant-btn-default {
+  &:hover {
+    background-color: rgb(214, 161, 96);
+    border-color: rgb(214, 161, 96);
+    color: #fff;
+  }
+}
+
+.detail_td{
+  font-weight: 400;
+}
+
+
+// .ant-collapse-header{
+//   display: flex;
+// }
+
+.ant-collapse-header-text{
+  width: 1180px;
+}

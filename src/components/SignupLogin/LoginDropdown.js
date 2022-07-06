@@ -1,14 +1,44 @@
 import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
-
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-function LoginDropdown(props) {
+import { useLogin } from '../../utils/useLogin';
+
+function LoginDropdown() {
   //傳入登入狀態，從App.js -> Header.js -> LoginDropdown.js
-  const { isLogin, setIsLogin } = props;
+  const { setIsLogin } = useLogin();
 
   //dorpdown開關，讓.header_dropdown_menu會不會顯示出來？
   const [showDropdown, setShowDropdown] = useState('d-none');
+  const history = useHistory();
+
+  const handleLogout = async () => {
+    try {
+      const logout = await axios.get(API_URL + '/auth/logout', {
+        withCredentials: true,
+      });
+      // console.log('logout:', logout);
+      setShowDropdown('d-none');
+      setIsLogin(false);
+    } catch (e) {
+      console.error(e);
+    }
+    // 如果在會員中心、購物車按登出，就要跳到首頁
+    if (
+      window.location.href === 'http://localhost:3000/activity' ||
+      window.location.href === 'http://localhost:3000/fav' ||
+      window.location.href === 'http://localhost:3000/member' ||
+      window.location.href === 'http://localhost:3000/pwdchanging' ||
+      window.location.href === 'http://localhost:3000/order' ||
+      window.location.href === 'http://localhost:3000/coupon' ||
+      window.location.href === 'http://localhost:3000/cart'
+    ) {
+      history.push('/Front');
+    }
+  };
+
   return (
     <>
       <div>
@@ -82,12 +112,20 @@ function LoginDropdown(props) {
             </li>
             <li>
               <Link
-                to="/Front"
+                to="/coupon"
                 className="p-2 text-center"
                 onClick={() => {
                   setShowDropdown('d-none');
-                  setIsLogin(false);
                 }}
+              >
+                優惠券
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/Front"
+                className="p-2 text-center"
+                onClick={handleLogout}
               >
                 登出
               </Link>
@@ -100,3 +138,4 @@ function LoginDropdown(props) {
 }
 
 export default LoginDropdown;
+// aaaa

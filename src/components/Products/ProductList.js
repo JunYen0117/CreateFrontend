@@ -15,7 +15,6 @@ function ProductList(props) {
     let getProductAll = async () => {
       // http://localhost:3003/api/product?page=1
       let response = await productGetAll({
-        withCredentials: true,
         params: {
           page: page,
           classificationId: classificationId,
@@ -25,17 +24,15 @@ function ProductList(props) {
       setProducts(response.data.data);
       setLastPage(response.data.pagination.lastPage);
     };
-    if (Number(price.minPrice) !== 0 && Number(price.maxPrice) !== 0) return;
-    getProductAll();
+    if (Number(price.minPrice) === 0 && Number(price.maxPrice) === 0)
+      getProductAll();
   }, [page, classificationId, sort]);
 
   // 選擇商品種類，顯示選擇種類的商品
   useEffect(() => {
     if (categoryId > 0) {
       let getProductCategory = async () => {
-        let response = await productGetCategory(categoryId, {
-          withCredentials: true,
-        });
+        let response = await productGetCategory(categoryId);
         setProducts(response.data);
       };
       getProductCategory();
@@ -44,7 +41,7 @@ function ProductList(props) {
 
   return (
     <>
-      <div className="row w-100">
+      <div className="product_list d-flex flex-wrap justify-content-start w-100 ">
         {products.map((product, i) => {
           return <ProductItem key={product.id} product={product} />;
         })}

@@ -1,107 +1,115 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
 import Member from './pages/Member';
+import Coupon from './pages/Coupon';
+import Starter from './pages/Starter';
 
-import About from './pages/About';
-import User from './pages/User';
-import Home from './pages/Home';
-// 首頁
 import FrontPage from './pages/FrontPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import BrandPage from './pages/BrandPage';
 import BrandStores from './pages/BrandStores';
 import ArtMagazine from './pages/ArtMagazine';
 import MagzArticle from './pages/MagzArticle';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
-import ExhibitionExploret from './pages/ExhibitionExplore';
+import ExhibitionExplore from './pages/ExhibitionExplore';
 import Activity from './pages/Activity';
 import ActivityPayment from './pages/ActivityPayment';
 
 import ThemePlanning from './pages/ThemePlanning';
-import SignupLogin from './components/SignupLogin/SignupLogin';
 import PwdChanging from './pages/PwdChanging';
 
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
+import Products from './pages/Products/Products';
+import ProductDetail from './pages/Products/ProductDetail';
 import Cart from './pages/Cart';
 
 import { CartProvider } from './utils/useCart';
+import { CheckListProvider } from './utils/useCheckList';
+import { LoginProvider } from './utils/useLogin';
 
-import FavList from './pages/Fav/FavList';
-import Order from './pages/ProductOrder/Order';
-
-// import Sidebar from './components/Sidebar';
+import FavList from './pages/FavList';
+import Order from './pages/Order';
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
   return (
-    <CartProvider localStorageKey="Cart">
-      <Router>
-        <>
-          <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-          <Switch>
-            <Route path="/Front">
-              <FrontPage />
-            </Route>
-            <Route path="/Brand">
-              <BrandPage />
-            </Route>
-            <Route path="/Brand/Stores">
-              <BrandStores />
-            </Route>
-            <Route path="/ArtMagazine">
-              <ArtMagazine />
-            </Route>
-            <Route path="/MagzArticle">
-              <MagzArticle />
-            </Route>
-            <Route path="/course">
-              <Course />
-            </Route>
-            <Route path="/activity">
-              <Activity />
-            </Route>
-            <Route path="/activitypayment">
-              <ActivityPayment />
-            </Route>
-            <Route path="/member">
-              <Member />
-            </Route>
-            <Route path="/themeplanning">
-              <ThemePlanning />
-            </Route>
-            <Route path="/pwdchanging">
-              <PwdChanging />
-            </Route>
-            <Route path="/product/detail">
-              <ProductDetail />
-            </Route>
-            <Route path="/product">
-              <Products />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-            <Route path="/fav">
-              <FavList />
-            </Route>
-            <Route path="/order">
-              <Order />
-            </Route>
-            <Route path="/exhibition">
-              <Exhibition />
-            </Route>
-            <Route path="/exhibitionexplore">
-              <ExhibitionExploret />
-            </Route>
-          </Switch>
-          <Footer />
-        </>
-      </Router>
-    </CartProvider>
+    <LoginProvider>
+      <CheckListProvider>
+        <CartProvider localStorageKey="Cart">
+          <Router>
+            <>
+              <Header />
+              <ScrollToTop>
+                <Switch>
+                  <Route path="/Front">
+                    <FrontPage />
+                  </Route>
+                  <Route path="/Brand">
+                    <BrandPage />
+                  </Route>
+                  <Route path="/BrandStores">
+                    <BrandStores />
+                  </Route>
+                  <Route path="/ArtMagazine">
+                    <ArtMagazine />
+                  </Route>
+                  <Route path="/MagzArticle">
+                    <MagzArticle />
+                  </Route>
+                  <Route path="/course">
+                    <Course />
+                  </Route>
+                  <Route path="/Coupon">
+                    <Coupon />
+                  </Route>
+                  <Route path="/activitypayment">
+                    <ActivityPayment />
+                  </Route>
+                  <Route path="/activity">
+                    <Activity />
+                  </Route>
+                  <Route path="/member">
+                    <Member />
+                  </Route>
+                  <Route path="/themeplanning">
+                    <ThemePlanning />
+                  </Route>
+                  <Route path="/pwdchanging">
+                    <PwdChanging />
+                  </Route>
+                  <Route path="/product/detail">
+                    <ProductDetail />
+                  </Route>
+                  <Route path="/product">
+                    <Products />
+                  </Route>
+                  <Route path="/cart">
+                    <Cart />
+                  </Route>
+                  <Route path="/fav">
+                    <FavList />
+                  </Route>
+                  <Route path="/order">
+                    <Order />
+                  </Route>
+                  <Route path="/exhibition/:exhibitionId">
+                    <Exhibition />
+                  </Route>
+                  <Route path="/exhibition">
+                    <ExhibitionExplore />
+                  </Route>
+                  <Route exact path="/">
+                    <Starter />
+                  </Route>
+                </Switch>
+              </ScrollToTop>
+              <Footer />
+            </>
+          </Router>
+        </CartProvider>
+      </CheckListProvider>
+    </LoginProvider>
   );
 }
 

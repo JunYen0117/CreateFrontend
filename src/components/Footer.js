@@ -4,11 +4,15 @@ import { ReactComponent as FBLogo } from '../img/footer/FBLogo.svg';
 import { ReactComponent as LineLogo } from '../img/footer/LineLogo.svg';
 import Logo2 from '../img/footer/Logo2.svg';
 
-function Footer() {
+function Footer(props) {
+  if (window.location.href === 'http://localhost:3000/') {
+    return <></>;
+  }
+
   return (
     <>
       {/* 以下為桌機版畫面 */}
-      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4 row">
+      <footer className="footer_desktop container-fluid d-none d-md-block text-white h4 row mx-0">
         <div className="container footer_all ms-5 col-11">
           {/* footer_up */}
           <ul className="footer_up_title d-flex pt-4 footer_top ms-5">
@@ -112,10 +116,14 @@ function Footer() {
             <Accordion.Header>幫助</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/" className='footer_a'>Q&A</a>
+                <a href="#/" className="footer_a">
+                  Q&A
+                </a>
               </p>
               <p>
-                <a href="#/" className='footer_a'>客服</a>
+                <a href="#/" className="footer_a">
+                  客服
+                </a>
               </p>
             </Accordion.Body>
           </Accordion.Item>
@@ -123,10 +131,14 @@ function Footer() {
             <Accordion.Header>認識</Accordion.Header>
             <Accordion.Body>
               <p>
-                <a href="#/" className='footer_a'>關於迴廊</a>
+                <a href="#/" className="footer_a">
+                  關於迴廊
+                </a>
               </p>
               <p>
-                <a href="#/" className='footer_a'>Business</a>
+                <a href="#/" className="footer_a">
+                  Business
+                </a>
               </p>
             </Accordion.Body>
           </Accordion.Item>
