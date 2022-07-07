@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import BrandPage from './pages/BrandPage';
 import BrandStores from './pages/BrandStores';
+import ArtMagazine from './pages/ArtMagazine';
+import MagzArticle from './pages/MagzArticle';
 import Course from './pages/Course';
 import Exhibition from './pages/Exhibition';
 import ExhibitionExplore from './pages/ExhibitionExplore';
@@ -30,9 +32,7 @@ import { LoginProvider } from './utils/useLogin';
 import FavList from './pages/FavList';
 import Order from './pages/Order';
 
-
 function App() {
-
   return (
     <LoginProvider>
       <CheckListProvider>
@@ -50,6 +50,12 @@ function App() {
                   </Route>
                   <Route path="/BrandStores">
                     <BrandStores />
+                  </Route>
+                  <Route path="/ArtMagazine">
+                    <ArtMagazine />
+                  </Route>
+                  <Route path="/MagzArticle">
+                    <MagzArticle />
                   </Route>
                   <Route path="/course">
                     <Course />
@@ -87,11 +93,11 @@ function App() {
                   <Route path="/order">
                     <Order />
                   </Route>
-                  <Route path="/exhibitionexplore">
-                    <ExhibitionExplore />
+                  <Route path="/exhibition/:exhibitionId">
+                    <Exhibition />
                   </Route>
                   <Route path="/exhibition">
-                    <Exhibition />
+                    <ExhibitionExplore />
                   </Route>
                   <Route exact path="/">
                     <Starter />

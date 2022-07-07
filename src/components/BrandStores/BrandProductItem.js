@@ -1,4 +1,3 @@
-import product1 from '../../img/P4.jpg';
 function Product(props) {
   const { productName, productPrice, image } = props;
 
