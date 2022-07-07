@@ -32,6 +32,8 @@ import { LoginProvider } from './utils/useLogin';
 import FavList from './pages/FavList';
 import Order from './pages/Order';
 
+import AboutUs from './pages/AboutUs';
+
 function App() {
   return (
     <LoginProvider>
@@ -101,6 +103,9 @@ function App() {
                   </Route>
                   <Route exact path="/">
                     <Starter />
+                  </Route>
+                  <Route exact path="/About">
+                    <AboutUs />
                   </Route>
                 </Switch>
               </ScrollToTop>

@@ -1,0 +1,26 @@
+// LOGO圖片
+.about-logo {
+    width: 50%;
+    margin: 50px auto 100px;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.introduce_title {
+    font-size: 22px;
+    color: $info;
+    margin: 0 auto 50px;
+    font-weight: 600;
+}
+.introduce_p {
+    font-size: 16px;
+    color: black;
+    margin: 0 auto 100px;
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: 15%;
+    font-weight: 500;
+}
