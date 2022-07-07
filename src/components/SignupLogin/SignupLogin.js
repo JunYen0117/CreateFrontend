@@ -1,5 +1,6 @@
+import { ReactComponent as NoLogin } from '../../img/header/nologin.svg';
+
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
 import Modal from 'react-bootstrap/Modal';
 
@@ -10,7 +11,9 @@ import LoginBody from './LoginBody';
 import SignupBody from './SignupBody';
 import ForgottenPwdBody from './ForgottenPwdBody';
 
-function LoginA() {
+function SignupLogin() {
+  //傳入登入狀態，從App.js -> Header.js -> SignupLogin.js
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,13 +23,7 @@ function LoginA() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          handleShow();
-        }}
-      >
-        登入註冊
-      </button>
+      <NoLogin onClick={handleShow} style={{ cursor: 'pointer' }} />
 
       <Modal show={show} onHide={handleClose} className="LoginSignup">
         <Tabs
@@ -50,4 +47,4 @@ function LoginA() {
   );
 }
 
-export default LoginA;
+export default SignupLogin;

@@ -4,7 +4,11 @@ import { ReactComponent as FBLogo } from '../img/footer/FBLogo.svg';
 import { ReactComponent as LineLogo } from '../img/footer/LineLogo.svg';
 import Logo2 from '../img/footer/Logo2.svg';
 
-function Footer() {
+function Footer(props) {
+  if (window.location.href === 'http://localhost:3000/') {
+    return <></>;
+  }
+
   return (
     <>
       {/* 以下為桌機版畫面 */}
@@ -99,7 +103,7 @@ function Footer() {
       {/* 以下為手機版畫面 */}
       <footer className="footer_mobile d-flex flex-column d-md-none">
         {/* 以下為bootstrap accordion套件 */}
-        <Accordion>
+        <Accordion className="d-md-none">
           <Accordion.Item eventKey="0">
             <Accordion.Header>聯絡資訊</Accordion.Header>
             <Accordion.Body>
@@ -162,7 +166,7 @@ function Footer() {
           <p className="create_your_life mx-auto mt-2">Create your life.</p>
         </div>
         <div className="d-flex justify-content-center pb-2">
-          <div className="mx-4">©2022</div>
+          <div className="copy_right mx-4">©2022</div>
           <div className="mx-4">
             <a href="#/" className="footer_a">
               隱私權政策

@@ -86,7 +86,6 @@ const FavProduct = (props) => {
           className="text-white d-block Fp_button p-2 mt-2"
           onClick={handleAddCart}
         >
-    
           <FaShoppingCart className="me-2 h2 m-0 " />
           {isInCart(productInDetail.id) ? '立即結帳' : '加入購物車'}
         </button>

@@ -22,17 +22,17 @@ function Section1() {
         </div>
         <ul className="d-flex justify-content-center">
           <li>
-            <a className="p-3" href="#/">
+            <a className="section1_menu_item p-3" href="#/">
               畢業禮物推薦
             </a>
           </li>
           <li>
-            <a className="p-3" href="#/">
+            <a className="section1_menu_item p-3" href="#/">
               友誼回憶體驗
             </a>
           </li>
           <li>
-            <a className="p-3" href="#/">
+            <a className="section1_menu_item p-3" href="#/">
               畢業專欄
             </a>
           </li>

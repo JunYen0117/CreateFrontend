@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 import ListFinish from '../components/ProductOrder/ListFinish';
 import ListCancel from '../components/ProductOrder/ListCancel';
 import ListNotShipped from '../components/ProductOrder/ListNotShipped';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Tab, Col, Nav, Row } from 'react-bootstrap';
 import 'antd/dist/antd.css';
 import ListShipped from '../components/ProductOrder/ListShipped';

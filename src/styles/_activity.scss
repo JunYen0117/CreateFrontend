@@ -1,0 +1,53 @@
+.border-bottom {
+  a {
+    font-size: 1.125rem;
+    color: $light;
+    text-decoration: none;
+    margin-right: 10px;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+    &:focus {
+      color: $primary;
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+  }
+}
+.Fac_card{
+   padding: 20px;
+    &:hover{
+      box-shadow: 3px 3px 3px gray;
+      transform: translate(-5px, -5px);
+     
+      
+    }
+  }
+  
+  .Fac_cardimg {
+    width: 180px;
+    height: 125px;
+  }
+  
+  .Fac_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .Fac_table {
+    width: 100%;
+    tr {
+      th {
+        font-weight: 300;
+        
+        // width: 100px;
+      }
+      td {
+        font-weight: 300;
+        // padding: 0.25rem 3rem;
+      }
+    }
+  }

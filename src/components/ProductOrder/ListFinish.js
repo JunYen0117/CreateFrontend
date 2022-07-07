@@ -1,5 +1,6 @@
 import { Collapse } from 'antd';
 import { useEffect, useState } from 'react';
+import { useLogin } from '../../utils/useLogin';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
@@ -16,34 +17,35 @@ const ListFinish = (props) => {
   const [detailreceiver, setDetailReceiver] = useState([]);
   const [comment, setComment] = useState([]);
   const { Panel } = Collapse;
+  const { user } = useLogin();
 
-  let customer_id = 1;
   //連接後端
   useEffect(() => {
     let getOrders = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/finish/${customer_id}`
+        API_URL + `/productorder/finish/${user.userID}`
       );
       setOrders(response.data);
     };
+    if (!user.userID) return;
     getOrders();
-  }, [orderStatus]);
+  }, [user.userID, orderStatus]);
   let arr = orders.totalarr || [];
 
   // 取得訂單明細所需資料
   useEffect(() => {
-    if (orderId === 0) return;
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/finish/${customer_id}/${orderId}`
+        API_URL + `/productorder/finish/${user.userID}/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
       setDetailPayment(response.data.payment);
       setDetailReceiver(response.data.receiver);
     };
+    if (orderId === 0) return;
     getDetail();
   }, [orderId]);
 
