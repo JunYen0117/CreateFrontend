@@ -3,13 +3,16 @@ import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
+import { useLogin } from '../../utils/useLogin';
+
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
   const { pass, use, coupon, notUse, setUpdateCoupon, refreshList, data, updateCoupon } = props;
+  const { user } = useLogin();
 
   const insertCouponDetail = {
-    customer_id: 2,
+    customer_id: user.userID,
     coupon_id: coupon.coupon_no,
   };
 
@@ -69,7 +72,6 @@ const Card = (props) => {
                     API_URL + '/coupons/insertCoupon',
                     insertCouponDetail
                   );
-                  console.log(response);
                   Swal.fire({
                     position: 'center',
                     icon: 'success',
