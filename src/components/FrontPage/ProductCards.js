@@ -14,15 +14,16 @@ function ProductCards(props) {
   //   };
   //   getFrontproduct();
   // }, []);
+
   return (
     <>
       {props.datas.map((Productdatas, index) => {
-        const a = index == 0 ? 'active' : '';
+        const a = index === 0 ? 'active' : '';
         return (
-          <div className={`carousel-item ${a}`}>
+          <div  key={index} className={`carousel-item ${a}`}>
             <div className="all-logo d-flex justify-content-between">
-              {Productdatas.map((content) => (
-                <ProductCard {...content} />
+              {Productdatas.map((content, i) => (
+                <ProductCard key={content.id} {...content} />
               ))}
             </div>
           </div>

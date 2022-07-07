@@ -41,11 +41,11 @@ class FrontPage extends Component {
     const handler = (e) => this.setState({ matches: e.matches });
     window.matchMedia('(min-width: 768px)').addEventListener('change', handler);
     axios.get('http://localhost:3003/api/front/product').then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({ Productdatas: arrayConvert(res.data, 4) });
     });
     axios.get('http://localhost:3003/api/front/brand').then((res) => {
-      console.log(arrayConvert(res.data, 4));
+      // console.log(arrayConvert(res.data, 4));
       this.setState({ Branddatas: arrayConvert(res.data, 4) });
     });
   }
