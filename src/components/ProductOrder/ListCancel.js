@@ -4,12 +4,14 @@ import { FaWaze } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import DetailCancel from './DetailCancel';
 import { Collapse } from 'antd';
+import { useLogin } from '../../utils/useLogin';
 
 const ListCancel = (props) => {
   const { orderStatus } = props;
   const [orderCancel, setOrderCancel] = useState([]);
   const [orderId, setOrderId] = useState(0);
   const { Panel } = Collapse;
+  const { user } = useLogin();
   const [detail, setDetail] = useState([]);
   const [detailtotal, setDetailTotal] = useState([]);
   const [detailpayment, setDetailPayment] = useState([]);
@@ -17,19 +19,18 @@ const ListCancel = (props) => {
 
   // console.log('sda', detail);
 
-  let customer_id = 1;
-
   useEffect(() => {
     let getOrderCancel = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/cancel/${customer_id}`
+        API_URL + `/productorder/cancel/${user.userID}`
       );
       setOrderCancel(response.data);
       // console.log(response.data);
     };
+    if (!user.userID) return;
     getOrderCancel();
-  }, [orderStatus]);
+  }, [user.userID, orderStatus]);
   let arr = orderCancel.arrcancel || [];
   // console.log('sd',arr)
 
@@ -38,7 +39,7 @@ const ListCancel = (props) => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/cancel/${customer_id}/${orderId}`
+        API_URL + `/productorder/cancel/detail/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);

@@ -38,7 +38,7 @@ const ListFinish = (props) => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/finish/${user.userID}/${orderId}`
+        API_URL + `/productorder/finish/detail/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaWaze } from 'react-icons/fa';
 import DetailShipped from './DetailShipped';
 import { Collapse } from 'antd';
+import { useLogin } from '../../utils/useLogin';
 
 const ListShipped = () => {
   const [orders, setOrders] = useState([]);
@@ -13,17 +14,17 @@ const ListShipped = () => {
   const [detailpayment, setDetailPayment] = useState([]);
   const [detailreceiver, setDetailReceiver] = useState([]);
   const { Panel } = Collapse;
+  const { user } = useLogin();
 
   useEffect(() => {
+    if (!user.userID) return;
     getOrders();
-  }, [orderId]);
-
-  let customer_id = 1;
+  }, [user.userID, orderId]);
 
   const getOrders = async () => {
     // axios.get(URL, config)
     let response = await axios.get(
-      API_URL + `/productorder/shipped/${customer_id}`
+      API_URL + `/productorder/shipped/${user.userID}`
     );
     setOrders(response.data);
   };
@@ -37,7 +38,7 @@ const ListShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/shipped/${customer_id}/${orderId}`
+        API_URL + `/productorder/shipped/detail/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);

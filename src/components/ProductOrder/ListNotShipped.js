@@ -35,7 +35,7 @@ const ListNotShipped = () => {
     let getDetail = async () => {
       // axios.get(URL, config)
       let response = await axios.get(
-        API_URL + `/productorder/notshipped/${user.userID}/${orderId}`
+        API_URL + `/productorder/notshipped/detail/${orderId}`
       );
       setDetail(response.data.total);
       setDetailTotal(response.data.result);
