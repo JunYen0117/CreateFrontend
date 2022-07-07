@@ -71,11 +71,7 @@ const ListFinish = (props) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
-              header={
-                `訂單編號 ${v.orderid}` +
-                `
-                 日期 ${v.orderdate} 金額 ${v.totalsub}`
-              }
+              header={`訂單編號 ${v.orderid}`}
               key="1"
               className=" card-title"
             >
