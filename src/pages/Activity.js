@@ -26,9 +26,9 @@ function Avtivity(props) {
 
   return (
     <>
-      <div className="container pt-5">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-2">
+          <div className="col-3 d-none d-md-flex justify-content-center mt-4">
             <Sidebar />
           </div>
           <div className="col-8">

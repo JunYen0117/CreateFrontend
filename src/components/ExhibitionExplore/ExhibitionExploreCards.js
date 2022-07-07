@@ -61,9 +61,9 @@ function ExhibitionExploreCards(props) {
           return (
             <div key={exhibition.id} className="exhibition_card">
               <Link to={`/exhibition/${exhibition.id}`}>
-                <div className="d-flex align-items-center">
+                <div className="d-flex ">
                   <div className="img-date">
-                    <div className="exhibition_img">
+                    <div className="exhibition_img ">
                       <img
                         src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
                         alt="..."
