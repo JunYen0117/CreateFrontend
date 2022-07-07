@@ -26,7 +26,7 @@ class CommentInput extends React.Component {
     axios
       .post('http://localhost:3003/api/artmagazine/comment', {
         blog_id: this.props.name,
-        customer_id: '1',
+        customer_id: this.props.user.userID,
         comment: this.state.value,
       })
       .then(() => {

@@ -52,12 +52,9 @@ function App() {
                   <Route path="/ArtMagazine">
                     <ArtMagazine />
                   </Route>
-                  <Route path="/MagzArticle">
+                  {/* <Route path="/MagzArticle">
                     <MagzArticle />
-                  </Route>
-                  <Route path="/course">
-                    <Course />
-                  </Route>
+                  </Route> */}
                   <Route path="/Coupon">
                     <Coupon />
                   </Route>

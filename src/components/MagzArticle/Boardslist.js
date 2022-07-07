@@ -1,6 +1,5 @@
 import Board from './Board';
 import React from 'react';
-import axios from 'axios';
 
 class Boardslist extends React.Component {
   constructor(props) {
@@ -14,8 +13,8 @@ class Boardslist extends React.Component {
     return (
       <>
         <div className="container">
-          {this.props.comments.reverse().map((element) => {
-            return <Board>{element.comment}</Board>;
+          {this.props.comments.map((element, i) => {
+            return <Board key={i} element={element} />;
           })}
         </div>
       </>

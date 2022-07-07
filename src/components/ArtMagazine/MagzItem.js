@@ -1,23 +1,24 @@
-import A1 from '../../img/A1.jpg';
+import { Link } from 'react-router-dom';
+
 function MagzItem(props) {
   const { title, context, image, name, authorName } = props;
-  const url = `http://localhost:3000/ArtMagazine?name=${name}`;
+  const url = `/ArtMagazine?name=${name}`;
   return (
     <>
       <div className="magz_list col-12 justify-content-start mb-3">
         <div className="d-flex align-items-start ">
-          <a href={url}>
+          <Link to={url}>
             <div className="magz_img flex-shrink-0">
               <img
                 src={`http://localhost:3003/images/artmagzs/${image}`}
                 alt=""
               />
             </div>
-          </a>
+          </Link>
           <div className="magz_text">
-            <a href={url} className="magz_title">
+            <Link to={url} className="magz_title text-decoration-none">
               {title}
-            </a>
+            </Link>
             <p className="magz_author_name">{authorName}</p>
             <div className="magz_list_line"></div>
             <div

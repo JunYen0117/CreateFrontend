@@ -80,7 +80,7 @@ function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/course" exact>
+            <NavLink to="/exhibition" exact>
               活動資訊
             </NavLink>
           </li>
@@ -90,12 +90,12 @@ function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" exact>
+            <NavLink to="/ArtMagazine" exact>
               文章專欄
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" exact>
+            <NavLink to="/About" exact>
               關於我們
             </NavLink>
           </li>

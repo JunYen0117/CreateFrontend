@@ -12,6 +12,7 @@ function Products(props) {
             return (
               <BrandProductItem
                 key={i}
+                productId={v.productId}
                 productName={v.product_name}
                 productPrice={v.price}
                 image={v.image}

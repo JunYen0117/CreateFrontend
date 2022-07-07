@@ -1,10 +1,10 @@
-// import '../../styles/_frontpage.scss';
+import { Link } from 'react-router-dom';
 
 function ArticleCard(props) {
-  const { image, title, context } = props;
+  const { image, title, context, ArticleId } = props;
   return (
     <div className="article_card col-5">
-      <a href="/">
+      <Link to={`/ArtMagazine?name=${ArticleId}`}>
         <div className="d-flex flex-column flex-md-row align-items-center justify-content-center atc">
           <div className="flex-shrink-0 article_img">
             <img
@@ -18,7 +18,7 @@ function ArticleCard(props) {
             <p dangerouslySetInnerHTML={{ __html: context }} />
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

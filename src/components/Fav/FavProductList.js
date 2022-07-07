@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
-import FavProduct from './Favproduct';
+import FavProduct from './FavProduct';
 import { useLogin } from '../../utils/useLogin';
 
 const FavProductList = () => {
