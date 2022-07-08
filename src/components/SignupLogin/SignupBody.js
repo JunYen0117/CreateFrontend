@@ -45,7 +45,6 @@ function SignupBody() {
         icon: 'error',
         title: '註冊失敗，請檢查欄位',
       });
-      
     }
   }
 

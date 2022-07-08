@@ -63,9 +63,9 @@ function Header() {
           </div>
           <ul className="header_top menu1 d-none d-md-flex pt-4 ">
             <li className="shopcart_item mt-3 me-3">
-              <Link to="/cart">
+              <NavLink to="/cart">
                 <Shopcart1 />
-              </Link>
+              </NavLink>
             </li>
             <li className="profile_item mt-3 me-5">
               {isLogin === true ? <LoginDropdown /> : <SignupLogin />}
@@ -74,10 +74,10 @@ function Header() {
         </div>
         <ul className="menu2 d-none d-md-flex justify-content-around pt-4">
           <li>
-            <Link to="/themeplanning">主題企劃</Link>
+            <NavLink to="/themeplanning" exact>主題企劃</NavLink>
           </li>
           <li>
-            <Link to="#/">活動資訊</Link>
+            <NavLink to="/activity" exact>活動資訊</NavLink>
           </li>
           <li>
             <NavLink to="/product" exact>
@@ -85,10 +85,10 @@ function Header() {
             </NavLink>
           </li>
           <li>
-            <Link to="#/">文章專欄</Link>
+            <NavLink to="/article" exact>文章專欄</NavLink>
           </li>
           <li>
-            <Link to="#/">關於我們</Link>
+            <NavLink to="/about" exact>關於我們</NavLink>
           </li>
         </ul>
         {/* 以下為手機版 */}
