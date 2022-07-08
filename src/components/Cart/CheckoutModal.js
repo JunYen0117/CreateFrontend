@@ -2,12 +2,14 @@ import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import CheckoutList from './CheckoutList';
 import { useCart } from '../../utils/useCart';
+import { useLogin } from '../../utils/useLogin';
 import { checkoutSubmit } from '../../utils/api';
 
 import { PaymentElement } from '@stripe/react-stripe-js';
 
 function CheckoutModal(props) {
   const { items, addItem, clearCart } = useCart();
+  const { user } = useLogin();
   const { checkList, setCheckList, checkListTotal, shippingData } = props;
   const { show, handleClose } = props;
 
@@ -27,14 +29,11 @@ function CheckoutModal(props) {
     setCheckList([]);
   };
 
-  // 準備要寫入資料庫的商品資料
-  // console.log('checkList', checkList);
-  // console.log('shippingData', shippingData);
-
   // 結帳
   const handleSubmit = async () => {
     try {
       let response = await checkoutSubmit({
+        userID: user.userID,
         shippingData,
         checkList,
         total: checkListTotal,

@@ -24,7 +24,7 @@ export function LoginProvider({ children }) {
         console.error('尚未登入');
       }
     })();
-  }, []);
+  }, [isLogin]);
 
   return (
     <LoginContext.Provider value={{ isLogin, setIsLogin, user, setUser }}>

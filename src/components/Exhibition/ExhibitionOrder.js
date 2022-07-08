@@ -3,14 +3,16 @@ import {
   AiOutlineMinusCircle,
   AiOutlineUndo,
 } from 'react-icons/ai';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useLogin } from '../../utils/useLogin';
 import { Link } from 'react-router-dom';
 
 function ExhibitionOrder(props) {
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
-
+  const { user } = useLogin();
   const { exhibition } = props;
+
   return (
     <>
       {exhibition.map((item, index) => {
@@ -107,7 +109,7 @@ function ExhibitionOrder(props) {
               <Link to={'/activitypayment'}>
                 <button
                   className="my-4 submit-button"
-                  onClick={() => {
+                  onClick={(e) => {
                     let obj = {
                       exhibition_id: `${item.id}`,
                       exhibition_name: `${item.exhibition_name}`,
@@ -119,6 +121,12 @@ function ExhibitionOrder(props) {
                         end: `${item.end_date}`,
                       },
                     };
+
+                    if (!user.userID) {
+                      e.preventDefault();
+                      console.log('尚未登入');
+                    }
+
                     window.sessionStorage.setItem('order', JSON.stringify(obj));
                     // sessionStorage.setItem('key', JSON.stringify(obj));
                   }}

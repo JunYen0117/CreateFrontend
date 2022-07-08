@@ -30,6 +30,8 @@ import { LoginProvider } from './utils/useLogin';
 import FavList from './pages/FavList';
 import Order from './pages/Order';
 
+import AboutUs from './pages/AboutUs';
+
 function App() {
   return (
     <LoginProvider>
@@ -52,9 +54,6 @@ function App() {
                   <Route path="/ArtMagazine">
                     <ArtMagazine />
                   </Route>
-                  {/* <Route path="/MagzArticle">
-                    <MagzArticle />
-                  </Route> */}
                   <Route path="/Coupon">
                     <Coupon />
                   </Route>
@@ -96,6 +95,9 @@ function App() {
                   </Route>
                   <Route exact path="/">
                     <Starter />
+                  </Route>
+                  <Route exact path="/About">
+                    <AboutUs />
                   </Route>
                 </Switch>
               </ScrollToTop>
