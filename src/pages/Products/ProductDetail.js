@@ -114,9 +114,20 @@ function ProductDetail() {
     // console.log(productInDetail.id);
     // console.log(`${API_URL}/fav/product/add/${user_id}/${productInDetail.id}`);
     try {
-      let response = await axios.get(
-        `${API_URL}/fav/product/add/${user.userID}/${productInDetail.id}`
-      );
+      if (!user.userID) {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: '請先登入',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
+      } else {
+        let response = await axios.get(
+          `${API_URL}/fav/product/add/${user.userID}/${productInDetail.id}`
+        );
+      }
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -218,7 +229,11 @@ function ProductDetail() {
                   addfav(e);
                   // console.log('add');
                 }
-                setHeart(!heart);
+                if (!user.userID) {
+                  return
+                } else {
+                  setHeart(!heart);
+                }
               }}
             >
               <div className="mb-md-5 p-2 h2 product_pluscart text-center">

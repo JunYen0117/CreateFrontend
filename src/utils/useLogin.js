@@ -8,6 +8,7 @@ export function LoginProvider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState({
     userID: '',
+    avatar: '',
   });
 
   useEffect(() => {
@@ -19,8 +20,13 @@ export function LoginProvider({ children }) {
         setIsLogin(true);
         setUser({
           userID: checkLogin.data.customer.id,
+          avatar: checkLogin.data.customer.avatar,
         });
       } catch (e) {
+        setUser({
+          userID: '',
+          avatar: '',
+        });
         console.error('尚未登入');
       }
     })();

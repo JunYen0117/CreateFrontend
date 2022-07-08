@@ -9,7 +9,6 @@ import 'sweetalert2/src/sweetalert2.scss';
 const ArticleCollect = ({ props }) => {
   const [showTag, setShowTag] = useState(false);
   // console.log('ad', props);
-  
 
   let user_id = 1;
 

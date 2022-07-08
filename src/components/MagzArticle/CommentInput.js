@@ -1,7 +1,8 @@
-import avatar from '../../img/potato.jpg';
+import avatar from '../../img/member/nologin.svg';
 import Boardslist from './Boardslist';
 import React from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 class CommentInput extends React.Component {
   constructor(props) {
@@ -23,6 +24,16 @@ class CommentInput extends React.Component {
       });
   }
   handleSubmit(event) {
+    event.preventDefault();
+    if (!this.props.user.userID) {
+      Swal.fire({
+        icon: 'error',
+        title: '錯誤',
+        text: '請先登入',
+      });
+    }
+
+    // this.props.user.userID
     axios
       .post('http://localhost:3003/api/artmagazine/comment', {
         blog_id: this.props.name,
@@ -40,16 +51,23 @@ class CommentInput extends React.Component {
             console.log(res.data);
           });
       });
-
-    event.preventDefault();
   }
   render() {
     return (
       <>
+        {console.log('this.props', this.props)}
         <div className="compose_wrapper d-flex justify-content-center">
           <div className="avatar">
             <span className="comment_user">
-              <img src={avatar} alt="" className="" />
+              <img
+                src={
+                  this.props.user.userID
+                    ? `http://localhost:3003/images${this.props.user.avatar}`
+                    : avatar
+                }
+                alt=""
+                className=""
+              />
             </span>
           </div>
           <form onSubmit={this.handleSubmit}>

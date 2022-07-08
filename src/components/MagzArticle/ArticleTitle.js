@@ -28,10 +28,12 @@ class ArticleTitle extends React.Component {
     return (
       <>
         <div className="article_main_img d-flex justify-content-center">
-          <img
-            src={`http://localhost:3003/images/artmagzs/${this.state.image}`}
-            alt=""
-          />
+          {this.state.image && (
+            <img
+              src={`http://localhost:3003/images/artmagzs/${this.state.image}`}
+              alt=""
+            />
+          )}
         </div>
         <div className="article_all_content">
           <div className="d-flex justify-content-between">
