@@ -8,6 +8,7 @@ const FavArticle = (props) => {
 
   return (
     <>
+
       <div
         className=" col-3 position-relative "
         style={{ width: '10rem', height: '10rem' }}
