@@ -203,22 +203,22 @@ function MemberSet() {
               </Form.Group>
 
               <Form.Group className="d-block d-md-flex mb-4">
-              <Form.Label column sm="2">
+                <Form.Label column sm="2">
                   性別
                 </Form.Label>
-              <Form.Select
-              id="gender"
-              name="gender"
-              value={member.gender}
-              onChange={handleChange}
-              className="gender_select mx-auto"
-              aria-label="Default select example"
-            >
-              <option>請選擇性別</option>
-              <option value="男">男</option>
-              <option value="女">女</option>
-              <option value="不提供">不提供</option>
-            </Form.Select>
+                <Form.Select
+                  id="gender"
+                  name="gender"
+                  value={member.gender}
+                  onChange={handleChange}
+                  className="gender_select mx-auto"
+                  aria-label="Default select example"
+                >
+                  <option>請選擇性別</option>
+                  <option value="男">男</option>
+                  <option value="女">女</option>
+                  <option value="不提供">不提供</option>
+                </Form.Select>
               </Form.Group>
 
               <Form.Group
