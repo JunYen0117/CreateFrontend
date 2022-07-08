@@ -31,6 +31,7 @@ const ListFinish = (props) => {
     if (!user.userID) return;
     getOrders();
   }, [user.userID, orderStatus]);
+  
   let arr = orders.totalarr || [];
 
   // 取得訂單明細所需資料
@@ -65,13 +66,15 @@ const ListFinish = (props) => {
 
   // console.log('commit', comment);
 
+
+
   return (
     <>
       {arr.map((v, i) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
-              header={`訂單編號 ${v.orderid}`}
+              header={` ${v.orderdate} \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 訂單編號 ${v.orderid}`}
               key="1"
               className=" card-title"
             >

@@ -6,6 +6,7 @@ import NextPreNav from '../components/MagzArticle/NextPreNav';
 import CommentAPP from '../components/MagzArticle/CommentAPP';
 import Boardslist from '../components/MagzArticle/Boardslist';
 
+
 function MagzArticle() {
   const [MagzArticle, setMagzArticle] = useState({
     articleTitle: '',
