@@ -47,6 +47,10 @@ function ProductDetail() {
   // 前往結帳
   const goPath = useHistory();
 
+  useEffect(() => {
+    setHeart(false);
+  }, [user.userID]);
+
   // 商品明細
   useEffect(() => {
     let axiosProductById = async () => {

@@ -25,7 +25,10 @@ export function LoginProvider({ children }) {
       } catch (e) {
         setUser({
           userID: '',
+<<<<<<< Updated upstream
           avatar: '',
+=======
+>>>>>>> Stashed changes
         });
         console.error('尚未登入');
       }
