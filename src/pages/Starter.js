@@ -27,12 +27,12 @@ function Starter() {
             onClick={() => {
               changeCss1();
               setTimeout(() => {
-                window.location.href = 'http://localhost:3000/course';
+                window.location.href = 'http://localhost:3000/exhibition';
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
           >
-            <span className="text">課程展覽</span>
+            <span className="text">逛展覽</span>
           </div>
         </li>
         <li className={`starter_flex_item_mid ${cssFlying2}`}>
@@ -58,7 +58,7 @@ function Starter() {
             onClick={() => {
               changeCss3();
               setTimeout(() => {
-                window.location.href = 'http://localhost:3000/article'; // <----這個會改寫路徑
+                window.location.href = 'http://localhost:3000/ArtMagazine'; // <----這個會改寫路徑
               }, 1500);
             }}
             style={{ cursor: 'pointer' }}
