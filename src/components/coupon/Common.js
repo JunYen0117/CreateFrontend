@@ -22,6 +22,7 @@ function Common(props) {
     setUpdateCoupon,
   } = props;
 
+  // 針對所有使用者撈出已失效優惠券(優惠券過期)
   useEffect(() => {
     let getCoupons = async () => {
       let response = await axios.get(API_URL + '/coupons/updateCoupon');

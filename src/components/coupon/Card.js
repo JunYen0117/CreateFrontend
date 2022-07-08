@@ -6,7 +6,16 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 // 等要帶資料的時候再把props加進Card =()裡面
 const Card = (props) => {
-  const { pass, use, coupon, notUse, setUpdateCoupon, refreshList, data, updateCoupon } = props;
+  const {
+    pass,
+    use,
+    coupon,
+    notUse,
+    setUpdateCoupon,
+    refreshList,
+    data,
+    updateCoupon,
+  } = props;
 
   const insertCouponDetail = {
     customer_id: 2,
