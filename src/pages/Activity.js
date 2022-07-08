@@ -4,25 +4,28 @@ import Sidebar from '../components/Sidebar';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useLogin } from '../utils/useLogin';
 import { API_URL } from '../utils/config';
 
 function Avtivity(props) {
   const [avtivity, setAvtivity] = useState([]);
   const [state, setState] = useState(1);
-
   const [changed, setChanged] = useState(false);
+  const { user } = useLogin();
 
   useEffect(() => {
     let getAvtivitys = async () => {
       let response = await axios.get(API_URL + '/activity', {
         params: {
           state: state,
+          userID: user.userID,
         },
       });
       setAvtivity(response.data);
     };
+    if (!user.userID) return;
     getAvtivitys();
-  }, [state, setState, changed]);
+  }, [user.userID, state, setState, changed]);
 
   return (
     <>

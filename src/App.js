@@ -52,9 +52,6 @@ function App() {
                   <Route path="/ArtMagazine">
                     <ArtMagazine />
                   </Route>
-                  {/* <Route path="/MagzArticle">
-                    <MagzArticle />
-                  </Route> */}
                   <Route path="/Coupon">
                     <Coupon />
                   </Route>
