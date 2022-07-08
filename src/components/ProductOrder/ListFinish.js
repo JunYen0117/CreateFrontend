@@ -31,7 +31,7 @@ const ListFinish = (props) => {
     if (!user.userID) return;
     getOrders();
   }, [user.userID, orderStatus]);
-  
+
   let arr = orders.totalarr || [];
 
   // 取得訂單明細所需資料
@@ -50,6 +50,8 @@ const ListFinish = (props) => {
     getDetail();
   }, [orderId]);
 
+  // console.log('bb', detail);
+
   // 取得評論判斷
   useEffect(() => {
     if (orderId === 0) return;
@@ -65,8 +67,6 @@ const ListFinish = (props) => {
   }, [orderId]);
 
   // console.log('commit', comment);
-
-
 
   return (
     <>

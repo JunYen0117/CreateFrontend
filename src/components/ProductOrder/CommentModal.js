@@ -18,11 +18,12 @@ function CommentModal(props) {
 
   // 加到資料庫
   const addComment = async () => {
+    console.log(commentList);
     try {
-      let response = await axios.post(
-        `${API_URL}/comment/product/add`,
-        commentList
-      );
+      // let response = await axios.post(
+      //   `${API_URL}/comment/product/add`,
+      //   commentList
+      // );
       handleClose();
     } catch (e) {
       console.error(e);
