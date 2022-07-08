@@ -30,7 +30,7 @@ const Card = (props) => {
     if (coupon.discount === 60) {
       setDiscount('免運');
     } else if (coupon.discount < 1) {
-      let newDiscount = parseInt(coupon.discount * 10);
+      let newDiscount = Math.round(coupon.discount * 10);
       setDiscount(`${newDiscount}折`);
     } else if (coupon.discount === 100) {
       setDiscount('$100');
