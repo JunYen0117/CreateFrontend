@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import HeartArticle from './HeartArticle';
+import { useLogin } from '../../utils/useLogin';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 
 function ExhibitionExploreCards(props) {
   const { exhibitions } = props;
   const { level, setLevel } = props;
   const { area, setArea } = props;
   const { date, setDate } = props;
+  const { user } = useLogin();
 
   return (
     <>
@@ -60,6 +66,7 @@ function ExhibitionExploreCards(props) {
         {exhibitions.map((exhibition, index) => {
           return (
             <div key={exhibition.id} className="exhibition_card">
+              <HeartArticle exhibitionId={exhibition.id} />
               <Link to={`/exhibition/${exhibition.id}`}>
                 <div className="d-flex ">
                   <div className="img-date">
@@ -77,6 +84,7 @@ function ExhibitionExploreCards(props) {
                   </div>
                   <div className="mx-3 exhibition_text">
                     <h2 className="">{exhibition.exhibition_name}</h2>
+
                     <div className="line" />
                     <p
                       dangerouslySetInnerHTML={{

@@ -21,6 +21,9 @@ export function LoginProvider({ children }) {
           userID: checkLogin.data.customer.id,
         });
       } catch (e) {
+        setUser({
+          userID: '',
+        });
         console.error('尚未登入');
       }
     })();

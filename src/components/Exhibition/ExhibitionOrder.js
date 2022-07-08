@@ -6,6 +6,7 @@ import {
 import { useState } from 'react';
 import { useLogin } from '../../utils/useLogin';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function ExhibitionOrder(props) {
   const [count, setCount] = useState(0);
@@ -125,6 +126,23 @@ function ExhibitionOrder(props) {
                     if (!user.userID) {
                       e.preventDefault();
                       console.log('尚未登入');
+                      Swal.fire({
+                        position: 'center',
+                        icon: 'warning',
+                        title: '您尚未登入',
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                    }
+                    if (count === 0) {
+                      e.preventDefault();
+                      Swal.fire({
+                        position: 'center',
+                        icon: 'warning',
+                        title: '您未選擇數量',
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
                     }
 
                     window.sessionStorage.setItem('order', JSON.stringify(obj));

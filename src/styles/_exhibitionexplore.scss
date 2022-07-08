@@ -13,9 +13,16 @@ select {
 
 }
 .exhibition_card {
+    .ex_heart {
+        color: rgb(194, 68, 68);
+        font-size: 1.5rem;
+        position: absolute;
+        right:5px;
+        top:20px;
+      }
+      
     padding: 20px;
-    // min-width: 900px;
-    // width: 300px;
+   position: relative;
     width: 100%;
     a {
         text-decoration: none;
@@ -39,6 +46,7 @@ select {
         
         object-fit: cover;
     }
+   
 }
 
 }
