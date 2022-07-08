@@ -2,9 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Member from './pages/Member';
 import Coupon from './pages/Coupon';
 import Starter from './pages/Starter';
-
 import FrontPage from './pages/FrontPage';
-
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -55,12 +53,6 @@ function App() {
                   </Route>
                   <Route path="/ArtMagazine">
                     <ArtMagazine />
-                  </Route>
-                  <Route path="/MagzArticle">
-                    <MagzArticle />
-                  </Route>
-                  <Route path="/course">
-                    <Course />
                   </Route>
                   <Route path="/Coupon">
                     <Coupon />

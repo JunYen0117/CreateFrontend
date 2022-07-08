@@ -4,6 +4,7 @@ import PaymentUser from '../components/ActivityPayment/PaymentUser';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useLogin } from '../utils/useLogin';
 import axios from 'axios';
 import { API_URL } from '../utils/config';
 function ActivityPayment() {
@@ -24,6 +25,7 @@ function ActivityPayment() {
   const [orderName, setOrderName] = useState('');
   const [orderEmail, setOrderEmail] = useState('');
   const [orderPhone, setOrderPhone] = useState('');
+  const { user } = useLogin();
 
   const handleClick = async (e) => {
     if (
@@ -36,6 +38,7 @@ function ActivityPayment() {
     ) {
       try {
         let response = await axios.post(API_URL + '/activitypayment', {
+          userID: user.userID,
           order,
           orderName,
           orderEmail,

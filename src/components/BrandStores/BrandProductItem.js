@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom';
+
 function Product(props) {
-  const { productName, productPrice, image } = props;
+  const { productId, productName, productPrice, image } = props;
 
   return (
     <>
       <div className="col-2">
-        <a href="/">
+        <Link
+          to={`/product/detail?productId=${productId}`}
+          className="text-decoration-none"
+        >
           <div className="ratio ratio-1x1">
             <img
               src={`http://localhost:3003/images/product/${image}`}
@@ -16,7 +21,7 @@ function Product(props) {
             <h5 className="card-title">{productName}</h5>
             <p className="money">NT. {productPrice}</p>
           </div>
-        </a>
+        </Link>
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import ArticleCard from './ArticleCard';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function ArticleCards(props) {
@@ -13,10 +14,11 @@ function ArticleCards(props) {
     };
     getArticles();
   }, []);
+
   return (
     <>
       <h2 className="front_h2">
-        <a href="/">精選文章</a>
+        <Link to="/ArtMagazine">精選文章</Link>
       </h2>
       <div className="container article-container">
         <div>
@@ -31,6 +33,7 @@ function ArticleCards(props) {
                   title={v.title}
                   context={v.article_context}
                   image={v.image}
+                  ArticleId={v.id}
                 />
               );
             })}

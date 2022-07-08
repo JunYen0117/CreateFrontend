@@ -1,22 +1,22 @@
 import React from 'react';
-import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import { BsTag, BsTagsFill } from 'react-icons/bs';
 import { useState } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
-const HeartArticle = ({ data }) => {
-  const [showheart, setShowHeart] = useState(true);
-  data = data || {};
-  console.log('fartHeart', data);
+const ArticleCollect = ({ props }) => {
+  const [showTag, setShowTag] = useState(false);
+  // console.log('ad', props);
+  
 
   let user_id = 1;
 
   const delfav = async () => {
     try {
       let response = await axios.get(
-        `${API_URL}/fav/blog/del/${user_id}/${data.blog_id}`
+        `${API_URL}/fav/blog/del/${user_id}/${props.name}`
       );
     } catch (e) {
       console.error(e);
@@ -26,7 +26,7 @@ const HeartArticle = ({ data }) => {
   const addfav = async () => {
     try {
       let response = await axios.get(
-        `${API_URL}/fav/blog/add/${user_id}/${data.blog_id}`
+        `${API_URL}/fav/blog/add/${user_id}/${props.name}`
       );
     } catch (e) {
       console.error(e);
@@ -35,11 +35,11 @@ const HeartArticle = ({ data }) => {
 
   return (
     <>
-      {showheart ? (
-        <BsHeartFill
-          className="Far_heart"
+      {showTag ? (
+        <BsTagsFill
+          className="magz_tag"
           onClick={async () => {
-            setShowHeart(false);
+            setShowTag(false);
             delfav();
             Swal.fire({
               position: 'center',
@@ -51,15 +51,15 @@ const HeartArticle = ({ data }) => {
           }}
         />
       ) : (
-        <BsHeart
-          className="Far_heart"
+        <BsTag
+          className="magz_tag"
           onClick={async () => {
-            setShowHeart(true);
+            setShowTag(true);
             addfav();
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: '已成功加入收藏',
+              title: '已成功收藏文章',
               showConfirmButton: false,
               timer: 1500,
             });
@@ -70,4 +70,4 @@ const HeartArticle = ({ data }) => {
   );
 };
 
-export default HeartArticle;
+export default ArticleCollect;

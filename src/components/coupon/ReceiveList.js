@@ -5,6 +5,8 @@ import Common from './Common';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import { useLogin } from '../../utils/useLogin';
+import { Link } from 'react-router-dom';
 
 function ReceiveList(props) {
   // console.log('receiveList', couponList);
@@ -16,22 +18,27 @@ function ReceiveList(props) {
   const [receiveLastPage, setReceiveLastPage] = useState();
   const [nowPage, setNowPage] = useState(1);
   const [receiveList, setReceiveList] = useState([]);
+  const { user } = useLogin();
 
   useEffect(() => {
     let getCoupons = async () => {
-      let response = await axios.get(API_URL + '/coupons/receive', {
-        params: {
-          page: nowPage,
-        },
-      });
+      let response = await axios.get(
+        API_URL + `/coupons/receive/${user.userID}`,
+        {
+          params: {
+            page: nowPage,
+          },
+        }
+      );
       // console.log(response.data);
       setReceiveList(response.data.receiveList);
       setReceiveLastPage(response.data.pagination.receiveLastPage);
     };
+    if (!user.userID) return;
     getCoupons();
     // console.log('receiveLastPage', receiveLastPage);
     // console.log('nowReceivePage', nowReceivePage);
-  }, [nowPage, receiveLastPage, updateCoupon]);
+  }, [user.userID, nowPage, receiveLastPage, updateCoupon]);
   // console.log('receiveList', receiveList);
   // console.log('receiveLastPage', receiveLastPage);
 
@@ -74,10 +81,14 @@ function ReceiveList(props) {
     return (
       <>
         <div className="coupon_desktop text-decoration-none">
-          <h3 className="coupon_p my-1">立即使用</h3>
+          <Link to="/product">
+            <h3 className="coupon_p my-1">立即使用</h3>
+          </Link>
         </div>
         <div className="coupon_phone d-md-none text-decoration-none">
-          <h3 className="coupon_p my-auto">立即使用</h3>
+          <Link to="/product">
+            <h3 className="coupon_p my-auto">立即使用</h3>
+          </Link>
         </div>
       </>
     );
@@ -91,7 +102,7 @@ function ReceiveList(props) {
       data={receiveList}
       page={receiveLastPage}
       setNowPage={setNowPage}
-      notUse={false}
+      notUse={true}
     />
   );
 }

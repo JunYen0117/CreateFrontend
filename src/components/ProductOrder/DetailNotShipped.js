@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const DetailNotShipped = (props) => {
   const { setOrderId } = props;
-  const { orderId, customer_id } = props;
+  const { orderId } = props;
   const { detail, detailtotal, detailreceiver, detailpayment } = props;
 
   // console.log(detailpayment);
@@ -22,7 +22,7 @@ const DetailNotShipped = (props) => {
   // 取消訂單 傳給後端 使valid=0
   const cancelOrder = async () => {
     let result = await axios.get(
-      `${API_URL}/productorder/notshipped/${customer_id}/${orderId}/2`
+      `${API_URL}/productorder/notshipped/cancel/${orderId}/2`
     );
     setIsModalVisible(false);
     setOrderId(0);

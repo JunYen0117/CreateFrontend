@@ -122,13 +122,12 @@ function LoginDropdown() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/Front"
-                className="p-2 text-center"
+              <div
+                className="logout p-2 text-center cursor_pointer"
                 onClick={handleLogout}
               >
                 登出
-              </Link>
+              </div>
             </li>
           </ul>
         </div>

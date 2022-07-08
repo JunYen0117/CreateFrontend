@@ -2,7 +2,7 @@ const ActivityTitle = (props) => {
   const { state, setState } = props;
   return (
     <>
-      <h1>我的訂單</h1>
+      <h1 className=" ac_title">我的活動</h1>
       <div className="border-bottom w-100 my-3">
         <a
           href="#/"

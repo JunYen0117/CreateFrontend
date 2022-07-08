@@ -46,9 +46,9 @@ function ActivityCard(props) {
             return (
               <div
                 key={index}
-                className="Fac_card d-flex border mb-4 ms-2 rounded-3 w-100 position-relative"
+                className="ac_card d-flex border mb-4 ms-2 rounded-3 w-100 position-relative"
               >
-                <div className="Fac_cardimg  col-4 p-0 me-3 ">
+                <div className="ac_cardimg  col-4 p-0 me-3 d-flex">
                   <img
                     src={`http://localhost:3003/images/exhibition/${item.exhibition_img}`}
                     alt=""
@@ -93,7 +93,7 @@ function ActivityCard(props) {
                   {state === 1 ? (
                     <div className="d-flex justify-content-end">
                       <button
-                        className="text-white  d-block Fac_button m-0 btn btn-primary mx-3"
+                        className="text-white  d-block ac_button m-0 btn btn-primary mx-3"
                         onClick={() => {
                           orderId = item.id;
                           chState = 0;
@@ -129,7 +129,7 @@ function ActivityCard(props) {
                         使用
                       </button>
                       <button
-                        className="text-white  d-block Fac_button m-0 btn btn-danger"
+                        className="text-white  d-block ac_button m-0 btn btn-danger"
                         onClick={() => {
                           orderId = item.id;
                           chState = 2;

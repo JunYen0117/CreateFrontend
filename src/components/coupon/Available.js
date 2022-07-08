@@ -4,6 +4,7 @@ import Common from './Common';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
+import { useLogin } from '../../utils/useLogin';
 
 function Available(props) {
   const { updateCoupon, setUpdateCoupon } = props;
@@ -12,20 +13,25 @@ function Available(props) {
   const [availableList, setAvailable] = useState([]);
   const [nowPage, setNowPage] = useState(1);
   const [lastPage, setLastPage] = useState();
+  const { user } = useLogin();
 
   let getCoupons = async () => {
-    let response = await axios.get(API_URL + '/coupons/available', {
-      params: {
-        page: nowPage,
-      },
-    });
+    let response = await axios.get(
+      API_URL + `/coupons/available/${user.userID}`,
+      {
+        params: {
+          page: nowPage,
+        },
+      }
+    );
     setAvailable(response.data.availableList);
     setLastPage(response.data.pagination.lastPage);
   };
   // console.log('available-LastPage', lastPage);
   useEffect(() => {
+    if (!user.userID) return;
     getCoupons();
-  }, [nowPage, lastPage, updateCoupon]);
+  }, [user.userID, nowPage, lastPage, updateCoupon]);
   // console.log('available-LastPage', lastPage);
   // console.log(availableList);
 

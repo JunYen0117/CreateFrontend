@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import { data } from 'autoprefixer';
+import { useLogin } from '../../utils/useLogin';
 
 function Invalid(props) {
   const { couponList } = props;
@@ -15,21 +16,27 @@ function Invalid(props) {
   const [invalidLastPage, setInvalidLastPage] = useState();
   const [nowPage, setNowPage] = useState(1);
   const [invalidList, setInvalidList] = useState([]);
+  const { user } = useLogin();
+
   useEffect(() => {
     let getCoupons = async () => {
-      let response = await axios.get(API_URL + '/coupons/invalid', {
-        params: {
-          page: nowPage,
-        },
-      });
+      let response = await axios.get(
+        API_URL + `/coupons/invalid/${user.userID}`,
+        {
+          params: {
+            page: nowPage,
+          },
+        }
+      );
       // console.log(response.data.invalidList);
       setInvalidList(response.data.invalidList);
       setInvalidLastPage(response.data.pagination.invalidLastPage);
     };
+    if (!user.userID) return;
     getCoupons();
     // console.log('invalidLastPage', invalidLastPage);
     // console.log('nowInvalidPage', nowInvalidPage);
-  }, [nowPage, invalidLastPage]);
+  }, [user.userID, nowPage, invalidLastPage]);
   // console.log('invalidList:', invalidList);
   // console.log('invalidLastPage:', invalidLastPage);
 

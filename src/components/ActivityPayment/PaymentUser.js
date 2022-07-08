@@ -113,7 +113,7 @@ function PaymentUser(props) {
           />
         </div>
         <label className="errortext mb-3">{phoneMessage}</label>
-        <div className="form-check">
+        {/* <div className="form-check">
           <input
             className="form-check-input"
             type="checkbox"
@@ -123,7 +123,7 @@ function PaymentUser(props) {
           <label className="form-check-label" htmlFor="flexCheckDefault">
             同會員資料
           </label>
-        </div>
+        </div> */}
       </div>
     </>
   );

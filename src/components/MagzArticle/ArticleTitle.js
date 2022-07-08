@@ -1,6 +1,8 @@
-import bookmark from '../../img/bookmark.svg';
+// import bookmark from '../../img/bookmark.svg';
 import React from 'react';
 import axios from 'axios';
+import ArticleCollect from './ArticleCollect';
+
 class ArticleTitle extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ class ArticleTitle extends React.Component {
               <div className="article_author">{this.state.author}</div>
               <div className="article_create_time">{this.state.createTime}</div>
             </div>
-            <img src={bookmark} alt="收藏" className="" />
+            <ArticleCollect props={this.props} />
           </div>
           <h1 className="article_title">{this.state.articleTitle}</h1>
           <div

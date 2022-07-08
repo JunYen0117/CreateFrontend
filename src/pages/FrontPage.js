@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCards from '../components/FrontPage/ProductCards';
 import SliderBanner from '../components/FrontPage/SliderBanner';
 import ArticleCards from '../components/FrontPage/ArticleCards';
@@ -41,11 +42,11 @@ class FrontPage extends Component {
     const handler = (e) => this.setState({ matches: e.matches });
     window.matchMedia('(min-width: 768px)').addEventListener('change', handler);
     axios.get('http://localhost:3003/api/front/product').then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({ Productdatas: arrayConvert(res.data, 4) });
     });
     axios.get('http://localhost:3003/api/front/brand').then((res) => {
-      console.log(arrayConvert(res.data, 4));
+      // console.log(arrayConvert(res.data, 4));
       this.setState({ Branddatas: arrayConvert(res.data, 4) });
     });
   }
@@ -80,11 +81,11 @@ class FrontPage extends Component {
       <div>
         <SliderBanner />
         <h2 className="front_h2">
-          <a href="http://localhost:3000/Product">質感商品</a>
+          <Link to="/product">質感商品</Link>
         </h2>
         {product}
         <h2 className="front_h2">
-          <a href="http://localhost:3000/Brand">精選品牌</a>
+          <Link to="/Brand">精選品牌</Link>
         </h2>
         {brand}
         <ArticleCards datas={datas} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import MagzOption from '../components/ArtMagazine/MagzOption';
@@ -7,19 +7,23 @@ import ArticleTitle from '../components/MagzArticle/ArticleTitle';
 import NextPreNav from '../components/MagzArticle/NextPreNav';
 import CommentAPP from '../components/MagzArticle/CommentAPP';
 import CommentInput from '../components/MagzArticle/CommentInput';
+import { useLogin } from '../utils/useLogin';
 
 function ArtMagazine() {
+  const { user } = useLogin();
   const search = useLocation().search;
   const name = new URLSearchParams(search).get('name');
-  console.log('first');
+  const [artStatus, setArtStatus] = useState(0);
+
+  // console.log('first');
   if (name === null) {
     return (
       <>
         <div className="container">
-          <MagzOption />
+          <MagzOption setArtStatus={setArtStatus} />
           <div className="magz_all_line" />
           <div className="row magz_all px-3">
-            <MagzList />
+            <MagzList artStatus={artStatus} />
           </div>
         </div>
       </>
@@ -31,7 +35,7 @@ function ArtMagazine() {
         <ArticleTitle name={name} />
         <div className="demarcation" />
         <NextPreNav />
-        <CommentInput name={name} />
+        <CommentInput user={user} name={name} />
       </div>
     </>
   );
