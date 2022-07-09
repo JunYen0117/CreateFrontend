@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useCheckList } from '../../utils/useCheckList';
+import { useLogin } from '../../utils/useLogin';
 import TwCitySelector from 'tw-city-selector/dist/tw-city-selector';
 import CheckoutModal from './CheckoutModal';
-
 import { checkoutPayment } from '../../utils/api';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import Swal from 'sweetalert2';
 
 function Summary() {
   const { checkList, setCheckList, checkListTotal } = useCheckList();
+  const { user } = useLogin();
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
   const [clientSecret, setClientSecret] = useState('');
 
@@ -53,7 +55,6 @@ function Summary() {
   // 收件資料
   // customerId 會抓 登入會員的 id
   const [shippingData, setShippingData] = useState({
-    customerId: '',
     recipient: '',
     email: '',
     tel: '',
@@ -74,7 +75,15 @@ function Summary() {
   const [show, setShow] = useState(false);
   const handleShow = (e) => {
     e.preventDefault();
-    setShow(true);
+    if (!user.userID) {
+      Swal.fire({
+        icon: 'error',
+        title: '錯誤',
+        text: '您尚未登入！',
+      });
+    } else {
+      setShow(true);
+    }
   };
   const handleClose = () => setShow(false);
 

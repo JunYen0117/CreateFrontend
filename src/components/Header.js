@@ -54,12 +54,6 @@ function Header() {
                 <img src={LogoDesktop} alt="" />
               </span>
             </figure>
-            <li className="search_item d-none d-md-block">
-              <input className="search_bar ps-3" type="text" />
-              <a href="#/" className="search_icon">
-                <Search />
-              </a>
-            </li>
           </div>
           <ul className="header_top menu1 d-none d-md-flex pt-4 ">
             <li className="shopcart_item mt-3 me-3">
