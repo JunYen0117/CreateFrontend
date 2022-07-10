@@ -30,6 +30,10 @@ function CommentModal(props) {
     }
   };
 
+  // useEffect(() => {
+   
+  // }, [comment]);
+
   return (
     <>
       {comment.length === 0 ? (

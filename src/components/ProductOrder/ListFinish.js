@@ -64,7 +64,7 @@ const ListFinish = (props) => {
       setComment(response.data);
     };
     getComment();
-  }, [orderId]);
+  }, [orderId, comment]);
 
   // console.log('commit', comment);
 
@@ -74,7 +74,7 @@ const ListFinish = (props) => {
         return (
           <Collapse accordion className="orderlist-card" key={i}>
             <Panel
-              header={` ${v.orderdate} \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 訂單編號 ${v.orderid}`}
+              header={`訂單編號 ${v.orderid}`}
               key="1"
               className=" card-title"
             >

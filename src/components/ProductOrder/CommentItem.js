@@ -1,17 +1,21 @@
+import userEvent from '@testing-library/user-event';
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { useLogin } from '../../utils/useLogin';
+
 
 const CommentItem = (props) => {
   const { commentList, setCommentList } = props;
   const { productId, image, product_name, subtotal, detail, orderId } = props;
   // 初始值為1
   const [star, setStar] = useState(1);
+  const { user } = useLogin();
 
   useEffect(() => {
     setCommentList(detail);
-  }, []);
+  }, [ ]);
 
   useEffect(() => {
     if (commentList.length === 0) return;
@@ -42,7 +46,7 @@ const CommentItem = (props) => {
     newList[commentIndex] = {
       ...newList[commentIndex],
       order_id: orderId,
-      customer_id: 1,
+      customer_id: user.userID,
       star: star,
       comment: e.target.value,
     };
