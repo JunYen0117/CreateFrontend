@@ -1,6 +1,13 @@
 .markercluster-map{
     height: 100vh;
 }
+.ex-map-title{
+    text-decoration:none;
+    color: black !important;
+    &:hover{
+        color: $primary !important;
+    }
+}
 select {
 
     border: 1px solid $primary;

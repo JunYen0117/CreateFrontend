@@ -3,6 +3,7 @@ import L from 'leaflet';
 // import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import markerred from '../../img/marker-red.png';
 import markerblue from '../../img/marker-blue.png';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useRef } from 'react';
 
@@ -70,14 +71,24 @@ function ExhibitionExploreMap(props) {
           >
             <Popup>
               <div className="d-flex">
-                <img
-                  src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
-                  width="125px"
-                  height="80px"
-                  alt="..."
-                />
+                <Link to={`/exhibition/${exhibition.id}`}>
+                  <img
+                    src={`http://localhost:3003/images/exhibition/${exhibition.exhibition_img}`}
+                    width="125px"
+                    height="80px"
+                    alt="..."
+                  />
+                </Link>
+
                 <div>
-                  <h4>{exhibition.exhibition_name}</h4>
+                  <h4>
+                    <Link
+                      to={`/exhibition/${exhibition.id}`}
+                      className="ex-map-title"
+                    >
+                      {exhibition.exhibition_name}
+                    </Link>
+                  </h4>
                   <div className="d-flex justify-content-between">
                     <div>{exhibition.city}</div>
                     <div>NT{exhibition.exhibition_price}</div>
