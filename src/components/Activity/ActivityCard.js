@@ -52,13 +52,13 @@ function ActivityCard(props) {
                   <img
                     src={`http://localhost:3003/images/exhibition/${item.exhibition_img}`}
                     alt=""
-                    className="Fac_img "
+                    className="ac_img "
                   />
                 </div>
                 <div className="col-8 pt-3">
                   <h2>{item.exhibition_name} &nbsp;</h2>
 
-                  <table className="Fac_table">
+                  <table className="ac_table">
                     <tbody>
                       <tr>
                         <th>展覽日期</th>

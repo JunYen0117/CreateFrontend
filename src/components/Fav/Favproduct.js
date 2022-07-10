@@ -1,13 +1,10 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-
 import HeartProduct from './HeartProduct';
-
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
-
 import { productGetDetail } from '../../utils/api';
 
 const FavProduct = (props) => {
@@ -37,6 +34,9 @@ const FavProduct = (props) => {
     };
     axiosProductById();
   }, []);
+  // console.log('pp',product);
+
+  // console.log('kk',productInDetail);
 
   const handleAddCart = (e) => {
     e.preventDefault();
