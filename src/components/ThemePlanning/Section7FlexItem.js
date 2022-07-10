@@ -7,7 +7,7 @@ function Section7FlexItem() {
   return (
     <>
       <div className="section7_card mx-1 mx-md-2">
-        <figure className="avatar">
+        <figure className="theme_planning_avatar">
           <a href="#/" alt="#/">
             <HeartRed />
           </a>
@@ -21,7 +21,7 @@ function Section7FlexItem() {
       </div>
 
       <div className="section7_card mx-1 mx-md-2">
-        <figure className="avatar">
+        <figure className="theme_planning_avatar">
           <a href="#/" alt="#/">
             <HeartRed />
           </a>
@@ -35,7 +35,7 @@ function Section7FlexItem() {
       </div>
 
       <div className="section7_card mx-1 mx-md-2">
-        <figure className="avatar">
+        <figure className="theme_planning_avatar">
           <a href="#/" alt="#/">
             <HeartRed />
           </a>
