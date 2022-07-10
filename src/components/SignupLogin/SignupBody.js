@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 import { API_URL } from '../../utils/config';
 import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
-
 import { IconContext } from 'react-icons';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
@@ -48,6 +47,10 @@ function SignupBody() {
     e.preventDefault();
     try {
       const response = await axios.post(API_URL + '/auth/signup', signupInfo);
+      // console.log('miu', response.data.id)
+      const newCustomer = await axios.get(
+        API_URL + `/coupons/available/new/${response.data.id}`
+      );
       Swal.fire({
         icon: 'success',
         showConfirmButton: false,
@@ -71,6 +74,16 @@ function SignupBody() {
     }
   }
 
+  // // 新戶優惠券
+  // const newCustomer = async () => {
+  //   try {
+  //     let response = await axios.get(
+  //       API_URL + `/coupons/available/new/${response.data.id}`
+  //     );
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
   console.log('errorMessage', errorMessage);
 
   function ErrorAccount() {

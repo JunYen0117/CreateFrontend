@@ -34,8 +34,9 @@ function LoginBody() {
       setIsLogin(true);
       Swal.fire({
         icon: 'success',
+        title: '登入成功',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 1500,
       });
     } catch (e) {
       console.error('前端沒有送到後端:' + e);

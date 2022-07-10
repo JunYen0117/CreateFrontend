@@ -3,6 +3,8 @@ import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 import { useLogin } from '../../utils/useLogin';
 
@@ -22,6 +24,12 @@ function LoginDropdown() {
       // console.log('logout:', logout);
       setShowDropdown('d-none');
       setIsLogin(false);
+      Swal.fire({
+        icon: 'success',
+        title: '已登出',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (e) {
       console.error(e);
     }
