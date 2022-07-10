@@ -1,10 +1,8 @@
-import userEvent from '@testing-library/user-event';
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { useLogin } from '../../utils/useLogin';
-
 
 const CommentItem = (props) => {
   const { commentList, setCommentList } = props;

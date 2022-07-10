@@ -6,6 +6,7 @@ import option3 from '../../img/products/option3.jpg';
 import { AiFillCaretRight } from 'react-icons/ai';
 import { FcGenericSortingDesc, FcGenericSortingAsc } from 'react-icons/fc';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { productPriceSearch } from '../../utils/api';
 
 import ProductList from '../../components/Products/ProductList';
@@ -110,13 +111,13 @@ function Products() {
             </a>
           </div>
           <div className="col-12 col-md-4">
-            <a href="#/">
+            <Link to="/Brand">
               <div className="product_mask">
                 <img src={option3} alt="" />
-                <p className="product_option_text">全部商品</p>
+                <p className="product_option_text">全部品牌</p>
                 <div className="product_option_mask"></div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
