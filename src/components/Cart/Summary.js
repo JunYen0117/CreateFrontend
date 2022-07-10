@@ -102,8 +102,8 @@ function Summary() {
           <p>100</p>
         </div>
         <div className="d-flex justify-content-between">
-          <p>折扣金額</p>
-          <p>-100</p>
+          <p className="cart_coupon">優惠券折抵</p>
+          <p className="cart_coupon">-100</p>
         </div>
       </div>
       <div className="h2 px-5 py-4 cart_order_border">

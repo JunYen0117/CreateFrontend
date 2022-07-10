@@ -14,14 +14,14 @@ function SignupBody() {
   const { setIsLogin } = useLogin();
 
   const [signupInfo, setSignInfo] = useState({
-    member_name: 'fffff',
-    account: '@test.com',
-    password: '123456',
-    re_password: '123456',
-    gender: 'ff',
-    age: '20',
-    phone: '9999999',
-    address: '9999999',
+    member_name: '',
+    account: '',
+    password: '',
+    re_password: '',
+    gender: '',
+    age: '',
+    phone: '',
+    address: '',
   });
 
   const [signupPwdEye, setSignupPwdEye] = useState(false);

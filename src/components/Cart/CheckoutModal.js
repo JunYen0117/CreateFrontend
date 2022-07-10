@@ -1,6 +1,7 @@
 import { Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import CheckoutList from './CheckoutList';
+import { useHistory } from 'react-router-dom';
 import { useCart } from '../../utils/useCart';
 import { useLogin } from '../../utils/useLogin';
 import { checkoutSubmit } from '../../utils/api';
@@ -10,6 +11,7 @@ import { PaymentElement } from '@stripe/react-stripe-js';
 function CheckoutModal(props) {
   const { items, addItem, clearCart } = useCart();
   const { user } = useLogin();
+  const history = useHistory();
   const { checkList, setCheckList, checkListTotal, shippingData } = props;
   const { show, handleClose } = props;
 
@@ -48,6 +50,9 @@ function CheckoutModal(props) {
     handleSubmit();
     checkoutRemove();
     handleClose();
+    setTimeout(() => {
+      history.push('/order');
+    }, 1000);
     Swal.fire({
       position: 'center',
       icon: 'success',
