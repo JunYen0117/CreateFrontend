@@ -2,20 +2,22 @@ import { useState, useEffect } from 'react';
 import { API_URL } from '../../utils/config';
 import axios from 'axios';
 import FavActivity from './FavActivity';
+import { useLogin } from '../../utils/useLogin';
 
 const Activity = () => {
-  let user_id = 1;
+  const { user } = useLogin();
 
   const [arr, setArr] = useState([]);
 
   useEffect(() => {
     let getUserLike = async () => {
-      let response = await axios.get(`${API_URL}/fav/activity/${user_id}`);
+      let response = await axios.get(`${API_URL}/fav/activity/${user.userID}`);
       setArr(response.data);
       // console.log('activity', response.data);
     };
+    if (!user.userID) return;
     getUserLike();
-  }, []);
+  }, [user.userID]);
 
   // console.log('favactivity', arr);
 

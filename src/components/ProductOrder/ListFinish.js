@@ -64,7 +64,7 @@ const ListFinish = (props) => {
       setComment(response.data);
     };
     getComment();
-  }, [orderId]);
+  }, [orderId, comment]);
 
   // console.log('commit', comment);
 
