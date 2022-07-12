@@ -41,13 +41,26 @@ class FrontPage extends Component {
   componentDidMount() {
     const handler = (e) => this.setState({ matches: e.matches });
     window.matchMedia('(min-width: 768px)').addEventListener('change', handler);
+    const numberOfShow = 4;
     axios.get('http://localhost:3003/api/front/product').then((res) => {
-      // console.log(res.data);
-      this.setState({ Productdatas: arrayConvert(res.data, 4) });
+      const len = res.data.length;
+      // console.log(res.data.slice(len % numberOfShow));
+      this.setState({
+        Productdatas: arrayConvert(
+          res.data.slice(len % numberOfShow),
+          numberOfShow
+        ),
+      });
     });
     axios.get('http://localhost:3003/api/front/brand').then((res) => {
+      const len = res.data.length;
       // console.log(arrayConvert(res.data, 4));
-      this.setState({ Branddatas: arrayConvert(res.data, 4) });
+      this.setState({
+        Branddatas: arrayConvert(
+          res.data.slice(len % numberOfShow),
+          numberOfShow
+        ),
+      });
     });
   }
   render() {
