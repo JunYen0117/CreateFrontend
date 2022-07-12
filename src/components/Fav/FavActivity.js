@@ -11,7 +11,7 @@ const FavActivity = (props) => {
   // console.log(data);
   return (
     <>
-      <div className=" col-2 position-relative " style={{ height: '13rem' }}>
+      <div className=" col-3 position-relative " style={{ height: '13rem' }}>
         <img
           className="Fac_img"
           src={`http://localhost:3003/images/exhibition/${data.exhibition_img}`}
@@ -19,7 +19,7 @@ const FavActivity = (props) => {
           onClick={() => goPath.push(`/exhibition/${data.exhibition_id}`)}
         />
       </div>
-      <div className="col-10 position-relative ">
+      <div className="col-9 position-relative ">
         <HeartActivity data={data} />
         <table className="Fac_table mx-5 mt-2 mb-2">
           <tbody>
