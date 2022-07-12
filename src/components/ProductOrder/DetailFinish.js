@@ -63,7 +63,7 @@ const DetailFinish = (props) => {
                 </tr>
                 <tr className=" border-bottom">
                   <td>運費</td>
-                  <td>NT$ 120</td>
+                  <td>NT$ 100</td>
                 </tr>
                 <tr className="text-danger">
                   <td>優惠券折抵</td>
@@ -71,7 +71,7 @@ const DetailFinish = (props) => {
                 </tr>
                 <tr>
                   <td>總金額</td>
-                  <td className="ol_f">NT$ {detailtotal + 20} </td>
+                  <td className="ol_f">NT$ {detailtotal} </td>
                 </tr>
               </tbody>
             </table>
